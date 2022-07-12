@@ -1,0 +1,35 @@
+Typical configuration file for SU(4) generalized Halperin wave function
+
+
+
+
+# typical definition for a SU(4) generalized Halperin wave function on sphere
+#
+
+# id of a generalized SU(4) Halperin wave function
+WaveFunction = SU4Halperin
+
+# number of particles with spin up and isopsin plus
+NbrSpinUpIsospinPlusParticles = 5
+# number of particles with spin up and isopsin minus
+NbrSpinUpIsospinMinusParticles = 5
+# number of particles with spin down and isopsin plus
+NbrSpinDownIsospinPlusParticles = 5
+# number of particles with spin down and isopsin minus
+NbrSpinDownIsospinMinusParticles = 5
+
+# power of the laughlin-like part for spin up - isopsin plus
+MUpPlus = 3
+# power of the laughlin-like part for spin up - isopsin minus
+MUpMinus = 3
+# power of the laughlin-like part for spin down - isopsin plus
+MDownPlus = 3
+# power of the laughlin-like part for spin down - isopsin minus
+MDownMinus = 3
+# power of the intra-isospin part (i.e (z_u{pm} -z_d{pm}))
+NIntraIsospin = 3
+# power of the intra-spin part (i.e (z_{ud}p -z_{ud}m))
+NIntraSpin = 0
+# power of the cross spin-isospin part (i.e (z_up -z_dm) and (z_um -z_dp))
+NCrossSpinIsospin = 0
+

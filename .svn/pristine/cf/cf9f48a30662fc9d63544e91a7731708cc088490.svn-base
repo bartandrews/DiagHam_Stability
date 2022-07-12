@@ -1,0 +1,5 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libFunctionBasis.a
+
+libFunctionBasis_a_SOURCES=AbstractFunctionBasis.cc

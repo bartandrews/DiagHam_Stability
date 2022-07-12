@@ -1,0 +1,55 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libQHEHamiltonian.a
+
+libQHEHamiltonian_a_SOURCES=ParticleOnDiskDeltaHamiltonian.cc \
+ParticleOnTorusCoulombHamiltonian.cc \
+ParticleOnTorusDeltaHamiltonian.cc \
+ParticleOnTorusCoulombDMRGReadyHamiltonian.cc \
+ParticleOnTorusCoulombWithSpinHamiltonian.cc \
+ParticleOnSphereCoulombHamiltonian.cc \
+ParticleOnSphereDeltaHamiltonian.cc \
+ParticleOnCircleCoulombHamiltonian.cc \
+ApproximateFermionOnTorusCoulombHamiltonian.cc \
+ParticleOnSphereDeltaModifiedHamiltonian.cc \
+AbstractQHEHamiltonian.cc \
+AbstractQHEOnSphereHamiltonian.cc \
+AbstractQHEOnTorusHamiltonian.cc \
+ParticleOnSphereCoulombDeltaHamiltonian.cc \
+ParticleOnSphereLaplacianDeltaHamiltonian.cc \
+ParticleOnSphereCoulombLaplacianDeltaHamiltonian.cc \
+AbstractQHEOnTorusWithMagneticTranslationsHamiltonian.cc \
+AbstractQHEOnTorusWithSpinAndMagneticTranslationsHamiltonian.cc \
+ParticleOnTorusDeltaWithMagneticTranslationsHamiltonian.cc \
+AbstractQHEOnDiskHamiltonian.cc \
+ParticleOnDiskLaplacianDeltaHamiltonian.cc \
+ParticleOnSphereDipolarHamiltonian.cc \
+ParticleOnSphereGenericHamiltonian.cc \
+AbstractQHEOnSphereNBodyInteractionHamiltonian.cc \
+ParticleOnSphereNBodyHardCoreHamiltonian.cc \
+ParticleOnDiskNBodyHardCoreHamiltonian.cc \
+ParticleOnTorusCoulombWithMagneticTranslationsHamiltonian.cc \
+ParticleOnTorusDipolarWithMagneticTranslationsHamiltonian.cc \
+ParticleOnSphereWithSpinDeltaLaplacianDeltaHamiltonian.cc \
+ParticleOnSphereNBodyHardCoreWithImpuritiesHamiltonian.cc \
+ParticleOnSphereNBodyHardCoreWithTwoImpuritiesHamiltonian.cc \
+AbstractQHEOnSphereWithSU4SpinHamiltonian.cc \
+ParticleOnSphereWithSU4SpinGenericHamiltonian.cc \
+ParticleOnSphereL2Hamiltonian.cc \
+LinearlySuperposedQHEOnSphereHamiltonian.cc \
+AbstractQHEOnSphereWithSpinHamiltonian.cc \
+ParticleOnSphereWithSpinGenericHamiltonian.cc \
+ParticleOnSphereWithSpinL2Hamiltonian.cc \
+ParticleOnSphereWithSpinS2Hamiltonian.cc \
+ParticleOnTorusCoulombWithSpinAndMagneticTranslationsHamiltonian.cc \
+AbstractQHEOnSphereWithSU3SpinHamiltonian.cc \
+ParticleOnSphereWithSU3SpinGenericHamiltonian.cc \
+ParticleOnSphereWithSU3SpinL2Hamiltonian.cc \
+AbstractQHEOnLatticeHamiltonian.cc \
+ParticleOnLatticeDeltaHamiltonian.cc \
+ParticleOnLatticeWithKyDeltaHamiltonian.cc \
+ParticleOnDiskGenericHamiltonian.cc \
+ParticleOnDiskLPlusLMinusHamiltonian.cc \
+ParticleOnSphereGenericThreeBodyHamiltonian.cc \
+AbstractQHEOnSphereWithSpinNBodyInteractionHamiltonian.cc \
+ParticleOnSphereWithSpinGenericThreeBodyHamiltonian.cc

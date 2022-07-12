@@ -1,0 +1,4 @@
+SUBDIRS=FQHEOnSphere FQHEOnDisk FQHEOnTorus FQHEOnCylinder FQHEOnLattice
+
+bin_PROGRAMS=
+

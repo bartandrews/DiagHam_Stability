@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>AbstractFunctionBasis</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : AbstractFunctionBasis</DIV></H1>
+
+<H3>~AbstractFunctionBasis :</H3>
+<u>prototype:</u>     <i>virtual</i> ~AbstractFunctionBasis  ()<BR><BR>
+<u>description:</u>virtual destructor 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpaceDimension :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetHilbertSpaceDimension  ()<BR><BR>
+<u>description:</u>return Hilbert space dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> Hilbert space dimension 
+<BR>
+<BR><BR><BR><H3>GetFunctionValue :</H3>
+<u>prototype:</u>     <i>virtual</i> void GetFunctionValue  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>& , double& , int index )<BR><BR>
+<u>description:</u>get value of the i-th function at a given point (for functions which take values in R) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>value = reference on the value where the function has to be evaluated 
+<BR>result = reference on the value where the result has to be stored 
+<BR>index = function index  
+<BR>
+<BR><BR><BR><H3>GetFunctionValue :</H3>
+<u>prototype:</u>     <i>virtual</i> void GetFunctionValue  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , double& , int index )<BR><BR>
+<u>description:</u>get value of the i-th function at a given point (for functions which take values in R) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>value = reference on the value where the function has to be evaluated 
+<BR>result = reference on the value where the result has to be stored 
+<BR>index = function index  
+<BR>
+<BR><BR><BR><H3>GetFunctionValue :</H3>
+<u>prototype:</u>     <i>virtual</i> void GetFunctionValue  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , double& , int index )<BR><BR>
+<u>description:</u>get value of the i-th function at a given point (for functions which take values in R) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>value = reference on the value where the function has to be evaluated 
+<BR>result = reference on the value where the result has to be stored 
+<BR>index = function index  
+<BR>
+<BR><BR><BR><H3>GetFunctionValue :</H3>
+<u>prototype:</u>     <i>virtual</i> void GetFunctionValue  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A>& , int index )<BR><BR>
+<u>description:</u>get value of the i-th function at a given point (for functions which take values in C) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>value = reference on the value where the function has to be evaluated 
+<BR>result = reference on the value where the result has to be stored 
+<BR>index = function index  
+<BR>
+<BR><BR><BR><H3>GetFunctionValue :</H3>
+<u>prototype:</u>     <i>virtual</i> void GetFunctionValue  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A>& , int index )<BR><BR>
+<u>description:</u>get value of the i-th function at a given point (for functions which take values in C) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>value = reference on the value where the function has to be evaluated 
+<BR>result = reference on the value where the result has to be stored 
+<BR>index = function index  
+<BR>
+<BR><BR><BR><H3>GetFunctionValue :</H3>
+<u>prototype:</u>     <i>virtual</i> void GetFunctionValue  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A>& , int index )<BR><BR>
+<u>description:</u>get value of the i-th function at a given point (for functions which take values in C) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>value = reference on the value where the function has to be evaluated 
+<BR>result = reference on the value where the result has to be stored 
+<BR>index = function index  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>DiamondInteraction</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : DiamondInteraction</DIV></H1>
+
+<H3>DiamondInteraction :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Interaction/DiamondInteraction.html">DiamondInteraction</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>DiamondInteraction :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Interaction/DiamondInteraction.html">DiamondInteraction</A>  (double upperCouplingConstant double lowerCouplingConstant )<BR><BR>
+<u>description:</u>constructor from partial datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>upperCouplingConstant = couling constant for upper link 
+<BR>lowerCoupligConstant = couling constant for lower link 
+<BR>
+<BR><BR><BR><H3>DiamondInteraction :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Interaction/DiamondInteraction.html">DiamondInteraction</A>  (double upperCouplingConstant double lowerCouplingConstant int leftSpaceIndex 
+  int rightSpaceIndex <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* structure )<BR><BR>
+<u>description:</u>constructor from complete datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>upperCouplingConstant = couling constant for upper link 
+<BR>lowerCoupligConstant = couling constant for lower link 
+<BR>leftSpaceIndex = index of space where left interaction acts 
+<BR>rightSpaceIndex = index of space where right interaction acts 
+<BR>struture = reference on tensor product structure 
+<BR>
+<BR><BR><BR><H3>DiamondInteraction :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Interaction/DiamondInteraction.html">DiamondInteraction</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Interaction/DiamondInteraction.html">DiamondInteraction</A>& interaction )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>interaction = reference to interaction to copy 
+<BR>
+<BR><BR><BR><H3>~DiamondInteraction :</H3>
+<u>prototype:</u>     ~DiamondInteraction  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Interaction/DiamondInteraction.html">DiamondInteraction</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Interaction/DiamondInteraction.html">DiamondInteraction</A>& interaction )<BR><BR>
+<u>description:</u>assignment 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>interaction = reference to interaction to assign 
+<BR><BR><BR>
+<u>return value:</u> reference to current interaction 
+<BR>
+<BR><BR><BR><H3>Interaction :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Tensor/TwoSpaceTensor.html">TwoSpaceTensor</A> Interaction  (List<Matrix*>& firstSystemOperators 
+  List<Matrix*>& secondSystemOperators )<BR><BR>
+<u>description:</u>evaluate interaction between two systems from operators of each system 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>firstSystemOperators = list of operators associated to the first system 
+<BR>secondSystemOperators = list of operators associated to the second system 
+<BR><BR><BR>
+<u>return value:</u> tensor corresponding to the interaction 
+<BR>
+<BR><BR><BR><H3>Interaction :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Tensor/TwoSpaceTensor.html">TwoSpaceTensor</A> Interaction  (List<Matrix*>& firstSystemOperators 
+  List<Matrix*>& secondSystemOperators 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>& firstSpaceDecomposition 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>& secondSpaceDecomposition )<BR><BR>
+<u>description:</u>evaluate interaction between two systems from operators of each system with a given 
+<BR>space decomposition for each space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>firstSystemOperators = list of operators associated to the first system 
+<BR>secondSystemOperators = list of operators associated to the second system 
+<BR>firstSpaceDecomposition = space decomposition of the space associated to the first system 
+<BR>secondSpaceDecomposition = space decomposition of the space associated to the second system 
+<BR><BR><BR>
+<u>return value:</u> tensor corresponding to the interaction 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 0.00726355180299976 0 72635518.0299976 -11.808290294856 -11.808290294856 -11.801026743053 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_27_Y_1_q_7_n_9_x_1_y_27_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 0.00258283304899898 3.73990012292325e-08 68877.3824457363 -12.367932417322 -12.367932379923 -12.365349546874 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_15_Y_5_q_19_n_9_x_3_y_9_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 0.000244675180999465 1.00008890058234e-12 2422524.412234 -12.550311174003 -12.550311174002 -12.550066498821 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_21_Y_7_q_37_n_9_x_3_y_9_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+/scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_81_Y_3_q_61_n_9_x_1_y_27_u_10_gx_0_gy_0.dat N/A
+#Error: ground-state degeneracy exceeded! Go check file /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_81_Y_3_q_61_n_9_x_1_y_27_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 4.08350060006057e-05 3.99857924548996e-12 392649.652493946 -12.654705942474 -12.65470594247 -12.654665107464 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_33_Y_11_q_91_n_9_x_3_y_9_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+/scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_39_Y_13_q_127_n_9_x_3_y_9_u_10_gx_0_gy_0.dat N/A
+#Error: ground-state degeneracy exceeded! Go check file /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_39_Y_13_q_127_n_9_x_3_y_9_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 1.23187910006095e-05 0 123187.910006095 -12.688195409934 -12.688195409934 -12.688183091143 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_135_Y_5_q_169_n_9_x_1_y_27_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 2.98460900083342e-06 1.2999379350731e-11 26412.6141044518 -12.695418987813 -12.6954189878 -12.695416003191 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_51_Y_17_q_217_n_9_x_3_y_9_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 4.98450300057129e-06 2.40003572571368e-11 40197.4890300924 -12.703029371114 -12.70302937109 -12.703024386587 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_57_Y_19_q_271_n_9_x_3_y_9_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 1.39654800079825e-06 0 13965.4800079825 -12.706712515114 -12.706712515114 -12.706711118566 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_189_Y_7_q_331_n_9_x_1_y_27_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 2.4078269991179e-06 1.40012446081528e-11 21121.0588743494 -12.710874612392 -12.710874612378 -12.710872204551 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_69_Y_23_q_397_n_9_x_3_y_9_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 6.80235000771745e-07 1.19992904501487e-11 6073.56527025964 -12.713001467578 -12.713001467566 -12.713000787331 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_75_Y_25_q_469_n_9_x_3_y_9_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 1.58505999436898e-07 0 1585.05999436898 -12.717531360257 -12.717531360257 -12.717531201751 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_241_Y_9_q_542_n_9_x_1_y_27_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 1.31022700067263e-06 0 13102.2700067263 -12.715520392997 -12.715520392997 -12.71551908277 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_243_Y_9_q_547_n_9_x_1_y_27_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 1.5601199976345e-07 1.00008890058234e-12 1544.6719053586 -12.717699568271 -12.71769956827 -12.717699412258 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_245_Y_9_q_551_n_9_x_1_y_27_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 3.50907001234191e-07 1.1399947652535e-10 1639.75635329473 -12.71685804264 -12.716858042526 -12.716857691619 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_87_Y_29_q_631_n_9_x_3_y_9_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 7.76673999780542e-07 2.10000905553898e-11 6418.78858284826 -12.718496641854 -12.718496641833 -12.718495865159 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_93_Y_31_q_721_n_9_x_3_y_9_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 6.2237999642889e-08 0 622.37999642889 -12.720976966729 -12.720976966729 -12.720976904491 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_295_Y_11_q_811_n_9_x_1_y_27_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 1.8881099883572e-07 0 1888.1099883572 -12.719392026037 -12.719392026037 -12.719391837226 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_297_Y_11_q_817_n_9_x_1_y_27_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 5.81760009055188e-08 2.00017780116468e-12 570.351955845851 -12.721070582708 -12.721070582706 -12.72107052453 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_299_Y_11_q_822_n_9_x_1_y_27_u_10_gx_0_gy_0.dat
+# 1/N Gap Spread Ratio MinGS MaxGS Exc N FileName
+0.111111111111111 4.9101999977097e-07 8.50004511221414e-11 2654.15568877066 -12.720517130689 -12.720517130604 -12.720516639584 9 /scratch/ba340/fermions/u-potential/C2r-1N9/fermions_hofstadter_X_105_Y_35_q_919_n_9_x_3_y_9_u_10_gx_0_gy_0.dat

@@ -1,0 +1,5 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libDMRGHilbertSpace.a
+
+libDMRGHilbertSpace_a_SOURCES=DMRGPartialHilbertSpace.cc

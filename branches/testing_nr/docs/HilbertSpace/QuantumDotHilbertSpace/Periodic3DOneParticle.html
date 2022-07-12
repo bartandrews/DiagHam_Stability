@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <title>Periodic3DOneParticle</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : Periodic3DOneParticle</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A></DIV><BR>
+<H3>Periodic3DOneParticle :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/Periodic3DOneParticle.html">Periodic3DOneParticle</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>Periodic3DOneParticle :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/Periodic3DOneParticle.html">Periodic3DOneParticle</A>  (int , int , int , int , int , int lowZ )<BR><BR>
+<u>description:</u>constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrStateX = wave function basis dimension in the x direction 
+<BR>nbrStateY = wave function basis dimension in the y direction 
+<BR>nbrStateZ = wave function basis dimension in the z direction 
+<BR>
+<BR><BR><BR><H3>Periodic3DOneParticle :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/Periodic3DOneParticle.html">Periodic3DOneParticle</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/Periodic3DOneParticle.html">Periodic3DOneParticle</A>& space )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = reference on Hilbert space to copy 
+<BR>
+<BR><BR><BR><H3>~Periodic3DOneParticle :</H3>
+<u>prototype:</u>     ~Periodic3DOneParticle  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* Clone  ()<BR><BR>
+<u>description:</u>clone Hilbert space (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to cloned Hilbert space 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/Periodic3DOneParticle.html">Periodic3DOneParticle</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/Periodic3DOneParticle.html">Periodic3DOneParticle</A>& space )<BR><BR>
+<u>description:</u>assignement 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = reference on Hilbert space to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on current Hilbert space 
+<BR>
+<BR><BR><BR><H3>GetNbrStateX :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrStateX  ()<BR><BR>
+<u>description:</u>get wave function basis dimension in the x direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> wave function basis dimension in the x direction 
+<BR>
+<BR><BR><BR><H3>GetLowerImpulsionX :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetLowerImpulsionX  ()<BR><BR>
+<u>description:</u>get lower impulsion in X 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> lower value in unit of 2 * Pi / L 
+<BR>
+<BR><BR><BR><H3>GetNbrStateY :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrStateY  ()<BR><BR>
+<u>description:</u>get wave function basis dimension in the y direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> wave function basis dimension in the y direction 
+<BR>
+<BR><BR><BR><H3>GetLowerImpulsionY :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetLowerImpulsionY  ()<BR><BR>
+<u>description:</u>get lower impulsion in Y 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> lower value in unit of 2 * Pi / L 
+<BR>
+<BR><BR><BR><H3>GetNbrStateZ :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrStateZ  ()<BR><BR>
+<u>description:</u>get wave function basis dimension in the z direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> wave function basis dimension in the z direction 
+<BR>
+<BR><BR><BR><H3>GetLowerImpulsionZ :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetLowerImpulsionZ  ()<BR><BR>
+<u>description:</u>get lower impulsion in Z 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> lower value in unit of 2 * Pi / L 
+<BR>
+<BR><BR><BR><H3>GetQuantumNumbers :</H3>
+<u>prototype:</u>     List<AbstractQuantumNumber*> GetQuantumNumbers  ()<BR><BR>
+<u>description:</u>return a list of all possible quantum numbers  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>
+<BR><BR><BR><H3>GetQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* GetQuantumNumber  (int index )<BR><BR>
+<u>description:</u>return quantum number associated to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state 
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>
+<BR><BR><BR><H3>ExtractSubspace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* ExtractSubspace  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& , 
+  <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& converter )<BR><BR>
+<u>description:</u>extract subspace with a fixed quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>q = quantum number value 
+<BR>converter = reference on subspace-space converter to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to the new subspace 
+<BR>
+<BR><BR><BR><H3>PrintState :</H3>
+<u>prototype:</u>     ostream& PrintState  (ostream& , int state )<BR><BR>
+<u>description:</u>print a given State 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>state = ID of the state to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

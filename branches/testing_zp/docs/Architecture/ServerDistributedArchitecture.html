@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>ServerDistributedArchitecture</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : ServerDistributedArchitecture</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/AbstractArchitecture.html">AbstractArchitecture</A></DIV><BR>
+<H3>ServerDistributedArchitecture :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ServerDistributedArchitecture.html">ServerDistributedArchitecture</A>  (char* , int port )<BR><BR>
+<u>description:</u>constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>configurationFileName = pointer to the name of the file containing distributed computation configuration 
+<BR>port = port to be opened by the server  
+<BR>
+<BR><BR><BR><H3>~ServerDistributedArchitecture :</H3>
+<u>prototype:</u>     ~ServerDistributedArchitecture  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>ThreadMain :</H3>
+<u>prototype:</u>     <i>friend</i> void* ThreadMain  (void* param )<BR><BR>
+<u>description:</u>main function for thread 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>param = pointer to additional parameters, has to be cast into ThreadMainParameter pointer 
+<BR><BR><BR>
+<u>return value:</u> unused pointer (null) 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/VectorHamiltonianMultiplyOperation.html">VectorHamiltonianMultiplyOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent vector hamiltonian multiplication operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AddRealLinearCombinationOperation.html">AddRealLinearCombinationOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent add real linear combination operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/MultipleScalarProductOperation.html">MultipleRealScalarProductOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent multiple real scalar product operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/MatrixMatrixMultiplyOperation.html">MatrixMatrixMultiplyOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent matrix matrix multiplication operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/QHEParticlePrecalculationOperation.html">QHEParticlePrecalculationOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent QHE particle hamiltonian precalculation operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

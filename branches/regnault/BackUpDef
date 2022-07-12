@@ -1,0 +1,25 @@
+// Source code and docs
+
+*.cc
+*.h
+*.html
+*.pl
+
+# Makefile and configuration files
+
+Makefile.am
+Makefile.in
+configure.in
+configure
+
+// misc. files
+
+BackUpDef
+INSTALL
+README
+NEWS
+AUTHORS
+COPYING
+Changelog
+aclocal.m4
+install-sh

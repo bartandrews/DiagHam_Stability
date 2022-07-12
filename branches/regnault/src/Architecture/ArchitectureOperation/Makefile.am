@@ -1,0 +1,10 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libArchitectureOperation.a
+
+libArchitectureOperation_a_SOURCES=AbstractArchitectureOperation.cc \
+VectorHamiltonianMultiplyOperation.cc \
+MultipleRealScalarProductOperation.cc \
+AddRealLinearCombinationOperation.cc \
+MatrixMatrixMultiplyOperation.cc \
+QHEParticlePrecalculationOperation.cc

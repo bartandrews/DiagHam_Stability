@@ -1,0 +1,127 @@
+<?xml version="1.0"   encoding="ISO-8859-1"?>
+<program name="QHEBosonsDelta">
+  <location>src/Programs/QHE</location>
+  <author name="Nicolas Regnault">
+    <email>nicolas.regnault@lpa.ens.fr</email>
+    <homepage>http://www.phys.ens.fr/~regnault</homepage>
+  </author>
+  <optiongroupsort>system options, parallelization options, L\'anczos options, precalculation options, misc options</optiongroupsort>
+  <optiongroup name="system options">
+    <optiongroupsort>nbr-particles, lzmax, initial-lz, nbr-lz, add-coulomb, ground</optiongroupsort>
+    <option name="nbr-particles">
+    <short>p</short>
+    <description>number of particles</description>
+    <default>8</default>
+    </option>
+    <option name="lzmax">
+    <short>l</short>
+    <description>twice the maximum momentum for a single particle</description>
+    <default>21</default>
+    </option>
+    <option name="initial-lz">
+    <description>twice the inital momentum projection for the system</description>
+    </option>
+    <option name="nbr-lz">
+    <description>number of lz value to evaluate</description>
+    </option>
+    <option name="add-coulomb">
+    <description>add coefficent in front of the coulomb pseudo-potentials (pure laplacian delta if 0)</description>
+    </option>
+    <option name="ground">
+    <short>g</short>
+    <description>restrict to the largest subspace</description>
+    </option>
+  </optiongroup>
+  <optiongroup name="parallelization options">
+    <optiongroupsort>SMP, processors, mpi</optiongroupsort>
+    <option name="SMP">
+    <short>S</short>
+    <description>enable SMP mode</description>
+    </option>
+    <option name="processors">
+    <description>number of processors to use in SMP mode</description>
+    </option>
+    <option name="mpi">
+    <description>enable MPI mode</description>
+    </option>
+  </optiongroup>
+  <optiongroup name="L\'anczos options">
+    <optiongroupsort>nbr-eigen, full-diag, iter-max, disk, resume, nbr-iter, nbr-vector</optiongroupsort>
+    <option name="nbr-eigen">
+    <short>n</short>
+    <description>number of eigenvalues</description>
+    <default>30</default>
+    </option>
+    <option name="full-diag">
+    <description>maximum Hilbert space dimension for which full diagonalization is applied (value must be greater than 100)</description>
+    <default>500</default>	
+    </option>
+    <option name="iter-max">
+    <description>maximum number of lanczos iteration</description>
+    </option>
+    <option name="disk">
+    <short>d</short>
+    <description>enable disk resume capabilities</description>
+    </option>
+    <option name="resume">
+    <short>r</short>
+    <description>resume from disk datas</description>
+    </option>
+    <option name="nbr-iter">
+    <short>i</short>
+    <description>number of lanczos iteration (for the current run)</description>
+    <default>10</default>
+    </option>
+    <option name="nbr-vector">
+    <description>maximum number of vector in RAM during L\'anczos iteration</description>
+    </option>
+  </optiongroup>
+  <optiongroup name="precalculation options">
+    <optiongroupsort>memory, load-precalculation, save-precalculation</optiongroupsort>
+    <option name="memory">
+    <short>m</short>
+    <description>amount of memory that can be allocated for fast multiplication (in Mbytes)</description>
+    <default>500</default>
+    </option>
+    <option name="load-precalculation">
+    <description>load precalculation from a file</description>
+    </option>
+    <option name="save-precalculation">
+    <description>save precalculation in a file</description>
+    </option>
+  </optiongroup>
+  <optiongroup name="misc options">
+    <optiongroupsort>help</optiongroupsort>
+    <option name="help">
+    <short>h</short>
+    <description>display this help</description>
+    </option>
+  </optiongroup>
+
+  <shortdesc>QHEBosonsDelta evalutes spectrum for N bosons on Haldane sphere with 2S quantum flux and with delta interaction.</shortdesc>
+
+  <longdesc>QHEBosonsDelta evalutes spectrum for N bosons on Haldane sphere with 2S quantum flux and with delta interaction. It produces a file \filename{bosons\_delta\_n\_xx\_2s\_yy\_lz.dat} where xx is the number of bosons and yy the number of quantum fluxes. It contains the lowest eigenvalues in each sector of given projection of the total momentum $L_z$. The first number of each line is $L_z$ and the second one is the state energy.
+
+The results use the following convention. Only the interaction term has been taken into account. The pseudo-potential has only one non-zero term $V_0$ with\\
+\begin{eqnarray}
+V_0=\frac{(2S+1)}{8 \pi \sqrt{S}}\nonumber
+\end{eqnarray}
+
+Typical usage for this program is as follow:\\
+\commandarray{QHEBosonsDelta -p 8 -l 21 -n 30}
+This command get at least 30 eigenvalues in each $L_z$ sector for 8 particles with 21 quantum fluxes. The minimum number of eigenvalues is fixed by the \option{n} option. QHEBosonsDelta uses full diagonalization algorithm for small Hilbert space dimension and L\'anczos algorithm for larger space. The limit dimension between small and large space can be changed using the \longoption{full-diag} option. 
+Calculation can be done on a subset of possible $L_z$ value using the \longoption{initial-lz}, \longoption{nbr-lz} and \longoption{ground} options.
+</longdesc>
+
+  <accuracy>Due to the shift used during L\'anczos calculations, the actual eigenvalue precision is $10^{-14} * 2 \frac{N^2}{S}$ even if the L\'anczos convergence has been fixed to $10^{-14}$. The L\'anczos algorithm used here can be subject to spurious degeneracy (so you can not be sure of eigenvalue degeneracy). This program has been used in \paperwithlink{cond-mat/0212477}{cond-mat/0212477} and \paperwithlink{cond-mat/0312248}{cond-mat/0312248}.</accuracy>
+
+  <relatedprogsort>LzToL</relatedprogsort>
+
+  <relatedprog name="LzToL" type="program">
+    <location>src/Program/QHE</location>
+    <usage>LzToL file</usage>
+    <description>LzToL convert a Lz-sorted spectrum into a L-sorted spectrum. Lz-sorted spectrum file name is passed as an argument to the program. The L-sorted spectrum is printed in the standard output. The conversion is done assuming that if a given energy appears for a given value m of Lz, states with the same energy will be also there for values of Lz lower than m. Precision used to compare two energy values can be tuned through the \longoption{precision}.</description>
+  </relatedprog>
+
+  <remarks>Some spectra can be found on the \href{Fractional quantum effect numerical database}{http://www.phys.ens.fr/~regnault/qhe}.</remarks>
+</program>

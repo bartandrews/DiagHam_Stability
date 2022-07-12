@@ -1,0 +1,13 @@
+NbrSites = 2
+Dimension = 2
+PeriodicRepeat = 2,2
+LatticeVector0 = 1.73205080756888,0
+LatticeVector1 = 0.866025403784439,0.75
+SubLatticeVector0 = 0,0
+SubLatticeVector1 = 0,1
+NeighborsInCell = 0,1
+NeighborCells = 0,-1 | 1,-1 | 0,1 | -1,1
+NeighborsAcrossBoundary0_1 = 1,0
+NeighborsAcrossBoundary0_-1 = 0,1
+NeighborsAcrossBoundary1_-1 = 0,1
+NeighborsAcrossBoundary-1_1 = 1,0

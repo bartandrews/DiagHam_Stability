@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <title>EllipticalDotThreeDConstantCellPotential</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : EllipticalDotThreeDConstantCellPotential</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Potential/ThreeDConstantCellPotential.html">ThreeDConstantCellPotential</A></DIV><BR>
+<H3>EllipticalDotThreeDConstantCellPotential :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Potential/EllipticalDotThreeDConstantCellPotential.html">EllipticalDotThreeDConstantCellPotential</A>  (int , int , int , int , int , int , int , int , double anisotropy )<BR><BR>
+<u>description:</u>constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>numberX, numberY, numberZ = number of cells in X, Y and Z directions respectively 
+<BR>wettingWidth= width of wetting layers in cell unit 
+<BR>belowWettingLayer = height of the layer just under the wetting layer 
+<BR>baseRadius = base radius of the truncated cone 
+<BR>dotHeight = height of the dot 
+<BR>topRadius = base radius of the truncated cone 
+<BR>anisotropy = anisotropy factor 
+<BR>
+<BR><BR><BR><H3>~EllipticalDotThreeDConstantCellPotential :</H3>
+<u>prototype:</u>     ~EllipticalDotThreeDConstantCellPotential  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>ConstructPotential :</H3>
+<u>prototype:</u>     void ConstructPotential  (double dotPotential )<BR><BR>
+<u>description:</u>construct potential from physical parameters  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dotPotential = potential in the dot (0 reference: potential in the bulk, outside the dot) 
+<BR>
+<BR><BR><BR><H3>ShiftPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> void ShiftPotential  (double delta )<BR><BR>
+<u>description:</u>shift the potential with a given quantity 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>delta = shift value 
+<BR>
+<BR><BR><BR><H3>InTheDot :</H3>
+<u>prototype:</u>     bool InTheDot  (int , int , int z )<BR><BR>
+<u>description:</u>determine if a cell is in the dot or wetting layer 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = x coordinate of the cell 
+<BR>y = y coordinate of the cell 
+<BR>z = z coordinate of the cell 
+<BR>return = true if the cell is in the dot, false otherwise 
+<BR>
+<BR><BR><BR><H3>SaveDiagram :</H3>
+<u>prototype:</u>     <i>virtual</i> void SaveDiagram  (char* fileName )<BR><BR>
+<u>description:</u>save the diagram of atoms in a file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file to stock the diagram 
+<BR>
+<BR><BR><BR><H3>LoadDiagram :</H3>
+<u>prototype:</u>     <i>virtual</i> void LoadDiagram  (char* fileName )<BR><BR>
+<u>description:</u>load the diagram of atoms from a file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file in which the diagram is stocked 
+<BR>
+<BR><BR><BR><H3>SetPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> void SetPotential  (int , int , int , double value )<BR><BR>
+<u>description:</u>assign the potential a value at a given position 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = x coordinate of the considered cell 
+<BR>j = y coordinate of the considered cell 
+<BR>k = z coordinate of the considered cell 
+<BR>value = value of potential 
+<BR>
+<BR><BR><BR><H3>GetPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> double GetPotential  (int , int , int k )<BR><BR>
+<u>description:</u>get the potential at a given position 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = x coordinate of the considered cell 
+<BR>j = y coordinate of the considered cell 
+<BR>k = z coordinate of the considered cell 
+<BR><BR><BR>
+<u>return value:</u> the potential in the cell 
+<BR>
+<BR><BR><BR><H3>SaveBmpPicture :</H3>
+<u>prototype:</u>     <i>virtual</i> void SaveBmpPicture  (char* fileName )<BR><BR>
+<u>description:</u>save the whole diagram presentation in a bitmap file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file to stock the diagram presentation 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

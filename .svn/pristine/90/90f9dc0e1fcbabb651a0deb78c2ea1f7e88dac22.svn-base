@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <title>AbstractQuantumNumber</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : AbstractQuantumNumber</DIV></H1>
+
+<H3>AbstractQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>AbstractQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = quantum number to copy 
+<BR>
+<BR><BR><BR><H3>~AbstractQuantumNumber :</H3>
+<u>prototype:</u>     <i>virtual</i> ~AbstractQuantumNumber  ()<BR><BR>
+<u>description:</u>virtual destructor 
+<BR>
+<BR><BR><BR><H3>assignement :</H3>
+<u>prototype:</u>    assignement  (without duplicating datas )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>Q = quantum number to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current quantum number 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* Clone  ()<BR><BR>
+<u>description:</u>clone current quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer on cloned quantum number   
+<BR>
+<BR><BR><BR><H3>GetQuantumNumberType :</H3>
+<u>prototype:</u>     int GetQuantumNumberType  ()<BR><BR>
+<u>description:</u>get quantum number type 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> Hilbert space dimension 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>add two quantum numbers 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = second quantum number 
+<BR><BR><BR>
+<u>return value:</u> pointer to the sum of the two quantum numbers 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>substract two quantum numbers 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = second quantum number 
+<BR><BR><BR>
+<u>return value:</u> pointer to the difference of the two quantum numbers 
+<BR>
+<BR><BR><BR><H3>operator == :</H3>
+<u>prototype:</u>     <i>friend</i> bool operator ==  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>test if two quantum numbers are identical 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = second quantum number 
+<BR>
+<BR><BR><BR><H3>operator != :</H3>
+<u>prototype:</u>     <i>friend</i> bool operator !=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>test if two quantum numbers are different 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = second quantum number 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& Str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& Q1 )<BR><BR>
+<u>description:</u>print quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>Q = quantum number to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

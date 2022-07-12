@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <title>MathematicaOutput</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : MathematicaOutput</DIV></H1>
+
+<H3>MathematicaOutput :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>~MathematicaOutput :</H3>
+<u>prototype:</u>     ~MathematicaOutput  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Out const char* c )<BR><BR>
+<u>description:</u>push a null-ended string on output 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Out = reference on current output stream 
+<BR>c = string pointer 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Out const char c )<BR><BR>
+<u>description:</u>push a character on output 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Out = reference on current output stream 
+<BR>c = character to push 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Out const int x )<BR><BR>
+<u>description:</u>push an integer on output 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Out = reference on current output stream 
+<BR>x = integer to push 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Out const double x )<BR><BR>
+<u>description:</u>push a double on output 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Out = reference on current output stream 
+<BR>d = double to push 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Out ostream& Str )<BR><BR>
+<u>description:</u>push an output stream on output 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Out = reference on current output stream 
+<BR>Str = reference on output stream to push 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& Str <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Out )<BR><BR>
+<u>description:</u>push an MathematicaOutput output on output stream 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream 
+<BR>Out = reference on MathematicaOutput output to push 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Out1 <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Out2 )<BR><BR>
+<u>description:</u>push a Mathematica ouput on output 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Out1 = reference on current output stream 
+<BR>Out2 = Mathematica ouput to push 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

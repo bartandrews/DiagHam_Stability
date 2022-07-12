@@ -1,0 +1,64 @@
+<chapter name="Hilbert space">
+
+If you want to build your own physical system using DiagHam, you need to define the
+hamiltonian and the Hilbert space. In principle, you will first try to modfify or redefined
+an hamiltonian and so, you will use a predefined Hilbert space. Thus, you only need to know
+how a Hilbert space work. That's the aim of the first section of this chapter. The other sections
+are devoted to the construction of your own Hilbert space class and can thus be skipped for
+a first reading.
+
+
+<section name="What do a Hilbert space class?">
+
+The Hilbert space class provides an easy way to link an index to a state of a basis 
+of the Hilbert and the physical system corresponding to this state. The main idea is that an
+Hamiltonian doesn't really to know how states are encoded. It just needs to know what
+happen to one state of the basis when applying basic operators (for example, think at
+creation/annihilation operators acting on Fock basis). In this way, we can keep the same
+hamiltonian and apply it to fermionic particles and then switch to bosonic particles,
+without modifying the code. Or we can go from a spin 1/2 chain to a spin 5/2 chain. 
+
+Of course, there is some cases where decomposing hamiltonian into basic operators is not
+feasable or not interesting from a coding point of view. If this case, you can use the
+simplest Hilbert space class : \classname{UndecribedHilbertSpace}. This class is located in
+the \directoryname{src/HilbertSpace} and derived (like all Hilberst space classes) from
+\classname{AbstractHilbertSpace} (located in the same directory). The only information you 
+really need to pass to the constructor is the dimension of the Hilbert space that can be 
+retrieve using the \methodname{GetHilbertSpaceDimension}{AbstractHilbertSpace}. Each 
+Hilbert space may also be cloned (duplicating memory if only it is usefull for thread safe 
+applications) using the \methodname{Clone}{AbstractHilbertSpace} method. Thus/ if you a dummy Hilebrt space/ this is the class to use. 
+
+
+Let's have a look at another simple (but non-trivial) example based one more time on spin chains.
+We discuss the case of the \classname{Spin1_2Chain} which from the more general 
+\classname{AbstractSpinChain}. The Chain term used in the name of this classes is a bit 
+misleading. They do not assume any particular topology of the spin lattice. They just 
+correspond to the Hilbert space of an arbitrary number of spins. There is  two main constructors. The first one need at least one parameter which is the number of 1/2 spins. There is no restriction on the Hilbert space like total angular momentum or its projection along the z axis. If you need to fix the projection of 
+the total angular momentum/ then you can use the seond one which takes as an additional 
+parameter twice the value of the projection. Now we have defined our Hilbert space, what are the 
+operation we can do. Of course, we can obtain the Hilbert space dimension using 
+the \methodname{GetHilbertSpaceDimension}{AbstractHilbertSpace} method or clone it. 
+We can print information about a given state of the basis using the 
+\methodname{PrintState}{AbstractHilbertSpace} method which take as first argument a reference 
+to an output stream and as second one the index of the state from which we want to know 
+information about. Here is an example of code using this class:
+
+   
+  
+That all the basic stuff you need to know about the Hilbert classes. The rest is now 
+devoted to those who want to go beyond the classes provided in DiagHam.
+
+</section>
+
+<section name="Hilbert space for spin system">
+This section will described how Hilbert space for spin system are designed. Even if we still 
+in the DiagHam framework, part of the discussion is a bit more general and is about the 
+way quantum states can be encoded. 
+
+</section>
+
+<section name="Hilbert space for FQHE">
+</section>
+
+<section name="Conclusions">
+</chapter>

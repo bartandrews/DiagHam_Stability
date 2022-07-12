@@ -1,0 +1,6 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libManyBodyHilbertSpace.a
+
+libManyBodyHilbertSpace_a_SOURCES=AharonovBohmCages.cc
+

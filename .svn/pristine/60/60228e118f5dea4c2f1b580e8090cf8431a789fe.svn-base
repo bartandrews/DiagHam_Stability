@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>ComplexBasicLanczosAlgorithmWithDiskStorage</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : ComplexBasicLanczosAlgorithmWithDiskStorage</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/LanczosAlgorithm/AbstractLanczosAlgorithm.html">AbstractLanczosAlgorithm</A></DIV><BR>
+<H3>ComplexBasicLanczosAlgorithmWithDiskStorage :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/LanczosAlgorithm/ComplexBasicLanczosAlgorithmWithDiskStorage.html">ComplexBasicLanczosAlgorithmWithDiskStorage</A>  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/AbstractArchitecture.html">AbstractArchitecture</A>* , int , int maxIter = 0 )<BR><BR>
+<u>description:</u>default constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>architecture = architecture to use for matrix operations 
+<BR>nbrEigenvalue = number of wanted eigenvalues 
+<BR>maxIter = an approximation of maximal number of iteration 
+<BR>
+<BR><BR><BR><H3>ComplexBasicLanczosAlgorithmWithDiskStorage :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/LanczosAlgorithm/ComplexBasicLanczosAlgorithmWithDiskStorage.html">ComplexBasicLanczosAlgorithmWithDiskStorage</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/LanczosAlgorithm/ComplexBasicLanczosAlgorithmWithDiskStorage.html">ComplexBasicLanczosAlgorithmWithDiskStorage</A>& algorithm )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>algorithm = algorithm from which new one will be created 
+<BR>
+<BR><BR><BR><H3>~ComplexBasicLanczosAlgorithmWithDiskStorage :</H3>
+<u>prototype:</u>     ~ComplexBasicLanczosAlgorithmWithDiskStorage  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>InitializeLanczosAlgorithm :</H3>
+<u>prototype:</u>     void InitializeLanczosAlgorithm  ()<BR><BR>
+<u>description:</u>initialize Lanczos algorithm with a random vector 
+<BR>
+<BR><BR><BR><H3>InitializeLanczosAlgorithm :</H3>
+<u>prototype:</u>     void InitializeLanczosAlgorithm  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>& vector )<BR><BR>
+<u>description:</u>initialize Lanczos algorithm with a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector = reference to the vector used as first step vector 
+<BR>
+<BR><BR><BR><H3>ResumeLanczosAlgorithm :</H3>
+<u>prototype:</u>     void ResumeLanczosAlgorithm  ()<BR><BR>
+<u>description:</u>resume Lanczos algorithm from disk datas in current directory 
+<BR>
+<BR><BR><BR><H3>GetGroundState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>& GetGroundState  ()<BR><BR>
+<u>description:</u>get last produced vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on last produced vector 
+<BR>
+<BR><BR><BR><H3>RunLanczosAlgorithm :</H3>
+<u>prototype:</u>     void RunLanczosAlgorithm  (int nbrIter )<BR><BR>
+<u>description:</u>run current Lanczos algorithm (continue from previous results if Lanczos algorithm has already been run) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrIter = number of iteration to do  
+<BR>
+<BR><BR><BR><H3>TestConvergence :</H3>
+<u>prototype:</u>     bool TestConvergence  ()<BR><BR>
+<u>description:</u>test if convergence has been reached 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> true if convergence has been reached 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

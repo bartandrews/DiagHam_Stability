@@ -1,0 +1,22 @@
+#!/bin/bash
+if [ -z "$2" ]; then
+  echo "usage: FQHEBilayerPseudopotentials [-1] #Flux LayerSeparation" 
+  exit
+fi
+
+LandauLevel=0
+
+if [ $1 = "-1" ]; then    
+    LandauLevel=1
+    shift
+fi
+
+CoulombPseudopotentials -l$LandauLevel -s $1 -o /tmp/pp.tmp >/dev/null
+CoulombPseudopotentials -l$LandauLevel -s $1 -d $2 -o /tmp/pp2.tmp  >/dev/null
+if [ $LandauLevel -eq 1 ]; then
+    echo "# Pseudopotentials for the 1st LL"
+fi
+cat /tmp/pp2.tmp | sed -e "s/^Pseudopotentials/PseudopotentialsUpDown/"
+cat /tmp/pp.tmp | grep ^Pseudopotentials | sed -e "s/Pseudopotentials/PseudopotentialsUpUp/"
+cat /tmp/pp.tmp | grep ^Pseudopotentials | sed -e "s/Pseudopotentials/PseudopotentialsDownDown/"
+

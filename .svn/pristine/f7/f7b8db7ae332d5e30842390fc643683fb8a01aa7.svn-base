@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Subspace</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : Subspace</DIV></H1>
+
+<H3>Subspace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/DMRGAlgorithm/Subspace.html">Subspace</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>Subspace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/DMRGAlgorithm/Subspace.html">Subspace</A>  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* Q )<BR><BR>
+<u>description:</u>constructor for a not yet defined subspace coresponding to a given quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = pointer to quantum number 
+<BR>
+<BR><BR><BR><H3>Subspace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/DMRGAlgorithm/Subspace.html">Subspace</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/DMRGAlgorithm/Subspace.html">Subspace</A>& subspace )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>subspace = subspace to copy 
+<BR>
+<BR><BR><BR><H3>~Subspace :</H3>
+<u>prototype:</u>     ~Subspace  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/DMRGAlgorithm/Subspace.html">Subspace</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/DMRGAlgorithm/Subspace.html">Subspace</A>& subspace )<BR><BR>
+<u>description:</u>assignment  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>subspace = subspace to assign 
+<BR><BR><BR>
+<u>return value:</u> reference to current subspace 
+<BR>
+<BR><BR><BR><H3>GetSubspaceDimension :</H3>
+<u>prototype:</u>     int GetSubspaceDimension  ()<BR><BR>
+<u>description:</u>get subspace dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> subspace dimension 
+<BR>
+<BR><BR><BR><H3>SetSubspaceDimension :</H3>
+<u>prototype:</u>    void SetSubspaceDimension  (int dimension )<BR><BR>
+<u>description:</u>set subspace dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = new subspace dimension 
+<BR>void SetSubspaceDimension (int dimension); 
+<BR>
+<BR><BR><BR><H3>GetConverter :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& GetConverter  ()<BR><BR>
+<u>description:</u>get reference to associated subspace-space converter 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>rerturn value = reference to converter 
+<BR>
+<BR><BR><BR><H3>GetHamiltonian :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealDiagonalMatrix.html">RealDiagonalMatrix</A>& GetHamiltonian  ()<BR><BR>
+<u>description:</u>get reference to diagonalized hamiltonian associated to the current subspace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference to hamiltonian 
+<BR>
+<BR><BR><BR><H3>GetMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& GetMatrix  ()<BR><BR>
+<u>description:</u>get reference to Transformation Matrix from eigenvector base to canonical subspace base  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference to coresponding matrix 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

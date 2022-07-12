@@ -1,0 +1,25 @@
+# Definition of a square lattice with the minimal unit cell of 1 sites
+#
+Descriptor = dice
+NbrSites = 3
+Dimension = 2
+#PeriodicRepeat = 2,2
+LatticeVector0 = 1.5,-0.866025403784439
+LatticeVector1 = 1.5,0.866025403784439
+SubLatticeVector0 = 0,0
+SubLatticeVector1 = 1,0
+SubLatticeVector2 = 2,0
+NeighborsInCell = 0,1
+NeighborCells = 0,1 | 1,0 | 0,-1 | -1,0 | 1,1 | -1,-1
+NeighborsAcrossBoundary0_1 = 1,0 | 2,0
+NeighborsAcrossBoundary1_0 = 1,0 | 2,0
+NeighborsAcrossBoundary0_-1 = 0,1 | 0,2
+NeighborsAcrossBoundary-1_0 = 0,1 | 0,2
+NeighborsAcrossBoundary1_1 = 2,0
+NeighborsAcrossBoundary-1_-1 = 0,2
+# prefactors of vector potential A= (A_xx x + Ayx y ) e_x + (A_xy x + Ayy y ) e_y
+UseGauge = yes
+GaugeAyx = 1.15470053837925
+#optional values:
+#RandomPotentials = strength
+#LocalPotentials = site,strength | site2, strength2 | ...

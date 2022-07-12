@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <title>UndescribedHilbertSpace</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : UndescribedHilbertSpace</DIV></H1>
+
+<H3>UndescribedHilbertSpace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/UndescribedHilbertSpace.html">UndescribedHilbertSpace</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>UndescribedHilbertSpace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/UndescribedHilbertSpace.html">UndescribedHilbertSpace</A>  (int dimension <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& quantumNumber )<BR><BR>
+<u>description:</u>constructor from datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = Hilbert space dimension 
+<BR>quantumNumber = reference on the quantum number associated to the Hilbert space 
+<BR>
+<BR><BR><BR><H3>constructor :</H3>
+<u>prototype:</u>    copy constructor  (without duplicating datas )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>UndescribedHilbertSpace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/UndescribedHilbertSpace.html">UndescribedHilbertSpace</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/UndescribedHilbertSpace.html">UndescribedHilbertSpace</A>& space )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>space = reference on Hilbert space to copy 
+<BR>
+<BR><BR><BR><H3>~UndescribedHilbertSpace :</H3>
+<u>prototype:</u>     ~UndescribedHilbertSpace  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>assignment :</H3>
+<u>prototype:</u>    assignment  (without duplicating datas )<BR><BR>
+<u>description:</u>assignment (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/UndescribedHilbertSpace.html">UndescribedHilbertSpace</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/UndescribedHilbertSpace.html">UndescribedHilbertSpace</A>& space )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>space = reference on Hilbert space to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current Hilbert space 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpaceDimension :</H3>
+<u>prototype:</u>     int GetHilbertSpaceDimension  ()<BR><BR>
+<u>description:</u>return Hilbert space dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> Hilbert space dimension 
+<BR>
+<BR><BR><BR><H3>GetQuantumNumbers :</H3>
+<u>prototype:</u>     List<AbstractQuantumNumber*> GetQuantumNumbers  ()<BR><BR>
+<u>description:</u>return a list of all possible quantum numbers  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>
+<BR><BR><BR><H3>GetQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* GetQuantumNumber  (int index )<BR><BR>
+<u>description:</u>return quantum number associated to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state 
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>
+<BR><BR><BR><H3>ExtractSubspace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* ExtractSubspace  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& q 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& converter )<BR><BR>
+<u>description:</u>extract subspace with a fixed quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>q = quantum number value 
+<BR>converter = reference on subspace-space converter to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to the new subspace 
+<BR>
+<BR><BR><BR><H3>PrintState :</H3>
+<u>prototype:</u>     ostream& PrintState  (ostream& Str int state )<BR><BR>
+<u>description:</u>print a given State 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>state = ID of the state to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

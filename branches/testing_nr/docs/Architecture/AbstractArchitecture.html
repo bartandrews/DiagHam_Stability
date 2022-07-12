@@ -1,0 +1,161 @@
+<html>
+  <head>
+    <title>AbstractArchitecture</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : AbstractArchitecture</DIV></H1>
+
+<H3>~AbstractArchitecture :</H3>
+<u>prototype:</u>     <i>virtual</i> ~AbstractArchitecture  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>GetTypicalRange :</H3>
+<u>prototype:</u>     <i>virtual</i> void GetTypicalRange  (long& , long& maxIndex )<BR><BR>
+<u>description:</u>get typical range of indices on which the local architecture acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>minIndex = reference on the minimum index on which the local architecture can act 
+<BR>maxIndex = reference on the maximum index on which the local architecture can act (= minIndex is the  
+<BR>architecture doesn't support this feature) 
+<BR>
+<BR><BR><BR><H3>GetNewRealVector :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>* GetNewRealVector  ()<BR><BR>
+<u>description:</u>get a new real vector with memory alloaction depending on the architecture 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to the requested vector (zero if an error occurs) 
+<BR>
+<BR><BR><BR><H3>GetNewRealVector :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>* GetNewRealVector  (long , bool zeroFlag = false )<BR><BR>
+<u>description:</u>get a new real vector with memory alloaction depending on the architecture 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = dimension of the requested vector 
+<BR>zeroFlag = true if all vector entries has to be set to zero 
+<BR><BR><BR>
+<u>return value:</u> pointer to the requested vector (zero if an error occurs) 
+<BR>
+<BR><BR><BR><H3>GetNewComplexVector :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>* GetNewComplexVector  ()<BR><BR>
+<u>description:</u>get a new complex vector with memory alloaction depending on the architecture 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to the requested vector (zero if an error occurs) 
+<BR>
+<BR><BR><BR><H3>GetNewComplexVector :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>* GetNewComplexVector  (long , bool zeroFlag = false )<BR><BR>
+<u>description:</u>get a new complex vector with memory alloaction depending on the architecture 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = dimension of the requested vector 
+<BR>zeroFlag = true if all vector entries has to be set to zero 
+<BR><BR><BR>
+<u>return value:</u> pointer to the requested vector (zero if an error occurs) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <i>virtual</i> void Multiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/AbstractHamiltonian.html">AbstractHamiltonian</A>* , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by an hamiltonian and store the result in another vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>hamiltonian = pointer to the hamiltonian to use 
+<BR>vSource = vector to multiply  
+<BR>vDestination = vector where result has to be stored  
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     <i>virtual</i> bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AbstractArchitectureOperation.html">AbstractArchitectureOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     <i>virtual</i> bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/VectorHamiltonianMultiplyOperation.html">VectorHamiltonianMultiplyOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent vector hamiltonian multiplication operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     <i>virtual</i> bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AddRealLinearCombinationOperation.html">AddRealLinearCombinationOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent add real linear combination operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     <i>virtual</i> bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AddComplexLinearCombinationOperation.html">AddComplexLinearCombinationOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent add complex linear combination operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     <i>virtual</i> bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/MultipleScalarProductOperation.html">MultipleRealScalarProductOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent multiple real scalar product operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     <i>virtual</i> bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/MultipleComplexScalarProductOperation.html">MultipleComplexScalarProductOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent multiple complex scalar product operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     <i>virtual</i> bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/MatrixMatrixMultiplyOperation.html">MatrixMatrixMultiplyOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent matrix matrix multiplication operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     <i>virtual</i> bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AbstractPrecalculationOperation.html">AbstractPrecalculationOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent abstract hamiltonian precalculation operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>New :</H3>
+<u>prototype:</u>     <i>friend</i> Type*& New  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/AbstractArchitecture.html">AbstractArchitecture</A>& , Type*& , unsigned long size )<BR><BR>
+<u>description:</u>request a given amount of memory for an array of Type element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>architecture = reference on the architecture to which memory will be asked 
+<BR>pointer = reference on pointer that will be used for the memory allocation 
+<BR>size = number of elements of type Type 
+<BR><BR><BR>
+<u>return value:</u> reference on the pointer 
+<BR>
+<BR><BR><BR><H3>Delete :</H3>
+<u>prototype:</u>     <i>friend</i> void Delete  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/AbstractArchitecture.html">AbstractArchitecture</A>& , Type*& pointer )<BR><BR>
+<u>description:</u>delete an array that has been requested by the New function 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>architecture = reference on the architecture to which memory has been asked 
+<BR>pointer = reference on pointer that of the memory allocation 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

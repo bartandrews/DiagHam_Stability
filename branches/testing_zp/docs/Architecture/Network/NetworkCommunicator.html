@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>NetworkCommunication</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : NetworkCommunication</DIV></H1>
+
+<H3>NetworkCommunication :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/Network/NetworkCommunicator.html">NetworkCommunication</A>  (int port )<BR><BR>
+<u>description:</u>constructor for  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>port = port to be opened by the server  
+<BR>
+<BR><BR><BR><H3>~NetworkCommunication :</H3>
+<u>prototype:</u>     ~NetworkCommunication  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>EnableClientCommunication :</H3>
+<u>prototype:</u>     bool EnableClientCommunication  (char* clientName )<BR><BR>
+<u>description:</u>try to enable communication with a client 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>client name = fully qualified client name 
+<BR><BR><BR>
+<u>return value:</u> true if communications are allowed 
+<BR>
+<BR><BR><BR><H3>EnableServerCommunication :</H3>
+<u>prototype:</u>     bool EnableServerCommunication  (char* serverName )<BR><BR>
+<u>description:</u>try to enable communication with server 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>server name = fully qualified client name 
+<BR><BR><BR>
+<u>return value:</u> true if communications are allowed 
+<BR>
+<BR><BR><BR><H3>CloseCommunication :</H3>
+<u>prototype:</u>     bool CloseCommunication  ()<BR><BR>
+<u>description:</u>close communication 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> true if communications have been closed 
+<BR>
+<BR><BR><BR><H3>WaitJob :</H3>
+<u>prototype:</u>     int WaitJob  ()<BR><BR>
+<u>description:</u>wait for a new job 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> id of the newly available job (-1 if an error occurs) 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

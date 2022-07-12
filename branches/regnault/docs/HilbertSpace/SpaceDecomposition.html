@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <title>SpaceDecomposition</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : SpaceDecomposition</DIV></H1>
+
+<H3>SpaceDecomposition :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>component :</H3>
+<u>prototype:</u>    subspacePosition = array containing index of each subspace first component  (without duplicating array )<BR><BR>
+<u>description:</u>constructor from datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>spaceDimension = dimension of the total space 
+<BR>nbrSubspace = number of subspaces 
+<BR>subspacePosition = array containing index of each subspace first component (without duplicating array) 
+<BR>
+<BR><BR><BR><H3>SpaceDecomposition :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>  (int spaceDimension int nbrSubspace int* subspacePosition )<BR><BR>
+<u>description:</u>constructor from datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>spaceDimension = dimension of the total space 
+<BR>nbrSubspace = number of subspaces 
+<BR>subspacePosition = array containing index of each subspace first component (without duplicating array) 
+<BR>
+<BR><BR><BR><H3>constructor :</H3>
+<u>prototype:</u>    copy constructor  (without duplicating datas )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>SpaceDecomposition :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>& decomposition )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>decomposition = reference on space description to copy 
+<BR>
+<BR><BR><BR><H3>~SpaceDecomposition :</H3>
+<u>prototype:</u>     ~SpaceDecomposition  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>assignement :</H3>
+<u>prototype:</u>    assignement  (without duplicating datas )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>& decomposition )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>decomposition = reference on space decomposition to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current decomposition 
+<BR>
+<BR><BR><BR><H3>GetSpaceDimension :</H3>
+<u>prototype:</u>     int GetSpaceDimension  ()<BR><BR>
+<u>description:</u>return total space dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> space dimension 
+<BR>
+<BR><BR><BR><H3>GetNbrSubspace :</H3>
+<u>prototype:</u>     int GetNbrSubspace  ()<BR><BR>
+<u>description:</u>get number of subspaces 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> number of subspaces 
+<BR>
+<BR><BR><BR><H3>GetSubspaceDimension :</H3>
+<u>prototype:</u>     int GetSubspaceDimension  (int index )<BR><BR>
+<u>description:</u>return subspace dimension of a given subspace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = subspace index 
+<BR><BR><BR>
+<u>return value:</u> subspace dimension 
+<BR>
+<BR><BR><BR><H3>GetSubspacePosition :</H3>
+<u>prototype:</u>     int GetSubspacePosition  (int index )<BR><BR>
+<u>description:</u>return index of the first component of a given subspace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = subspace index 
+<BR><BR><BR>
+<u>return value:</u> subspace position 
+<BR>
+<BR><BR><BR><H3>GetSubspaceDescription :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& GetSubspaceDescription  (int index )<BR><BR>
+<u>description:</u>return description of a given subspace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = subspace index 
+<BR><BR><BR>
+<u>return value:</u> reference on subspace description 
+<BR>
+<BR><BR><BR><H3>FindComponent :</H3>
+<u>prototype:</u>     int FindComponent  (int index )<BR><BR>
+<u>description:</u>find in which subspace lies a given component of total space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the component  
+<BR><BR><BR>
+<u>return value:</u> subspace index 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>& subspace )<BR><BR>
+<u>description:</u>print decomposition descripriton 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>str = reference on output stream 
+<BR>subspace = reference on subspace to describe 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>VectorHamiltonianMultiplyOperation</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : VectorHamiltonianMultiplyOperation</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AbstractArchitectureOperation.html">AbstractArchitectureOperation</A></DIV><BR>
+<H3>VectorHamiltonianMultiplyOperation :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/VectorHamiltonianMultiplyOperation.html">VectorHamiltonianMultiplyOperation</A>  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/AbstractHamiltonian.html">AbstractHamiltonian</A>* , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>* , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>* destinationVector )<BR><BR>
+<u>description:</u>constructor  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>hamiltonian = pointer to the hamiltonian to use 
+<BR>sourceVector = vector to be multiplied by the hamiltonian 
+<BR>destinationVector = vector where the result has to be stored 
+<BR>
+<BR><BR><BR><H3>VectorHamiltonianMultiplyOperation :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/VectorHamiltonianMultiplyOperation.html">VectorHamiltonianMultiplyOperation</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/VectorHamiltonianMultiplyOperation.html">VectorHamiltonianMultiplyOperation</A>& operation )<BR><BR>
+<u>description:</u>copy constructor  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = reference on operation to copy 
+<BR>
+<BR><BR><BR><H3>~VectorHamiltonianMultiplyOperation :</H3>
+<u>prototype:</u>     ~VectorHamiltonianMultiplyOperation  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>SetIndicesRange :</H3>
+<u>prototype:</u>     void SetIndicesRange  (const int& , const int& nbrComponent )<BR><BR>
+<u>description:</u>set range of indices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>firstComponent = index of the first component 
+<BR>nbrComponent = number of component 
+<BR>
+<BR><BR><BR><H3>SetDestinationVector :</H3>
+<u>prototype:</u>     void SetDestinationVector  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>* DestinationVector )<BR><BR>
+<u>description:</u>set destination vector  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector where the result has to be stored 
+<BR>
+<BR><BR><BR><H3>GetDestinationVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>* GetDestinationVector  ()<BR><BR>
+<u>description:</u>get destination vector  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to destination vector 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AbstractArchitectureOperation.html">AbstractArchitectureOperation</A>* Clone  ()<BR><BR>
+<u>description:</u>clone operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to cloned operation 
+<BR>
+<BR><BR><BR><H3>ApplyOperation :</H3>
+<u>prototype:</u>     bool ApplyOperation  ()<BR><BR>
+<u>description:</u>apply operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> true if no error occurs 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>AbstractArchitectureOperation</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : AbstractArchitectureOperation</DIV></H1>
+
+<H3>~AbstractArchitectureOperation :</H3>
+<u>prototype:</u>     <i>virtual</i> ~AbstractArchitectureOperation  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AbstractArchitectureOperation.html">AbstractArchitectureOperation</A>* Clone  ()<BR><BR>
+<u>description:</u>clone operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to cloned operation 
+<BR>
+<BR><BR><BR><H3>ApplyOperation :</H3>
+<u>prototype:</u>     <i>virtual</i> bool ApplyOperation  ()<BR><BR>
+<u>description:</u>apply operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> true if no error occurs 
+<BR>
+<BR><BR><BR><H3>GetOperationType :</H3>
+<u>prototype:</u>     int GetOperationType  ()<BR><BR>
+<u>description:</u>get operation type 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> code corresponding to the operation 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

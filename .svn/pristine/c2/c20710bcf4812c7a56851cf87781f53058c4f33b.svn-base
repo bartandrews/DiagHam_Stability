@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>AbstractDMRGAlgorithm</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : AbstractDMRGAlgorithm</DIV></H1>
+
+<H3>~AbstractDMRGAlgorithm :</H3>
+<u>prototype:</u>     <i>virtual</i> ~AbstractDMRGAlgorithm  ()<BR><BR>
+<u>description:</u>virtual destructor 
+<BR>
+<BR><BR><BR><H3>Constraint :</H3>
+<u>prototype:</u>     <i>virtual</i> void Constraint  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* quantumNumber )<BR><BR>
+<u>description:</u>force constraint on global quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>quantumNumber = pointer to the global quantum number to use 
+<BR>
+<BR><BR><BR><H3>RunDMRG :</H3>
+<u>prototype:</u>     <i>virtual</i> void RunDMRG  (int currentBlockIndex = 0 )<BR><BR>
+<u>description:</u>run DMRG algorithm 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

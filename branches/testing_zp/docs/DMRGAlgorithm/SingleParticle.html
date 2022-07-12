@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>SingleParticle</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : SingleParticle</DIV></H1>
+
+<H3>SingleParticle :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/DMRGAlgorithm/SingleParticle.html">SingleParticle</A>  (int minStep int maxStep )<BR><BR>
+<u>description:</u>default constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>minStep = minimum step number  
+<BR>maxStep = maximum step number 
+<BR>
+<BR><BR><BR><H3>~SingleParticle :</H3>
+<u>prototype:</u>     ~SingleParticle  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>InfiniteDMRGNewHamiltonian :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& InfiniteDMRGNewHamiltonian  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& H <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> HL <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& Q double hL double hR 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> v )<BR><BR>
+<u>description:</u>create new superblock Hamiltonian for infinite DMRG algorithm next step 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>H = reference on matrix where superblock Hamiltonian has to be stored 
+<BR>HL = reference on hamiltonian coming from previous iteration 
+<BR>Q =  reference on projection matrix coming from previous iteration 
+<BR>hL = diagonal element corresponding to the new left-inserted site 
+<BR>hR = diagonal element corresponding to the new right-inserted site 
+<BR>v = coupling constant between the two inserted sites 
+<BR><BR><BR>
+<u>return value:</u> reference on new superblock Hamiltonian 
+<BR>
+<BR><BR><BR><H3>StoreHamiltonian :</H3>
+<u>prototype:</u>     void StoreHamiltonian  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& H int nbrStep )<BR><BR>
+<u>description:</u>Store a Hamiltonian to be used during finite size DMRG step 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>H = Hamiltonian to store 
+<BR>nbrStep = step number corresponding to the Hamiltonian 
+<BR>
+<BR><BR><BR><H3>StoreInteraction :</H3>
+<u>prototype:</u>     void StoreInteraction  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& Q int nbrStep )<BR><BR>
+<u>description:</u>Store a interaction between a site and a block to be used during finite size DMRG step 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = Matrix from which interaction has to be extract 
+<BR>nbrStep = step number corresponding to the interaction 
+<BR>
+<BR><BR><BR><H3>FiniteDMRGNewHamiltonian :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& FiniteDMRGNewHamiltonian  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& H int leftBlockSize int rightBlockSize double hL double hR 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> v )<BR><BR>
+<u>description:</u>create new superblock Hamiltonian for finite DMRG algorithm next step 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>H = reference on matrix where superblock Hamiltonian has to be stored 
+<BR>leftBlockSize = left block size 
+<BR>rightBlockSize = right block size 
+<BR>hL = diagonal element corresponding to the new left-inserted site 
+<BR>hR = diagonal element corresponding to the new right-inserted site 
+<BR>v = coupling constant between the two inserted sites 
+<BR><BR><BR>
+<u>return value:</u> reference on new superblock Hamiltonian 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

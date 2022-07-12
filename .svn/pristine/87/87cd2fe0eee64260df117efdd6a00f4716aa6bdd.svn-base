@@ -1,0 +1,28 @@
+# Definition of a square lattice with the minimal unit cell of 1 sites
+#
+Descriptor = dice_doubled_A_-0.05
+NbrSites = 6
+Dimension = 2
+PeriodicRepeat = 3,2
+LatticeVector0 = 1.73205080756888,0
+LatticeVector1 = 0,3
+SubLatticeVector0 = 0,0
+SubLatticeVector1 = 0,1
+SubLatticeVector2 = 0,2
+SubLatticeVector3 = 0.866025403784439,0.5
+SubLatticeVector4 = 0.866025403784439,1.5
+SubLatticeVector5 = 0.866025403784439,2.5
+NeighborsInCell = 0,1 | 1,2 | 1,3 | 1,4 | 2,5 | 4,5
+NeighborCells = 0,1 | 1,0 | 0,-1 | -1,0 | 1,1 | -1,-1
+NeighborsAcrossBoundary0_1 = 5,0 | 5,3
+NeighborsAcrossBoundary0_-1 = 0,5 | 3,5
+NeighborsAcrossBoundary1_1 = 5,0
+NeighborsAcrossBoundary-1_-1 = 0,5
+NeighborsAcrossBoundary1_0 = 3,1 | 4,1 | 5,2
+NeighborsAcrossBoundary-1_0 = 1,3 | 1,4 | 2,5
+# prefactors of vector potential A= (A_xx x + Ayx y ) e_x + (A_xy x + Ayy y ) e_y
+UseGauge = yes
+GaugeAyx = 1.15470053837925
+#optional values:
+#RandomPotentials = strength
+LocalPotentials = 1,-0.05 | 11,-0.05 | 19,-0.05 | 29,-0.05

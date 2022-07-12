@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>DMRGBlock</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : DMRGBlock</DIV></H1>
+
+<H3>DMRGBlock :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/DMRGAlgorithm/DMRGBlock.html">DMRGBlock</A>  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Hamiltonian/ExplicitHamiltonian.html">ExplicitHamiltonian</A>* hamiltonian int iterationID )<BR><BR>
+<u>description:</u>constructor from datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>hamiltonian = Hamiltonian associated to the block 
+<BR>iterationID = identfifcator of iteration associated to the block 
+<BR>
+<BR><BR><BR><H3>~DMRGBlock :</H3>
+<u>prototype:</u>     ~DMRGBlock  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

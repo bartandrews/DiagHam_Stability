@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <title>AbstractTensorProductStructure</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : AbstractTensorProductStructure</DIV></H1>
+
+<H3>~AbstractTensorProductStructure :</H3>
+<u>prototype:</u>     <i>virtual</i> ~AbstractTensorProductStructure  ()<BR><BR>
+<u>description:</u>virtual destructor 
+<BR>
+<BR><BR><BR><H3>GetTensorProductStructureType :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetTensorProductStructureType  ()<BR><BR>
+<u>description:</u>get tensor product structure type 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> tensor product structure type 
+<BR>
+<BR><BR><BR><H3>GetDimension :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetDimension  (int space )<BR><BR>
+<u>description:</u>return dimension of a given space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = space index 
+<BR><BR><BR>
+<u>return value:</u> space dimension 
+<BR>
+<BR><BR><BR><H3>GetTotalDimension :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetTotalDimension  ()<BR><BR>
+<u>description:</u>return total space dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> dimension 
+<BR>
+<BR><BR><BR><H3>GetNbrSpace :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrSpace  ()<BR><BR>
+<u>description:</u>return number of spaces 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> number of spaces 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>& structure1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>& structure2 )<BR><BR>
+<u>description:</u>return tensor product structure of a space obtained by tensor product of two tensor spaces 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure1 = first structure 
+<BR>structure2 = second structure 
+<BR><BR><BR>
+<u>return value:</u> structure corresponding to the new tensor space 
+<BR>
+<BR><BR><BR><H3>operator == :</H3>
+<u>prototype:</u>     <i>friend</i> bool operator ==  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>& structure1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>& structure2 )<BR><BR>
+<u>description:</u>test if two tensor product structures are equivalent 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure1 = first structure 
+<BR>structure2 = second structure 
+<BR><BR><BR>
+<u>return value:</u> true if structures are equivalent 
+<BR>
+<BR><BR><BR><H3>operator != :</H3>
+<u>prototype:</u>     <i>friend</i> bool operator !=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>& structure1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>& structure2 )<BR><BR>
+<u>description:</u>test if two tensor product structures are different 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure1 = first structure 
+<BR>structure2 = second structure 
+<BR><BR><BR>
+<u>return value:</u> true if structures are different 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>& structure )<BR><BR>
+<u>description:</u>print information on current tensor product structure 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>str = output stream 
+<BR>structure = structure to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

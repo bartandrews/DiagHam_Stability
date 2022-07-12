@@ -1,0 +1,82 @@
+<?xml version="1.0"  encoding="ISO-8859-1"?>
+<chapter name="How to install DiagHam">
+
+
+<section name="basic installation">
+
+    The installation procedure is quite standard. DiagHam has been tested on <a href="architectures.html">different architectures with different OSes</a>. AIX users please refer to this <a href="aixnote.html">specific installation procedure</a>.<br>
+    <p>
+      
+      First download the latest version <a href="../download/index.html">here</a>. Unpack the tarball package as usual:
+    <ul>
+      <li><i>gunzip DiagHamxxxxxxxx.tgz</i></li>
+      <li><i>tar -xvf DiagHamxxxxxxxx.tar</i></li>
+    </ul>
+    or<br>
+    <i>tar -xzvf DiagHamxxxxxxxx.tar</i> (if supported by your <b>tar</b> version)
+      DiagHam uses the standard autotools. Its default configuration only includes the basic libraries. In principle, you are in interested in at least, one package related to a given type of physicl problems. See section \ref{additionalpackages} for a complete list of available packages. As an example, we will assume you want to compile the package related to the fractional quantum Hall effect. Go into the DiagHam directory and run the configure file<br>
+    <i>./configure --enable-fqhe</i><br>
+    If no error happened, you can now compile the whole program with<br>
+    <i>make</i> (use the -jx with x equal to the number of processors on your computers if x>1)<br>
+    <p>
+    The compilation process is quite long, you can go and drink a coffee. Now you are back from the coffee machine, the compilation shall be over. If you go in the subdirectories of <i>FQHE/src/Program</i> and you shall find all the examples described in <a href="../documentation/index.html">the documentation</a> (and more).<br>
+    <p>
+      If you have encountered any problem during the installation stage, please first refer to the \ref{faqs}. If you didn't find any useful answer there, you can send a \ref{bug report}.
+
+</section>
+
+<section name="available packages">
+
+In addition to its libraries to define physical systems and diagonalize Hamiltonian, DiagHam has already three built-in packages that address different types of physical systems.
+
+<subsection name="fractional quantum Hall effect">
+</subsection>
+
+<subsection name="quantum dots">
+</subsection>
+
+<subsection name="spin systems">
+</subsection>
+
+</section>
+
+<section name="advanced intallation option">
+
+DiagHam offers the possibility to enable/disable some advanced functionalities or even some classes of physical problems. This kind of tuning can be done using the \program{configure} options. You can get a quick overview of all available options using \command{./configure -h}
+
+<subsection name="MPI support">
+DiagHam supports distributed computing using MPI. This option is disable by default. To enable the MPI support, use the \longoption{enble-mpi}. There is also other options to specify some particularities of your MPI local installation
+\begin{itemize}
+\item \commandoption{--with-mpi-cxx} : forces the name of the MPI C++ compiler to use (the default value is mpiCC).
+\item \commandoption{--with-mpi-libs="LIBS"} indicates the option related to thq MPI libraries that have to be used when compiling (the default value is "-lmpi").
+\item \commandoption{--with-mpi-incdir=DIR} forces the MPI include directory (the default value is [MPIROOT/include])
+\item \commandoption{--with-mpi-libdir=DIR} forces the MPI library directory (the default value is [MPIROOT/lib])
+\end{itemize}
+
+</subsection>
+ 
+<subsection name="LAPACK support">
+
+DiagHam can rely on the LAPACK libraries to do some linear algebra operations. In general; LAPACK functions are faster than their build-in DiagHam counterpart and are pehaps also more robust. LAPACK support is disable by default and can be enabled using the \longoption{enable-lapack} option. There is also some specific options in order to indicate some particularities of your LAPACK local installation.
+
+\begin{itemize}
+\end{itemize}
+
+</subsection>
+ 
+<subsection name="disable packages">
+
+By default; all supported classes of physical problems are compiled. The compilation can thus be quite long. If you are only interested in a particular class of problems, you can disable all the other. Here is the list of possible options to do so :
+
+\begin{itemize}
+\end{itemize}
+
+
+</subsection>
+ 
+</section>
+
+<section name="AIX special procedure">
+</section>
+
+</chapter>

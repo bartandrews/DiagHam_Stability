@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>AbstractInteraction</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : AbstractInteraction</DIV></H1>
+
+<H3>~AbstractInteraction :</H3>
+<u>prototype:</u>     <i>virtual</i> ~AbstractInteraction  ()<BR><BR>
+<u>description:</u>virtual destructor 
+<BR>
+<BR><BR><BR><H3>Interaction :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Tensor/TwoSpaceTensor.html">TwoSpaceTensor</A> Interaction  (List<Matrix*>& firstSystemOperators 
+  List<Matrix*>& secondSystemOperators )<BR><BR>
+<u>description:</u>evaluate interaction between two systems from operators of each system 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>firstSystemOperators = list of operators associated to the first system 
+<BR>secondSystemOperators = list of operators associated to the second system 
+<BR><BR><BR>
+<u>return value:</u> tensor corresponding to the interaction 
+<BR>
+<BR><BR><BR><H3>Interaction :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Tensor/TwoSpaceTensor.html">TwoSpaceTensor</A> Interaction  (List<Matrix*>& firstSystemOperators 
+  List<Matrix*>& secondSystemOperators 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>& firstSpaceDecomposition 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>& secondSpaceDecomposition )<BR><BR>
+<u>description:</u>evaluate interaction between two systems from operators of each system with a given 
+<BR>space decomposition for each space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>firstSystemOperators = list of operators associated to the first system 
+<BR>secondSystemOperators = list of operators associated to the second system 
+<BR>firstSpaceDecomposition = space decomposition of the space associated to the first system 
+<BR>secondSpaceDecomposition = space decomposition of the space associated to the second system 
+<BR><BR><BR>
+<u>return value:</u> tensor corresponding to the interaction 
+<BR>
+<BR><BR><BR><H3>SetLeftSpaceIndex :</H3>
+<u>prototype:</u>     <i>virtual</i> void SetLeftSpaceIndex  (int index )<BR><BR>
+<u>description:</u>set index of space where left interaction acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = space index 
+<BR>
+<BR><BR><BR><H3>SetRightSpaceIndex :</H3>
+<u>prototype:</u>     <i>virtual</i> void SetRightSpaceIndex  (int index )<BR><BR>
+<u>description:</u>set index of space where right interaction acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = space index 
+<BR>
+<BR><BR><BR><H3>SetTensorProductStructure :</H3>
+<u>prototype:</u>     <i>virtual</i> void SetTensorProductStructure  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* structure )<BR><BR>
+<u>description:</u>set structure of tensor space where interactions act 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure = tensor space structure 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

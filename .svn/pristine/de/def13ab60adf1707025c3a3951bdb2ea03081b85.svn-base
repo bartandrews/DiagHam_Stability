@@ -1,0 +1,5 @@
+SUBDIRS=
+ 
+noinst_LIBRARIES=libClusterArchitecture.a
+ 
+libClusterArchitecture_a_SOURCES=AbstractClusterArchitecture.cc

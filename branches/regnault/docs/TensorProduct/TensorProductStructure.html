@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <title>TensorProductStructure</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : TensorProductStructure</DIV></H1>
+
+<H3>TensorProductStructure :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>TensorProductStructure :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>  (int nbrSpace )<BR><BR>
+<u>description:</u>constructor from number of spaces 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrSpace = number of spaces 
+<BR>
+<BR><BR><BR><H3>TensorProductStructure :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure = reference on structure to copy 
+<BR>
+<BR><BR><BR><H3>~TensorProductStructure :</H3>
+<u>prototype:</u>     ~TensorProductStructure  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure )<BR><BR>
+<u>description:</u>assignement 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure = reference on structure to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on current structure 
+<BR>
+<BR><BR><BR><H3>GetDimension :</H3>
+<u>prototype:</u>     int GetDimension  (int space )<BR><BR>
+<u>description:</u>return dimension of a given space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = space index 
+<BR><BR><BR>
+<u>return value:</u> space dimension 
+<BR>
+<BR><BR><BR><H3>SetDimension :</H3>
+<u>prototype:</u>     void SetDimension  (int space int dimension )<BR><BR>
+<u>description:</u>set dimension of a given space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = space index 
+<BR>dimension = new dimension 
+<BR>
+<BR><BR><BR><H3>GetIncrement :</H3>
+<u>prototype:</u>     int GetIncrement  (int space )<BR><BR>
+<u>description:</u>return increment to go to the following component for a given space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = space index 
+<BR><BR><BR>
+<u>return value:</u> increment 
+<BR>
+<BR><BR><BR><H3>GetTotalDimension :</H3>
+<u>prototype:</u>     int GetTotalDimension  ()<BR><BR>
+<u>description:</u>return total space dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> dimension 
+<BR>
+<BR><BR><BR><H3>GetNbrSpace :</H3>
+<u>prototype:</u>     int GetNbrSpace  ()<BR><BR>
+<u>description:</u>return number of spaces 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> number of spaces 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure2 )<BR><BR>
+<u>description:</u>return tensor product structure of a space obtained by tensor product of two tensor spaces 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure1 = first structure 
+<BR>structure2 = second structure 
+<BR><BR><BR>
+<u>return value:</u> structure corresponding to the new tensor space 
+<BR>
+<BR><BR><BR><H3>operator == :</H3>
+<u>prototype:</u>     <i>friend</i> bool operator ==  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure2 )<BR><BR>
+<u>description:</u>test if two tensor product structures are equivalent 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure1 = first structure 
+<BR>structure2 = second structure 
+<BR><BR><BR>
+<u>return value:</u> true if structures are equivalent 
+<BR>
+<BR><BR><BR><H3>operator != :</H3>
+<u>prototype:</u>     <i>friend</i> bool operator !=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure2 )<BR><BR>
+<u>description:</u>test if two tensor product structures are different 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure1 = first structure 
+<BR>structure2 = second structure 
+<BR><BR><BR>
+<u>return value:</u> true if structures are different 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure )<BR><BR>
+<u>description:</u>print information on current tensor product structure 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>str = output stream 
+<BR>structure = structure to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

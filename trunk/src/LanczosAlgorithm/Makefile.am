@@ -1,0 +1,40 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libLanczosAlgorithm.a
+
+libLanczosAlgorithm_a_SOURCES=AbstractLanczosAlgorithm.cc \
+BasicLanczosAlgorithm.cc \
+ComplexBasicLanczosAlgorithm.cc \
+ComplexBasicLanczosAlgorithmWithEigenstates.cc \
+ComplexBasicLanczosAlgorithmWithGroundState.cc \
+ComplexBasicLanczosAlgorithmWithDiskStorage.cc \
+BasicLanczosAlgorithmWithGroundState.cc \
+BasicLanczosAlgorithmWithEigenstates.cc \
+BasicLanczosAlgorithmWithDiskStorage.cc \
+FullReorthogonalizedLanczosAlgorithm.cc \
+FullReorthogonalizedComplexLanczosAlgorithm.cc \
+FullReorthogonalizedLanczosAlgorithmWithDiskStorage.cc \
+FullReorthogonalizedComplexLanczosAlgorithmWithDiskStorage.cc \
+FullReorthogonalizedBlockLanczosAlgorithm.cc \
+ImplicitRestartedArnoldiWithReorthogonalizationAlgorithm.cc \
+BasicLanczosAlgorithmWithGroundStateDiskStorage.cc \
+ComplexBasicLanczosAlgorithmWithGroundStateFastDisk.cc \
+BasicBlockLanczosAlgorithm.cc \
+InternalReorthogonalizedLanczosAlgorithm.cc \
+ProjectedLanczosAlgorithmWithGroundState.cc \
+ProjectedReorthogonalizedLanczosAlgorithmDiskStorage.cc \
+ComplexBasicBlockLanczosAlgorithm.cc \
+FullReorthogonalizedComplexBlockLanczosAlgorithm.cc \
+BasicArnoldiAlgorithm.cc \
+BasicBlockArnoldiAlgorithm.cc \
+BasicComplexArnoldiAlgorithm.cc \
+BasicArnoldiAlgorithmWithDiskStorage.cc \
+PowerMethodAlgorithm.cc \
+ImplicitlyRestartedArnoldiAlgorithm.cc \
+FullReorthogonalizedComplexBlockLanczosAlgorithmWithDiskStorage.cc \
+ComplexBasicLanczosAlgorithmWithGroundStateAndProjectorFastDisk.cc \
+ComplexBasicLanczosAlgorithmWithProjector.cc \
+ComplexBasicLanczosAlgorithmWithGroundStateAndProjector.cc \
+LanczosManager.cc \
+ComplexArnoldiCPMapsAlgorithm.cc
+#ComplexBasicLanczosAlgorithmDiskWithGroundState.cc

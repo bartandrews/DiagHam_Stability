@@ -1,0 +1,1 @@
+SUBDIRS=Architecture HilbertSpace Hamiltonian Operator Programs

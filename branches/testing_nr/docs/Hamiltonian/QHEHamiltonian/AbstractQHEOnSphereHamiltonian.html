@@ -1,0 +1,192 @@
+<html>
+  <head>
+    <title>AbstractQHEOnSphereHamiltonian</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : AbstractQHEOnSphereHamiltonian</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/QHEHamiltonian/AbstractQHEHamiltonian.html">AbstractQHEHamiltonian</A></DIV><BR>
+<H3>~AbstractQHEOnSphereHamiltonian :</H3>
+<u>prototype:</u>     <i>virtual</i> ~AbstractQHEOnSphereHamiltonian  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>SetHilbertSpace :</H3>
+<u>prototype:</u>     <i>virtual</i> void SetHilbertSpace  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* hilbertSpace )<BR><BR>
+<u>description:</u>set Hilbert space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>hilbertSpace = pointer to Hilbert space to use 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpace :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* GetHilbertSpace  ()<BR><BR>
+<u>description:</u>get Hilbert space on which Hamiltonian acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to used Hilbert space 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpaceDimension :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetHilbertSpaceDimension  ()<BR><BR>
+<u>description:</u>return dimension of Hilbert space where Hamiltonian acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix elementdimension 
+<BR>
+<BR><BR><BR><H3>ShiftHamiltonian :</H3>
+<u>prototype:</u>     <i>virtual</i> void ShiftHamiltonian  (double shift )<BR><BR>
+<u>description:</u>shift Hamiltonian from a given energy 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>shift = shift value 
+<BR>
+<BR><BR><BR><H3>MatrixElement :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A> MatrixElement  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& V2 )<BR><BR>
+<u>description:</u>evaluate matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to left multiply with current matrix 
+<BR>V2 = vector to right multiply with current matrix 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix element 
+<BR>
+<BR><BR><BR><H3>MatrixElement :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A> MatrixElement  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>evaluate matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to left multiply with current matrix 
+<BR>V2 = vector to right multiply with current matrix 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix element 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian and store result in another vector 
+<BR>low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , 
+  int , int nbrComponent )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of idinces  
+<BR>and store result in another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on vector where result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelAddMultiply :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& LowLevelAddMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and add result to another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector at which result has to be added 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelAddMultiply :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& LowLevelAddMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , 
+  int , int nbrComponent )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and add result to another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector at which result has to be added 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on vector where result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian and store result in another vector 
+<BR>low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , 
+  int , int nbrComponent )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and store result in another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on vector where result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelAddMultiply :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelAddMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and add result to another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector at which result has to be added 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelAddMultiply :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelAddMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , 
+  int , int nbrComponent )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and add result to another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector at which result has to be added 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on vector where result has been stored 
+<BR>
+<BR><BR><BR><H3>LeftInteractionOperators :</H3>
+<u>prototype:</u>     <i>virtual</i> List<Matrix*> LeftInteractionOperators  ()<BR><BR>
+<u>description:</u>return a list of left interaction operators 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> list of left interaction operators 
+<BR>
+<BR><BR><BR><H3>RightInteractionOperators :</H3>
+<u>prototype:</u>     <i>virtual</i> List<Matrix*> RightInteractionOperators  ()<BR><BR>
+<u>description:</u>return a list of right interaction operators  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> list of right interaction operators 
+<BR>
+<BR><BR><BR><H3>SavePrecalculation :</H3>
+<u>prototype:</u>     <i>virtual</i> bool SavePrecalculation  (char* fileName )<BR><BR>
+<u>description:</u>save precalculations in a file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = pointer to a string containg the name of the file where precalculations have to be stored 
+<BR><BR><BR>
+<u>return value:</u> true if no error occurs 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

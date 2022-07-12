@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <title>Fermions</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : Fermions</DIV></H1>
+
+<H3>Fermions :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/Fermions.html">Fermions</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>Fermions :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/Fermions.html">Fermions</A>  (int nbrSite int memorySize )<BR><BR>
+<u>description:</u>constructor for complete Hilbert space with no restriction on total spin projection Sz nor on 
+<BR>total number of fermions  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrSite = number of site 
+<BR>memorySize = memory size in bytes allowed for look-up table 
+<BR>
+<BR><BR><BR><H3>Fermions :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/Fermions.html">Fermions</A>  (int nbrSite int n int sz int memorySize )<BR><BR>
+<u>description:</u>constructor for complete Hilbert space corresponding to a given total spin projection Sz and a 
+<BR>given number of fermions 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrSite = number of site 
+<BR>n = number of fermions 
+<BR>sz = twice the value of total Sz component 
+<BR>memorySize = memory size in bytes allowed for look-up table 
+<BR>
+<BR><BR><BR><H3>constructor :</H3>
+<u>prototype:</u>    copy constructor  (without duplicating datas )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>Fermions :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/Fermions.html">Fermions</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/Fermions.html">Fermions</A>& fermions )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>fermions = reference on fermions to copy 
+<BR>
+<BR><BR><BR><H3>~Fermions :</H3>
+<u>prototype:</u>     ~Fermions  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>assignement :</H3>
+<u>prototype:</u>    assignement  (without duplicating datas )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/Fermions.html">Fermions</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/Fermions.html">Fermions</A>& fermions )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>fermions = reference on fermions to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current fermions 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpaceDimension :</H3>
+<u>prototype:</u>     int GetHilbertSpaceDimension  ()<BR><BR>
+<u>description:</u>return Hilbert space dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> Hilbert space dimension 
+<BR>
+<BR><BR><BR><H3>GetQuantumNumbers :</H3>
+<u>prototype:</u>     List<AbstractQuantumNumber*> GetQuantumNumbers  ()<BR><BR>
+<u>description:</u>return a list of all possible quantum numbers  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>
+<BR><BR><BR><H3>GetQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* GetQuantumNumber  (int index )<BR><BR>
+<u>description:</u>return quantum number associated to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state 
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>
+<BR><BR><BR><H3>on :</H3>
+<u>prototype:</u>    return value of spin projection on  (Oz )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> return value of spin projection on (Oz) for a given state 
+<BR>
+<BR><BR><BR><H3>on :</H3>
+<u>prototype:</u>    return value = spin projection on  (Oz )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state to test 
+<BR><BR><BR>
+<u>return value:</u> spin projection on (Oz) 
+<BR>
+<BR><BR><BR><H3>TotalSz :</H3>
+<u>prototype:</u>     int TotalSz  (int index )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state to test 
+<BR><BR><BR>
+<u>return value:</u> spin projection on (Oz) 
+<BR>
+<BR><BR><BR><H3>GetNumberParticle :</H3>
+<u>prototype:</u>     int GetNumberParticle  (int index )<BR><BR>
+<u>description:</u>get number of particles for a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state to test 
+<BR><BR><BR>
+<u>return value:</u> number of particles 
+<BR>
+<BR><BR><BR><H3>ExtractSubspace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* ExtractSubspace  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& q <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& converter )<BR><BR>
+<u>description:</u>extract subspace with a fixed quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>q = quantum number value 
+<BR>converter = reference on subspace-space converter to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to the new subspace 
+<BR>
+<BR><BR><BR><H3>FindStateIndex :</H3>
+<u>prototype:</u>     int FindStateIndex  (unsigned long state )<BR><BR>
+<u>description:</u>find state index 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = state description 
+<BR><BR><BR>
+<u>return value:</u> corresponding index 
+<BR>
+<BR><BR><BR><H3>PrintState :</H3>
+<u>prototype:</u>     ostream& PrintState  (ostream& Str int state )<BR><BR>
+<u>description:</u>print a given State 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>state = ID of the state to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

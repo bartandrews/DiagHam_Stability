@@ -1,0 +1,18 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libQHEOperator.a
+
+libQHEOperator_a_SOURCES=ParticleOnSphereDensityDensityOperator.cc \
+ParticleOnSphereWithSpinDensityDensityOperator.cc \
+ParticleOnSphereDensityOperator.cc \
+ParticleOnSphereNBodyOperator.cc \
+ParticleOnSphereSquareTotalMomentumOperator.cc \
+ParticleOnSphereLMinusOperator.cc \
+ParticleOnSphereSquareTotalSpinOperator.cc \
+ParticleOnSphereSquareTotalIsospinOperator.cc \
+ParticleOnSphereWithSU4DensityDensityOperator.cc \
+ParticleOnLatticeOneBodyOperator.cc \
+ParticleOnLatticeTranslationOperator.cc \
+ParticleOnLatticeDensityDensityOperator.cc \
+ParticleOnLatticeFluxOperator.cc \
+ParticleOnSphereWithSpinDensityOperator.cc

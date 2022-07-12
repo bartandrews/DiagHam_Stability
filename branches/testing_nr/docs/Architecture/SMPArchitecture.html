@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>SMPArchitecture</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : SMPArchitecture</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/AbstractArchitecture.html">AbstractArchitecture</A></DIV><BR>
+<H3>SMPArchitecture :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/SMPArchitecture.html">SMPArchitecture</A>  (int nbrProcesses )<BR><BR>
+<u>description:</u>constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrProcesses = number of processes to run simultaneously (in principle, the number of processors that can be allocated) 
+<BR>
+<BR><BR><BR><H3>~SMPArchitecture :</H3>
+<u>prototype:</u>     ~SMPArchitecture  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     void Multiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/AbstractHamiltonian.html">AbstractHamiltonian</A>* , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/Vector.html">Vector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by an hamiltonian and store the result in another vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>hamiltonian = pointer to the hamiltonian to use 
+<BR>vSource = vector to multiply  
+<BR>vDestination = vector where result has to be stored  
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/VectorHamiltonianMultiplyOperation.html">VectorHamiltonianMultiplyOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent vector hamiltonian multiplication operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ThreadMain :</H3>
+<u>prototype:</u>     <i>friend</i> void* ThreadMain  (void* param )<BR><BR>
+<u>description:</u>main function for thread 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>param = pointer to additional parameters, has to be cast into ThreadMainParameter pointer 
+<BR><BR><BR>
+<u>return value:</u> unused pointer (null) 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AddRealLinearCombinationOperation.html">AddRealLinearCombinationOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent add real linear combination operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AddComplexLinearCombinationOperation.html">AddComplexLinearCombinationOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent add complex linear combination operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/MultipleScalarProductOperation.html">MultipleRealScalarProductOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent multiple real scalar product operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/MultipleComplexScalarProductOperation.html">MultipleComplexScalarProductOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent multiple complex scalar product operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/MatrixMatrixMultiplyOperation.html">MatrixMatrixMultiplyOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent matrix matrix multiplication operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR><H3>ExecuteOperation :</H3>
+<u>prototype:</u>     bool ExecuteOperation  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AbstractPrecalculationOperation.html">AbstractPrecalculationOperation</A>* operation )<BR><BR>
+<u>description:</u>execute an architecture-dependent abstract hamiltonian precalculation operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = pointer to the operation to execute 
+<BR><BR><BR>
+<u>return value:</u> true if operation has been completed successfully 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

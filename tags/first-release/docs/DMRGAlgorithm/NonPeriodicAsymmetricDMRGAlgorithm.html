@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>NonPeriodicAsymmetricDMRGAlgorithm</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : NonPeriodicAsymmetricDMRGAlgorithm</DIV></H1>
+
+<H3>NonPeriodicAsymmetricDMRGAlgorithm :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/DMRGAlgorithm/NonPeriodicAsymmetricDMRGAlgorithm.html">NonPeriodicAsymmetricDMRGAlgorithm</A>  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Hamiltonian/AbstractHamiltonian.html">AbstractHamiltonian</A>* blockHamiltonian 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/Hamiltonian/AbstractHamiltonian.html">AbstractHamiltonian</A>* interactionBlockHamiltonian 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/Interaction/AbstractInteraction.html">AbstractInteraction</A>* leftInteraction 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/Interaction/AbstractInteraction.html">AbstractInteraction</A>* rightInteraction 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/Interaction/AbstractInteraction.html">AbstractInteraction</A>* rightLeftInteraction 
+  <A HREF="/home/regnault/development/DMRG/AKLT/docs/LanczosAlgorithm/AbstractLanczosAlgorithm.html">AbstractLanczosAlgorithm</A>* lanczosAlgorithm 
+  int hilbertSpaceSize )<BR><BR>
+<u>description:</u>constructor from datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>blockHamiltonian = Hamiltonian associated to left and right blocks 
+<BR>interactionBlockHamiltonian = Hamiltonian associated to interaction blocks  
+<BR>leftInteraction = interaction between left block and left interaction block 
+<BR>rightInteraction = interaction between right block and right interaction block 
+<BR>rightLeftInteraction = interaction between right interaction block and left interaction block 
+<BR>lanczosAlgorithm = Lanczos algorithm to use 
+<BR>hilbertSpaceSize = number of states kept for a block 
+<BR>
+<BR><BR><BR><H3>~NonPeriodicAsymmetricDMRGAlgorithm :</H3>
+<u>prototype:</u>     ~NonPeriodicAsymmetricDMRGAlgorithm  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>Constraint :</H3>
+<u>prototype:</u>     void Constraint  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* quantumNumber )<BR><BR>
+<u>description:</u>force constraint on global quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>quantumNumber = pointer to the global quantum number to use 
+<BR>
+<BR><BR><BR><H3>RunDMRG :</H3>
+<u>prototype:</u>     void RunDMRG  (int currentBlockIndex = 0 )<BR><BR>
+<u>description:</u>run DMRG algorithm 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>currentBlockIndex =  
+<BR>
+<BR><BR><BR><H3>GetGroundStateEnergy :</H3>
+<u>prototype:</u>     double GetGroundStateEnergy  ()<BR><BR>
+<u>description:</u>get ground state energy of the last iteration 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> ground state energy   
+<BR>
+<BR><BR><BR><H3>GetTruncationError :</H3>
+<u>prototype:</u>     double GetTruncationError  ()<BR><BR>
+<u>description:</u>get truncation error from the last iteration 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> truncation error 
+<BR>
+<BR><BR><BR><H3>GetNbrLanczosIteration :</H3>
+<u>prototype:</u>     int GetNbrLanczosIteration  ()<BR><BR>
+<u>description:</u>get number of Lanczos iterations needed during the last iteration 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> number of Lanczos iterations 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

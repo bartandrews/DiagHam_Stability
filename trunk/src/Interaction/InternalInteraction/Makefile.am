@@ -1,0 +1,6 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libInternalInteraction.a
+
+libInternalInteraction_a_SOURCES=AbstractInternalInteraction.cc \
+ParticleOnTorusCoulombInternalInteraction.cc

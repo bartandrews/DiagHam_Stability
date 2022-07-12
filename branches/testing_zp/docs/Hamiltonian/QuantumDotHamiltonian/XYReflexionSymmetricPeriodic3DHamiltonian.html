@@ -1,0 +1,189 @@
+<html>
+  <head>
+    <title>XYReflexionSymmetricPeriodic3DHamiltonian</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : XYReflexionSymmetricPeriodic3DHamiltonian</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/AbstractHamiltonian.html">AbstractHamiltonian</A></DIV><BR>
+<H3>XYReflexionSymmetricPeriodic3DHamiltonian :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/QuantumDotHamiltonian/XYReflexionSymmetricPeriodic3DHamiltonian.html">XYReflexionSymmetricPeriodic3DHamiltonian</A>  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/XYReflexionSymmetricPeriodic3DOneParticle.html">XYReflexionSymmetricPeriodic3DOneParticle</A>* , bool , bool , double , double , double , double , double , double , int , int , int , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Potential/ThreeDConstantCellPotential.html">ThreeDConstantCellPotential</A>* PotentialInput )<BR><BR>
+<u>description:</u>constructor from data 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = Hilbert space 
+<BR>pairX = whether basis is pair in X direction, if not impair 
+<BR>pairY = whether basis is pair in Y direction, if not impair 
+<BR>xSize = the sample length in X direction 
+<BR>ySize = the sample length in Y direction 
+<BR>zSize = the sample length in Z direction 
+<BR>mux = effective mass in X direction 
+<BR>muy = effective mass in Y direction 
+<BR>muz = effective mass in Z direction 
+<BR>nbrCellX = number of steps in X direction 
+<BR>nbrCellY = number of steps in Y direction 
+<BR>nbrCellZ = number of steps in Z direction 
+<BR>PotentielInput = pointer to a 3D potential with constant value in a cell 
+<BR>
+<BR><BR><BR><H3>XYReflexionSymmetricPeriodic3DHamiltonian :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/QuantumDotHamiltonian/XYReflexionSymmetricPeriodic3DHamiltonian.html">XYReflexionSymmetricPeriodic3DHamiltonian</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/QuantumDotHamiltonian/XYReflexionSymmetricPeriodic3DHamiltonian.html">XYReflexionSymmetricPeriodic3DHamiltonian</A>& hamiltonian )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>hamiltonian = reference on hamiltonian to copy   
+<BR>
+<BR><BR><BR><H3>~XYReflexionSymmetricPeriodic3DHamiltonian :</H3>
+<u>prototype:</u>     ~XYReflexionSymmetricPeriodic3DHamiltonian  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>XYReflexionSymmetricPeriodic3DHamiltonian::Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/AbstractHamiltonian.html">AbstractHamiltonian</A>* XYReflexionSymmetricPeriodic3DHamiltonian::Clone  ()<BR><BR>
+<u>description:</u>clone hamiltonian without duplicating datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to cloned hamiltonian 
+<BR>
+<BR><BR><BR><H3>SetHilbertSpace :</H3>
+<u>prototype:</u>     void SetHilbertSpace  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* hilbertSpace )<BR><BR>
+<u>description:</u>set Hilbert space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>hilbertSpace = pointer to Hilbert space to use 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* GetHilbertSpace  ()<BR><BR>
+<u>description:</u>get Hilbert space on which Hamiltonian acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to used Hilbert space 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpaceDimension :</H3>
+<u>prototype:</u>     int GetHilbertSpaceDimension  ()<BR><BR>
+<u>description:</u>return dimension of Hilbert space where Hamiltonian acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix elementdimension 
+<BR>
+<BR><BR><BR><H3>ShiftHamiltonian :</H3>
+<u>prototype:</u>     void ShiftHamiltonian  (double shift )<BR><BR>
+<u>description:</u>shift Hamiltonian from a given energy 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>shift = shift value 
+<BR>
+<BR><BR><BR><H3>MatrixElement :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A> MatrixElement  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& V2 )<BR><BR>
+<u>description:</u>evaluate matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to left multiply with current matrix 
+<BR>V2 = vector to right multiply with current matrix 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix element 
+<BR>
+<BR><BR><BR><H3>MatrixElement :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A> MatrixElement  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>evaluate matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to left multiply with current matrix 
+<BR>V2 = vector to right multiply with current matrix 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix element 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian and store result in another vector 
+<BR>low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& ,  int , int nbrComponent )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of idinces  
+<BR>and store result in another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on vector where result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelAddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelAddMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and add result to another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector at which result has to be added 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelAddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelAddMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , int , int nbrComponent )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and add result to another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector at which result has to be added 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on vector where result has been stored 
+<BR>
+<BR><BR><BR><H3>EvaluateInteractionFactors :</H3>
+<u>prototype:</u>     void EvaluateInteractionFactors  (bool , bool pairY )<BR><BR>
+<u>description:</u>evaluate all interaction factors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>pairX = whether basis is pair in X direction, if not impair 
+<BR>pairY = whether basis is pair in Y direction, if not impair 
+<BR>
+<BR><BR><BR><H3>EvaluateSinusWaveFunctionOverlap :</H3>
+<u>prototype:</u>     double*** EvaluateSinusWaveFunctionOverlap  (double , int , int nbrState )<BR><BR>
+<u>description:</u>evaluate sinus wave function overlaps on a cell in a given direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>size = system length in the choosen direction 
+<BR>nbrStep = number of subdivision in the choosen direction 
+<BR>nbrState = number of state in the choosen direction 
+<BR><BR><BR>
+<u>return value:</u> tridimensionnal array containg all matrix elements for all cells (first two indices using symmetric storage) 
+<BR>
+<BR><BR><BR><H3>EvaluateCosinusWaveFunctionOverlap :</H3>
+<u>prototype:</u>     double*** EvaluateCosinusWaveFunctionOverlap  (double , int , int nbrState )<BR><BR>
+<u>description:</u>evaluate cosinus wave function overlaps on a cell in a given direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>size = system length in the choosen direction 
+<BR>nbrStep = number of subdivision in the choosen direction 
+<BR>nbrState = number of state in the choosen direction 
+<BR><BR><BR>
+<u>return value:</u> tridimensionnal array containg all matrix elements for all cells (first two indices using symmetric storage) 
+<BR>
+<BR><BR><BR><H3>EvaluatePlaneWaveFunctionOverlap :</H3>
+<u>prototype:</u>     bool EvaluatePlaneWaveFunctionOverlap  (int , int , double** , double** &imaginaryArray )<BR><BR>
+<u>description:</u>evaluate the plane wave function overlap 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrStep = number of steps in the given direction 
+<BR>nbrState = number of states chosen for this direction 
+<BR>realArray = 2D array containing the real elements of the overlap 
+<BR>imaginaryArray = 2D array containing the imaginary elements of the overlap 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

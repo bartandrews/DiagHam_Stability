@@ -1,0 +1,15 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libQuantumDotHamiltonian.a
+
+libQuantumDotHamiltonian_a_SOURCES=Periodic1DHamiltonian.cc \
+QuantumDots3DHamiltonian.cc \
+PeriodicQuantumDots3DHamiltonian.cc \
+XYReflexionSymmetricPeriodic3DHamiltonian.cc \
+ReflexionSymmetricPeriodic3DHamiltonian.cc \
+PeriodicQuantumDots3DHamiltonianInMagneticField.cc \
+CylindricalHamiltonianInMagneticField.cc \
+CylindricalQuantumDots3DHamiltonian.cc \
+PeriodicElectronHole3DHamiltonian.cc \
+QuantumWellHamiltonianInMagneticField.cc \
+QuantumWellHamiltonianInMagneticField1Level.cc

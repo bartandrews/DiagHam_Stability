@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <title>ThierryChain</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : ThierryChain</DIV></H1>
+
+<H3>ThierryChain :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/ThierryChain.html">ThierryChain</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>ThierryChain :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/ThierryChain.html">ThierryChain</A>  (int spin2ChainLength int spin3_2ChainLength int sz int memorySize )<BR><BR>
+<u>description:</u>constructor for complete Hilbert space with no restriction on total spin projection Sz 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>spin2ChainLength = number of spin 2 
+<BR>spin3_2ChainLength = number of spin 3/2 
+<BR>sz = twice the value of total Sz component 
+<BR>memorySize = memory size in bytes allowed for look-up table 
+<BR>
+<BR><BR><BR><H3>constructor :</H3>
+<u>prototype:</u>    copy constructor  (without duplicating datas )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>ThierryChain :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/ThierryChain.html">ThierryChain</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/ThierryChain.html">ThierryChain</A>& chain )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>chain = reference on chain to copy 
+<BR>
+<BR><BR><BR><H3>~ThierryChain :</H3>
+<u>prototype:</u>     ~ThierryChain  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>assignement :</H3>
+<u>prototype:</u>    assignement  (without duplicating datas )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/ThierryChain.html">ThierryChain</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/ThierryChain.html">ThierryChain</A>& chain )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>chain = reference on chain to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current chain 
+<BR>
+<BR><BR><BR><H3>Reinitialize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/ThierryChain.html">ThierryChain</A>& Reinitialize  (int sz )<BR><BR>
+<u>description:</u>re-initialize chain with another total Sz component 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>sz = twice the value of total Sz component 
+<BR><BR><BR>
+<u>return value:</u> reference on current chain   
+<BR>
+<BR><BR><BR><H3>GetHilbertSpaceDimension :</H3>
+<u>prototype:</u>     int GetHilbertSpaceDimension  ()<BR><BR>
+<u>description:</u>return Hilbert space dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> Hilbert space dimension 
+<BR>
+<BR><BR><BR><H3>SmiSpj :</H3>
+<u>prototype:</u>     int SmiSpj  (int i int j int state double* coefficient )<BR><BR>
+<u>description:</u>return index of resulting state from application of S-_i S+_j operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of S- operator 
+<BR>j = position of S+ operator 
+<BR>state = index of the state to be applied on S-_i S+_j operator 
+<BR>coefficient = pointer to double where numerical coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>SziSzj :</H3>
+<u>prototype:</u>     double SziSzj  (int i int j int state )<BR><BR>
+<u>description:</u>return eigenvalue of Sz_i Sz_j associated to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of left Sz operator 
+<BR>j = position of right Sz operator 
+<BR>state = index of the state to consider 
+<BR><BR><BR>
+<u>return value:</u> corresponding eigenvalue 
+<BR>
+<BR><BR><BR><H3>FindStateIndex :</H3>
+<u>prototype:</u>     int FindStateIndex  (unsigned long state )<BR><BR>
+<u>description:</u>find state index 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = state description 
+<BR><BR><BR>
+<u>return value:</u> corresponding index 
+<BR>
+<BR><BR><BR><H3>PrintState :</H3>
+<u>prototype:</u>     ostream& PrintState  (ostream& Str int state )<BR><BR>
+<u>description:</u>print a given State 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>state = ID of the state to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

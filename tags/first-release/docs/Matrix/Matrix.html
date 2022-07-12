@@ -1,0 +1,185 @@
+<html>
+  <head>
+    <title>Matrix</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : Matrix</DIV></H1>
+
+<H3>Matrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>~Matrix :</H3>
+<u>prototype:</u>     <i>virtual</i> ~Matrix  ()<BR><BR>
+<u>description:</u>virtual destructor 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    return pointer on a clone matrix  (without duplicating datas )<BR><BR>
+<u>description:</u>return pointer on a clone matrix (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>* Clone  ()<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>retrun value = pointer on new matrix  
+<BR>
+<BR><BR><BR><H3>Project :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>* Project  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& subspace )<BR><BR>
+<u>description:</u>project matrix into a given subspace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>subspace = reference on subspace structure 
+<BR><BR><BR>
+<u>return value:</u> pointer to projected matrix 
+<BR>
+<BR><BR><BR><H3>GetMatrixType :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetMatrixType  ()<BR><BR>
+<u>description:</u>get matrix type 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix type  
+<BR>
+<BR><BR><BR><H3>GetNbrRow :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrRow  ()<BR><BR>
+<u>description:</u>get number of row 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> number of row 
+<BR>
+<BR><BR><BR><H3>GetNbrColumn :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrColumn  ()<BR><BR>
+<u>description:</u>get number of column 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> number of column 
+<BR>
+<BR><BR><BR><H3>SetMatrixElement :</H3>
+<u>prototype:</u>     <i>virtual</i> void SetMatrixElement  (int i int j double x )<BR><BR>
+<u>description:</u>set a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = new value for matrix element 
+<BR>
+<BR><BR><BR><H3>SetMatrixElement :</H3>
+<u>prototype:</u>     <i>virtual</i> void SetMatrixElement  (int i int j const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& x )<BR><BR>
+<u>description:</u>set a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = new value for matrix element 
+<BR>
+<BR><BR><BR><H3>AddToMatrixElement :</H3>
+<u>prototype:</u>     <i>virtual</i> void AddToMatrixElement  (int i int j double x )<BR><BR>
+<u>description:</u>add a value to a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = value to add to matrix element 
+<BR>
+<BR><BR><BR><H3>AddToMatrixElement :</H3>
+<u>prototype:</u>     <i>virtual</i> void AddToMatrixElement  (int i int j const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& x )<BR><BR>
+<u>description:</u>add a value  a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = value to add to matrix element 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     <i>virtual</i> void Resize  (int nbrRow int nbrColumn )<BR><BR>
+<u>description:</u>Resize matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrRow = new number of rows 
+<BR>nbrColumn = new number of columns 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     <i>virtual</i> void ResizeAndClean  (int nbrRow int nbrColumn )<BR><BR>
+<u>description:</u>Resize matrix and set to zero all elements that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrRow = new number of rows 
+<BR>nbrColumn = new number of columns 
+<BR>
+<BR><BR><BR><H3>operator :</H3>
+<u>prototype:</u>     <i>virtual</i> double& operator  ( )<BR><BR>
+<u>description:</u>return refernce on real part of a given matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR><BR><BR>
+<u>return value:</u> reference on real part 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    conjugate matrix with an unitary real matrix  (Ut M U )<BR><BR>
+<u>description:</u>conjugate matrix with an unitary real matrix (Ut M U) 
+<BR>
+<BR><BR><BR><H3>Conjugate :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>* Conjugate  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& UnitaryM )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>UnitaryM = unitary matrix to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to conjugated matrix 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    conjugate matrix with an unitary block diagonal matrix  (Ut M U )<BR><BR>
+<u>description:</u>conjugate matrix with an unitary block diagonal matrix (Ut M U) 
+<BR>
+<BR><BR><BR><H3>Conjugate :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>* Conjugate  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/BlockDiagonalMatrix.html">BlockDiagonalMatrix</A>& UnitaryM )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>UnitaryM = unitary matrix to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to conjugated matrix 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>    <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& operator *=  (double x )<BR><BR>
+<u>description:</u>multiply a matrix by a real number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>virtual Matrix& operator *= (double x); 
+<BR>
+<BR><BR><BR><H3>Tr :</H3>
+<u>prototype:</u>     <i>virtual</i> double Tr  ()<BR><BR>
+<u>description:</u>evaluate matrix trace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix trace  
+<BR>
+<BR><BR><BR><H3>Det :</H3>
+<u>prototype:</u>     <i>virtual</i> double Det  ()<BR><BR>
+<u>description:</u>evaluate matrix determinant 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix determinant  
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& matrix )<BR><BR>
+<u>description:</u>Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>str = reference on output stream 
+<BR>matrix = matrix to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

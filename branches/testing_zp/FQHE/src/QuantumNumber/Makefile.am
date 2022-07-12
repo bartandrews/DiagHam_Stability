@@ -1,0 +1,6 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libQHEQuantumNumber.a
+
+libQHEQuantumNumber_a_SOURCES=NumberParticleQuantumNumber.cc
+

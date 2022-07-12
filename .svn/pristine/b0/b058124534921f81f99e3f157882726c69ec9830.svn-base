@@ -1,0 +1,7 @@
+GM and NR 11/29/2007
+- fix Sz<->-Sz,  Lz<->-Lz symmetries on sphere
+- Torus with spin
+- "Virtual" distributed vectors
+- Graphic cards support !
+- reshuffle options
+- grouped boolean options

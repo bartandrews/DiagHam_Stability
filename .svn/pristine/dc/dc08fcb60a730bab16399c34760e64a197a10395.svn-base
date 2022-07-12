@@ -1,0 +1,466 @@
+<html>
+  <head>
+    <title>RealTriDiagonalSymmetricMatrix</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : RealTriDiagonalSymmetricMatrix</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A></DIV><BR>
+<H3>RealTriDiagonalSymmetricMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>RealTriDiagonalSymmetricMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>  (int , bool zero = false )<BR><BR>
+<u>description:</u>constructor for an empty matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = matrix dimension 
+<BR>zero = true if matrix has to be filled with zeros 
+<BR>
+<BR><BR><BR><H3>RealTriDiagonalSymmetricMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>  (double* , double* , int dimension )<BR><BR>
+<u>description:</u>constructor from matrix elements (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>diagonal = pointer to diagonal element array 
+<BR>upperDiagonal = pointer to upper diagonal element arra 
+<BR>dimension = matrix dimension 
+<BR>
+<BR><BR><BR><H3>RealTriDiagonalSymmetricMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR>
+<BR><BR><BR><H3>~RealTriDiagonalSymmetricMatrix :</H3>
+<u>prototype:</u>     ~RealTriDiagonalSymmetricMatrix  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on modified matrix 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A>* Clone  ()<BR><BR>
+<u>description:</u>return pointer on a clone matrix (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>retrun value = pointer on new matrix  
+<BR>
+<BR><BR><BR><H3>SetMatrixElement :</H3>
+<u>prototype:</u>     void SetMatrixElement  (int , int , double x )<BR><BR>
+<u>description:</u>set a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = new value for matrix element 
+<BR>
+<BR><BR><BR><H3>SetMatrixElement :</H3>
+<u>prototype:</u>     void SetMatrixElement  (int , int , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A>& x )<BR><BR>
+<u>description:</u>set a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = new value for matrix element 
+<BR>
+<BR><BR><BR><H3>AddToMatrixElement :</H3>
+<u>prototype:</u>     void AddToMatrixElement  (int , int , double x )<BR><BR>
+<u>description:</u>add a value to a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = value to add to matrix element 
+<BR>
+<BR><BR><BR><H3>AddToMatrixElement :</H3>
+<u>prototype:</u>     void AddToMatrixElement  (int , int , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A>& x )<BR><BR>
+<u>description:</u>add a value  a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = value to add to matrix element 
+<BR>
+<BR><BR><BR><H3>operator :</H3>
+<u>prototype:</u>     double& operator  ( )<BR><BR>
+<u>description:</u>return refernce on real part of a given matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR><BR><BR>
+<u>return value:</u> reference on real part 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     void Resize  (int , int nbrColumn )<BR><BR>
+<u>description:</u>Resize matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrRow = new number of rows 
+<BR>nbrColumn = new number of columns 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     void ResizeAndClean  (int , int nbrColumn )<BR><BR>
+<u>description:</u>Resize matrix and set to zero all elements that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrRow = new number of rows 
+<BR>nbrColumn = new number of columns 
+<BR>
+<BR><BR><BR><H3>Copy :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Copy  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>copy matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR><BR><BR>
+<u>return value:</u> refence on current matrix 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> operator +  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M2 )<BR><BR>
+<u>description:</u>add two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = second matrix 
+<BR><BR><BR>
+<u>return value:</u> sum of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> operator -  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M2 )<BR><BR>
+<u>description:</u>substract two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = matrix to substract to M1 
+<BR><BR><BR>
+<u>return value:</u> difference of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> operator *  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& , double x )<BR><BR>
+<u>description:</u>multiply a matrix by a real number (right multiplication) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> product result 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> operator *  (double , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>multiply a matrix by a real number (left multiplication) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> product result 
+<BR>
+<BR><BR><BR><H3>operator / :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> operator /  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& , double x )<BR><BR>
+<u>description:</u>divide a matrix by a real number (right multiplication) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> division result 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& operator +=  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>add two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to add to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& operator -=  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>substract two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to substract to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& operator *=  (double x )<BR><BR>
+<u>description:</u>multiply a matrix by a real number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator /= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& operator /=  (double x )<BR><BR>
+<u>description:</u>divide a matrix by a real number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>GetElement :</H3>
+<u>prototype:</u>     double GetElement  (int , int j )<BR><BR>
+<u>description:</u>get a matrix element  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = Row number 
+<BR>j = Column number 
+<BR><BR><BR>
+<u>return value:</u> matrix element M_(i,j) 
+<BR>
+<BR><BR><BR><H3>DiagonalElement :</H3>
+<u>prototype:</u>     double& DiagonalElement  (int i )<BR><BR>
+<u>description:</u>access to i-th diagonal element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position  
+<BR><BR><BR>
+<u>return value:</u> reference on i-th diagonal element 
+<BR>
+<BR><BR><BR><H3>UpperDiagonalElement :</H3>
+<u>prototype:</u>     double& UpperDiagonalElement  (int i )<BR><BR>
+<u>description:</u>access to i-th upper diagonal element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position  
+<BR><BR><BR>
+<u>return value:</u> reference on i-th upper diagonal element  
+<BR>
+<BR><BR><BR><H3>Tr :</H3>
+<u>prototype:</u>     double Tr  ()<BR><BR>
+<u>description:</u>evaluate matrix trace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix trace  
+<BR>
+<BR><BR><BR><H3>Det :</H3>
+<u>prototype:</u>     double Det  ()<BR><BR>
+<u>description:</u>evaluate matrix determinant 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix determinant  
+<BR>
+<BR><BR><BR><H3>CharacteristicEquation :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Polynomial/Polynomial.html">Polynomial</A>& CharacteristicEquation  ()<BR><BR>
+<u>description:</u>return matrix characteritic equation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference one polynomial corresponding to matrix characteritic equation   
+<BR>
+<BR><BR><BR><H3>Diagonalize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Diagonalize  (int maxIter = 50 )<BR><BR>
+<u>description:</u>Diagonalize RealTridiagonal Symmetric Matrix using QL algorithm with implicit shift 
+<BR>current matrix is replaced by its corresponding diagonalized matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>maxIter = maximum number of iteration to fund an eigenvalue 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>Diagonalize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Diagonalize  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& , int maxIter = 50 )<BR><BR>
+<u>description:</u>Diagonalize RealTridiagonal Symmetric Matrix using QL algorithm with implicit shift, evaluating eigenvectors in a given base 
+<BR>current matrix is replaced by its corresponding diagonalized matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix initialized with corresponding base in which eigenvectors have to be calculated 
+<BR>maxIter = maximum number of iteration to fund an eigenvalue 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix   
+<BR>
+<BR><BR><BR><H3>Diagonalize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Diagonalize  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& , int maxIter = 50 )<BR><BR>
+<u>description:</u>Diagonalize RealTridiagonal Symmetric Matrix using QL algorithm with implicit shift, evaluating eigenvectors in a given base 
+<BR>current matrix is replaced by its corresponding diagonalized matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix initialized with corresponding base in which eigenvectors have to be calculated 
+<BR>maxIter = maximum number of iteration to fund an eigenvalue 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix   
+<BR>
+<BR><BR><BR><H3>QRFactorization :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealUpperTriangularMatrix.html">RealUpperTriangularMatrix</A> QRFactorization  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& Q )<BR><BR>
+<u>description:</u>find QR factorization 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix initialized with corresponding base in which unitary matrix of QR factorization has to be calculated 
+<BR><BR><BR>
+<u>return value:</u> upper triangular matrix corresponding to the QR factorization of the matrix 
+<BR>
+<BR><BR><BR><H3>QLFactorization :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealLowerTriangularMatrix.html">RealLowerTriangularMatrix</A> QLFactorization  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& Q )<BR><BR>
+<u>description:</u>find QL factorization 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix initialized with corresponding base in which unitary matrix of QR factorization has to be calculated 
+<BR><BR><BR>
+<u>return value:</u> lower triangular matrix corresponding to the QL factorization of the matrix   
+<BR>
+<BR><BR><BR><H3>QLFactorization :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealLowerTriangularMatrix.html">RealLowerTriangularMatrix</A> QLFactorization  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& , double shift )<BR><BR>
+<u>description:</u>find QL factorization with shift (aka M - x 1)  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix initialized with corresponding base in which unitary matrix of QR factorization has to be calculated 
+<BR>shift = shift value 
+<BR><BR><BR>
+<u>return value:</u> lower triangular matrix corresponding to the QL factorization of the matrix 
+<BR>
+<BR><BR><BR><H3>QLConjugaison :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> QLConjugaison  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& Q )<BR><BR>
+<u>description:</u>find QL factorization and evaluate LQ (ie Qt H Q) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix initialized with corresponding base in which unitary matrix of QR factorization has to be calculated 
+<BR><BR><BR>
+<u>return value:</u> Qt H Q 
+<BR>
+<BR><BR><BR><H3>QLConjugaison :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> QLConjugaison  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& , double shift )<BR><BR>
+<u>description:</u>find QL factorization and evaluate LQ (ie Qt H Q), shifting initial matrix diagonal elements and shifting back after evaluating RQ 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix initialized with corresponding base in which unitary matrix of QR factorization has to be calculated 
+<BR>shift = shift value 
+<BR><BR><BR>
+<u>return value:</u> Qt H Q 
+<BR>
+<BR><BR><BR><H3>ConjugateQR :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> ConjugateQR  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& , double shift )<BR><BR>
+<u>description:</u>find QR factorization and evaluate RQ (ie Qt H Q), shifting initial matrix diagonal elements and shifting back after evaluating RQ 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix initialized with corresponding base in which unitary matrix of QR factorization has to be calculated 
+<BR>shift = shift value 
+<BR><BR><BR>
+<u>return value:</u> Qt H Q   
+<BR>
+<BR><BR><BR><H3>PolynomialFilterWithExactShift :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> PolynomialFilterWithExactShift  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& , double* , int nbrShift )<BR><BR>
+<u>description:</u>apply polynomial filter assumuing shifts are exacte shift (i.e. eigenvalues of the initial matrix) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = unitary matrix encoding the transformation 
+<BR>shift = array of shift values 
+<BR>nbrShift = number of shifts 
+<BR><BR><BR>
+<u>return value:</u> filtered matrix stored as [[H 0], [0 D]] where D is a diagonal matrix with shifts as element and H a real tridiagonal matrix 
+<BR>
+<BR><BR><BR><H3>Eigenvector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& Eigenvector  (double , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& eigenvector )<BR><BR>
+<u>description:</u>evaluate a normalized eigenvector for a given eigenvalue (supposing the eigenvalue is non-degenerate) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>eigenvalue = eigenvalue to use 
+<BR>eigenvector = vector where the eigenvector has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on eigenvector   
+<BR>
+<BR><BR><BR><H3>Eigenvector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& Eigenvector  (double , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& eigenvector )<BR><BR>
+<u>description:</u>evaluate a normalized eigenvector for a given eigenvalue (supposing the eigenvalue is non-degenerate) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>eigenvalue = eigenvalue to use 
+<BR>eigenvector = vector where the eigenvector has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on eigenvector 
+<BR>
+<BR><BR><BR><H3>SortMatrixUpOrder :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrixUpOrder  ()<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in increasing order (offdiagonal elements left unchanged) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>SortMatrixUpOrder :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrixUpOrder  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& matrix )<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in increasing order (offdiagonal elements left unchanged)  
+<BR>and apply corresponding transformation to column of a given real matrix  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>matrix = matrix on which transformation has to be applied 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>SortMatrixUpOrder :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrixUpOrder  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& matrix )<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in increasing order (offdiagonal elements left unchanged)  
+<BR>and apply corresponding transformation to column of a given complex matrix  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>matrix = matrix on which transformation has to be applied 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>SortMatrixDownOrder :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrixDownOrder  ()<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in decreasing order (offdiagonal elements left unchanged) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>SortMatrixDownOrder :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrixDownOrder  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& matrix )<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in decreasing order (offdiagonal elements left unchanged)  
+<BR>and apply corresponding transformation to column of a given real matrix  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>matrix = matrix on which transformation has to be applied 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>SortMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrix  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& Q )<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in increasing order and apply corresponding transformation to column 
+<BR>of a given complex matrix (offdiagonal elements left unchanged) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix on which transformation has to be applied 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& P )<BR><BR>
+<u>description:</u>Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on output stream 
+<BR>P = matrix to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& P )<BR><BR>
+<u>description:</u>Mathematica Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on Mathematica output stream 
+<BR>P = matrix to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

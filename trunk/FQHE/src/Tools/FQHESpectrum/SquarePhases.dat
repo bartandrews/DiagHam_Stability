@@ -1,0 +1,21 @@
+# Definition of a square lattice with the minimal unit cell of 1 sites
+#
+Descriptor = square
+NbrSites = 1
+Dimension = 2
+#PeriodicRepeat = 2,2
+LatticeVector0 = 1,0
+LatticeVector1 = 0,1
+SubLatticeVector0 = 0,0
+#NeighborsInCell = 
+NeighborCells = 0,1 | 1,0 | 0,-1 | -1,0
+NeighborsAcrossBoundary0_1 = 0,0
+NeighborsAcrossBoundary1_0 = 0,0
+NeighborsAcrossBoundary0_-1 = 0,0
+NeighborsAcrossBoundary-1_0 = 0,0
+# prefactors of vector potential A= (A_xx x + Ayx y ) e_x + (A_xy x + Ayy y ) e_y
+UseGauge = yes
+GaugeAyx = -1.0
+#optional values:
+#RandomPotentials = strength
+#LocalPotentials = site,strength | site2, strength2 | ...

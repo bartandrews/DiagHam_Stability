@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Spectra</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : Spectra</DIV></H1>
+
+<H3>Spectra :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/Spectra.html">Spectra</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>Spectra :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/Spectra.html">Spectra</A>  (int N )<BR><BR>
+<u>description:</u>constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>N = number of points 
+<BR>
+<BR><BR><BR><H3>Spectra :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/Spectra.html">Spectra</A>  (int , char** , int * , double , double , double , double dE )<BR><BR>
+<u>description:</u>constructor from a set of files with 2 column data. Each peak is assimilated to a Lorentzian function with FWHM = Gamma 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>FileNumber = number of files, Files = name of files 
+<BR>LineNumber = number of lines, Gamma = FWHM 
+<BR>Xmax, Xmin, dX = the two bounds and the step 
+<BR>
+<BR><BR><BR><H3>~Spectra :</H3>
+<u>prototype:</u>     <i>virtual</i> ~Spectra  ()<BR><BR>
+<u>description:</u>virtual destructor 
+<BR>
+<BR><BR><BR><H3>WriteSpectra :</H3>
+<u>prototype:</u>     <i>virtual</i> bool WriteSpectra  (char * fileName )<BR><BR>
+<u>description:</u>virtual method to write the spectrum in a file in ASCII mode 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file where the spectrum will be stored 
+<BR>return = true if no error occurs 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

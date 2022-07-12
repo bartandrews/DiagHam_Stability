@@ -1,0 +1,5 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libFTIArchitectureOperation.a
+
+libFTIArchitectureOperation_a_SOURCES=FTIComputeBandStructureOperation.cc

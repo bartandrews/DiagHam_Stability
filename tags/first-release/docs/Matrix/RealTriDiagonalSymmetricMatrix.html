@@ -1,0 +1,429 @@
+<html>
+  <head>
+    <title>RealTriDiagonalSymmetricMatrix</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : RealTriDiagonalSymmetricMatrix</DIV></H1>
+
+<H3>RealTriDiagonalSymmetricMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>RealTriDiagonalSymmetricMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>  (int dimension bool zero = false )<BR><BR>
+<u>description:</u>constructor for an empty matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = matrix dimension 
+<BR>zero = true if matrix has to be filled with zeros 
+<BR>
+<BR><BR><BR><H3>elements :</H3>
+<u>prototype:</u>    constructor from matrix elements  (without duplicating datas )<BR><BR>
+<u>description:</u>constructor from matrix elements (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>RealTriDiagonalSymmetricMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>  (double* diagonal double* upperDiagonal int dimension )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>diagonal = pointer to diagonal element array 
+<BR>upperDiagonal = pointer to upper diagonal element arra 
+<BR>dimension = matrix dimension 
+<BR>
+<BR><BR><BR><H3>constructor :</H3>
+<u>prototype:</u>    copy constructor  (without duplicating datas )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>RealTriDiagonalSymmetricMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR>
+<BR><BR><BR><H3>~RealTriDiagonalSymmetricMatrix :</H3>
+<u>prototype:</u>     ~RealTriDiagonalSymmetricMatrix  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>assignement :</H3>
+<u>prototype:</u>    assignement  (without duplicating datas )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on modified matrix 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    return pointer on a clone matrix  (without duplicating datas )<BR><BR>
+<u>description:</u>return pointer on a clone matrix (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>* Clone  ()<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>retrun value = pointer on new matrix  
+<BR>
+<BR><BR><BR><H3>SetMatrixElement :</H3>
+<u>prototype:</u>     void SetMatrixElement  (int i int j double x )<BR><BR>
+<u>description:</u>set a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = new value for matrix element 
+<BR>
+<BR><BR><BR><H3>SetMatrixElement :</H3>
+<u>prototype:</u>     void SetMatrixElement  (int i int j const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& x )<BR><BR>
+<u>description:</u>set a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = new value for matrix element 
+<BR>
+<BR><BR><BR><H3>AddToMatrixElement :</H3>
+<u>prototype:</u>     void AddToMatrixElement  (int i int j double x )<BR><BR>
+<u>description:</u>add a value to a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = value to add to matrix element 
+<BR>
+<BR><BR><BR><H3>AddToMatrixElement :</H3>
+<u>prototype:</u>     void AddToMatrixElement  (int i int j const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& x )<BR><BR>
+<u>description:</u>add a value  a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = value to add to matrix element 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     void Resize  (int nbrRow int nbrColumn )<BR><BR>
+<u>description:</u>Resize matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrRow = new number of rows 
+<BR>nbrColumn = new number of columns 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     void ResizeAndClean  (int nbrRow int nbrColumn )<BR><BR>
+<u>description:</u>Resize matrix and set to zero all elements that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrRow = new number of rows 
+<BR>nbrColumn = new number of columns 
+<BR>
+<BR><BR><BR><H3>Copy :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Copy  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>copy matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR><BR><BR>
+<u>return value:</u> refence on current matrix 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M2 )<BR><BR>
+<u>description:</u>add two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = second matrix 
+<BR><BR><BR>
+<u>return value:</u> sum of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M2 )<BR><BR>
+<u>description:</u>substract two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = matrix to substract to M1 
+<BR><BR><BR>
+<u>return value:</u> difference of the two matrices 
+<BR>
+<BR><BR><BR><H3>number :</H3>
+<u>prototype:</u>    multiply a matrix by a real number  (right multiplication )<BR><BR>
+<u>description:</u>multiply a matrix by a real number (right multiplication) 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M double x )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> product result 
+<BR>
+<BR><BR><BR><H3>number :</H3>
+<u>prototype:</u>    multiply a matrix by a real number  (left multiplication )<BR><BR>
+<u>description:</u>multiply a matrix by a real number (left multiplication) 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> operator *  (double x const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> product result 
+<BR>
+<BR><BR><BR><H3>number :</H3>
+<u>prototype:</u>    divide a matrix by a real number  (right multiplication )<BR><BR>
+<u>description:</u>divide a matrix by a real number (right multiplication) 
+<BR>
+<BR><BR><BR><H3>operator / :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A> operator /  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M double x )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> division result 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& operator +=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>add two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to add to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& operator -=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>substract two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to substract to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& operator *=  (double x )<BR><BR>
+<u>description:</u>multiply a matrix by a real number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator /= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& operator /=  (double x )<BR><BR>
+<u>description:</u>divide a matrix by a real number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>M_ :</H3>
+<u>prototype:</u>    return value = matrix element M_  (i j )<BR><BR>
+<u>description:</u>get a matrix element  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = Row number 
+<BR>j = Column number 
+<BR><BR><BR>
+<u>return value:</u> matrix element M_(i,j) 
+<BR>
+<BR><BR><BR><H3>GetElement :</H3>
+<u>prototype:</u>     double GetElement  (int i int j )<BR><BR>
+<u>description:</u>get a matrix element  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = Row number 
+<BR>j = Column number 
+<BR><BR><BR>
+<u>return value:</u> matrix element M_(i,j) 
+<BR>
+<BR><BR><BR><H3>DiagonalElement :</H3>
+<u>prototype:</u>     double& DiagonalElement  (int i )<BR><BR>
+<u>description:</u>access to i-th diagonal element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position  
+<BR><BR><BR>
+<u>return value:</u> reference on i-th diagonal element 
+<BR>
+<BR><BR><BR><H3>UpperDiagonalElement :</H3>
+<u>prototype:</u>     double& UpperDiagonalElement  (int i )<BR><BR>
+<u>description:</u>access to i-th upper diagonal element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position  
+<BR><BR><BR>
+<u>return value:</u> reference on i-th upper diagonal element  
+<BR>
+<BR><BR><BR><H3>Tr :</H3>
+<u>prototype:</u>     double Tr  ()<BR><BR>
+<u>description:</u>evaluate matrix trace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix trace  
+<BR>
+<BR><BR><BR><H3>Det :</H3>
+<u>prototype:</u>     double Det  ()<BR><BR>
+<u>description:</u>evaluate matrix determinant 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix determinant  
+<BR>
+<BR><BR><BR><H3>CharacteristicEquation :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& CharacteristicEquation  ()<BR><BR>
+<u>description:</u>return matrix characteritic equation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference one polynomial corresponding to matrix characteritic equation   
+<BR>
+<BR><BR><BR><H3>Diagonalize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Diagonalize  (int maxIter = 50 )<BR><BR>
+<u>description:</u>Diagonalize RealTridiagonal Symmetric Matrix using QL algorithm with implicit shift 
+<BR>current matrix is replaced by its corresponding diagonalized matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>maxIter = maximum number of iteration to fund an eigenvalue 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>Diagonalize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Diagonalize  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& Q int maxIter = 50 )<BR><BR>
+<u>description:</u>Diagonalize RealTridiagonal Symmetric Matrix using QL algorithm with implicit shift, evaluating eigenvectors in a given base 
+<BR>current matrix is replaced by its corresponding diagonalized matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix initialized with corresponding base in which eigenvectors have to be calculated 
+<BR>maxIter = maximum number of iteration to fund an eigenvalue 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix   
+<BR>
+<BR><BR><BR><H3>Diagonalize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Diagonalize  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& Q int maxIter = 50 )<BR><BR>
+<u>description:</u>Diagonalize RealTridiagonal Symmetric Matrix using QL algorithm with implicit shift, evaluating eigenvectors in a given base 
+<BR>current matrix is replaced by its corresponding diagonalized matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix initialized with corresponding base in which eigenvectors have to be calculated 
+<BR>maxIter = maximum number of iteration to fund an eigenvalue 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix   
+<BR>
+<BR><BR><BR><H3>eigenvalue :</H3>
+<u>prototype:</u>    evaluate a normalized eigenvector for a given eigenvalue  (supposing the eigenvalue is non-degenerate )<BR><BR>
+<u>description:</u>evaluate a normalized eigenvector for a given eigenvalue (supposing the eigenvalue is non-degenerate) 
+<BR>
+<BR><BR><BR><H3>Eigenvector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Eigenvector  (double eigenvalue <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& eigenvector )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>eigenvalue = eigenvalue to use 
+<BR>eigenvector = vector where the eigenvector has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on eigenvector   
+<BR>
+<BR><BR><BR><H3>eigenvalue :</H3>
+<u>prototype:</u>    evaluate a normalized eigenvector for a given eigenvalue  (supposing the eigenvalue is non-degenerate )<BR><BR>
+<u>description:</u>evaluate a normalized eigenvector for a given eigenvalue (supposing the eigenvalue is non-degenerate) 
+<BR>
+<BR><BR><BR><H3>Eigenvector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& Eigenvector  (double eigenvalue <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& eigenvector )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>eigenvalue = eigenvalue to use 
+<BR>eigenvector = vector where the eigenvector has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on eigenvector 
+<BR>
+<BR><BR><BR><H3>order :</H3>
+<u>prototype:</u>    Sort <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A> such that diagnonal elements are sort in increasing order  (offdiagonal elements left unchanged )<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in increasing order (offdiagonal elements left unchanged) 
+<BR>
+<BR><BR><BR><H3>SortMatrixUpOrder :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrixUpOrder  ()<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>order :</H3>
+<u>prototype:</u>    Sort <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A> such that diagnonal elements are sort in increasing order  (offdiagonal elements left unchanged )<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in increasing order (offdiagonal elements left unchanged)  
+<BR>
+<BR><BR><BR><H3>SortMatrixUpOrder :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrixUpOrder  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& matrix )<BR><BR>
+<u>description:</u>and apply corresponding transformation to column of a given real matrix  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>matrix = matrix on which transformation has to be applied 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>order :</H3>
+<u>prototype:</u>    Sort <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A> such that diagnonal elements are sort in decreasing order  (offdiagonal elements left unchanged )<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in decreasing order (offdiagonal elements left unchanged) 
+<BR>
+<BR><BR><BR><H3>SortMatrixDownOrder :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrixDownOrder  ()<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>order :</H3>
+<u>prototype:</u>    Sort <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A> such that diagnonal elements are sort in decreasing order  (offdiagonal elements left unchanged )<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in decreasing order (offdiagonal elements left unchanged)  
+<BR>
+<BR><BR><BR><H3>SortMatrixDownOrder :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrixDownOrder  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& matrix )<BR><BR>
+<u>description:</u>and apply corresponding transformation to column of a given real matrix  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>matrix = matrix on which transformation has to be applied 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    of a given complex matrix  (offdiagonal elements left unchanged )<BR><BR>
+<u>description:</u>Sort Matrix such that diagnonal elements are sort in increasing order and apply corresponding transformation to column 
+<BR>of a given complex matrix (offdiagonal elements left unchanged) 
+<BR>
+<BR><BR><BR><H3>SortMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& SortMatrix  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& Q )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>Q = matrix on which transformation has to be applied 
+<BR><BR><BR>
+<u>return value:</u> reference on current Matrix 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& Str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& P )<BR><BR>
+<u>description:</u>Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on output stream 
+<BR>P = matrix to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& P )<BR><BR>
+<u>description:</u>Mathematica Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on Mathematica output stream 
+<BR>P = matrix to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,178 @@
+<?xml version="1.0"  encoding="ISO-8859-1"?>
+<program name="QHEFermionsLaplacianDelta">
+  <location>src/Programs/QHE</location>
+  <author name="Nicolas Regnault">
+    <email>nicolas.regnault@lpa.ens.fr</email>
+    <homepage>http://www.phys.ens.fr/~regnault</homepage>
+  </author>
+  <optiongroupsort>system options, parallelization options, L\'anczos options, precalculation options, misc options</optiongroupsort>
+  <optiongroup name="misc options">
+    <option name="help">
+      <short>h</short>
+      <description>display this help</description>
+    </option>
+  </optiongroup>
+  <optiongroup name="system options" sort="nbr-particles, lzmax, initial-lz, nbr-lz, add-coulomb, ground">
+    <option name="nbr-particles">
+      <short>p</short>
+      <description>number of particles</description>
+      <default>8</default>
+    </option>
+    <option name="lzmax">
+      <short>l</short>
+      <description>twice the maximum momentum for a single particle</description>
+      <default>21</default>
+    </option>
+    <option name="initial-lz">
+      <description>twice the inital momentum projection for the system</description>
+      <default>-1</default>
+    </option>
+    <option name="nbr-lz">
+      <description>number of lz value to evaluate</description>
+      <default>-1</default>
+    </option>
+    <option name="add-coulomb">
+      <description>add coefficent in front of the coulomb pseudo-potentials (pure laplacian delta if 0)</description>
+      <default>0</default>
+    </option>
+    <option name="ground">
+      <short>g</short>
+      <description>restrict to the largest subspace</description>
+    </option>
+  </optiongroup>
+  <optiongroup name="parallelization options" sort="SMP, processors">
+    <option name="SMP">
+      <short>S</short>
+      <description>enable SMP mode</description>
+    </option>
+    <option name="processors">
+      <description>number of processors to use in SMP mode</description>
+      <default>2</default>
+    </option>
+  </optiongroup>
+  <optiongroup name="precalculation options" sort="memory, load-precalculation, save-precalculation, fast-search">
+    <option name="memory">
+      <short>m</short>
+      <description>amount of memory that can be allocated for fast multiplication (in Mbytes)</description>
+      <default>500</default>
+   </option>
+    <option name="load-precalculation">
+      <description>load precalculation from a file</description>
+    </option>
+    <option name="save-precalculation">
+      <description>save precalculation in a file</description>
+    </option>
+    <option name="fast-search">
+      <description>amount of memory that can be allocated for fast state search (in Mbytes)</description>
+      <default>9</default>
+    </option>
+  </optiongroup>
+  <optiongroup name="L\'anczos options" sort="nbr-eigen, full-diag, iter-max, disk, resume, nbr-iter, nbr-vector">
+    <option name="nbr-eigen">
+      <short>n</short>
+      <description>number of eigenvalues</description>
+      <default>30</default>
+    </option>
+    <option name="full-diag">
+      <description>maximum Hilbert space dimension for which full diagonalization is applied</description>
+      <default>500</default>
+    </option>
+    <option name="iter-max">
+      <description>maximum number of lanczos iteration</description>
+      <default>3000</default>
+    </option>
+    <option name="nbr-iter">
+      <short>i</short>
+      <description>number of lanczos iteration (for the current run)</description>
+      <default>10</default>
+    </option>
+    <option name="disk">
+      <short>d</short>
+      <description>enable disk resume capabilities</description>
+    </option>
+    <option name="resume">
+      <short>r</short>
+      <description>resume from disk datas</description>
+    </option>
+    <option name="nbr-vector">
+      <description>maximum number of vector in RAM during Lanczos iteration</description>
+      <default>10</default>
+    </option>
+  </optiongroup>
+  <shortdesc>QHEFermionsLaplacianDelta evalutes spectrum for N fermions on Haldane sphere with 2S quantum flux and with laplacian delta interaction.</shortdesc>
+  <longdesc>QHEFermionsLaplacianDelta evalutes spectrum for N fermions on Haldane sphere with 2S quantum flux and with laplacian delta interaction. It produces a file \filename{fermions\_laplaciandelta\_n\_xx\_2s\_yy\_lz.dat} where xx is the number of fermions and yy the number of quantum fluxes. It contains the lowest eigenvalues in each sector of given projection of the total momentum $L_z$. The first number of each line is $L_z$ and the second one is the state energy.
+
+The results use the following convention. Only the interaction term has been taken into account. The pseudo-potential has only one non-zero term $V_1$ with\\
+\begin{eqnarray}
+V_1=\frac{(2S+1)^2}{S(4S-1)}\nonumber
+\end{eqnarray}
+
+Typical usage for this program is as follow:\\
+\commandarray{QHEFermionsLaplacianDelta -p 8 -l 21 -n 30}
+This command get at least 30 eigenvalues in each $L_z$ sector for 8 particles with 21 quantum fluxes. The minimum number of eigenvalues is fixed by the \option{n} option. QHEFermionsLaplacianDelta uses full diagonalization algorithm for small Hilbert space dimension and L\'anczos algorithm for larger space. The limit dimension between small and large space can be changed using the \longoption{full-diag} option. 
+Calculation can be done on a subset of possible $L_z$ value using the \longoption{initial-lz}, \longoption{nbr-lz} and \longoption{ground} options.
+
+You can also smoothly turn from the laplacian delta to the Coulomb interaction using the \longoption{add-coulomb} option. In that case, the pseudopotentials are such that $V_1$ is the one of the laplacian delta in every case and the other pseudopotentials are those of the Coulomb interaction times a scaling factor
+\begin{eqnarray}
+\alpha V_{1\; laplacian} /  V_{1\; coulomb}\nonumber
+\end{eqnarray}
+where $\alpha$ is the number used with the \longoption{add-coulomb} option.\\
+
+To improve calculation speed, you can tune different parameters. Optimization for multiprocessors computer with shared memory architecture can be turned on using the \longoption{SMP} option. The number of processors to use is defined through the \longoption{processors} option. QHEFermionsLaplacianDelta tries to precalculate as most matrix elements as it can. You can use the \longoption{memory} to allow the program to use more memory for this task (tests have been done up to 32GBytes). If you need more than the ground state energy, the program uses reothorgonalized version of the L\'anczos algorithm. In that case, all vectors produced by the algorithm are stored in memory and this later can be quickly full and can prevent from using too large precalculation datas. To allow larger precalculation datas, you can limit the number of L\'anczos vectors stored in memory. For example\\
+\commandarray{QHEFermionsLaplacianDelta -p 11 -l 30 -n 2 --initial-lz 0 --nbr-lz 1 --disk --nbr-iter 20 --nbr-vector 6 --memory 1000}
+will perform the 20 first L\'anczos iterations needed for the calculation of the ground state and first excited state energies only for $L_z=0$. 1 GBytes of memory will be used for precalculations and only 6 L\'anczos vectors will be stored in RAM. Notice that the other L\'anczos vectors are stored on disk in files \filename{vector.xxx} and a gobal file \filename{lanczos.dat}. Using this technique, you can resume a calculation by adding the \longoption{resume} option. In that case, program must be start in the directory where the \filename{vector.xxx} and \filename{lanczos.dat} are stored. Number of iterations can be modified between two resume sessions. This feature is also usefull if you have time restriction for your running job.
+
+If you use the resume feature, it can be smart not to do the precalculations serveral times. During the first run, use \command{--save-precalculation my\_precalculations}, where \filename{my\_precalculations} is the file where precalculations will be stored. For the other runs, just use \command{--load-precalculation my\_precalculations}. These precalculations  are only valid for a given number of particles, quantum fluxes AND $L_z$ value.
+
+Finally, you can tune the \longoption{fast-search} parameter which is used to speed up quantum state search sequence during calculations. Beware that performance can worst if a too large value is used (this problem is linked to the CPU cache size).
+  </longdesc>
+
+  <accuracy>QHEFermionsLaplacianDelta uses most of the components of \programwithlink{QHE}{QHEFermionsCoulomb}. Due to the shift used during L\'anczos calculations, the actual eigenvalue precision is $10^{-13}$ even if the L\'anczos convergence has been fixed to $10^{-14}$. The L\'anczos algorithm used here can be subject to spurious degeneracy (so you can not be sure of eigenvalue degeneracy). This program has been used in \paperwithlink{cond-mat/0404093}{cond-mat/0404093}.  </accuracy>
+
+  <relatedprogsort>LzToL, FermionsGraphFromL.pl, FindFermionLaplacianNeutralGap.pl, FindFermionLaplacianChargedGapLaughlin.pl, FindFermionLaplacianChargedGenericGap.pl, FermionsLaplacianDeltaPlotGround.pl</relatedprogsort>
+
+  <relatedprog name="FindFermionLaplacianNeutralGap.pl" type="script">
+    <location>scripts/QHE</location>
+    <usage>FindFermionLaplacianNeutralGap.pl StartN StartS NInc SInc Caption [PrintFlag]</usage>
+    <description>This script allow to parse spectrums to find the neutral gap including finite size scaling. StartN and StartS arguments are the number of particle and the number of quantum fluxes of the first spectrum to study, NInc and SInc are the increments to the next spectrum (so that NInc/SInc is the filling factor). Gnuplot is needed in order to this script to work. This script assumes that Lz-sorted spectrums are sorted in directories n\_xx where xx is the number of particles. A data file is created using a two column ascii style where first column is 1/N and the second one the corresponding neutral gap. The name of this file is \filename{fermions\_laplaciandelta\_gap\_Caption.dat} where Caption is the fifth argument passed to the script. A postscript file  \filename{fermions\_laplaciandelta\_gap\_Caption.ps} is also created containing the graph 1/N vs neutral gap. Plot fit results are displayed in the terminal (gnuplot output). If PrintFlag argument is present (any value), the postscript is also redirected to the default printer.</description>
+  </relatedprog>
+
+  <relatedprog name="FindFermionLaplacianChargedGapLaughlin.pl" type="script">
+    <location>scripts/QHE</location>
+    <usage>FindFermionLaplacianChargedGapLaughlin.pl StartN StartS NInc SInc Caption [PrintFlag]</usage>
+    <description>This script allow to parse spectrums to find the charged gap of the Laughlin state 1/3 including finite size scaling. StartN and StartS arguments are the number of particle and the number of quantum fluxes of the first spectrum to study, NInc and SInc are the increments to the next spectrum (so that NInc/SInc is the filling factor). Gnuplot is needed in order to this script to work. This script assumes that Lz-sorted spectrums are sorted in directories \directoryname{n\_xx} where xx is the number of particles. A data file is created using a two column ascii style where first column is 1/N and the second one the corresponding charged gap. The name of this file is \filename{fermions\_laplaciandelta\_chargedgap\_Caption.dat} where Caption is the fifth argument passed to the script. A postscript file  \filename{fermions\_laplaciandelta\_chargedgap\_Caption.ps} is also created containing the graph 1/N vs charged gap. Plot fit results are displayed in the terminal (gnuplot output). If PrintFlag argument is present (any value), the postscript is also redirected to the default printer.</description>
+  </relatedprog>
+
+  <relatedprog name="FindFermionLaplacianChargedGenericGap.pl" type="script">
+    <location>scripts/QHE</location>
+    <usage>FindFermionLaplacianChargedGapLaughlin.pl ground.dat Caption [PrintFlag]</usage>
+    <description>This script allow to parse spectrums to find the charged gap of any fraction including finite size scaling. The argument ground.dat is the name of a text file containing rules to evaluated charged gaps. Empty line or line beginning with a symbol is not considered. The first meaningful line must be composed of three space separated numbers a b c such that the relation between the number of particle and the number of quantum fluxes  is defined as 
+\begin{eqnarray}
+2S=\frac{b}{a} N - c\nonumber
+\end{eqnarray}
+The other lines are composed of four space separated numbers $N_{qe}\; 2S_{qe}\; N_{qh}\; 2S_{qh}$ where qe stands for quasi-electron and qh for quasi-hole. They indicate which spectrums represent creation of one qe and one qh around one given incompressible state. The ground state energy of the incompressible state is either extracted from the corresponding spectrum if it exists or obtained using linear fit between two values grabbed from two existing spectrums (especially if the corresponding incompressible state 2S or N values are not an integer).
+
+A data file is created using either a two column ascii style where first column is 1/N and the second one the corresponding charged gap if qh and qe can be both evaluated for each defined N value or else a three column ascii style with 1/N, qe energy and qh energy. The name of this file is \filename{fermions\_laplaciandelta\_chargedgap\_Caption.dat} where Caption is the fifth argument passed to the script. A postscript file  \filename{fermions\_laplaciandelta\_chargedgap\_Caption.ps} is also created containing the graph 1/N vs charged gap if qh and qe can be both evaluated for each defined N value. In the other case, the postscript file contains two graphs: 1/N vs qh energy and 1/N vs qe energy. Plot fit results are displayed in the terminal (gnuplot output). If PrintFlag argument is present (any value), the postscript is also redirected to the default printer.</description>
+  </relatedprog>
+
+  <relatedprog name="FermionsLaplacianDeltaPlotGround.pl" type="script">
+    <location>scripts/QHE</location>
+    <usage>FermionsLaplacianDeltaPlotGround.pl StartN StartS NInc SInc Caption [PrintFlag]</usage>
+    <description>This script allow to parse spectrums to find the ground state energy per particles for a given linear relation between N and 2S. StartN and StartS arguments are the number of particle and the number of quantum fluxes of the first spectrum to study, NInc and SInc are the increments to the next spectrum (so that NInc/SInc is the filling factor). Gnuplot is needed in order to this script to work. This script assumes that Lz-sorted spectrums are sorted in directories \directoryname{n\_xx} where xx is the number of particles. A data file is created using a two column ascii style where first column is 1/N and the second one the corresponding ground state energy per particle. The name of this file is \filename{fermions\_laplaciandelta\_ground\_Caption.dat} where Caption is the fifth argument passed to the script. A postscript file  \filename{fermions\_laplaciandelta\_ground\_Caption.ps} is also created containing the graph 1/N vs ground state energy per particle. If PrintFlag argument is present (any value), the postscript is also redirected to the default printer.</description>
+  </relatedprog>
+
+  <relatedprog name="LzToL" type="program">
+    <location>src/Program/QHE</location>
+    <usage>LzToL file</usage>
+    <description>LzToL convert a Lz-sorted spectrum into a L-sorted spectrum. Lz-sorted spectrum file name is passed as an argument to the program. The L-sorted spectrum is printed in the standard output. The conversion is done assuming that if a given energy appears for a given value m of Lz, states with the same energy will be also there for values of Lz lower than m. Precision used to compare two energy values can be tuned through the \longoption{precision}.</description>
+  </relatedprog>
+
+  <relatedprog name="FermionsGraphFromL.pl" type="script">
+    <location>scripts/QHE</location>
+    <usage>FermionsGraphFromL.pl NbrFermions [PrintFlag]</usage>
+    <description>FermionsGraphFromL.pl plots L-sorted spectrum for a given number of fermions. For each \filename{fermions\_*\_n\_NbrFermions\_2s\_yy\_l.dat} find in the current directory (where * stands for any string without \_ symbol and NbrFermions is the number passed as an option to the script), it produces a postscript graph saved as \filename{fermions\_*\_n\_NbrFermions\_2s\_yy.ps}. This script requires gnuplot in order to work. Graphs can also be directly printed if PrintFlag is present (any value).</description>
+  </relatedprog>
+
+  <remarks>Some spectra can be found on the \href{Fractional quantum effect numerical database}{http://www.phys.ens.fr/~regnault/qhe}.</remarks>
+
+</program>

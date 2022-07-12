@@ -1,0 +1,44 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libQHEOperator.a
+
+libQHEOperator_a_SOURCES=ParticleOnSphereDensityDensityOperator.cc \
+ParticleOnSphereWithSpinDensityDensityOperator.cc \
+ParticleOnSphereDensityOperator.cc \
+ParticleOnSphereNBodyOperator.cc \
+ParticleOnSphereSquareTotalMomentumOperator.cc \
+ParticleOnSphereLMinusOperator.cc \
+ParticleOnSphereSquareTotalSpinOperator.cc \
+ParticleOnSphereSquareTotalIsospinOperator.cc \
+ParticleOnSphereWithSU4DensityDensityOperator.cc \
+ParticleOnLatticeOneBodyOperator.cc \
+ParticleOnLatticeTranslationOperator.cc \
+ParticleOnLatticeDensityDensityOperator.cc \
+ParticleOnLatticeFluxOperator.cc \
+ParticleOnSphereWithSpinDensityOperator.cc \
+ParticleOnSphereWithSpinLMinusOperator.cc \
+ParticleOnSphereWithSpinAllSzExcitonOrder.cc \
+ParticleOnSphereWithSpinAllSzDensityOddChannel.cc \
+ParticleOnSphereWithSpinAllSzDensityDensityOddChannel.cc \
+ParticleOnSphereWithSpinLPlusUpOperator.cc \
+ParticleOnSphereWithSpinLPlusOperator.cc \
+ParticleOnLatticeMomentumOperator.cc \
+ParticleOnSphereWithSpinSzParityOperator.cc \
+ParticleOnLatticeVacancyOperator.cc \
+ParticleOnTorusKxOperator.cc \
+ParticleOnSquareLatticeWithSpinBandDensityOperator.cc \
+ParticleOnSphereSpinOperator.cc \
+ParticleOnSphereWithSpinSuperconductorOrderParameterOperator.cc \
+ParticleOnTorusWithSpinAndMagneticTranslationsSMinusOperator.cc \
+ParticleOnSphereWithSpinSMinusOperator.cc \
+ParticleOnTorusWithSpinAndMagneticTranslationsS2Operator.cc \
+ParticleOnTorusWithMagneticTranslationsDensityDensityOperator.cc \
+ParticleOnTorusWithMagneticTranslationsDensityOperator.cc \
+ParticleOnSphereCreationOperator.cc \
+ParticleOnSphereAnnihilationOperator.cc \
+ParticleOnTorusCreationOperator.cc \
+ParticleOnTorusAnnihilationOperator.cc \
+ParticleOnSphereLPlusOperator.cc \
+ParticleOnTorusDensityOperator.cc \
+ParticleOnSphereWithSpinAnnihilationOperator.cc \
+ParticleOnSphereWithSpinCreationOperator.cc

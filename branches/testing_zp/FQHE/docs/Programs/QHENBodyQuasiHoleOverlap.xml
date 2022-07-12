@@ -1,0 +1,22 @@
+# number of particles 
+NbrParticles=14
+
+# twice the maximum momentum a particle can have
+LzMax=26
+
+# particle statistics (possible values are fermions or bosons)
+Statistics=fermions
+
+# file that contains the Lz-sorted spectrum of the exact Hamiltonian (with optional relative/absolute path)
+Spectrum=/home/regnault/public_html/qhe2/datas/sphere/fermions/coulomb_1/n_14/2s_26/fermions_coulomb_1_n_14_2s_26_lz.dat
+
+# degeneracy of quasihole states in each Lz sector, first value corresponds to the degeneracy at Lz=0 or Lz=1/2, second to Lz=1 or Lz=3/2, ...
+Degeneracy= 4 4 3 3 2 2 1 1
+
+# prefix (including optional relative/absolute path) to all useful eigenstates of the exact Hamiltonian
+# file names have to be of the form prefixlz.n.vec where lz is the twice the total Lz value of eigenstate and n the index of the eigenstate
+ExactStates=/home/regnault/public_html/qhe2/datas/sphere/fermions/coulomb_1/n_14/2s_26/fermions_coulomb_1_n_14_2s_26_lz_
+
+# prefix (including optional relative/absolute path) to all quasihole states
+# file names have to be of the form prefixlz.n.vec where lz is the twice the total Lz value of eigenstate and n the index of the eigenstate
+QuasiholeStates=/home/regnault/public_html/qhe2/datas/sphere/fermions/hardcore_3/n_14/2s_26/fermions_hardcore_nbody_3_n_14_2s_26_lz_

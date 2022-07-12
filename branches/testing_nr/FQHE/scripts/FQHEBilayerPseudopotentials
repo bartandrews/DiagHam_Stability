@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ -z "$2" ]; then
+  echo "usage: FQHEBilayerPseudopotentials #Flux LayerSeparation" 
+  exit
+fi
+
+CoulombPseudopotentials -l0 -s $1 -o /tmp/pp.tmp >/dev/null
+CoulombPseudopotentials -l0 -s $1 -d $2 -o /tmp/pp2.tmp  >/dev/null
+cat /tmp/pp2.tmp | sed -e "s/^Pseudopotentials/PseudopotentialsUpDown/"
+cat /tmp/pp.tmp | grep ^Pseudopotentials | sed -e "s/Pseudopotentials/PseudopotentialsUpUp/"
+cat /tmp/pp.tmp | grep ^Pseudopotentials | sed -e "s/Pseudopotentials/PseudopotentialsDownDown/"
+

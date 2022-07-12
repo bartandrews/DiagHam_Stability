@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>DiagHam: basic use</title>
+  </head>
+  <body>
+    <h1>DiagHam</h1>
+    <h3>a simple example</h3>
+    
+    In the directory <dir>src/Programs/Spin</dir>, you can find a program called <file>SpinChainWithTranslation</file> (if no problem occurs during the compilation process). This program evaluate the eigenvalues of a periodic spin 1 chain with a standard taking. Most of the programs you can find in DiagHam have an help giving you all the option using the usual unix option <option>-h</option> or <option>--help</option>. If you run <command>SpinChainWithTranslation --help</command>, you will obtain the following output:<br>
+<prgoutput>
+Usage: SpinChainWithTranslation [options] nbr-spin<br>
+<br>
+SpinChainWithTranslation has to be called with at least the parameter nbr-spin. This parameter
+can be passed as an argument or using the --nbr-spin option.<br>
+<br>
+Options:<br>
+  -h, --help : display this help<br>
+  --nbr-spin : number of spins (default value = 8)<br>
+  -n, --nbr-eigen : number of eigenvalues (default value = 1)<br>
+  -S, --SMP : enable SMP mode<br>
+  --processors : number of processors to use in SMP mode (default value = 2)<br>
+</prgoutput>
+For example, if you want to obtain the two lowest eigenvalues for a periodic spin 1 chain with ten spins, you just have to type <command>SpinChainWithTranslation 10 -n 2</command> or  <command>SpinChainWithTranslation 10 --nbr-eigen 2</command>. If you are lucky enough to own a multiprocessors computer, you can use the SMP option.<br>
+
+Once you have run the program, the output looks like this
+<prgoutput>
+momentum = 0<br>
+Run Lanczos Algorithm<br>
+-5.0128255385616 -2.5064127692808 1e-14<br>
+...<br>
+-12.597050918116 -12.597050918117 1e-14<br>
+<br>
+-14.094129954933 -12.597050918117 3.6663563658368e-15  Nbr of iterations = 40<br>
+-14.094129954933 -12.597050918117<br>
+momentum = 1<br>
+...
+</prgoutput>
+
+    The source code of this program, <file>SpinChainWithTranslation.cc</file>, can be found in the same directory. In the following section, we will study this code and show you the structure 
+
+<subsection>the running options</subsection>
+
+DiagHam provides an easy way to parse command line options. Each option is instanciated from one of the following classes depending on the type of data associated to the option:
+<list>
+<li><class:BooleanOption>BooleanOption</class></li>
+<li><class:SingleIntegerOption>SingleIntegerOption</class></li>
+</list>
+These classes derived from the <class:AbstractOption>AbstractOption</class>.
+<!-- Created: Fri Nov  21 17:42:02 UTC 2003 -->
+<!-- hhmts start -->
+Last modified: Mon Feb 23 15:23:40 CET 2004
+<!-- hhmts end -->
+  </body>
+</html>

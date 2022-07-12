@@ -1,0 +1,1656 @@
+2005/04/24  Nicolas Regnault:
+
+* add CreateChangelog script to generate ChangeLog from cvs.
+
+* at last, update the ChangeLog!
+
+* start adding main task for QHE overlap calculation on sphere.
+
+
+2005/04/24  Nicolas Regnault:
+
+* clean QHENBodyQuasiHoleOverlap. Now use new formula to evaluate overlap betwen two subspaces of dimensions > 1
+
+* QHEOnSphereLzSortedSpectrum is now completed and working.
+
+* add support (or prepare support) of on-disk cache for classes deriving from AbstractQHEOnSphereHamiltonian.
+
+* QHEBosonsDelta has now support of on-disk cache.
+
+
+2005/04/18  Nicolas Rgenault:
+
+* still working on QHEOnSphereLzSortedSpectrum
+
+
+2005/04/18  Nicolas Regnault:
+
+* start adding QHEOnSphereLzSortedSpectrum class to solve problem due to degeneracy of input vectors in QHENBodyQuasiHoleOverlap
+
+
+2005/04/15  Nicolas Regnault:
+
+* start adding unprojected CF wave functions.
+
+
+2005/04/13  Nicolas Regnault:
+
+* on disk cache is now working for  AbstractQHEOnSphereNBodyInteractionHamiltonian
+
+
+2005/04/08  Nicolas Regnault:
+
+* fix a bug in AbstractOption that appears when using two option names with one one them is identical to the beginning of the second one
+
+* add method in Architecture to get temporary file names
+
+* start adding support of on-disk cache with some hamiltonian (allowing huge and not-so-sparse matrices)
+
+* clean QHEBosonsFromGivenBasis
+
+
+2005/04/01  Nicolas Regnault:
+
+* correct misprint in BosonOnSphere
+
+* add QHEBosonsFromGivenBasis to evaluate Hamiltonian in a subspce given by a bunch of vectors on disk.
+
+
+2005/03/23  Nicolas Regnault:
+
+* start adding support of polynomial with complex coefficients
+
+
+2005/03/23  Nicolas Regnault:
+
+* tridiagonalization algorithm for  RealBandDiagonalSymmetricMatrix if now working (tested against more than 2000 matrices with various sizes <= 500 and band sizes)
+
+* FullReorthogonalizedBlockLanczosAlgorithm is now using RealBandDiagonalSymmetricMatrix instead of RealSymmetricMatrix
+
+
+2005/03/23  Phuong Nguyen:
+
+* Correct a typo mistake (???)
+
+
+2005/03/21  Nicoas Regnault:
+
+* working on tridiagonalization algorithm of RealBandDiagonalSymmetricMatrix
+
+
+2005/03/18  Nicolas Regnault:
+
+* fix bug in SMPArchitecture with multiple hamiltonian-vector multiplications
+
+* still working on RealBandDiagonalSymmetricMatrix
+
+
+2005/03/16  Nicolas Regnault:
+
+* start adding RealBandDiagonalSymmetricMatrix
+
+
+2005/03/16  Nicolas Regnault:
+
+* add new basic methods in Hamiltonians to allow multiple vector-hamiltonian multiplications et the same time
+
+* add a new architecture-depend operation MultipleVectorHamiltonianMultiplyOperation to evaluate multiple vector-hamiltonian multiplications, and add its support into the current architectures.
+
+* add multiple clone creation for vectors
+
+* FullReorthogonalizedBlockLanczosAlgorithm is now working and give similar results compare to the FullReorthogonalizedLanczosAlgorithm.
+
+
+2005/03/13  Nicolas Regnault:
+
+* enhance GetBosonsDimension to include full calculation of dimension of Hilbert spaces with total L and Lz constraints.
+
+
+2005/03/11  Nicolas Regnault:
+
+* still improving QHENBodyQuasiHoleOverlap
+
+
+2005/03/11  Nicolas Regnault:
+
+* still working on QHENBodyQuasiHoleOverlap
+
+* start adding new Lanczos variant (block Lanczos)
+
+
+2005/03/10  Nicolas Rgenault:
+
+* add methods to ConfigurationParser to directly retrieve double, integer, boolean and araays of integer/double
+
+* add support for multiple n-body interaction terms in QHEBosonsNBodyHardCore
+
+
+2005/03/08  Nicolas Regnault:
+
+* ParticleOnSphereSquareTotalMomentumOperator is now working
+
+* QHENBodyQuasiHoleOverlap sorts test wave functions with respect to their total angular momentum
+
+
+2005/03/07  Nicolas Regnault:
+
+* still working on ParticleOnSphereSquareTotalMomentumOperator
+
+
+2005/03/07  Nicolas Regnault:
+
+* satrt testing ParticleOnSphereSquareTotalMomentumOperator
+
+
+2005/03/06  Nicolas Regnault:
+
+* add new sort function in ArrayTools
+
+* QHENBodyQuasiHoleOverlap is now working but still has to be tested
+
+* start adding L^2 operator for QHE on sphere
+
+
+2005/03/04  Nicolas Regnault:
+
+* add error dumper in ConfigurationParser
+
+* add QHENBodyQuasiHoleOverlap for multiple overlap calculation
+
+
+2005/03/03  Nicoas Regnault:
+
+* fix a bug in state back-tracking  method of FermionOnTorusWithMagneticTranslations that can catch the program into an infinite loop.
+
+
+2005/03/02  Nicolas Regnault:
+
+* FermionOnTorusWithMagneticTranslations is now working (at last)
+
+
+2005/02/28  Nicolas Regnault:
+
+* FermionOnTorusWithMagneticTranslations has passed first tests (still have to test for l > 30)
+
+
+2005/02/24  Nicolas Regnault:
+
+* still working on FermionOnTorusWithMagneticTranslations.
+
+
+2005/02/23  Nicolas Regnault:
+
+* always trying to fix FermionOnTorusWithMagneticTranslations
+
+
+2005/02/22  Phuong Nguyen:
+
+* Add a Perl script to transform automatically a Gnuplot script file to a EPS file. Very useful!Requirement: Gnuplot 4.0, fig2dev (transfig package) and tetex
+
+
+2005/02/18  Nicolas Regnault:
+
+* still fixing you know what ;)
+
+
+2005/02/18  Nicolas Rgenault:
+
+* still working on FermionOnTorusWithMagneticTranslations
+
+
+2005/02/17  Phuong Nguyen:
+
+* Correct a type bug (E instead of e) in PeriodicReflexionSymmetryOneDOneParticle.cc
+
+* Add the program PeriodicProbabilityDensity to calculate probability density along z axis
+
+* Remove two redundant arguments in class XYReflexionSymmetricPeriodic3DHamiltonian and associated built-in programs.
+
+
+2005/02/11  Nicolas Regnault:
+
+* still fixing FermionOnTorusWithMagneticTranslations...
+
+
+2005/02/06  Nicolas Regnault:
+
+* stil trying to fix FQHE on torus with magnetic translations.
+
+
+2005/01/29  Phuong Nguyen:
+
+* Add the 2S separable model in the potential ThreeDConstantCylinderPotential and built-in program PeriodicOneDStructure
+
+* Add two barrier layers in the potential QuantumDotThreeDConstantCylinderPotential and built-in program CylinderQuantumDot
+
+
+2005/01/25  Nicolas Regnault:
+
+* fix FermionOnTorus to work on 64 bits architectures.
+
+* make ParticleOnTorusCoulombHamiltonian work again.
+
+
+2005/01/24  Phuong Nguyen:
+
+* A huge change concerning the introduction of new Hilbert space classes!!! Hope that works!
+
+
+2005/01/24  Phuong Nguyen:
+
+* Rename some Hilbert spaces files, since they are not abstract classes.
+
+
+2005/01/20  Nicolas Regnault:
+
+* generic CF wave functions now work.
+
+* add manager for QHE wave functions
+
+
+2005/01/14  Nicolas Regnault:
+
+* add parser for simple configuration files
+
+* start adding support of generic CF wave function
+
+
+2005/01/14  Phuong Nguyen:
+
+* Correct a bug in XYReflexionSymmetryOscillatorForce.cc
+
+
+2005/01/13  Phuong Nguyen:
+
+* Modify some option names which cause problem for input of the program
+
+
+2005/01/13  Phuong Nguyen:
+
+* Add barrier layers just below and above the dot + WL for DotEmbeddedWellThreeDConstantCellPotential class and DotEmbeddedWell built-in program.
+
+
+2005/01/12  Phuong Nguyen:
+
+* Add a built-in program to calculate the probability densities in a X-Y reflexion symmetric sample
+
+
+2005/01/12  Phuong Nguyen:
+
+* Accelerate the calculation of Hamiltonian elements by grouping a line of cells having the same potential
+
+
+2005/01/06  Nicolas Regnault:
+
+* fix problem with /= operation for complex number
+
+* JainCFFilledLevelOnSphereWaveFunction is now working for pseudo-Landau level up to 3
+
+
+2004/12/17  Nicolas Regnault:
+
+* add another dummy script.
+
+
+2004/12/15  Nicolas Regnault:
+
+* allow calculation of mean value <Psi+^n(0)Psi^n(0)> through QHEBosonsNBodyCorrelation
+
+
+2004/12/14  Nicolas Regnault:
+
+* move QHE operators into QHEOperator package.
+
+
+2004/12/14  Phuong Nguyen:
+
+* Fix the vicious bug in evaluating the norm of an overlap between two periodic wave functions
+
+
+2004/12/14  Nicolas Regnault:
+
+* add new package subdivision to Operator
+
+* add new operator and start cleaning old ones
+
+
+2004/12/12  Nicolas Regnault:
+
+* try to make JainCFFilledLevelOnSphereWaveFunction produce valid results...
+
+
+2004/12/10  Nicolas Regnault:
+
+* first test of JainCFFilledLevelOnSphereWaveFunction
+
+
+2004/12/10  Phuong Nguyen:
+
+* Modify the PeriodicWaveFunctionValue so that it can print out many points once to advoid the frequent load of eigenvector
+
+
+2004/12/09  Nicolas Regnault:
+
+* working on JainCFFilledLevelOnSphereWaveFunction
+
+
+2004/12/09  Nicolas Regnault:
+
+* fix some missing #include <math.h> and Makefile.am in QHEOnSphere that can cause troubles with some compilers.
+
+
+2004/12/08  Phuong Nguyen:
+
+* Add the built-in program PeriodicWaveFunctionValue to calculate the wave function value in a 3D plane wave basis.
+
+
+2004/12/08  Phuong Nguyen:
+
+* Modify the program TetrapodDotAnalysis
+
+
+2004/12/07  Phuong Nguyen:
+
+* Add the built-in program TetrapodDotAnalysis which was forgotten
+
+
+2004/12/07  Phuong Nguyen:
+
+* Add a  method to calculate the probabilities in different part of the Tetrapod potential in PeriodicSpectra
+
+* Add a built-in program to calculate these probabilites
+
+
+2004/12/07  Nicolas Regnault:
+
+* forget to add ParticleOnTorusDipolarWithMagneticTranslationsHamiltonian in previos commit
+
+
+2004/12/02  Nicolas Regnault:
+
+* implement standard interface for QHEFermionsDipolar
+
+
+2004/12/01  Nicolas Regnault:
+
+* add new pragmas to allow separate compilation of GeneralTools, Vector and Matrix packages.
+
+
+2004/11/30  Nicolas Regnault:
+
+* fix bug when writing vectors on big endian architecture
+
+* fix AIX patch
+
+* allow to deactivate use of Polynomial and Output packages in Vector and Matrix packages
+
+* Moore-Read wave functions on disk are now working
+
+
+2004/11/29  Phuong Nguyen:
+
+* Fix a bug when the arm radius is zero (the upper arm had a non-zero potential) in TetrapodThreeDConstantCellPotential
+
+
+2004/11/26  Phuong Nguyen:
+
+* Correct the sign of overlap integral in some quantum dot hamiltonians
+
+* Add a method in PeriodicSpectra to calculate the proability in a cube for 3d plane wave function basis
+
+
+2004/11/24  Phuong Nguyen:
+
+* Adjust some default parameters in Periodic3DElectronHoleQuantumDot.cc for the calculations done at IDRIS
+
+
+2004/11/22  Phuong Nguyen:
+
+* Fix the norm bug in OverlapComplex.cc
+
+
+2004/11/18  Phuong Nguyen:
+
+* Fix a bug of effective masses in PeriodicOneDStructure.cc
+
+* Fix an error of norm evaluation in OverlapComplex.cc
+
+
+2004/11/18  Phuong Nguyen:
+
+* Fix the norm error in OverlapComplex.cc
+
+
+2004/11/18  Phuong Nguyen:
+
+* Add the OverlapComplex program to calculate the overlap of two states
+
+
+2004/11/18  Phuong:
+
+* Correct the errors in TetrapodThreeDConstantCellPotential class
+
+* Add a bitmap picture saving method in BinaryThreeDConstantCellPotential class
+
+
+2004/11/17  Phuong Nguyen:
+
+* Add the potential and built-in program for a tetrapd dot (Hong Kong group)
+
+
+2004/11/05  Nicolas Regnault:
+
+* add Moore-Read state wave functions on disk
+
+
+2004/11/04  Phuong Nguyen:
+
+* Add the (2 Pi)^2 factor in the k contribution of coulombian term
+
+
+2004/11/03  Phuong Nguyen:
+
+* Uncomment some lines in PeriodicElectronHole3DHamiltonian.cc that change the results in simulation
+
+
+2004/11/02  Phuong Nguyen:
+
+* New version of PeriodicElectronHole3DHamiltonian: a great optimization of memeory saving and time consuming
+
+* Remove some cout commands in some Hilbert space files
+
+
+2004/10/28  Phuong Nguyen:
+
+* Fix the long names in some Hilbert space files
+
+* Fix the problem of destroy two times the Hilbert space in PeriodicElectronHole3DHamiltonian
+
+* Fix the fstream declaration problem in Periodic3DQuantumDots.cc
+
+
+2004/10/28  Phuong Nguyen:
+
+* Restore the FullReorthogonalizedComplexLanczosAlgorithm.cc by deleting some cout commands
+
+* Upload to test the latest version of exciton problem at Idris
+
+* Still have bug in some Hilbert spaces' destructor. Will fix them soon.
+
+
+2004/10/27  Nicolas Regnaut:
+
+* fix MAJOR BUG in ComplexVector that plagues Vector-Hamiltonian multiplication in SMP mode.
+
+
+2004/10/27  Phuong Nguyen:
+
+* commit to make a test of the program for excitons. Still have bugs :-(
+
+
+2004/10/27  Phuong Nguyen:
+
+* Optimize the hamiltonian for the two-particle problem.
+
+
+2004/10/27  Phuong Nguyen:
+
+* Fix the bugs in destructor in some Hilbert space classes: delete the members many times
+
+* The PeriodicElectronHole3DHamiltonian is now ready. Need some more optimization.
+
+
+2004/10/26  Nicolas Regnault:
+
+* fix bug in QHEOnSphereMainTask that plagues most of FQHE on sphere when evaluating eigenvectors of Hilbert space of size 2
+
+* fix bug in QHEBosonsDelta and QHEBosonsCoulomb when asking to start at a given lz value with wrong parity (previous to this fix, program started from the lowest lz value)
+
+
+2004/10/25  Nicolas Regnault:
+
+* In principle, fix all compilation errors that occured in the QunatumDot part.
+
+
+2004/10/25  Phuong Nguyen:
+
+* Add the Hilbertspace, Hamiltonian and the main program for the problem of excitons in quantum dots. Still have lots of run-time bugs.
+
+
+2004/10/22  Nicolas Regnault:
+
+* fix a problem when evaluation determinant of an exactly degeneated complex matrix
+
+* fix problem with ParticleOnDiskFunctionBasis (wrong normalization)
+
+
+2004/10/20  Anonymous Coward:
+
+* add little/big endian test to the configure script
+
+* on disk vector/matrix read/write use now little endian convention wheter the architecture use little or big endian byte ordering
+
+
+2004/10/14  Nicolas Regnault:
+
+* move QHEFermionsDiskLaplacianDelta.cc to src/Programs/QHE/QHEOnDisk and change its name into QHEFermionsLaplacianDelta.cc
+
+* add overlap calculation for fermions on disk
+
+
+2004/10/13  Phuong Nguyen:
+
+* Add files for the new structured QuantumDotHilbertSpace directory
+
+
+2004/10/13  Phuong Nguyen:
+
+* Add a method to calculate the extension of a function in CylinderInMagneticFieldSpectra
+
+
+2004/10/11  Nicolas Regnault:
+
+* fix bug in QHEOnDisk/QHEBosonsDelta
+
+
+2004/10/11  Nicolas Regnault:
+
+* duplicate QHEBosonsDiskDelta into QHEOnDisk/QHEBosonsDelta
+
+
+2004/10/10  Nicoas Regnault:
+
+* start adding support of wave function overlap for QHE on disk
+
+
+2004/10/09  Nicolas Regnault:
+
+* forget QHEOnDiskMainTask in previous commit
+
+
+2004/10/08  Nicolas Regnault:
+
+* first version of QHEBosonsNBodyHardCore that doesn't seg fault and that give similar results to QHEBosonsDiskDelta for the two body case.
+
+
+2004/10/08  Nicolas Regnault:
+
+* switch from int to long for state description in FermionOnTorus and FullFermionOnTorus
+
+
+2004/10/07  Nicolas Regnault:
+
+* fix some of the compilation problems that occurs with xlC (still have to fix those arising from the src/Programs/QuantumDots, but src/Programs/QHE works fine)
+
+
+2004/10/06  Nicolas Regnault:
+
+* continue working on FQHE  n-body interaction on disk
+
+
+2004/10/04  Nicolas Regnault:
+
+* fix a problem with the missing/depcomp file
+
+* starting n-body interactions to FQHE on disk
+
+
+2004/10/02  Nicolas Regnault:
+
+* Fix memory leak in BosonOnSphere when using ProdAdProdA. Improve speed (50%) when using operators with BosonOnSphere (avoid memory allocation/free)
+
+
+2004/10/01  Nicolas Regnault:
+
+* fix a bug in AbstractQHEOnSphereNBodyInteractionHamiltonian that appears when using partial fast calculation
+
+* improve AbstractQHEOnSphereNBodyInteractionHamiltonian and ParticleOnSphereNBodyHardCoreHamiltonian, they now require less memory and are faster.
+
+* change name TrappedBoson into BosonOnDisk and TrappedBosonHamiltonian into ParticleOnDiskDeltaHamiltonian
+
+
+2004/09/30  Nicolas Regnault:
+
+* fix some problems with switch2longdouble.pl (still have to fix QD stuffs to allow double to long double transition).
+
+
+2004/09/30  Nicolas Regnault:
+
+* clean code to allow change from double to long double (not yet finished)
+
+
+2004/09/29  Nicolas Regnault:
+
+* correct a bug in AbstractQHEOnSphereNBodyInteractionHamiltonian that prevents using value of 2S+1 smaller than the number of  particles that interact simultaneously (bosons only)
+
+* do more tests with ParticleOnSphereNBodyHardCoreInteractionHamiltonian, seems to give correct results.
+
+
+2004/09/29  Phuong Nguyen:
+
+* Add the capability of calculating a problem with vertical magnetic field in PeriodicOneDStructure.cc
+
+* Some error due to the CylindricalHamiltonianInMagneticField was discovered. To be fixed soon!!
+
+
+2004/09/28  Nicolas Regnault:
+
+* fix bug when display error message of an ruuning option that doesn't have a shortcut
+
+* fix bug in most of QHEOnSphere exact diagonalization program with the output file (the output file was deleted before each new Lz calculation)
+
+* continue and test n-body interaction case. Compare it with the 2-body case (direct comparison) and the 3-body (overlap with the pfaffian wave function).
+
+
+2004/09/27  Nicolas Regnault:
+
+* continue adding support for N-body hard core interaction for FQHE
+
+
+2004/09/27  Phuong Nguyen:
+
+* Modify the file ParticleOnSphereNBodyHardCoreHamiltonian.cc to prevent a compilation error
+
+* Add an analysis program: src/Tools/QuantumDot/Analysis/DefaultCylinderSymmetryInMagneticFieldOscillatorForce.cc
+
+
+2004/09/24  Anonymous Coward:
+
+* Nicolas Regnault
+
+* start adding Hamiltonian for QHE with N-body interaction terms
+
+* add Pascal triangle evaluation in IntegerAlgebraTools
+
+
+2004/09/21  Nicolas Regnault:
+
+* start adding support for n-body interaction into ParticleOnSphere Hilbert space.
+
+
+2004/09/21  Nicolas Regnault:
+
+* compare Moore-Read implementation to Pffafian calculation for clusters of two particles.
+
+
+2004/09/20  Nicolas Regnault:
+
+* fix compilation problem in JainCFFilledLevelOnSphereWaveFunction
+
+
+2004/09/20  Nicolas Regnault:
+
+* add new package for random number generators
+
+* modify overlap caluclation to use Metropolis sort according to the modulus of the test wave function (improving Monte-Carlo convergence)
+
+* start coding new test wave function for FQHE on sphere (CF states and Moore-Read states)
+
+
+2004/09/12  Nicolas Regnault:
+
+* fix compilation problem due to not yet committed  files
+
+* add Metropolis algorithm to FQHE overlap calculations (has to be tested)
+
+
+2004/09/09  Nicolas Regnault:
+
+* add new directory for QHE on sphere (programs that where previously in src/Program/QHE and refering to the sphere will be move latter)
+
+* add new program to evaluate pair correlation function and another for Gross-Pitaevskii approximation
+
+
+2004/09/08  Phuong Nguyen:
+
+* Add the missed file PeriodicOscillatorForce.cc
+
+* Still have a compilation problem in src/HilbertSpace/QuantumDotHilbertSpace since several new files have not been committed yet
+
+
+2004/09/02  Nicolas Regnault:
+
+* modify QHEBosonsCoulomb to support new option manager and allow it to produce eigenvectors.
+
+
+2004/09/01  Nicolas Regnault:
+
+* move Bosons program to BosonsDiskDelta and now use option manager
+
+* add pfaffian evaluation for skew symmetric matrices
+
+* fix pivot problem that could arise in determinant calculation (in RealMatrix and ComplexMatrix).
+
+* add new abstract class for numrical function from R^n -> C
+
+* add new package for QHE wave functions
+
+
+2004/08/29  Nicolas Regnault:
+
+* add QHEFermionsLaplacianDeltaOverlap.cc that has been forgotten during previous commit.
+
+
+2004/08/29  Nicolas Regnault:
+
+* add evaluation of determinants for real and complex matrices.
+
+* add read from /write to disk method for matrices
+
+* add evaluation of wave function in real space for FermionOnSphere
+
+* add new program to evaluate overlap associated to QHEFermionsLaplacianDelta
+
+
+2004/08/25  Nicolas Rgenault:
+
+* Fix a makefile problem in src/Tools/QuantumDot/Analysis
+
+
+2004/08/22  Nicolas Regnault:
+
+* add minor development for permanent
+
+* add new matrix types (complex skew symmetric, upper and lower triangular)
+
+
+2004/08/11  Phuong Nguyen:
+
+* Add the program DotProbability to find the probability in the dot of a state
+
+
+2004/08/10  Phuong Nguyen:
+
+* Add some corrections to the program names
+
+* Correct the name of the file DefaultCylinderSymmetryOscllatorForce.cc
+
+
+2004/08/09  Phuong Nguyen:
+
+* Save the options used in two files in built-in programs
+
+
+2004/08/09  Phuong Nguyen:
+
+* Add method to display the options as well as their values in src/Options/
+
+* Save the options used in two files in src/Programs/QuantumDot/EllipticalDot.cc
+
+
+2004/08/06  Phuong Nguyen:
+
+* Add more analysis tools in src/Tools/QuantumDot/Analysis/
+
+
+2004/08/05  Phuong Nguyen:
+
+* Add analysis tools (DOS, oscillator force, absorption spectra, ...) in src/Tools/QuantumDot/Analysis/
+
+
+2004/08/05  Phuong Nguyen:
+
+* Optimization in precalculation process of XYReflexionSymmetricPeriodic3DHamiltonian to accelerate the evaluation of Hamiltonian elements.
+
+
+2004/08/04  Anonymous Coward:
+
+* Nicolas Regnault
+
+* add the beginning of two chapters of the developper documentation (Hilbert space and Hamiltonian).
+
+* QHEBosonsDeltaOverlap now evaluates overlap with the Laughlin wave function
+
+
+2004/08/04  Phuong Nguyen:
+
+* Restore the configure.in version, without including $(top_builddir) in the INCLUDE macro
+
+* Minor modification in the INCLUDE path in src/Programs/QHE/Makefile.am
+
+* Building outside the source directory must work now. Check done.
+
+
+2004/08/03  Phuong Nguyen:
+
+* Modify the path of source directory to build directory to enable building the project outside the source code directory
+
+
+2004/08/02  Nicolas Rgenault:
+
+* minor modifications to QHEBosonsDeltaOverlap
+
+
+2004/08/02  Phuong Nguyen:
+
+* Improve the performance of QuantumDots3DHamiltonian in the case of fully calculated Hamiltonian
+
+* Add the analysis tool for sinus basis in HardBoxSpectra
+
+* Add the program to calculate the eigenstates in an elliptical box in sinus basis
+
+
+2004/07/29  Nicolas Regnault:
+
+* add AbstractScalarSumOperation class to handle all operation whose results is the sum of indepdendant scalar contributions.
+
+* add QHEParticleWaveFunctionOperation to parallelize evaluation of QHE wave function in real space
+
+
+2004/07/29  Nicolas Regnault:
+
+* add a new version to evaluate permanent using precalculation table. Optimize permanent and wave function calculations (almost twice as fast as the previous version).
+
+
+2004/07/28  Nicolas Regnault:
+
+* add evaluation of permanent for square real and complex matrix.
+
+* add possibility to evaluate wave function in real space for bosons on sphere
+
+* start a small program that check overlap between exactly diagonalize state and a analytic test wave function
+
+
+2004/07/26  Nicolas Regnault:
+
+* Modify QHEBosonsDelta to be able to produce eigenstates
+
+
+2004/07/19  Phuong Nguyen:
+
+* Add calculations of probability of finding a particle in the dot.
+
+* Add the calculations for P symmetry of one D structure obtained by gaussian weight.
+
+
+2004/07/12  Phuong Nguyen:
+
+* Add the calculation for 1-D problem deduced from a 3-D problem by using a gaussian weight in the plane
+
+
+2004/07/09  Nicolas Regnault:
+
+* start a new package for (light) numerical analysis.
+
+
+2004/07/09  Phuong Nguyen:
+
+* Add the piezoelectric field for Aleks in EllipticalDotThreeDConstantCellPotential class and the corresponding tools for analysis
+
+
+2004/07/06  Nicolas Regnault:
+
+* add simple methods to diagonalize real symmetric and hermitian matrices (wrapper to the Householder->QL/QR chain)
+
+
+2004/07/06  Phuong Nguyen:
+
+* Add CylinderQuantumDotSpectra to analyse the spetrum of Fourier-Bessel decomposition
+
+
+2004/07/05  Nicolas Regnault:
+
+* add Makefile.am and Makefile.in in src/Architecture/ClusterArchitecture (previous cvs commit couldn't compile due to the lack of these two files)
+
+
+2004/07/04  Nicolas Regnault:
+
+* modify ProgXMLDoc.pl to support option groups
+
+* add some development and program docs
+
+
+2004/06/25  Nicolas Regnault:
+
+* fix compilation warning due to deprecated strstream header (switchto sstream)
+
+* continue to deal with cluster architecture
+
+
+2004/06/21  Nicolas Regnault:
+
+* fix major bug in AbstractQHEOnSphereHamiltonian which plagues someQHE programs when dealing with reduction factor larger than 1 (bugintroduces when support for distributed architectures was added).
+
+* add a script to search for possible fraction line in QHE fermionsdatabase results.
+
+* continue support for dealing with vectors when using distributedarchitectures
+
+
+2004/06/15  Nicolas Regnault:
+
+* add a new program for QHE with bosons and only a V_2 pseudopotential
+
+* start true support of cluster architectures (start with vectors tosupport distributed memory archiecture)
+
+
+2004/06/13  Nicolas Regnault:
+
+* move previous ProgXMLDoc.pl into OldProgXMLDoc.pl and start new version of ProgXMLDoc.pl which supports option groups.
+
+
+2004/06/11  Nicolas Regnault:
+
+* clean code of some QHE Hamiltonian
+
+* add MainTask classes in order to obtain thread-safe/MPI-safe portionof code
+
+* clean code of some QHE Programs and make them support MainTask
+
+
+2004/06/11  Phuong Nguyen:
+
+* Add the file PeriodicContinuum.cc to calculate the levels in a well.
+
+* Modernize the options for some programs.
+
+
+2004/06/08  Anonymous Coward:
+
+* Phuong Nguyen
+
+* Add the Fourrier-Bessel function basis in CylindricalQuantumDots3DHamiltonian.cc
+
+* Reorganize the option structure of DotEmbeddedWell.cc and EllipticalDot.cc
+
+
+2004/06/03  Nicolas Regnault:
+
+* minor changes in QHEFermionsV3 (output file name, long statesupport...)
+
+
+2004/06/03  Nicolas Regnault:
+
+* restore the old way to evaluate Multiple*ScalarProductOperationtoghether with the new one (introduce scalar product strategy option)
+
+* add QHE on sphere with generic pseudopotentials and en example withonly the V_3 pseudopotential
+
+
+2004/06/02  Nicolas Regnault:
+
+* fix a thread-safe bug in AbstractQHEOnDiskHamiltonian
+
+* change QHEFermionsCoulomb to use new options scheme
+
+* improve and test FermionOnSphereUnlimited (tests done with coulomb interaction)
+
+
+2004/05/31  Nicolas Regnault:
+
+* add new Hilbert space for fermions on sphere with no restriction concerning the number of particles/maximum momentum (not yet tested)
+
+
+2004/05/28  Nicolas Regnault:
+
+* modify Multiple*ScalarProductOperation To allow parallelizationthrough partial scalar product evaluation.
+
+* modify Archiectures to support new Multiple*ScalarProductOperation.
+
+* change AbstractQHEOnSphereHamiltonian to support parallelization ondistributed memory architecture for precalculations.
+
+* add methods in Vector classes to exchange vectors through MPI.
+
+* SimpleMPIArchitecture is almost complete and works withQHEFermionsLaplacianDelta.
+
+
+2004/05/27  Phuong Nguyen:
+
+* Add the SMP optimization for PeriodicQuantumDots3DHamiltonianInMagneticField
+
+* Add a method to calculate mean positions in CylinderInMagneticFieldSpectra, which are needed in the case of magnetic field.
+
+
+2004/05/19  Nicolas Regnault:
+
+* fix CVS problem with the directory docs/built_in_programs
+
+
+2004/05/19  Nicolas Regnault:
+
+* add depcomp (needed for compilation)
+
+
+2004/05/19  Nicolas Regnault:
+
+* switch to autoconf version 2.5.x (needed to use configure --enable-xoptions)
+
+* add support of MPI in configure. DiagHam compiles fine with LAM MPI.
+
+* add config_ac.h.in to allow configure to generate its config.h
+
+* start Simple MPI architecture.
+
+* add option manager and option groups to make run option supporteasier.
+
+
+2004/05/18  Anonymous Coward:
+
+* Phuong NguyenComplete the SMP method for ReflexionSymmetricPeriodic3DHamiltonian. Every thing works as they should.
+
+
+2004/05/14  Phuong Nguyen:
+
+* Optimize the SMP mode for CylindricalHamiltonianInMagneticField, PeriodicQuantumDots3DHamiltonian and XYReflexionSymmetricPeriodic3DHamiltonian
+
+* Under the way of doing the same thing for ReflexionSymmetricPeriodic3DHamiltonian
+
+
+2004/05/13  Phuong Nguyen:
+
+* Optimize the SMP mode for PeriodicQuantumDots3DHamiltonian
+
+* Add the anisotropy of dot in DotEmbeddedWellThreeDConstantCellPotential
+
+
+2004/05/13  Anonymous Coward:
+
+* Nicolas Regnault
+
+* add hamiltonian and program to treat QHE with dipolar interaction
+
+* add LzToL.cc and XMLDoc2Php.pl which were forgotten during lastcommit
+
+
+2004/05/08  Anonymous Coward:
+
+* Nicolas Regnault
+
+* minor changes in scripts to create documentation
+
+
+2004/05/07  Phuong Nguyen:
+
+* Add the Hilbert space and Hamiltonian to calculate the problem in 1 D with periodic states
+
+
+2004/05/07  Nicolas Regnault:
+
+* move scripts related to the documentation in the scripts/docsdirectory
+
+* change convention used in ParticleOnSphereLaplacianDeltaHamiltonian,QHEFermionsLaplacianDelta and their related scripts to fit the oneused in cond-mat/0404093.
+
+* add virtual methods in AbstractHamiltonian used for more generalhamiltonian vector multiplication that will be usefull for distributedcalculations.
+
+
+2004/05/06  Phuong Nguyen:
+
+* Add the spectra tool for cylinder symmetry in magnetic field
+
+
+2004/05/06  Phuong Nguyen:
+
+* Add a barrier layer in QuantumDotThreeDConstantCylinderPotential
+
+
+2004/05/03  Phuong Nguyen:
+
+* Add the Hilbert space InPlaneReflexionSymmetricPeriodic3DOneParticle and Hamiltonian ReflexionSymmetricPeriodic3DHamiltonian to calculate the case of reflexion symmetric potential in Y direction.
+
+
+2004/05/03  Phuong Nguyen:
+
+* Add a Bloch function case in periodic hamiltonians
+
+
+2004/04/30  Phuong Nguyen:
+
+* Finish the CylindricalHamiltonianInMagneticField with calculation for S and P symmetry
+
+
+2004/04/30  Phuong Nguyen:
+
+* finish the calculation of S symmetry states in CylindricalHamiltonianInMagneticField
+
+* add a method in Hamiltonians to evaluate approximately the maximal diagonal element, used for shifting the Hamiltonian
+
+
+2004/04/28  Nicolas Regnault:
+
+* continue documentation publication scripts
+
+
+2004/04/28  Phuong Nguyen:
+
+* Add the potential, Hilbert space, Hamiltonian for the calculation with Landau states in a magnetic field and confinement potential
+
+
+2004/04/25  Nicolas Regnault:
+
+* class documentation has been cleaned et regenerated
+
+* start built-in program documentation (in xml format) and scripts tohelp documentation construction.
+
+
+2004/04/20  Phuong Nguyen:
+
+* add a program to calculate eigenstates in presence of magnetic field, in a plane-wave basis
+
+
+2004/04/20  Phuong Nguyen:
+
+* start implementation of hamiltonian with presence of magnetic field
+
+* modify the incrementation in PeriodicQuantumDots3DHamiltonian.cc
+
+
+2004/04/18  Phuong Nguyen:
+
+* Fix the typo bug in XYReflexionSymmetricPeriodic3DHamiltonian.cc (mistyping of Y)
+
+* Return the quick LowLevelAddMutiply method in PeriodicQuantumDots3DHamiltonian.cc
+
+* Add the SMP capability in QuantumDots3DHamiltonian.cc
+
+
+2004/04/09  Phuong Nguyen:
+
+* Add new potential class and program file for calculation of an elliptical dot
+
+
+2004/04/07  Phuong Nguyen:
+
+* The bug of the method to get the impulsion value in X and Y directions is found and solved.
+
+* Complete the method of getting the function value in XYReflexionSymmetricPeriodicSpectra.cc
+
+
+2004/04/07  Phuong Nguyen:
+
+* Add the method to calculate the wave function in XYReflexionSymmetricPeriodicSpectra
+
+
+2004/04/06  Phuong Nguyen:
+
+* Modify some XYReflexionSymmetric classes.
+
+* Still have a bug in the X, Y polarizations of XYReflexionSymmetricPeriodicSpectra.cc
+
+
+2004/04/05  Phuong Nguyen:
+
+* The Hamiltonian with reflexion symmetry in X and Y works now
+
+* Add the spectra tool for analyse with reflexion symmetry in X and Y: still has bugs
+
+
+2004/04/01  Phuong Nguyen:
+
+* Modify the name of some Hilbert space files to enable the tar-gunzipped process.
+
+
+2004/04/01  Nicolas Regnault:
+
+* fix a bug due to the previous aclocal.m4
+
+
+2004/04/01  Nicolas Regnault:
+
+* suppress Athlon optimization in the configure file
+
+* change the file name of the classPeriodicXXZSpinChainWithSecondNearestNeighborCouplingHamiltonian thatwas truncated when using tar
+
+
+2004/03/30  Phuong Nguyen:
+
+* Add some Hilbert spaces to make use of the reflexion symmetry in a plane wave basis.
+
+* Add a program to determine the distribution of the coefficients in a vector
+
+
+2004/03/29  Phuong Nguyen:
+
+* Still has a bug in the XYReflexionSymmetricPeriodic3DHamiltonian.
+
+
+2004/03/28  Phuong Nguyen:
+
+* Add Hilbert space to describe a particle in a periodic box, with XY reflexion symmetry
+
+
+2004/03/28  Phuong Nguyen:
+
+* Add the periodic hamiltonian in the case of reflexion symmetry in X and Y direction
+
+
+2004/03/18  Phuong Nguyen:
+
+* Add the ResizeLanczos program to enable the modification of Lanczos configuration between two launches
+
+
+2004/03/17  Phuong Nguyen:
+
+* Add a method to calculate p matrix in a periodic base
+
+
+2004/03/07  Nicolas Regnault:
+
+* fix a memory leak in ParticleOnDiskLaplacianDeltaHamiltonian
+
+
+2004/03/06  Nicolas Regnault:
+
+* a small modification in QHEFermionsDiskLaplacianDelta to use the best Hilbert space automatically.
+
+
+2004/03/06  Nicolas Regnault:
+
+* Fix bug in FermionOnDisk that was occuring on 64bits architectures (due to a bit shifts that were in some case grater than the number of bits in a long). Fix the same bug in FermionOnSphere.
+
+
+2004/03/05  Nicolas Regnault:
+
+* test FermionOnDiskUnlimited, gives the same results thanFermionOnDisk for small systems and correct energy for the Laughlin state at nu=1/3 (n=7and n=8)
+
+* clean code FermionOnDiskUnlimited and improve code of the signcalculation in FermionOnDisk.
+
+* fix a mutex problem when using precalculations technics ofAbstractQHEOnDiskHamiltonian.
+
+
+2004/03/04  Nicolas Regnault:
+
+* the new FermionOnDiskUnlimited class is now in test
+
+
+2004/03/04  Nicolas Regnault:
+
+* debugging FermionOnDiskUnlimited.
+
+
+2004/03/04  Phuong Nguyen:
+
+* Add the return false when the method ReadVector(char* fileName) in Vector classes cannot open the file
+
+* Add the return false when the method ReadState() in FullReorthogonalizedComplexLanczosAlgorithmWithDiskStorage cannot open the file lanzcos.dat
+
+
+2004/03/04  Nicolas Regnault:
+
+* fix bug when using resume function withFullReorthogonalized(Complex)LanczosAlgorithmWithDiskStorage andtrying to get the eigenstates
+
+* start new class for FermionOnDisk Hilbert Space with no restriction on the numberof state
+
+
+2004/03/03  Nicolas Regnault:
+
+* start new coding for fermions on sphere/disk to avois the limitation due to the size of unsigned long.
+
+
+2004/03/02  Phuong Nguyen:
+
+* Add a test for opening the file "lanczos.dat" in method ReadState() of src/LanczosAlgorithm/FullReorthogonalizedComplexLanczosAlgorithmWithDiskStorage.cc
+
+* Add a test for opening a file in method ReadVector(char* fileName) in src/Vector/ComplexVector.cc and src/Vector/RealVector.cc
+
+* Finalize the program src/Programs/QuantumDot/DotEmbeddedWell.ccNote: still have a bug in GetEigenstates of src/LanczosAlgorithm/FullReorthogonalizedComplexLanczosAlgorithmWithDiskStorage.cc
+
+
+2004/03/02  Phuong Nguyen:
+
+* Add the method ShiftPotential in the src/Tools/QuantumDot/Potential classes
+
+
+2004/03/02  Nicolas Regnault:
+
+* add a new Hamiltonian (forgotten in the previous CVS commit, whichcause compilation failure)
+
+
+2004/03/02  Nicolas Regnault:
+
+* add the possibilities to obtain the eigenvectors with the Lanczosalgorithms using disk storage.
+
+* test the numerical coefficients ofParticleOnDiskLaplacianDeltaHamiltonian with a program using gmp. Nodifference was found.
+
+
+2004/02/27  Nicolas Regnault:
+
+* add precalculation capabilities to AbstractQHEOnDiskHamiltonian and apply it to QHEFermionsDiskLaplacianDelta.
+
+* a numerical errors occur for value of N>=7 in QHEFermionsDiskLaplacianDelta. Has to be fixed.
+
+
+2004/02/27  Nicolas Regnault:
+
+* fix the bug that appears with programs using theFullReorthogonalizedLanczosAlgorithmWithDiskStorage when having anumber of iteration lower than the number of eigenvalues.
+
+* fix bugs in theFullReorthogonalizedComplexLanczosAlgorithmWithDiskStorage (firstLanczos vector wrong initialization and conjugation error for the scalarproducts)
+
+* add disk/resume capabilities to the NDMAP program (used as a checkfor the FullReorthogonalizedComplexLanczosAlgorithmWithDiskStorageclass)
+
+* add x86_64 architecture test into the config.h
+
+
+2004/02/27  Nicolas Regnault:
+
+* test new FermionOnSphere method for searching states: more than 30% on QHEFermionsLaplacianDelta with n=11 l=30, performance increasing with Hilbert space dimension and with small performance lost  on small Hilbert space dimension.
+
+* a bug seems to plague all full reorthogonalize Lanczos algorithm with disk storage. This bug has to be fixed ASAP.
+
+
+2004/02/24  Nicolas Regnault:
+
+* correct seg fault in the new state finding method in FermionOnSphere (not yet compared with the previous method)
+
+* correct an error while printing L value in QHEFermionsDiskLaplacianDelta when using lanczos algorithm
+
+* improve FermionOnDisk to support up to individual Lz= 31 (30 before) on 32bits architecture and Lz=63 (62 before) for 64bits architecture
+
+* add new generic methods for memory management in AbstractArchitecture in order to move to distributed architecture
+
+* add new constructors methods in some ArchitectureOperation to handle array of pointers to vector.
+
+
+2004/02/19  Nicolas Regnault:
+
+* some QHE scripts modifications (now reproduce Morf results)
+
+
+2004/02/18  Phuong Nguyen:
+
+* Add new class for a potential of dot-embedded well (DotEmbeddedWellThreeDConstantCellPotential)
+
+* Program for dot-embedded well (DotEmbeddedWell.cc)
+
+* Modify PeriodicQuantumDots3DHamiltonian class to take account of SMP and MonoProcessor Mode simultaneously
+
+
+2004/02/18  Nicolas Regnault:
+
+* fix bug with the FactorialCoefficient class
+
+* test the FactorialCoefficient class on 64 bits architecture (amd64) with its dedicated optimization
+
+
+2004/02/13  Phuong Nguyen:
+
+* Restructure the class src/Tools/QuantumDot/Potential:
+
+* Remove the old structure files
+
+* Add the new structure files
+
+
+2004/02/13  Anonymous Coward:
+
+* remove the test file
+
+
+2004/02/13  Anonymous Coward:
+
+* test the cvs
+
+
+2004/02/13  Nicolas Regnault:
+
+* correct a problem in NDMAPSpinChain that produced a compilationerror
+
+
+2004/02/13  Nicolas Regnault:
+
+* add subdivisions into the script directory (QHE and Spin) and movecorresponding scripts
+
+
+2004/02/06  Phuong Nguyen:
+
+* Change the file names and modify thePeriodicQuantumDots3DHamiltonian
+
+* Learn how to use CVS
+
+
+2004/02/03  Nicolas Regnault:
+
+* update QuantumDots3DHamiltonian.cc
+
+* add programs into QuantumDot
+
+* check compilation of DiagHam on x86 architecture.
+
+
+2004/02/03  Nicolas Regnault:
+
+* merge Phuong Nguyen DiagHam version into current DiagHam version
+
+* add Tools packages
+
+* add latest developments of quantum dot hamiltonians
+
+* start adding fermions on disk for QHE
+
+
+2004/01/30  Anonymous Coward:
+
+* add xlc test to detect 64 bits architecture
+
+
+2003/12/09  Anonymous Coward:
+
+* modify ParticleOnSphereCoulombDeltaHamiltonian and QHEBosonsDelta totune ratio between delta and coulomb interaction
+
+* add to perl scripts for xfig and data processing
+
+
+2003/11/28  Anonymous Coward:
+
+* add a strong covergence test for fully reorthogonalized complexLanczos algorithm
+
+* testing QHE on torus with magnetic translations
+
+
+2003/11/24  Anonymous Coward:
+
+* start modifying Hamiltonian for QHE on torus with magnetictranslations
+
+
+2003/11/24  Anonymous Coward:
+
+* continue QHE for boson on torus with magnetic translations.
+
+
+2003/11/23  Anonymous Coward:
+
+* continue documentation
+
+* continue QHE for boson on torus with magnetic translations
+
+
+2003/11/21  Anonymous Coward:
+
+* continue QHE for boson on torus
+
+
+2003/11/20  Anonymous Coward:
+
+* correct bugs in the newly added methods of the ComplexVector class
+
+* add methods to the ComplexVector class to fully work with explicithamiltonian
+
+
+2003/11/20  Anonymous Coward:
+
+* add lacking (add)multiply methods for complex vector with ahermitian matrix
+
+* continue QHE on torus with magnetic translations
+
+
+2003/11/19  Anonymous Coward:
+
+* correct bugs and add canonical form search for BosonOnTorusState
+
+
+2003/11/19  Anonymous Coward:
+
+* correct bugs in BosonOnTorusState and continue tests on it
+
+
+2003/11/19  Anonymous Coward:
+
+* continue to develop QHE on torus with translations
+
+
+2003/11/19  Anonymous Coward:
+
+* correct some minor problems that arise when compiling with xlC
+
+* start defining QHE Hamiltonian for particle on torus with magnetictranslations
+
+
+2003/11/13  Anonymous Coward:
+
+* correct bug that can appear when diagonalize 3*3 real symmetricmatrices that are already tridiagonal
+
+* complete NDMAP spin chain hamiltonian
+
+* add abstract architecture dependant operation used forprecalculation
+
+* add support for Lanczos algorithm with full reorthogonalization anddisk access
+
+
+2003/11/03  Anonymous Coward:
+
+* add NDMAP spin chain Hamiltonian and program
+
+* start development of QHE Hamiltonian for coulomb interaction ontorus with magnetic translations
+
+
+2003/10/23  Anonymous Coward:
+
+* finished and tested spin 1 chain with translation
+
+* add hamiltonian for heisenberg spin chain with translationinvariance.
+
+* correct and complete Lanczos algorithms for complex hamiltonians
+
+
+2003/10/20  Anonymous Coward:
+
+* start user documentation (contents and installation)
+
+
+2003/10/16  Anonymous Coward:
+
+* add opteron to the list of supported architectures
+
+* continue devlopment of the spin 1 chain with translations (testsubspace dimensions up to n=16)
+
+
+2003/10/15  Anonymous Coward:
+
+* start new hilbert space for spin 1 chain with translations
+
+
+2003/10/15  Anonymous Coward:
+
+* add the AIXPatch (forgotten in the previous cvs commit) and adocumentation about AIX installation
+
+* start looking at bosons on torus with magnetic translations
+
+* add new qhe hamiltonian of particles on sphere with laplacian deltainteraction
+
+
+2003/10/01  Anonymous Coward:
+
+* create a script to patch the Makefile.in and configure when usingthe program with AIX
+
+* correct some minor problem that appears when compiling with xlC
+
+* DiagHam has been tested on AIX version 5 with xlC version 6
+
+
+2003/09/24  Anonymous Coward:
+
+* add files needed for compilation
+
+* add new QHE program for fermions on torus with magnetic translation
+
+
+2003/09/24  Anonymous Coward:
+
+* add algebraic tools for integers
+
+
+2003/09/24  Anonymous Coward:
+
+* move each hilbert space in a given subdirectory (DMRGHilbertSpace,QHEHilbertSpace, QuantumDotHilbertSpace, SpinHilbertSpace andManyBodyHilbertSpace)
+
+* add tools for array
+
+
+2003/09/24  Anonymous Coward:
+
+* move each hamiltonian in a given subdirectory (DMRGHamiltonian,QHEHamiltonian, QuantumDotHamiltonian and SpinHamiltonian)
+
+
+2003/09/23  Anonymous Coward:
+
+* start support for particle on torus with magnetic translations
+
+* move each program to a dedicated directory (QHE, QuantumDot and Spin)
+
+
+2003/09/12  Anonymous Coward:
+
+* correct major bug of ExplicitHamiltonian class when used with SMP (wrong use of the Matrix (Add)Multiply methods)
+
+* add new version of (Add)Multiply methods related to the bug
+
+
+2003/07/04  Anonymous Coward:
+
+* add support for precalculcation parallelization in QHEOnTorusHamiltonian
+
+
+2003/06/26  Anonymous Coward:
+
+* modify boson on torus hilbert to support total momentum quantum number and fast index research.
+
+* add new hamiltonian for QHE on torus with delta interaction and some scripts needed for batch execution and data processing
+
+
+2003/06/06  Anonymous Coward:
+
+* add a new class of spin chain problem (chain of sand glass)
+
+
+2003/06/06  Anonymous Coward:
+
+* correct a bug in AbstractOption that can append with g++ 3.2
+
+* add tools for hermitian matrices than are used to diagonalise them
+
+* correct a bug in argument reading in QHEBosonsDeltaGround
+
+
+2003/06/02  Anonymous Coward:
+
+* add scripts to parse benchmak results
+
+
+2003/05/26  Anonymous Coward:
+
+* add two benchmark scripts
+
+* bug correction
+
+
+2003/05/26  Anonymous Coward:
+
+* fix bug in the 64 bits version of FermionOnSphere
+
+* add new complex functions (new architecture operations, new methods for the ComplexVector class)
+
+* start support for full reorthogonalisation Lanczos algorithm for complex Hamiltonians
+
+
+2003/05/07  Anonymous Coward:
+
+* correction of a bug in the evaluation of the clebsh gordan coefficient (bad precision evaluation implying wrong algorithm choice)
+
+
+2003/05/04  Anonymous Coward:
+
+* add load/save precalculation for particle on sphere hamiltonian
+
+
+2003/05/03  Anonymous Coward:
+
+* branches:  1.1.1;Initial revision
+
+

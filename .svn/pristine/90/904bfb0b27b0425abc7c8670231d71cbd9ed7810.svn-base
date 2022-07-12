@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <title>AbstractSpinChain</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : AbstractSpinChain</DIV></H1>
+
+<H3>~AbstractSpinChain :</H3>
+<u>prototype:</u>     <i>virtual</i> ~AbstractSpinChain  ()<BR><BR>
+<u>description:</u>virtual destructor 
+<BR>
+<BR><BR><BR><H3>on :</H3>
+<u>prototype:</u>    return value of spin projection on  (Oz )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> return value of spin projection on (Oz) for a given state 
+<BR>
+<BR><BR><BR><H3>on :</H3>
+<u>prototype:</u>    return value = spin projection on  (Oz )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR><BR><BR>
+<u>return value:</u> spin projection on (Oz) 
+<BR>
+<BR><BR><BR><H3>TotalSz :</H3>
+<u>prototype:</u>     int TotalSz  (int state )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR><BR><BR>
+<u>return value:</u> spin projection on (Oz) 
+<BR>
+<BR><BR><BR><H3>Sxi :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& Sxi  (int i <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& M )<BR><BR>
+<u>description:</u>return matrix representation of Sx 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = operator position 
+<BR>M = matrix where representation has to be stored 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix 
+<BR>
+<BR><BR><BR><H3>Syi :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& Syi  (int i <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& M )<BR><BR>
+<u>description:</u>return matrix representation of i * Sy 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = operator position 
+<BR>M = matrix where representation has to be stored 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix 
+<BR>
+<BR><BR><BR><H3>Szi :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& Szi  (int i <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& M )<BR><BR>
+<u>description:</u>return matrix representation of Sz 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = operator position 
+<BR>M = matrix where representation has to be stored 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix 
+<BR>
+<BR><BR><BR><H3>SziSzj :</H3>
+<u>prototype:</u>     <i>virtual</i> double SziSzj  (int i int j int state )<BR><BR>
+<u>description:</u>return eigenvalue of Sz_i Sz_j associated to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = first position 
+<BR>j = second position 
+<BR>state = index of the state to consider 
+<BR><BR><BR>
+<u>return value:</u> corresponding eigenvalue 
+<BR>
+<BR><BR><BR><H3>SmiSpj :</H3>
+<u>prototype:</u>     <i>virtual</i> int SmiSpj  (int i int j int state double& coefficient )<BR><BR>
+<u>description:</u>return index of resulting state from application of S-_i S+_j operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of S- operator 
+<BR>j = position of S+ operator 
+<BR>state = index of the state to be applied on S-_i S+_j operator 
+<BR>coefficient = reference on double where numerical coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>FindStateIndex :</H3>
+<u>prototype:</u>     <i>virtual</i> int FindStateIndex  (unsigned long state )<BR><BR>
+<u>description:</u>find state index 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = state description 
+<BR><BR><BR>
+<u>return value:</u> corresponding index 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

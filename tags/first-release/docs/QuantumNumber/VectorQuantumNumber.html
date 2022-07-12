@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <title>VectorQuantumNumber</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : VectorQuantumNumber</DIV></H1>
+
+<H3>VectorQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>VectorQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>  (List<AbstractQuantumNumber*> quantumNumbers )<BR><BR>
+<u>description:</u>constructor from a list of quantum numbers 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>quantumNumbers = list of quantum numbers 
+<BR>
+<BR><BR><BR><H3>VectorQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = quantum number to copy 
+<BR>
+<BR><BR><BR><H3>~VectorQuantumNumber :</H3>
+<u>prototype:</u>     ~VectorQuantumNumber  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q )<BR><BR>
+<u>description:</u>assignement 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = quantum number to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current quantum number 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* Clone  ()<BR><BR>
+<u>description:</u>clone current quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer on cloned quantum number   
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& operator +=  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* quantumNumber )<BR><BR>
+<u>description:</u>add a quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>numberParticle = value to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on current quantum number 
+<BR>
+<BR><BR><BR><H3>SetQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& SetQuantumNumber  (int index <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* quantumNumber )<BR><BR>
+<u>description:</u>Set i-th component of vector of quantum numbers 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the component to set  
+<BR>quantumNumber = new quantum number 
+<BR><BR><BR>
+<u>return value:</u> reference on current quantum number 
+<BR>
+<BR><BR><BR><H3>operator [] :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* operator []  (int index )<BR><BR>
+<u>description:</u>Get i-th component of vector of quantum numbers 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the component to get  
+<BR><BR><BR>
+<u>return value:</u> pointer to the quantum number 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A> operator +  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q1 <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>add two quantum numbers 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = second quantum number 
+<BR><BR><BR>
+<u>return value:</u> sum of the two quantum numbers 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A> operator -  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q1 <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>substract two quantum numbers 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = quantum number to substract 
+<BR><BR><BR>
+<u>return value:</u> sum of the two quantum numbers 
+<BR>
+<BR><BR><BR><H3>operator == :</H3>
+<u>prototype:</u>     <i>friend</i> bool operator ==  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>test if two quantum numbers are identical 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = second quantum number 
+<BR><BR><BR>
+<u>return value:</u> true if quantum numbers are identical 
+<BR>
+<BR><BR><BR><H3>operator != :</H3>
+<u>prototype:</u>     <i>friend</i> bool operator !=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>test if two quantum numbers are different 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = second quantum number 
+<BR><BR><BR>
+<u>return value:</u> true if quantum numbers are different 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& Str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/QuantumNumber/VectorQuantumNumber.html">VectorQuantumNumber</A>& Q )<BR><BR>
+<u>description:</u>print quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>Q = quantum number to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

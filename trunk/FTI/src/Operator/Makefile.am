@@ -1,0 +1,9 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libFTIOperator.a
+
+libFTIOperator_a_SOURCES=ParticleOnLatticeRealSpaceWithSpinAnd2DTranslationSuperconductorOrderParameterOperator.cc \
+ParticleOnLatticeRealSpaceAnd1DTranslationOneBodyOperator.cc \
+ParticleOnLatticeRealSpaceWithSpinAnd2DTranslationS2Operator.cc \
+ParticleOnLatticeRealSpaceWithSpinAnd2DTranslationSzParityOperator.cc \
+ParticleOnLatticeRealSpaceAnd2DTranslationOneBodyOperator.cc

@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>OneDConstantCellPotential</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : OneDConstantCellPotential</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Potential/AbstractPotential.html">AbstractPotential</A></DIV><BR>
+<H3>~OneDConstantCellPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> ~OneDConstantCellPotential  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>GetNumberCell :</H3>
+<u>prototype:</u>     int GetNumberCell  ()<BR><BR>
+<u>description:</u>get the number of cells 
+<BR>
+<BR><BR><BR><H3>ShiftPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> void ShiftPotential  (double delta )<BR><BR>
+<u>description:</u>shift the potential with a given quantity 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>delta = shift value 
+<BR>
+<BR><BR><BR><H3>SaveDiagram :</H3>
+<u>prototype:</u>     <i>virtual</i> void SaveDiagram  (char* fileName )<BR><BR>
+<u>description:</u>save the diagram of atoms in a file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file to stock the diagram 
+<BR>
+<BR><BR><BR><H3>LoadDiagram :</H3>
+<u>prototype:</u>     <i>virtual</i> void LoadDiagram  (char* fileName )<BR><BR>
+<u>description:</u>load the diagram of atoms from a file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file in which the diagram is stocked 
+<BR>
+<BR><BR><BR><H3>SavePotential :</H3>
+<u>prototype:</u>     <i>virtual</i> void SavePotential  (char* fileName )<BR><BR>
+<u>description:</u>save the potential in a file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file to stock the potential 
+<BR>
+<BR><BR><BR><H3>LoadPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> void LoadPotential  (char* fileName )<BR><BR>
+<u>description:</u>load the potential from a file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file in which the potential is stocked 
+<BR>
+<BR><BR><BR><H3>SetPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> void SetPotential  (int , double& value )<BR><BR>
+<u>description:</u>assign the potential a value at a given position  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>position = position of the considered cell 
+<BR>value = value of potential 
+<BR>
+<BR><BR><BR><H3>GetPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> double GetPotential  (int position )<BR><BR>
+<u>description:</u>get the potential at a given position 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>position = position of the considered cell 
+<BR><BR><BR>
+<u>return value:</u> the potential in the cell 
+<BR>
+<BR><BR><BR><H3>SaveBmpPicture :</H3>
+<u>prototype:</u>     <i>virtual</i> void SaveBmpPicture  (char* fileName )<BR><BR>
+<u>description:</u>save the whole diagram presentation in a bitmap file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file to stock the diagram presentation 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

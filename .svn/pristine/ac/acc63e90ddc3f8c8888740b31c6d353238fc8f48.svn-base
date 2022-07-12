@@ -1,0 +1,23 @@
+# Definition of a square lattice with a doubled unit cell and opposite flux through both elements
+#
+Descriptor = square_doubled
+NbrSites = 2
+Dimension = 2
+#PeriodicRepeat = 2,2
+LatticeVector0 = 1,0
+LatticeVector1 = 0,2
+SubLatticeVector0 = 0,0
+SubLatticeVector1 = 0,1
+NeighborsInCell = 0,1
+NeighborCells = 0,1 | 1,0 | 0,-1 | -1,0
+NeighborsAcrossBoundary0_1 = 1,0
+NeighborsAcrossBoundary1_0 = 0,0,0 | 1,1,-1 
+NeighborsAcrossBoundary0_-1 = 0,1
+NeighborsAcrossBoundary-1_0 = 0,0,0 | 1,1,-1
+# prefactors of vector potential A= (A_xx x + Ayx y ) e_x + (A_xy x + Ayy y ) e_y
+UseGauge = no
+ContinuousPhases = true
+#GaugeAyx = -1.0
+#optional values:
+#RandomPotentials = strength
+#LocalPotentials = site,strength | site2, strength2 | ...

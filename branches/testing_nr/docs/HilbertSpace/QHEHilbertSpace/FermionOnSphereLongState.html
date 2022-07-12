@@ -1,0 +1,232 @@
+<html>
+  <head>
+    <title>FermionOnSphereLongState</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : FermionOnSphereLongState</DIV></H1>
+
+<H3>FermionOnSphereLongState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>FermionOnSphereLongState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>  (const int& reducedNbrState )<BR><BR>
+<u>description:</u>basic constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>
+<BR><BR><BR><H3>FermionOnSphereLongState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& , const int& reducedNbrState )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to copy 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>
+<BR><BR><BR><H3>~FermionOnSphereLongState :</H3>
+<u>prototype:</u>     ~FermionOnSphereLongState  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& Resize  (const int& reducedNbrState )<BR><BR>
+<u>description:</u>resize the current state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> reference on  the current state 
+<BR>
+<BR><BR><BR><H3>Assign :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& Assign  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& , const int& reducedNbrState )<BR><BR>
+<u>description:</u>assign a state to the current one 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to assign 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> reference on  the current state 
+<BR>
+<BR><BR><BR><H3>TransfertState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& TransfertState  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& state )<BR><BR>
+<u>description:</u>assign a state to the current one and after undefined it (array tranfert) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on  the current state 
+<BR>
+<BR><BR><BR><H3>GetHashKey :</H3>
+<u>prototype:</u>     unsigned long GetHashKey  (const int& , const unsigned long& keyMask )<BR><BR>
+<u>description:</u>get hash key associated to the state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>keyMask = mask giving how many bits have to be kept 
+<BR><BR><BR>
+<u>return value:</u> hash key 
+<BR>
+<BR><BR><BR><H3>GetHighestIndex :</H3>
+<u>prototype:</u>     int GetHighestIndex  (const int& reducedNbrState )<BR><BR>
+<u>description:</u>get the highest state index for which the state is occupied 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> highest state index 
+<BR>
+<BR><BR><BR><H3>EmptyState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& EmptyState  (const int& reducedNbrState )<BR><BR>
+<u>description:</u>set all ocupations to zero 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> reference on  the current state 
+<BR>
+<BR><BR><BR><H3>SetOccupation :</H3>
+<u>prototype:</u>     void SetOccupation  (const int& stateIndex )<BR><BR>
+<u>description:</u>set occupation of a state to one 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR>
+<BR><BR><BR><H3>UnsetOccupation :</H3>
+<u>prototype:</u>     void UnsetOccupation  (const int& stateIndex )<BR><BR>
+<u>description:</u>set occupation of a state to zero 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR>
+<BR><BR><BR><H3>GetOccupation :</H3>
+<u>prototype:</u>     unsigned long GetOccupation  (const int& stateIndex )<BR><BR>
+<u>description:</u>get occupation of a state  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR><BR><BR>
+<u>return value:</u> number of fermions in the given state 
+<BR>
+<BR><BR><BR><H3>IncrementOccupation :</H3>
+<u>prototype:</u>     void IncrementOccupation  (const int& stateIndex )<BR><BR>
+<u>description:</u>increment occupation of a state  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR>
+<BR><BR><BR><H3>TestAndIncrementOccupation :</H3>
+<u>prototype:</u>     bool TestAndIncrementOccupation  (const int& stateIndex )<BR><BR>
+<u>description:</u>test if the state is full and if it is not, increment its occupation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR><BR><BR>
+<u>return value:</u> false if the state is empty 
+<BR>
+<BR><BR><BR><H3>DecrementOccupation :</H3>
+<u>prototype:</u>     void DecrementOccupation  (const int& stateIndex )<BR><BR>
+<u>description:</u>decrement occupation of a state (without testing if the state es empty) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR>
+<BR><BR><BR><H3>TestAndDecrementOccupation :</H3>
+<u>prototype:</u>     bool TestAndDecrementOccupation  (const int& stateIndex )<BR><BR>
+<u>description:</u>test if the state is empty and if it is not, decrement its occupation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR><BR><BR>
+<u>return value:</u> false if the state is empty 
+<BR>
+<BR><BR><BR><H3>GetPermutationSign :</H3>
+<u>prototype:</u>     void GetPermutationSign  (int , int , double* , unsigned long* , double& coefficient )<BR><BR>
+<u>description:</u>stateIndex = index of the state whose occupation has to be set  
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>signLookUpTable = pointer to an array containing the parity of the number of one for each integer ranging from 0 to 65535 
+<BR>signLookUpTableMaks = pointer to an array containing the parity of the mask on the bits to keep for each shift that is requested by sign evaluation 
+<BR>coefficient = reference on a coefficient which will be multiplied by the sign of the permutation 
+<BR>
+<BR><BR><BR><H3>SwapStates :</H3>
+<u>prototype:</u>     void SwapStates  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& state )<BR><BR>
+<u>description:</u>swap two states 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to swap with the current one 
+<BR>
+<BR><BR><BR><H3>Equal :</H3>
+<u>prototype:</u>     bool Equal  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& , int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is identical to another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the two states are identical 
+<BR>
+<BR><BR><BR><H3>Different :</H3>
+<u>prototype:</u>     bool Different  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& , int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is different to another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the two states are different 
+<BR>
+<BR><BR><BR><H3>Greater :</H3>
+<u>prototype:</u>     bool Greater  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& , int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is greater than another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the current state is greater than the other state 
+<BR>
+<BR><BR><BR><H3>GreaterOrEqual :</H3>
+<u>prototype:</u>     bool GreaterOrEqual  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& , int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is greater or equal than another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the current state is greater or equal than the other state 
+<BR>
+<BR><BR><BR><H3>Lesser :</H3>
+<u>prototype:</u>     bool Lesser  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& , const int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is lesser than another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the current state is greater than the other state 
+<BR>
+<BR><BR><BR><H3>LesserOrEqual :</H3>
+<u>prototype:</u>     bool LesserOrEqual  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnSphereLongState.html">FermionOnSphereLongState</A>& , int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is lesser or equal than another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the current state is greater or equal than the other state 
+<BR>
+<BR><BR><BR><H3>PrintState :</H3>
+<u>prototype:</u>     ostream& PrintState  (ostream& , const int& , const int& nbrStateRemainder )<BR><BR>
+<u>description:</u>print a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>str = reference on current output stream  
+<BR>reducedNbrState = reference on the reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>nbrStateRemainder = number of the state in the last unsigned long array describing the whole state 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <title>FermionOnTorusWithMagneticTranslations</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : FermionOnTorusWithMagneticTranslations</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/ParticleOnTorusWithMagneticTranslations.html">ParticleOnTorusWithMagneticTranslations</A></DIV><BR>
+<H3>FermionOnTorusWithMagneticTranslations :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnTorusWithMagneticTranslations.html">FermionOnTorusWithMagneticTranslations</A>  (int , int , int , int yMomentum )<BR><BR>
+<u>description:</u>basic constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrFermions = number of fermions  
+<BR>maxMomentum = momentum maximum value for a fermion 
+<BR>xMomentum = momentum in the x direction (modulo GCD of nbrFermions and maxMomentum) 
+<BR>yMomentum = momentum in the y direction (modulo GCD of nbrFermions and maxMomentum) 
+<BR>
+<BR><BR><BR><H3>FermionOnTorusWithMagneticTranslations :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnTorusWithMagneticTranslations.html">FermionOnTorusWithMagneticTranslations</A>  (int , int , int , int , int , 
+  unsigned long* stateDescription )<BR><BR>
+<u>description:</u>constructor from full datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrFermions = number of fermions 
+<BR>maxMomentum = momentum maximum value for a fermion 
+<BR>xMomentum = momentum in the x direction (modulo GCD of nbrFermions and maxMomentum) 
+<BR>yMomentum = momentum in the y direction (modulo GCD of nbrFermions and maxMomentum) 
+<BR>hilbertSpaceDimension = Hilbert space dimension 
+<BR>stateDescription = array describing each state 
+<BR>
+<BR><BR><BR><H3>FermionOnTorusWithMagneticTranslations :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnTorusWithMagneticTranslations.html">FermionOnTorusWithMagneticTranslations</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnTorusWithMagneticTranslations.html">FermionOnTorusWithMagneticTranslations</A>& fermions )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fermions = reference on the hilbert space to copy to copy 
+<BR>
+<BR><BR><BR><H3>~FermionOnTorusWithMagneticTranslations :</H3>
+<u>prototype:</u>     ~FermionOnTorusWithMagneticTranslations  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnTorusWithMagneticTranslations.html">FermionOnTorusWithMagneticTranslations</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/FermionOnTorusWithMagneticTranslations.html">FermionOnTorusWithMagneticTranslations</A>& fermions )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fermions = reference on the hilbert space to copy to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current hilbert space 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* Clone  ()<BR><BR>
+<u>description:</u>clone Hilbert space (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to cloned Hilbert space 
+<BR>
+<BR><BR><BR><H3>GetParticleStatistic :</H3>
+<u>prototype:</u>     int GetParticleStatistic  ()<BR><BR>
+<u>description:</u>get the particle statistic  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> particle statistic 
+<BR>
+<BR><BR><BR><H3>GetYMomentumValue :</H3>
+<u>prototype:</u>     int GetYMomentumValue  (int index )<BR><BR>
+<u>description:</u>get momemtum value in the y direction of a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = state index 
+<BR><BR><BR>
+<u>return value:</u> state momentum in the y direction 
+<BR>
+<BR><BR><BR><H3>GetQuantumNumbers :</H3>
+<u>prototype:</u>     List<AbstractQuantumNumber*> GetQuantumNumbers  ()<BR><BR>
+<u>description:</u>return a list of all possible quantum numbers  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>
+<BR><BR><BR><H3>GetQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* GetQuantumNumber  (int index )<BR><BR>
+<u>description:</u>return quantum number associated to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state 
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>
+<BR><BR><BR><H3>ExtractSubspace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* ExtractSubspace  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& , 
+  <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& converter )<BR><BR>
+<u>description:</u>extract subspace with a fixed quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>q = quantum number value 
+<BR>converter = reference on subspace-space converter to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to the new subspace 
+<BR>
+<BR><BR><BR><H3>AdAdAA :</H3>
+<u>prototype:</u>     int AdAdAA  (int , int , int , int , int , double& , int& nbrTranslation )<BR><BR>
+<u>description:</u>apply a^+_m1 a^+_m2 a_n1 a_n2 operator to a given state (with m1+m2=n1+n2[MaxMomentum]) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state on which the operator has to be applied 
+<BR>m1 = first index for creation operator 
+<BR>m2 = second index for creation operator 
+<BR>n1 = first index for annihilation operator 
+<BR>n2 = second index for annihilation operator 
+<BR>coefficient = reference on the double where the multiplicative factor has to be stored 
+<BR>nbrTranslation = reference on the number of translations to applied to the resulting state to obtain the return orbit describing state 
+<BR><BR><BR>
+<u>return value:</u> index of the destination state  
+<BR>
+<BR><BR><BR><H3>AdA :</H3>
+<u>prototype:</u>     double AdA  (int , int m )<BR><BR>
+<u>description:</u>apply a^+_m a_m operator to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state on which the operator has to be applied 
+<BR>m = index for creation operator 
+<BR><BR><BR>
+<u>return value:</u> resulting multiplicative factor  
+<BR>
+<BR><BR><BR><H3>PrintState :</H3>
+<u>prototype:</u>     ostream& PrintState  (ostream& , int state )<BR><BR>
+<u>description:</u>print a given State 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>state = ID of the state to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

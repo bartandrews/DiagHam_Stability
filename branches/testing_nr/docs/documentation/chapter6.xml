@@ -1,0 +1,50 @@
+<chapter name="Hamiltonian">
+
+
+<section name="Introduction">
+Hamiltonian for system with a finite size Hilbert space can seen as a matrix 
+using a given basis. The main problem is that most of the quantum system we want to 
+numerically study have huge Hilbert space dimension. Just think at a spin 1/2 chain: with 28 
+spins would require 2 Gbytes to store a state. Thus no supercomputer 
+would allow to store the corresponding Hamiltonian. Of course, physicists are a bit smarter and
+they will you as many symmetries as they can to work in smaller Hilbert subspace. Using total 
+spin projection, you can reduce the dimension to Mbytes per state. Adding translation 
+symmetry, you can reduce it to Mbytes per states. Of course you can work (hard) to add other 
+symmetries (reflexion and total angular momentum) but you still won't be able to store the
+full Hamiltonian. 
+
+Of course, if you look carefully to the Hamiltonian representation, most 
+of the matrix elements are equal to zero. So one way to overcome this storage problem 
+would be to use a matrix storage. Nevertheless, it can still be hard to store all the non zero 
+matrix element. In this case, the only way to go is thus not to calculate and store matrix elements but evaluate 
+them on the fly.  
+
+DiagHam hamiltonians offer you these three technics depending on the size of your problem. 
+
+<section name="What a hamiltonian shall provides">
+
+All hamiltonian classes inherit from the \classname{AbstractHamiltonian}. 
+This abstract class provides a generic interface to define a hamiltonian. What are the method 
+you really need to define. An hamiltonian shall be able to clone itself (this means exactly 
+the same thing than for the Hilbert space) using the \methodname{Clone}{AbstractHamiltonian}. 
+It must also provides three methods about the associated Hilbert space. Two methods allow 
+the possibility to get/set the Hilbert space (\methodname{GetHilbertSpace}{AbstractHamiltonian} 
+and \methodname{SetHilbertSpace}{AbstractHamiltonian}). The third one returns the Hilbert 
+dimension \method{GetHilbertSpaceDimension}{AbstractHamiltonian}. 
+
+With these methods, our hamiltonian is more like an empty shell. The next step requires to define 
+the set of Multiply/AddMultiply methods. Here is the h.
+
+Don't be scared by the total number of methods. First you need only to consider the subset of 
+either \classname{RealVector} or \classname{ComplexVector} depending on if your hamiltonian 
+deals with real or complex numbers. Moreover, you really only need to define the AddMultiply 
+methods. The difference between these two kind of methods is that the results of the 
+hamiltonian vector product is add to destination vector when using AddMultiply. If you 
+don't define the Multiply methods, then DiagHam uses fill the destination vector with zeros
+before calling the corresponding AddMultiply. Even if this way is theoritically slower, it has 
+almost no speed impact for large system. is a  
+he c What you need to provides are functio  
+
+</section>
+ 
+</chapter>

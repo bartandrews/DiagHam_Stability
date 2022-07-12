@@ -1,0 +1,682 @@
+<html>
+  <head>
+    <title>RealVector</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : RealVector</DIV></H1>
+
+<H3>RealVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>RealVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>  (int size bool zeroFlag = false )<BR><BR>
+<u>description:</u>constructor for an empty real vector  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>size = Vector Dimension  
+<BR>zeroFlag = true if all coordinates have to be set to zero 
+<BR>
+<BR><BR><BR><H3>RealVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>  (double* array int size )<BR><BR>
+<u>description:</u>constructor from an array of doubles 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>array = array of doubles with real in even position and imaginary part in odd position 
+<BR>size = Vector Dimension   
+<BR>
+<BR><BR><BR><H3>RealVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& vector bool duplicateFlag = false )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector = vector to copy 
+<BR>duplicateFlag = true if datas have to be duplicated 
+<BR>
+<BR><BR><BR><H3>~RealVector :</H3>
+<u>prototype:</u>     ~RealVector  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& vector )<BR><BR>
+<u>description:</u>assignement 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector = vector to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     void Resize  (int dimension )<BR><BR>
+<u>description:</u>Resize vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = new dimension 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     void ResizeAndClean  (int dimension )<BR><BR>
+<u>description:</u>Resize vector and set to zero all components that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = new dimension 
+<BR>
+<BR><BR><BR><H3>Copy :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Copy  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& vector double coefficient = 1.0 )<BR><BR>
+<u>description:</u>copy a vector into another 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector = vector to copy 
+<BR>coefficient = optional coefficient which multiply source to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& operator -  ()<BR><BR>
+<u>description:</u>change sign of a vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 )<BR><BR>
+<u>description:</u>return a new vector with opposite sign form a given source vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = source vector 
+<BR><BR><BR>
+<u>return value:</u> new vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> double operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V2 )<BR><BR>
+<u>description:</u>scalar product between two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> result of scalar product 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& operator +=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 )<BR><BR>
+<u>description:</u>sum two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to add 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& operator -=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 )<BR><BR>
+<u>description:</u>substract two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A> operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V2 )<BR><BR>
+<u>description:</u>sum two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V2 )<BR><BR>
+<u>description:</u>substract two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>AddLinearCombination :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddLinearCombination  (double x const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u>add a linear combination to a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = multiplicative coefficient 
+<BR>V = vector to add 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddLinearCombination :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddLinearCombination  (double x1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& v1 double x2 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& v2 )<BR><BR>
+<u>description:</u>add a linear combination of two vectors to a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x1 = multiplicative coefficient of first vector 
+<BR>v1 = first vector to add 
+<BR>x2 = multiplicative coefficient of first vector 
+<BR>v2 = first vector to add 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddLinearCombination :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddLinearCombination  (double x1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& v1 double x2 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& v2 int firstComponent int nbrComponent )<BR><BR>
+<u>description:</u>add a linear combination of two vectors to a given vector, for a given range of indices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x1 = multiplicative coefficient of first vector 
+<BR>v1 = first vector to add 
+<BR>x2 = multiplicative coefficient of first vector 
+<BR>v2 = first vector to add 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 double d )<BR><BR>
+<u>description:</u>multiply a vector with a real number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to multiply 
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A> operator *  (double d const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 )<BR><BR>
+<u>description:</u>multiply a vector with a real number on the left hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to multiply 
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& operator *=  (double d )<BR><BR>
+<u>description:</u>multiply a vector with a real number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator /= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& operator /=  (double d )<BR><BR>
+<u>description:</u>divide a vector by a real number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    left multiply a vector with a real symmetric matrix  (without using temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real symmetric matrix (without using temporary vector) 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealSymmetricMatrix.html">RealSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    left multiply a vector with a real tridiagonal symmetric matrix  (without using temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real tridiagonal symmetric matrix (without using temporary vector) 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with a symmetric matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a symmetric matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealSymmetricMatrix.html">RealSymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply   
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with a symmetric matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a symmetric matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealSymmetricMatrix.html">RealSymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart int sourceStep int destStart int destStep )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealSymmetricMatrix.html">RealSymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u>left multiply a vector with a real matrix and add result to the current vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealSymmetricMatrix.html">RealSymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart int sourceStep int destStart int destStep )<BR><BR>
+<u>description:</u>left multiply a vector with a antisymmetric matrix and add result to the current vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply   
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with an antisymmetric matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with an antisymmetric matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealAntisymmetricMatrix.html">RealAntisymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply   
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with an antissymmetric matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with an antissymmetric matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealAntisymmetricMatrix.html">RealAntisymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart int sourceStep 
+  int destStart int destStep )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealAntisymmetricMatrix.html">RealAntisymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u>left multiply a vector with an antisymmetric matrix and add result to the current vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealAntisymmetricMatrix.html">RealAntisymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart int sourceStep int destStart int destStep )<BR><BR>
+<u>description:</u>left multiply a vector with an antisymmetric matrix and add result to the current vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply   
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with a real diagonal matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real diagonal matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealDiagonalMatrix.html">RealDiagonalMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply   
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with a real diagonal matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real diagonal matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealDiagonalMatrix.html">RealDiagonalMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart int sourceStep 
+  int destStart int destStep )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealDiagonalMatrix.html">RealDiagonalMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u>left multiply a vector with a real diagonal matrix and add result to the current vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealDiagonalMatrix.html">RealDiagonalMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart int sourceStep int destStart int destStep )<BR><BR>
+<u>description:</u>left multiply a vector with a real diagonal matrix and add result to the current vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply   
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with a real matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with a real matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart int sourceStep int destStart int destStep )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector   
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart int sourceStep int destStart int destStep )<BR><BR>
+<u>description:</u>left multiply a vector with a real matrix and add result to the current vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a block-diagonal matrix and use to store result  
+<BR>in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/BlockDiagonalMatrix.html">BlockDiagonalMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a block-diagonal matrix and add result to the current vector 
+<BR>in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/BlockDiagonalMatrix.html">BlockDiagonalMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a block-diagonal matrix and use to store result  
+<BR>in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/BlockDiagonalMatrix.html">BlockDiagonalMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart 
+  int sourceStep int destStart int destStep )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector   
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/BlockDiagonalMatrix.html">BlockDiagonalMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart 
+  int sourceStep int destStart int destStep )<BR><BR>
+<u>description:</u>left multiply a vector with a block-diagonal matrix and add result to the current vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a matrix and use to store result in current  
+<BR>vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a matrix and add result to current  
+<BR>vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a matrix and use to store result in current  
+<BR>vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart int sourceStep 
+  int destStart int destStep )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a matrix and add current  
+<BR>vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int sourceStart int sourceStep 
+  int destStart int destStep )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR>sourceStart = source vector first coordinate to modify 
+<BR>sourceStep = step to add to go to the following source vector coordinate 
+<BR>destStart = destination vector first coordinate to modify 
+<BR>destStep = step to add to go to the following destination vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>coordinate :</H3>
+<u>prototype:</u>    return vector i-th coordinate  (without testing if position is valid )<BR><BR>
+<u>description:</u>return vector i-th coordinate (without testing if position is valid) 
+<BR>
+<BR><BR><BR><H3>operator [] :</H3>
+<u>prototype:</u>     double& operator []  (int i )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>i = coordinate position 
+<BR>
+<BR><BR><BR><H3>Norm :</H3>
+<u>prototype:</u>     double Norm  ()<BR><BR>
+<u>description:</u>get vector norm 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> vector norm 
+<BR>
+<BR><BR><BR><H3>SqrNorm :</H3>
+<u>prototype:</u>     double SqrNorm  ()<BR><BR>
+<u>description:</u>get square of vector norm 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> square of vector norm 
+<BR>
+<BR><BR><BR><H3>Normalize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Normalize  ()<BR><BR>
+<u>description:</u>normalize vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>norm :</H3>
+<u>prototype:</u>    return value = resulting vector norm  (can be used to see if vector is can be decomposed on vector set )<BR><BR>
+<u>description:</u>orthonormalized a vector with respect to a set of orthonormalized vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vectors = vector array corresponding to the set 
+<BR>nbrVectors = number of vectors in the set 
+<BR><BR><BR>
+<u>return value:</u> resulting vector norm (can be used to see if vector is can be decomposed on vector set) 
+<BR>
+<BR><BR><BR><H3>Orthonormalized :</H3>
+<u>prototype:</u>     double Orthonormalized  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>* vectors int nbrVectors )<BR><BR>
+<u>description:</u>orthonormalized a vector with respect to a set of orthonormalized vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vectors = vector array corresponding to the set 
+<BR>nbrVectors = number of vectors in the set 
+<BR><BR><BR>
+<u>return value:</u> resulting vector norm (can be used to see if vector is can be decomposed on vector set) 
+<BR>
+<BR><BR><BR><H3>stop :</H3>
+<u>prototype:</u>    lastCoordinate = Coordinate where extraction has to stop  (extract also include this last coordinate )<BR><BR>
+<u>description:</u>Extract a subvector from a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>firstCoordinate = Coordinate where extraction has to begin 
+<BR>lastCoordinate = Coordinate where extraction has to stop (extract also include this last coordinate) 
+<BR>
+<BR><BR><BR><H3>coordinate :</H3>
+<u>prototype:</u>    step = distance to the next coordinate  (1 means to take the folowing )<BR><BR>
+<u>description:</u>step = distance to the next coordinate (1 means to take the folowing) 
+<BR>
+<BR><BR><BR><H3>Extract :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A> Extract  (int firstCoordinate int lastCoordinate int step = 1 )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> return corresponding subvector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    step = distance to the next coordinate in the destination vector  (1 means to take the following )<BR><BR>
+<u>description:</u>Merge a subvector into a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V = vector to merge 
+<BR>firstCoordinate = Coordinate where merge has to begin 
+<BR>step = distance to the next coordinate in the destination vector (1 means to take the following) 
+<BR>
+<BR><BR><BR><H3>Merge :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& Merge  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int firstCoordinate int step = 1 )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> reference to the current Vector 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ofstream& operator <<  (ofstream& file const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& vector )<BR><BR>
+<u>description:</u>output file stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>file = reference on output file stream 
+<BR>vector = reference on vector to save 
+<BR><BR><BR>
+<u>return value:</u> reference on output file stream 
+<BR>
+<BR><BR><BR><H3>operator >> :</H3>
+<u>prototype:</u>     <i>friend</i> ifstream& operator >>  (ifstream& file <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& vector )<BR><BR>
+<u>description:</u>input file stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>file = reference on output file stream 
+<BR>vector = reference on vector to load 
+<BR><BR><BR>
+<u>return value:</u> reference on output file stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,26 @@
+SUBDIRS=
+
+noinst_LIBRARIES=libLanczosAlgorithm.a
+
+libLanczosAlgorithm_a_SOURCES=AbstractLanczosAlgorithm.cc \
+BasicLanczosAlgorithm.cc \
+ComplexBasicLanczosAlgorithm.cc \
+ComplexBasicLanczosAlgorithmWithEigenstates.cc \
+ComplexBasicLanczosAlgorithmWithGroundState.cc \
+ComplexBasicLanczosAlgorithmWithDiskStorage.cc \
+BasicLanczosAlgorithmWithGroundState.cc \
+BasicLanczosAlgorithmWithEigenstates.cc \
+BasicLanczosAlgorithmWithDiskStorage.cc \
+FullReorthogonalizedLanczosAlgorithm.cc \
+FullReorthogonalizedComplexLanczosAlgorithm.cc \
+FullReorthogonalizedLanczosAlgorithmWithDiskStorage.cc \
+FullReorthogonalizedComplexLanczosAlgorithmWithDiskStorage.cc \
+FullReorthogonalizedBlockLanczosAlgorithm.cc \
+ImplicitRestartedArnoldiWithReorthogonalizationAlgorithm.cc \
+BasicLanczosAlgorithmWithGroundStateDiskStorage.cc \
+ComplexBasicLanczosAlgorithmWithGroundStateFastDisk.cc \
+BasicBlockLanczosAlgorithm.cc \
+LanczosManager.cc
+
+
+#ComplexBasicLanczosAlgorithmDiskWithGroundState.cc 

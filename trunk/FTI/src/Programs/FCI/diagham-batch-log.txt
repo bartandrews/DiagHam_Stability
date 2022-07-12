@@ -1,0 +1,13 @@
+C++ getting t2 = 0
+One-body diagonalization done in 0.001438 s
+Getting single-particle vectors from Python.
+C++ getting t2 = -0.25
+One-body diagonalization done in 0.002108 s
+Getting single-particle vectors from Python.
+C++ getting t2 = 0
+One-body diagonalization done in 0.020949 s
+Getting single-particle vectors from Python.
+C++ getting t2 = -0.25
+One-body diagonalization done in 0.015922 s
+Getting single-particle vectors from Python.
+1531967347.559912

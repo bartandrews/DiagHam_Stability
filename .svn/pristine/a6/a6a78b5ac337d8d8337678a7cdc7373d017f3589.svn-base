@@ -1,0 +1,17 @@
+# Definition of a hexagonal lattice with the minimal unit cell of 2 sites
+#
+Descriptor = triang
+NbrSites = 1
+Dimension = 2
+PeriodicRepeat = 2,2
+LatticeVector0 = 1,0
+LatticeVector1 = 0.5,0.866025403784439
+SubLatticeVector0 = 0,0
+NeighborCells = 0,-1 | -1,0 | 1,-1 | 0,1 | 1,0 | -1,1
+NeighborsAcrossBoundary0_1 = 0,0
+NeighborsAcrossBoundary0_-1 = 0,0
+NeighborsAcrossBoundary1_0 = 0,0
+NeighborsAcrossBoundary-1_0 = 0,0
+NeighborsAcrossBoundary1_-1 = 0,0
+NeighborsAcrossBoundary-1_1 = 0,0
+Plaquettes = 0,1,0 | 0,0,1

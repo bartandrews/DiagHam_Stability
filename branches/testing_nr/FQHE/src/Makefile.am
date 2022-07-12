@@ -1,0 +1,1 @@
+SUBDIRS=Architecture FunctionBasis HilbertSpace Hamiltonian MainTask Operator QuantumNumber Tools Programs

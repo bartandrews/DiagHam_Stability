@@ -1,0 +1,538 @@
+<html>
+  <head>
+    <title>ComplexVector</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : ComplexVector</DIV></H1>
+
+<H3>ComplexVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>ComplexVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>  (int size bool zeroFlag = false )<BR><BR>
+<u>description:</u>constructor for an empty real vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>size = Vector Dimension  
+<BR>zeroFlag = true if all coordinates have to be set to zero 
+<BR>
+<BR><BR><BR><H3>ComplexVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>  (double* array int size )<BR><BR>
+<u>description:</u>constructor from an array of doubles 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>array = array of doubles with real in even position and imaginary part in odd position 
+<BR>size = Vector Dimension    
+<BR>
+<BR><BR><BR><H3>ComplexVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& vector bool duplicateFlag = false )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector = vector to copy 
+<BR>duplicateFlag = true if datas have to be duplicated 
+<BR>
+<BR><BR><BR><H3>ComplexVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& vector )<BR><BR>
+<u>description:</u>copy constructor from a real vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector = vector to copy 
+<BR>
+<BR><BR><BR><H3>~ComplexVector :</H3>
+<u>prototype:</u>     ~ComplexVector  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& vector )<BR><BR>
+<u>description:</u>assignement 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector = vector to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& vector )<BR><BR>
+<u>description:</u>assignement from a real vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector = vector to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     void Resize  (int dimension )<BR><BR>
+<u>description:</u>Resize vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = new dimension 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     void ResizeAndClean  (int dimension )<BR><BR>
+<u>description:</u>Resize vector and set to zero all components that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = new dimension 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator -  ()<BR><BR>
+<u>description:</u>change sign of a vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 )<BR><BR>
+<u>description:</u>return a new vector with opposite sign form a given source vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = source vector 
+<BR><BR><BR>
+<u>return value:</u> new vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>scalar product between two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> result of scalar product 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    V2 = second vector  (real vector )<BR><BR>
+<u>description:</u>scalar product between two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector (real vector) 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V2 )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> result of scalar product 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    V1 = first vector  (real vector )<BR><BR>
+<u>description:</u>scalar product between two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector (real vector) 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> result of scalar product 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator +=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 )<BR><BR>
+<u>description:</u>sum two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to add 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator +=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 )<BR><BR>
+<u>description:</u>sum two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = real vector to add 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddLinearCombination :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& AddLinearCombination  (double x const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V )<BR><BR>
+<u>description:</u>add a linear combination to a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = multiplicative coefficient 
+<BR>V = vector to add 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddLinearCombination :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& AddLinearCombination  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& x const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V )<BR><BR>
+<u>description:</u>add a linear combination to a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = multiplicative coefficient 
+<BR>V = vector to add 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector   
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator -=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 )<BR><BR>
+<u>description:</u>substract two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator -=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 )<BR><BR>
+<u>description:</u>substract two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first real vector 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>sum two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    V1 = first vector  (real )<BR><BR>
+<u>description:</u>sum two vectors with left one real 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector (real) 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    V2 = second vector  (real )<BR><BR>
+<u>description:</u>sum two vectors with right one real 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector (real) 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V2 )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>substract two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    V1 = first vector  (real )<BR><BR>
+<u>description:</u>substract two vectors with left one real 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector (real) 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    V2 = second vector  (real )<BR><BR>
+<u>description:</u>substract two vectors with rightt one real 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector  
+<BR>V2 = second vector (real) 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V2 )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 double d )<BR><BR>
+<u>description:</u>multiply a vector with a real number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to multiply 
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& d )<BR><BR>
+<u>description:</u>multiply a vector with a complex number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to multiply 
+<BR>d = complex to use 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator *  (double d const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 )<BR><BR>
+<u>description:</u>multiply a vector with a real number on the left hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to multiply 
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& d const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 )<BR><BR>
+<u>description:</u>multiply a vector with a complex number on the left hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to multiply 
+<BR>d = complex to use 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator *=  (double d )<BR><BR>
+<u>description:</u>multiply a vector with a real number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator /= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator /=  (double d )<BR><BR>
+<u>description:</u>divide a vector with a real number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector   
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& d )<BR><BR>
+<u>description:</u>multiply a vector with a complex number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>d = complex to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator /= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator /=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& d )<BR><BR>
+<u>description:</u>divide a vector with a complex number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>d = complex to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector   
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    left multiply a vector with a real matrix  (using temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real matrix (using temporary vector) 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    left multiply a vector with a complex matrix  (using temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a complex matrix (using temporary vector) 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    left multiply a vector with an hermtian conjugated complex matrix  (using temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with an hermtian conjugated complex matrix (using temporary vector) 
+<BR>
+<BR><BR><BR><H3>operator &= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator &=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u>left multiply a vector with an hermitian matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    left multiply a vector with a complex tridiagonal hermitian matrix  (without using temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a complex tridiagonal hermitian matrix (without using temporary vector) 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexTriDiagonalHermitianMatrix.html">ComplexTriDiagonalHermitianMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    left multiply a vector with a real tridiagonal symmetric matrix  (without using temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real tridiagonal symmetric matrix (without using temporary vector) 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with an hermitian matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with an hermitian matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with a real matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with a complex matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a complex matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator [] :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> operator []  (int i )<BR><BR>
+<u>description:</u>return reference on vector i-th coordinate 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = coordinate position 
+<BR>
+<BR><BR><BR><H3>Norm :</H3>
+<u>prototype:</u>     double Norm  ()<BR><BR>
+<u>description:</u>get vector norm 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> vector norm 
+<BR>
+<BR><BR><BR><H3>SqrNorm :</H3>
+<u>prototype:</u>     double SqrNorm  ()<BR><BR>
+<u>description:</u>get square of vector norm 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> square of vector norm 
+<BR>
+<BR><BR><BR><H3>Normalize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& Normalize  ()<BR><BR>
+<u>description:</u>normalize vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>stop :</H3>
+<u>prototype:</u>    lastCoordinate = Coordinate where extraction has to stop  (extract also include this last coordinate )<BR><BR>
+<u>description:</u>Extract a subvector from a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>firstCoordinate = Coordinate where extraction has to begin 
+<BR>lastCoordinate = Coordinate where extraction has to stop (extract also include this last coordinate) 
+<BR>
+<BR><BR><BR><H3>coordinate :</H3>
+<u>prototype:</u>    step = distance to the next coordinate  (1 means to take the folowing )<BR><BR>
+<u>description:</u>step = distance to the next coordinate (1 means to take the folowing) 
+<BR>
+<BR><BR><BR><H3>Extract :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A> Extract  (int firstCoordinate int lastCoordinate int step = 1 )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> return corresponding subvector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    step = distance to the next coordinate in the destination vector  (1 means to take the following )<BR><BR>
+<u>description:</u>Merge a subvector into a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V = vector to merge 
+<BR>firstCoordinate = Coordinate where merge has to begin 
+<BR>step = distance to the next coordinate in the destination vector (1 means to take the following) 
+<BR>
+<BR><BR><BR><H3>Merge :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& Merge  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V int firstCoordinate int step = 1 )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> reference to the current Vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    step = distance to the next coordinate in the destination vector  (1 means to take the following )<BR><BR>
+<u>description:</u>Merge a real subvector into a complex given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V = real vector to merge 
+<BR>firstCoordinate = Coordinate where merge has to begin 
+<BR>step = distance to the next coordinate in the destination vector (1 means to take the following) 
+<BR>
+<BR><BR><BR><H3>Merge :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& Merge  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& V int firstCoordinate int step = 1 )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> reference to the current Vector 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& Str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& P )<BR><BR>
+<u>description:</u>Output Stream overload 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& v )<BR><BR>
+<u>description:</u>Mathematica Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on Mathematica output stream 
+<BR>v = vector to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>ImpairXPairYPeriodic3DOneParticle</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : ImpairXPairYPeriodic3DOneParticle</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/XYReflexionSymmetricPeriodic3DOneParticle.html">XYReflexionSymmetricPeriodic3DOneParticle</A></DIV><BR>
+<H3>ImpairXPairYPeriodic3DOneParticle :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/ImpairXPairYPeriodic3DOneParticle.html">ImpairXPairYPeriodic3DOneParticle</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>ImpairXPairYPeriodic3DOneParticle :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/ImpairXPairYPeriodic3DOneParticle.html">ImpairXPairYPeriodic3DOneParticle</A>  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/XYReflexionSymmetricPeriodic3DOneParticle.html">XYReflexionSymmetricPeriodic3DOneParticle</A>& space )<BR><BR>
+<u>description:</u>constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = a more general space without symmetry reduction 
+<BR>
+<BR><BR><BR><H3>ImpairXPairYPeriodic3DOneParticle :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/ImpairXPairYPeriodic3DOneParticle.html">ImpairXPairYPeriodic3DOneParticle</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/ImpairXPairYPeriodic3DOneParticle.html">ImpairXPairYPeriodic3DOneParticle</A>& space )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = reference on Hilbert space to copy 
+<BR>
+<BR><BR><BR><H3>ImpairXPairYPeriodic3DOneParticle :</H3>
+<u>prototype:</u>     ~ <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/ImpairXPairYPeriodic3DOneParticle.html">ImpairXPairYPeriodic3DOneParticle</A>  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/ImpairXPairYPeriodic3DOneParticle.html">ImpairXPairYPeriodic3DOneParticle</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/ImpairXPairYPeriodic3DOneParticle.html">ImpairXPairYPeriodic3DOneParticle</A>& space )<BR><BR>
+<u>description:</u>clone Hilbert space (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to cloned Hilbert space 
+<BR>AbstractHilbertSpace* Clone(); 
+<BR>assignement 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = reference on Hilbert space to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on current Hilbert space 
+<BR>
+<BR><BR><BR><H3>PrintState :</H3>
+<u>prototype:</u>     ostream& PrintState  (ostream& , int state )<BR><BR>
+<u>description:</u>return a list of all possible quantum numbers  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>List<AbstractQuantumNumber*> GetQuantumNumbers (); 
+<BR>return quantum number associated to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state 
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>AbstractQuantumNumber* GetQuantumNumber (int index); 
+<BR>extract subspace with a fixed quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>q = quantum number value 
+<BR>converter = reference on subspace-space converter to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to the new subspace 
+<BR>AbstractHilbertSpace* ExtractSubspace (AbstractQuantumNumber& q, SubspaceSpaceConverter& converter); 
+<BR>print a given State 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>state = ID of the state to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Tensor</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : Tensor</DIV></H1>
+
+<H3>~Tensor :</H3>
+<u>prototype:</u>     <i>virtual</i> ~Tensor  ()<BR><BR>
+<u>description:</u>virtual destructor 
+<BR>
+<BR><BR><BR><H3>GetNbrRow :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrRow  (int space )<BR><BR>
+<u>description:</u>get number of row for a given space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> number of row 
+<BR>
+<BR><BR><BR><H3>GetNbrColumn :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrColumn  (int space )<BR><BR>
+<u>description:</u>get number of column for a given space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> number of column 
+<BR>
+<BR><BR><BR><H3>GetTensorProductStructure :</H3>
+<u>prototype:</u>     <i>virtual</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* GetTensorProductStructure  ()<BR><BR>
+<u>description:</u>get tensor product structure associated to the current tensor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on tensor product structure 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     <i>virtual</i> void Resize  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure )<BR><BR>
+<u>description:</u>Resize tensor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure = new product tensor structure 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     <i>virtual</i> void ResizeAndClean  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductStructure.html">TensorProductStructure</A>& structure )<BR><BR>
+<u>description:</u>Resize tensor and set to zero all components that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure = new product tensor structure 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

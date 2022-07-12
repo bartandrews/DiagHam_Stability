@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>PeriodicSpectra</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : PeriodicSpectra</DIV></H1>
+
+<H3>PeriodicSpectra :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/PeriodicSpectra.html">PeriodicSpectra</A>  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/Periodic3DOneParticle.html">Periodic3DOneParticle</A>* , char* fileName )<BR><BR>
+<u>description:</u>constructor from a Hilbert space and a file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = Hilbert space describing the particle 
+<BR>fileName = name of the state file 
+<BR>
+<BR><BR><BR><H3>GetMeanValueX :</H3>
+<u>prototype:</u>     double GetMeanValueX  (double& squareX )<BR><BR>
+<u>description:</u>get mean value in X direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>squareX = reference to the mean square value in X direction 
+<BR>return = position in 1.0 scale 
+<BR>
+<BR><BR><BR><H3>GetMeanValueY :</H3>
+<u>prototype:</u>     double GetMeanValueY  (double& squareY )<BR><BR>
+<u>description:</u>get mean value in Y direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>squareY = reference to the mean square value in Y direction 
+<BR>return = position in 1.0 scale 
+<BR>
+<BR><BR><BR><H3>GetMeanValueZ :</H3>
+<u>prototype:</u>     double GetMeanValueZ  (double& squareZ )<BR><BR>
+<u>description:</u>get mean value in Z direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>squareZ = reference to the mean square value in Z direction 
+<BR>return = position in 1.0 scale  
+<BR>
+<BR><BR><BR><H3>WaveFunctionValue :</H3>
+<u>prototype:</u>     void WaveFunctionValue  (double , double , double , double , double , double , double& , double& Imaginary )<BR><BR>
+<u>description:</u>get the wave function value of a state at a given point 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x, y, z  = the position of the point 
+<BR>SizeX, SizeY, SizeZ = the 3D-sizes of the sample 
+<BR>Real, Imaginary = references to the real and imaginary components of the wave function 
+<BR>
+<BR><BR><BR><H3>GetImpulsion :</H3>
+<u>prototype:</u>     void GetImpulsion  (char* , double , double , double , double , double , double , double , double , double &imaginaryImpulsionZ )<BR><BR>
+<u>description:</u>get the value of impulsion operators with another wavefunction <this|p|another> 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = the file to stock the other function 
+<BR>sizeX, sizeY, sizeZ = size of sample in X, Y and Z directions 
+<BR><BR><BR>
+<u>return value:</u> impulsionX, impulsionY, impulsionZ = reference to the return values 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

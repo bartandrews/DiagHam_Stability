@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <title>SubspaceSpaceConverter</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : SubspaceSpaceConverter</DIV></H1>
+
+<H3>SubspaceSpaceConverter :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>base :</H3>
+<u>prototype:</u>    converterArray = array containing index of each subspace base vector in total space base  (without duplicating array )<BR><BR>
+<u>description:</u>constructor from datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>spaceDimension = dimension of the total space 
+<BR>subspaceDimension = subspace dimension 
+<BR>converterArray = array containing index of each subspace base vector in total space base (without duplicating array) 
+<BR>
+<BR><BR><BR><H3>SubspaceSpaceConverter :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>  (int spaceDimension int subspaceDimension int* converterArray )<BR><BR>
+<u>description:</u>constructor from datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>spaceDimension = dimension of the total space 
+<BR>subspaceDimension = subspace dimension 
+<BR>converterArray = array containing index of each subspace base vector in total space base (without duplicating array) 
+<BR>
+<BR><BR><BR><H3>SubspaceSpaceConverter :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>  (int spaceDimension int subspaceDimension int firstIndex )<BR><BR>
+<u>description:</u>constructor from datas, assuming subspace has consecutive indices in total space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>spaceDimension = dimension of the total space 
+<BR>subspaceDimension = subspace dimension 
+<BR>firstIndex = first index in total space 
+<BR>
+<BR><BR><BR><H3>SubspaceSpaceConverter :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>  (List<SubspaceSpaceConverter> subspaces )<BR><BR>
+<u>description:</u>constructor from a list describing distinct subspace of given space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>subspaces = list of subspaces 
+<BR>
+<BR><BR><BR><H3>constructor :</H3>
+<u>prototype:</u>    copy constructor  (without duplicating datas )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>SubspaceSpaceConverter :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& chain )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>converter = reference on chain to copy 
+<BR>
+<BR><BR><BR><H3>~SubspaceSpaceConverter :</H3>
+<u>prototype:</u>     ~SubspaceSpaceConverter  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>assignement :</H3>
+<u>prototype:</u>    assignement  (without duplicating datas )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& converter )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>converter = reference on chain to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current chain 
+<BR>
+<BR><BR><BR><H3>GetSpaceDimension :</H3>
+<u>prototype:</u>     int GetSpaceDimension  ()<BR><BR>
+<u>description:</u>return total space dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> space dimension 
+<BR>
+<BR><BR><BR><H3>GetSubspaceDimension :</H3>
+<u>prototype:</u>     int GetSubspaceDimension  ()<BR><BR>
+<u>description:</u>return subspace dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> subspace dimension 
+<BR>
+<BR><BR><BR><H3>GetSpaceIndex :</H3>
+<u>prototype:</u>     int GetSpaceIndex  (int index )<BR><BR>
+<u>description:</u>return space index corresponding to a subspace index 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = subspace index 
+<BR><BR><BR>
+<u>return value:</u> sapce index 
+<BR>
+<BR><BR><BR><H3>SpaceToSubspace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& SpaceToSubspace  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& source <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& destination )<BR><BR>
+<u>description:</u>project a vector from total space to subspace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>source = vector that has to be projected 
+<BR>destination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on resulting vector 
+<BR>
+<BR><BR><BR><H3>SpaceToSubspace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& SpaceToSubspace  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& source <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& destination )<BR><BR>
+<u>description:</u>project a vector from total space to subspace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>source = vector that has to be projected 
+<BR>destination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on resulting vector 
+<BR>
+<BR><BR><BR><H3>SubspaceToSpace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& SubspaceToSpace  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& source <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& destination )<BR><BR>
+<u>description:</u>evaluate projected vector in total space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>source = projected vector 
+<BR>destination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on resulting vector 
+<BR>
+<BR><BR><BR><H3>SubspaceToSpace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& SubspaceToSpace  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& source <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& destination )<BR><BR>
+<u>description:</u>evaluate projected vector in total space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>source = projected vector 
+<BR>destination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on resulting vector 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& subspace )<BR><BR>
+<u>description:</u>print subspace descripriton 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>str = reference on output stream 
+<BR>subspace = reference on subspace to describe 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,297 @@
+<html>
+  <head>
+    <title>Spin1_2Chain</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : Spin1_2Chain</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/AbstractSpinChain.html">AbstractSpinChain</A></DIV><BR>
+<H3>Spin1_2Chain :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>Spin1_2Chain :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>  (int , int memorySize )<BR><BR>
+<u>description:</u>constructor for complete Hilbert space with no restriction on total spin projection Sz 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>chainLength = number of spin 1/2 
+<BR>memorySize = memory size in bytes allowed for look-up table 
+<BR>
+<BR><BR><BR><H3>Spin1_2Chain :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>  (int , int , int memorySize )<BR><BR>
+<u>description:</u>constructor for complete Hilbert space with no restriction on total spin projection Sz 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>chainLength = number of spin 1/2 
+<BR>sz = twice the value of total Sz component 
+<BR>memorySize = memory size in bytes allowed for look-up table 
+<BR>
+<BR><BR><BR><H3>Spin1_2Chain :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>  (int , unsigned long* , int , 
+  int , bool , int* , int , 
+  int , unsigned long lookUpTableMask )<BR><BR>
+<u>description:</u>constructor from pre-constructed datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>hilbertSpaceDimension = Hilbert space dimension 
+<BR>chainDescription = array describing states 
+<BR>chainLength = number of spin 1/2 
+<BR>sz = twice the value of total Sz component 
+<BR>fixedQuantumNumberFlag = true if hilbert space is restricted to a given quantum number 
+<BR>lookUpTable = look-up table 
+<BR>lookUpTableSize = look-Up table size 
+<BR>lookUpTablePosition = last position described by the look-Up table 
+<BR>lookUpTableMask = look-Up table mask 
+<BR>
+<BR><BR><BR><H3>Spin1_2Chain :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>& chain )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>chain = reference on chain to copy 
+<BR>
+<BR><BR><BR><H3>~Spin1_2Chain :</H3>
+<u>prototype:</u>     ~Spin1_2Chain  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>& chain )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>chain = reference on chain to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current chain 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* Clone  ()<BR><BR>
+<u>description:</u>clone Hilbert space (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to cloned Hilbert space 
+<BR>
+<BR><BR><BR><H3>Reinitialize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>& Reinitialize  (int sz )<BR><BR>
+<u>description:</u>re-initialize chain with another total Sz component 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>sz = twice the value of total Sz component 
+<BR><BR><BR>
+<u>return value:</u> reference on current chain   
+<BR>
+<BR><BR><BR><H3>GetHilbertSpaceDimension :</H3>
+<u>prototype:</u>     int GetHilbertSpaceDimension  ()<BR><BR>
+<u>description:</u>return Hilbert space dimension 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> Hilbert space dimension 
+<BR>
+<BR><BR><BR><H3>GetQuantumNumbers :</H3>
+<u>prototype:</u>     List<AbstractQuantumNumber*> GetQuantumNumbers  ()<BR><BR>
+<u>description:</u>return a list of all possible quantum numbers  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>
+<BR><BR><BR><H3>GetQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* GetQuantumNumber  (int index )<BR><BR>
+<u>description:</u>return quantum number associated to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state 
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>
+<BR><BR><BR><H3>TotalSz :</H3>
+<u>prototype:</u>     int TotalSz  (int index )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> return value of spin projection on (Oz) for a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state to test 
+<BR><BR><BR>
+<u>return value:</u> spin projection on (Oz) 
+<BR>
+<BR><BR><BR><H3>Sxi :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A>& Sxi  (int , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A>& M )<BR><BR>
+<u>description:</u>return matrix representation of Sx 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = operator position 
+<BR>M = matrix where representation has to be stored 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix 
+<BR>
+<BR><BR><BR><H3>Syi :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A>& Syi  (int , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A>& M )<BR><BR>
+<u>description:</u>return matrix representation of i * Sy 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = operator position 
+<BR>M = matrix where representation has to be stored 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix 
+<BR>
+<BR><BR><BR><H3>Szi :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A>& Szi  (int , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A>& M )<BR><BR>
+<u>description:</u>return matrix representation of Sz 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = operator position 
+<BR>M = matrix where representation has to be stored 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix 
+<BR>
+<BR><BR><BR><H3>Spi :</H3>
+<u>prototype:</u>     int Spi  (int , int , double& coefficient )<BR><BR>
+<u>description:</u>return index of resulting state from application of S+_i operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of S+ operator 
+<BR>state = index of the state to be applied on S+_i operator 
+<BR>coefficient = reference on double where numerical coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>Smi :</H3>
+<u>prototype:</u>     int Smi  (int , int , double& coefficient )<BR><BR>
+<u>description:</u>return index of resulting state from application of S-_i operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of S- operator 
+<BR>state = index of the state to be applied on S-_i operator 
+<BR>coefficient = reference on double where numerical coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>Szi :</H3>
+<u>prototype:</u>     int Szi  (int , int , double& coefficient )<BR><BR>
+<u>description:</u>return index of resulting state from application of Sz_i operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of Sz operator 
+<BR>state = index of the state to be applied on Sz_i operator 
+<BR>coefficient = reference on double where numerical coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>Pij :</H3>
+<u>prototype:</u>     int Pij  (int , int , int state )<BR><BR>
+<u>description:</u>return index of resulting state from application of P_ij operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = first position 
+<BR>j = second position 
+<BR>state = index of the state to be applied on P_ij operator 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>SziSzj :</H3>
+<u>prototype:</u>     double SziSzj  (int , int , int state )<BR><BR>
+<u>description:</u>return eigenvalue of Sz_i Sz_j associated to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = first position 
+<BR>j = second position 
+<BR>state = index of the state to consider 
+<BR><BR><BR>
+<u>return value:</u> corresponding eigenvalue 
+<BR>
+<BR><BR><BR><H3>SmiSpj :</H3>
+<u>prototype:</u>     int SmiSpj  (int , int , int , double& coefficient )<BR><BR>
+<u>description:</u>return index of resulting state from application of S-_i S+_j operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of S- operator 
+<BR>j = position of S+ operator 
+<BR>state = index of the state to be applied on S-_i S+_j operator 
+<BR>coefficient = reference on double where numerical coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>SpiSpj :</H3>
+<u>prototype:</u>     int SpiSpj  (int , int , int , double& coefficient )<BR><BR>
+<u>description:</u>return index of resulting state from application of S+_i S+_j operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of first S+ operator 
+<BR>j = position of second S+ operator 
+<BR>state = index of the state to be applied on S+_i S+_j operator 
+<BR>coefficient = reference on double where numerical coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>SmiSmj :</H3>
+<u>prototype:</u>     int SmiSmj  (int , int , int , double& coefficient )<BR><BR>
+<u>description:</u>return index of resulting state from application of S-_i S-_j operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of first S- operator 
+<BR>j = position of second S- operator 
+<BR>state = index of the state to be applied on S-_i S-_j operator 
+<BR>coefficient = reference on double where numerical coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>SpiSzj :</H3>
+<u>prototype:</u>     int SpiSzj  (int , int , int , double& coefficient )<BR><BR>
+<u>description:</u>return index of resulting state from application of S+_i Sz_j operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of S+ operator 
+<BR>j = position of Sz operator 
+<BR>state = index of the state to be applied on S+_i Sz_j operator 
+<BR>coefficient = reference on double where numerical coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>SmiSzj :</H3>
+<u>prototype:</u>     int SmiSzj  (int , int , int , double& coefficient )<BR><BR>
+<u>description:</u>return index of resulting state from application of S-_i Sz_j operator on a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = position of S- operator 
+<BR>j = position of Sz operator 
+<BR>state = index of the state to be applied on S-_i Sz_j operator 
+<BR>coefficient = reference on double where numerical coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> index of resulting state 
+<BR>
+<BR><BR><BR><H3>ExtractSubspace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* ExtractSubspace  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SubspaceSpaceConverter.html">SubspaceSpaceConverter</A>& converter )<BR><BR>
+<u>description:</u>extract subspace with a fixed quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>q = quantum number value 
+<BR>converter = reference on subspace-space converter to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to the new subspace 
+<BR>
+<BR><BR><BR><H3>FindStateIndex :</H3>
+<u>prototype:</u>     int FindStateIndex  (unsigned long state )<BR><BR>
+<u>description:</u>find state index 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = state description 
+<BR><BR><BR>
+<u>return value:</u> corresponding index 
+<BR>
+<BR><BR><BR><H3>PrintState :</H3>
+<u>prototype:</u>     ostream& PrintState  (ostream& , int state )<BR><BR>
+<u>description:</u>print a given State 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>state = ID of the state to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

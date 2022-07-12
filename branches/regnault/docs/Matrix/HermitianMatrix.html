@@ -1,0 +1,427 @@
+<html>
+  <head>
+    <title>HermitianMatrix</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : HermitianMatrix</DIV></H1>
+
+<H3>HermitianMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>elements :</H3>
+<u>prototype:</u>    constructor from matrix elements  (without duplicating datas )<BR><BR>
+<u>description:</u>constructor from matrix elements (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>array :</H3>
+<u>prototype:</u>    offDiagonal = pointer to off-diagonal element array  (with real part in even position and imaginary part in odd position )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>diagonal = pointer to diagonal element array 
+<BR>offDiagonal = pointer to off-diagonal element array (with real part in even position and imaginary part in odd position) 
+<BR>
+<BR><BR><BR><H3>HermitianMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>  (double* diagonal double* offDiagonal int dimension )<BR><BR>
+<u>description:</u>dimension = matrix dimension 
+<BR>
+<BR><BR><BR><H3>constructor :</H3>
+<u>prototype:</u>    copy constructor  (without duplicating datas )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>HermitianMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    copy constructor from a real tridiagonal symmetric matrix  (without duplicating diagonal elements )<BR><BR>
+<u>description:</u>copy constructor from a real tridiagonal symmetric matrix (without duplicating diagonal elements) 
+<BR>
+<BR><BR><BR><H3>HermitianMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR>
+<BR><BR><BR><H3>~HermitianMatrix :</H3>
+<u>prototype:</u>     ~HermitianMatrix  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>assignement :</H3>
+<u>prototype:</u>    assignement  (without duplicating datas )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on modified matrix 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    assignement from a real tridiagonal symmetric matrix  (without duplicating datas )<BR><BR>
+<u>description:</u>assignement from  a real tridiagonal symmetric matrix (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on modified matrix   
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    return pointer on a clone matrix  (without duplicating datas )<BR><BR>
+<u>description:</u>return pointer on a clone matrix (without duplicating datas) 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>* Clone  ()<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>retrun value = pointer on new matrix  
+<BR>
+<BR><BR><BR><H3>SetMatrixElement :</H3>
+<u>prototype:</u>     void SetMatrixElement  (int i int j double x )<BR><BR>
+<u>description:</u>set a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = new value for matrix element 
+<BR>
+<BR><BR><BR><H3>SetMatrixElement :</H3>
+<u>prototype:</u>     void SetMatrixElement  (int i int j const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& x )<BR><BR>
+<u>description:</u>set a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = new value for matrix element 
+<BR>
+<BR><BR><BR><H3>AddToMatrixElement :</H3>
+<u>prototype:</u>     void AddToMatrixElement  (int i int j double x )<BR><BR>
+<u>description:</u>add a value to a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = value to add to matrix element 
+<BR>
+<BR><BR><BR><H3>AddToMatrixElement :</H3>
+<u>prototype:</u>     void AddToMatrixElement  (int i int j const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A>& x )<BR><BR>
+<u>description:</u>add a value  a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = value to add to matrix element 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     void Resize  (int nbrRow int nbrColumn )<BR><BR>
+<u>description:</u>Resize matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrRow = new number of rows 
+<BR>nbrColumn = new number of columns 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     void ResizeAndClean  (int nbrRow int nbrColumn )<BR><BR>
+<u>description:</u>Resize matrix and set to zero all elements that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrRow = new number of rows 
+<BR>nbrColumn = new number of columns 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M2 )<BR><BR>
+<u>description:</u>add two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = second matrix 
+<BR><BR><BR>
+<u>return value:</u> sum of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M2 )<BR><BR>
+<u>description:</u>add two matrices where the left one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = left matrix 
+<BR>M2 = right matrix 
+<BR><BR><BR>
+<u>return value:</u> sum of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M2 )<BR><BR>
+<u>description:</u>add two matrices where the right one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = left matrix 
+<BR>M2 = right matrix 
+<BR><BR><BR>
+<u>return value:</u> sum of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M2 )<BR><BR>
+<u>description:</u>substract two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = matrix to substract to M1 
+<BR><BR><BR>
+<u>return value:</u> difference of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M2 )<BR><BR>
+<u>description:</u>substract two matrices where the left one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = matrix to substract to M1 
+<BR><BR><BR>
+<u>return value:</u> difference of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M1 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M2 )<BR><BR>
+<u>description:</u>substract two matrices where the right one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = matrix to substract to M1 
+<BR><BR><BR>
+<u>return value:</u> difference of the two matrices 
+<BR>
+<BR><BR><BR><H3>number :</H3>
+<u>prototype:</u>    multiply a matrix by a real number  (right multiplication )<BR><BR>
+<u>description:</u>multiply a matrix by a real number (right multiplication) 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M double x )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> product result 
+<BR>
+<BR><BR><BR><H3>number :</H3>
+<u>prototype:</u>    multiply a matrix by a real number  (left multiplication )<BR><BR>
+<u>description:</u>multiply a matrix by a real number (left multiplication) 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator *  (double x const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> product result 
+<BR>
+<BR><BR><BR><H3>number :</H3>
+<u>prototype:</u>    divide a matrix by a real number  (right multiplication )<BR><BR>
+<u>description:</u>divide a matrix by a real number (right multiplication) 
+<BR>
+<BR><BR><BR><H3>operator / :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator /  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M double x )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> division result 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator +=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u>add two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to add to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator +=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>add two matrices where the right one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to add to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator -=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u>substract two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to substract to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator -=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>substract two matrices where the right one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to substract to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator *=  (double x )<BR><BR>
+<u>description:</u>multiply a matrix by a real number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator /= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator /=  (double x )<BR><BR>
+<u>description:</u>divide a matrix by a real number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>MatrixElement :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> MatrixElement  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>evaluate matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to left multiply with current matrix 
+<BR>V2 = vector to right multiply with current matrix 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix element 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    conjugate a matrix with an unitary matrix  (Ut M U )<BR><BR>
+<u>description:</u>conjugate a matrix with an unitary matrix (Ut M U) 
+<BR>
+<BR><BR><BR><H3>Conjugate :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/Matrix.html">Matrix</A>* Conjugate  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& UnitaryM )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>UnitaryM = unitary matrix to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to conjugated matrix 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    conjugate an hermitian matrix with an unitary matrix  (Ut M U )<BR><BR>
+<u>description:</u>conjugate an hermitian matrix with an unitary matrix (Ut M U) 
+<BR>
+<BR><BR><BR><H3>Conjugate :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> Conjugate  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& UnitaryM )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>UnitaryM = unitary matrix to use 
+<BR><BR><BR>
+<u>return value:</u> conjugated matrix 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    conjugate an hermitian matrix with an hermitian transposed unitary matrix  (U M Ut )<BR><BR>
+<u>description:</u>conjugate an hermitian matrix with an hermitian transposed unitary matrix (U M Ut) 
+<BR>
+<BR><BR><BR><H3>InvConjugate :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> InvConjugate  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& UnitaryM )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>UnitaryM = unitary matrix to use 
+<BR><BR><BR>
+<u>return value:</u> conjugated matrix   
+<BR>
+<BR><BR><BR><H3>Tr :</H3>
+<u>prototype:</u>     double Tr  ()<BR><BR>
+<u>description:</u>evaluate matrix trace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix trace  
+<BR>
+<BR><BR><BR><H3>Det :</H3>
+<u>prototype:</u>     double Det  ()<BR><BR>
+<u>description:</u>evaluate matrix determinant 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix determinant  
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    V1 = reference on complex vector used as first vector  (will contain last produced vector at the end )<BR><BR>
+<u>description:</u>Tridiagonalize an hermitian matrix using Lanczos algorithm without re-orthogonalizing base at each step 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = maximum iteration number 
+<BR>M = reference on complex tridiagonal hermitian matrix where result has to be stored 
+<BR>V1 = reference on complex vector used as first vector (will contain last produced vector at the end) 
+<BR>
+<BR><BR><BR><H3>Lanczos :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Lanczos  (int dimension <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> reference on complex tridiagonal hermitian matrix 
+<BR>
+<BR><BR><BR><H3>stored :</H3>
+<u>prototype:</u>    Q = matrix where new orthonormalized base will be stored  (first column is used as first vector )<BR><BR>
+<u>description:</u>Tridiagonalize an hermitian matrix using Lanczos algorithm without re-orthogonalizing base at each step 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = maximum iteration number 
+<BR>M = reference on real tridiagonal symmetric matrix where result has to be stored 
+<BR>Q = matrix where new orthonormalized base will be stored (first column is used as first vector) 
+<BR>
+<BR><BR><BR><H3>Lanczos :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Lanczos  (int dimension <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& Q )<BR><BR>
+<u>description:</u><BR><BR>
+<u>return value:</u> reference on complex tridiagonal hermitian matrix 
+<BR>
+<BR><BR><BR><H3>stored :</H3>
+<u>prototype:</u>    Q = matrix where new orthonormalized base will be stored  (first column is used as first vector )<BR><BR>
+<u>description:</u>Tridiagonalize an hermitian matrix using Lanczos algorithm without re-orthogonalizing base at each step, if during process a  
+<BR>null vector appears then new random vector is evaluated 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = maximum iteration number 
+<BR>M = reference on real tridiagonal symmetric matrix where result has to be stored 
+<BR>Q = matrix where new orthonormalized base will be stored (first column is used as first vector) 
+<BR>
+<BR><BR><BR><H3>OrthoLanczos :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& OrthoLanczos  (int dimension <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& Q 
+  double err = 0.00000001 )<BR><BR>
+<u>description:</u>err = absolute error on vector norm 
+<BR><BR><BR>
+<u>return value:</u> reference on complex tridiagonal hermitian matrix 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& Str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& P )<BR><BR>
+<u>description:</u>Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on output stream 
+<BR>P = matrix to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& Str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& P )<BR><BR>
+<u>description:</u>Mathematica Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on Mathematica output stream 
+<BR>P = matrix to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <title>XYReflexionSymmetricPeriodic3DOneParticle</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : XYReflexionSymmetricPeriodic3DOneParticle</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/Periodic3DOneParticle.html">Periodic3DOneParticle</A></DIV><BR>
+<H3>XYReflexionSymmetricPeriodic3DOneParticle :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/XYReflexionSymmetricPeriodic3DOneParticle.html">XYReflexionSymmetricPeriodic3DOneParticle</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>XYReflexionSymmetricPeriodic3DOneParticle :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/XYReflexionSymmetricPeriodic3DOneParticle.html">XYReflexionSymmetricPeriodic3DOneParticle</A>  (int , int , int , int lowZ )<BR><BR>
+<u>description:</u>constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>maxX = maximal wave function basis dimension in the x direction 
+<BR>maxY = maximal wave function basis dimension in the y direction 
+<BR>nbrStateZ = wave function basis dimension in the z direction 
+<BR>lowZ = lower bound of basis dimension in the z direction 
+<BR>
+<BR><BR><BR><H3>XYReflexionSymmetricPeriodic3DOneParticle :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/XYReflexionSymmetricPeriodic3DOneParticle.html">XYReflexionSymmetricPeriodic3DOneParticle</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/XYReflexionSymmetricPeriodic3DOneParticle.html">XYReflexionSymmetricPeriodic3DOneParticle</A>& space )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = reference on Hilbert space to copy 
+<BR>
+<BR><BR><BR><H3>XYReflexionSymmetricPeriodic3DOneParticle :</H3>
+<u>prototype:</u>     ~ <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/XYReflexionSymmetricPeriodic3DOneParticle.html">XYReflexionSymmetricPeriodic3DOneParticle</A>  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/XYReflexionSymmetricPeriodic3DOneParticle.html">XYReflexionSymmetricPeriodic3DOneParticle</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QuantumDotHilbertSpace/XYReflexionSymmetricPeriodic3DOneParticle.html">XYReflexionSymmetricPeriodic3DOneParticle</A>& space )<BR><BR>
+<u>description:</u>clone Hilbert space (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to cloned Hilbert space 
+<BR>AbstractHilbertSpace* Clone(); 
+<BR>assignement 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>space = reference on Hilbert space to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on current Hilbert space 
+<BR>
+<BR><BR><BR><H3>GetNbrSinusStateX :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrSinusStateX  ()<BR><BR>
+<u>description:</u>get sinus wave function basis dimension in the x direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> wave function basis dimension in the x direction 
+<BR>
+<BR><BR><BR><H3>GetNbrCosinusStateX :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrCosinusStateX  ()<BR><BR>
+<u>description:</u>get cosinus wave function basis dimension in the x direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> wave function basis dimension in the x direction 
+<BR>
+<BR><BR><BR><H3>GetNbrSinusStateY :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrSinusStateY  ()<BR><BR>
+<u>description:</u>get sinus wave function basis dimension in the y direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> wave function basis dimension in the y direction 
+<BR>
+<BR><BR><BR><H3>GetNbrCosinusStateY :</H3>
+<u>prototype:</u>     <i>virtual</i> int GetNbrCosinusStateY  ()<BR><BR>
+<u>description:</u>get cossinus wave function basis dimension in the y direction 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> wave function basis dimension in the y direction 
+<BR>
+<BR><BR><BR><H3>PrintState :</H3>
+<u>prototype:</u>     ostream& PrintState  (ostream& , int state )<BR><BR>
+<u>description:</u>return a list of all possible quantum numbers  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>List<AbstractQuantumNumber*> GetQuantumNumbers (); 
+<BR>return quantum number associated to a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = index of the state 
+<BR><BR><BR>
+<u>return value:</u> pointer to corresponding quantum number 
+<BR>AbstractQuantumNumber* GetQuantumNumber (int index); 
+<BR>extract subspace with a fixed quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>q = quantum number value 
+<BR>converter = reference on subspace-space converter to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to the new subspace 
+<BR>AbstractHilbertSpace* ExtractSubspace (AbstractQuantumNumber& q, SubspaceSpaceConverter& converter); 
+<BR>print a given State 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>state = ID of the state to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

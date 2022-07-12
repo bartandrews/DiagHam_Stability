@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>GenericOperation</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : GenericOperation</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AbstractArchitectureOperation.html">AbstractArchitectureOperation</A></DIV><BR>
+<H3>GenericOperation :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/GenericOperation.html">GenericOperation</A>  (ClassName* , void (ClassName::*method )<BR><BR>
+<u>description:</u>constructor  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>object = object  
+<BR>method = method to call for each operation (first argument is job index and the second argument is the total number of jobs) 
+<BR>
+<BR><BR><BR><H3>GenericOperation :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/GenericOperation.html">GenericOperation</A>  (const GenericOperation<ClassName>& operation )<BR><BR>
+<u>description:</u>copy constructor  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>operation = reference on operation to copy 
+<BR>
+<BR><BR><BR><H3>~GenericOperation :</H3>
+<u>prototype:</u>     ~GenericOperation  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>SetJobIndices :</H3>
+<u>prototype:</u>     void SetJobIndices  (int , int nbrJob )<BR><BR>
+<u>description:</u>set job index and job total number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>jobIndex = job index 
+<BR>nbrJob = job total number 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/ArchitectureOperation/AbstractArchitectureOperation.html">AbstractArchitectureOperation</A>* Clone  ()<BR><BR>
+<u>description:</u>clone operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to cloned operation 
+<BR>
+<BR><BR><BR><H3>ApplyOperation :</H3>
+<u>prototype:</u>     bool ApplyOperation  ()<BR><BR>
+<u>description:</u>apply operation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> true if no error occurs 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

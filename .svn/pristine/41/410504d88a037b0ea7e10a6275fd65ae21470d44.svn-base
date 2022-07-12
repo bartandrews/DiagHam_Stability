@@ -1,0 +1,71 @@
+<?xml version="1.0"  encoding="ISO-8859-1"?>
+<chapter name="The eigenstates">
+
+<section name="vector storage">
+All the eigenstates are stored using the DiagHam binary vector convention. 
+</section>
+
+
+<section name="Naming convention">
+
+In principle; eigenstate file names are based on the following naming convention :
+
+\filename{statistics_interaction_name_n_xx_2s_yy_lz_ii.jj.vec}
+
+where \filename{statistics} is the particle statistics (\filename{bosons} or \filename{fermions}), \filename{interaction_name} is the interaction name (for example \filename{coulomb_0} for the coulomb interaction in the lowest Landau level, \filename{hardcore_nbody_3} for the 3-body hardcore interaction, ...). \filename{xx} is the number of particles, \filename{yy} is two times the momentum of the one-body state.\filename{i} is twice the projection of the total momentum along $z$ and \filename{jj} is the index of the corresponding eigenvalue in the $L_z=ii/2$ sector (eigenvalues are sorted in ascendant order, thus 0 is the ground state).
+
+</section>
+
+<section name="Ordering of the canonical n-body basis">
+
+The canonical n-body basis refers to the usual Fock basis indicating the occupation of each one-particle state with a given $l_z$. The total projection of the momentum $L_z$ along the $z$ axis is fixed. The convention used to sort the canonical n-body states is the following : the state which occupy the maximum of high $l_z$ one-body states is the first state while the state occupying a maximum of low $l_z$ one-body states  is the last n-body state. 
+
+Let consider a simple example with $N=4$ fermions that occupy states with momentum $S=4$ with a total $L_z$ value fixed to 1. Here is the sorted basis :
+
+\begin{array}{c|c|c|c|c|c|c|c|c|c}
+index & $l_z=-4$ & $l_z=-3$  & $l_z=-2$  & $l_z=-1$  & $l_z=0$  & $l_z=1$  & $l_z=2$ & $l_z=3$  & $l_z=4$ \\
+0 & $1$  & $0$  & $1$  & $0$  & $0$  & $0$  & $0$  & $1$  & $1$  \\
+1 & $1$  & $0$  & $0$  & $1$  & $0$  & $0$  & $1$  & $0$  & $1$  \\
+2 & $0$  & $1$  & $1$  & $0$  & $0$  & $0$  & $1$  & $0$  & $1$  \\
+3 & $1$  & $0$  & $0$  & $0$  & $1$  & $1$  & $0$  & $0$  & $1$  \\
+4 & $0$  & $1$  & $0$  & $1$  & $0$  & $1$  & $0$  & $0$  & $1$  \\
+5 & $0$  & $0$  & $1$  & $1$  & $1$  & $0$  & $0$  & $0$  & $1$  \\
+6 & $1$  & $0$  & $0$  & $0$  & $1$  & $0$  & $1$  & $1$  & $0$  \\
+7 & $0$  & $1$  & $0$  & $1$  & $0$  & $0$  & $1$  & $1$  & $0$  \\
+8 & $0$  & $1$  & $0$  & $0$  & $1$  & $1$  & $0$  & $1$  & $0$  \\
+9 & $0$  & $0$  & $1$  & $1$  & $0$  & $1$  & $0$  & $1$  & $0$  \\
+10 & $0$  & $0$  & $1$  & $0$  & $1$  & $1$  & $1$  & $0$  & $0$  \\
+\end{array}
+
+Here is another example for $N=4$ bosons that occupy states with momentum $S=3$ with a total $L_z$ value fixed to 1
+
+\begin{array}{c|c|c|c|c|c|c|c}
+index & $l_z=-3$  & $l_z=-2$  & $l_z=-1$  & $l_z=0$  & $l_z=1$  & $l_z=2$ & $l_z=3$ \\
+0 & $1$  & $1$  & $0$  & $0$  & $0$  & $0$  & $2$  \\
+1 & $1$  & $0$  & $1$  & $0$  & $0$  & $1$  & $1$  \\
+2 & $0$  & $2$  & $0$  & $0$  & $0$  & $1$  & $1$  \\
+3 & $1$  & $0$  & $0$  & $1$  & $1$  & $0$  & $1$  \\
+4 & $0$  & $1$  & $1$  & $0$  & $1$  & $0$  & $1$  \\
+5 & $0$  & $1$  & $0$  & $2$  & $0$  & $0$  & $1$  \\
+6 & $0$  & $0$  & $2$  & $1$  & $0$  & $0$  & $1$  \\
+7 & $1$  & $0$  & $0$  & $1$  & $0$  & $2$  & $0$  \\
+8 & $0$  & $1$  & $1$  & $0$  & $0$  & $2$  & $0$  \\
+9 & $1$  & $0$  & $0$  & $0$  & $2$  & $1$  & $0$  \\
+10 & $0$  & $1$  & $0$  & $1$  & $1$  & $1$  & $0$  \\
+11 & $0$  & $0$  & $2$  & $0$  & $1$  & $1$  & $0$  \\
+12 & $0$  & $0$  & $1$  & $2$  & $0$  & $1$  & $0$  \\
+13 & $0$  & $1$  & $0$  & $0$  & $3$  & $0$  & $0$  \\
+14 & $0$  & $0$  & $1$  & $1$  & $2$  & $0$  & $0$  \\
+15 & $0$  & $0$  & $0$  & $3$  & $1$  & $0$  & $0$  \\
+\end{array}
+
+These Hilbert spaces are fully implemented in DiagHam through the following classes :
+\begin{itemize}
+\item FermionOnSphere : Hilbert space for fermions on the Haldane sphere with a fixed $L_z$ value. $2S$ is limited to 30 on 32 bit architectures and to 62 on 64-bit architectures.
+\item FermionOnSphereUnlimited : Hilbert space for fermions on the Haldane sphere with a fixed $L_z$ value. There is no restriction on $2S$ but this implementation is slower than FermionOnSphere
+\item BosonOnSphere : Hilbert space for bosons on the Haldane sphere with a fixed $L_z$ value.
+\end{itemize}
+
+</section>
+
+</chapter>

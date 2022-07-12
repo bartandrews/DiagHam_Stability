@@ -1,0 +1,751 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                                                                            //
+//                            DiagHam  version 0.01                           //
+//                                                                            //
+//                  Copyright (C) 2001-2002 Nicolas Regnault                  //
+//                                                                            //
+//                                                                            //
+//                   class of complex lower triangular matrix                 //
+//                                                                            //
+//                        last modification : 20/08/2004                      //
+//                                                                            //
+//                                                                            //
+//    This program is free software; you can redistribute it and/or modify    //
+//    it under the terms of the GNU General Public License as published by    //
+//    the Free Software Foundation; either version 2 of the License, or       //
+//    (at your option) any later version.                                     //
+//                                                                            //
+//    This program is distributed in the hope that it will be useful,         //
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of          //
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           //
+//    GNU General Public License for more details.                            //
+//                                                                            //
+//    You should have received a copy of the GNU General Public License       //
+//    along with this program; if not, write to the Free Software             //
+//    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.               //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+
+#include "Matrix/ComplexLowerTriangularMatrix.h"
+#include "Matrix/ComplexUpperTriangularMatrix.h"
+#include "Matrix/BlockDiagonalMatrix.h"
+#include "Matrix/ComplexMatrix.h"
+#include "GeneralTools/ListIterator.h"
+#include "HilbertSpace/SubspaceSpaceConverter.h"
+#include "MathTools/Complex.h"
+
+#include <stdlib.h>
+#include <fstream>
+
+
+using std::cout;
+using std::endl;
+
+
+// default constructor
+//
+
+ComplexLowerTriangularMatrix::ComplexLowerTriangularMatrix() 
+{
+  this->DiagonalElements = 0;
+  this->OffDiagonalElements = 0;
+  this->NbrRow = 0;
+  this->NbrColumn = 0;
+  this->TrueNbrRow = this->NbrRow;
+  this->TrueNbrColumn = this->NbrColumn;
+  this->MatrixType = Matrix::ComplexElements | Matrix::Triangular | Matrix::Lower;
+  this->Dummy = 0.0;
+}
+
+// constructor for an empty matrix
+//
+// dimension = matrix dimension
+// zero = true if matrix has to be filled with zeros
+
+ComplexLowerTriangularMatrix::ComplexLowerTriangularMatrix(int dimension, bool zero) 
+{
+  this->DiagonalFlag.Initialize();
+  this->OffDiagonalFlag.Initialize();
+  this->NbrRow = dimension;
+  this->NbrColumn = dimension;
+  this->TrueNbrRow = this->NbrRow;
+  this->TrueNbrColumn = this->NbrColumn;
+  this->MatrixType = Matrix::ComplexElements | Matrix::Triangular | Matrix::Lower;
+  this->DiagonalElements = new Complex [this->NbrRow];
+  long TmpNbrOffDiagonalElements = (((long) this->NbrRow) * (((long) this->NbrRow) - 1l)) / 2l;
+  this->OffDiagonalElements = new Complex [TmpNbrOffDiagonalElements];
+  if (zero == true)
+    {
+      for (int i = 0; i < this->NbrRow; ++i)
+	{
+	  this->DiagonalElements[i] = 0.0;
+	}
+      for (long i = 0l; i < TmpNbrOffDiagonalElements; ++i)
+	{
+	  this->OffDiagonalElements[i] = 0.0;
+	}
+    }
+  this->Dummy = 0.0;
+}
+
+// constructor from matrix elements (without duplicating datas)
+//
+// diagonal = pointer to the diagonal elements
+// offDiagonal = pointer to off-diagonal elements
+// dimension = matrix dimension
+
+ComplexLowerTriangularMatrix::ComplexLowerTriangularMatrix(Complex* diagonal, Complex* offDiagonal, int dimension) 
+{
+  this->DiagonalElements = diagonal;
+  this->OffDiagonalElements = offDiagonal;
+  this->DiagonalFlag.Initialize();
+  this->OffDiagonalFlag.Initialize();
+  this->NbrRow = dimension;
+  this->NbrColumn = dimension;
+  this->TrueNbrRow = this->NbrRow;
+  this->TrueNbrColumn = this->NbrColumn;
+  this->MatrixType = Matrix::ComplexElements | Matrix::Triangular | Matrix::Lower;
+  this->Dummy = 0.0;
+}
+
+// copy constructor (without duplicating datas)
+//
+// M = matrix to copy
+
+ComplexLowerTriangularMatrix::ComplexLowerTriangularMatrix(const ComplexLowerTriangularMatrix& M) 
+{
+  this->DiagonalElements = M.DiagonalElements;
+  this->DiagonalFlag = M.DiagonalFlag;
+  this->OffDiagonalElements = M.OffDiagonalElements;
+  this->OffDiagonalFlag = M.OffDiagonalFlag;
+  this->NbrRow = M.NbrRow;
+  this->NbrColumn = M.NbrColumn;
+  this->TrueNbrRow = M.TrueNbrRow;
+  this->TrueNbrColumn = M.TrueNbrColumn;
+  this->MatrixType = Matrix::ComplexElements | Matrix::Triangular | Matrix::Lower;
+  this->Dummy = 0.0;
+}
+
+// destructor
+//
+
+ComplexLowerTriangularMatrix::~ComplexLowerTriangularMatrix() 
+{
+  if ((this->DiagonalElements != 0) && 
+      (this->DiagonalFlag.Used() == true) && (this->DiagonalFlag.Shared() == false))
+    {
+      delete[] this->DiagonalElements;
+    }
+  if ((this->OffDiagonalElements != 0) && 
+      (this->OffDiagonalFlag.Used() == true) && (this->OffDiagonalFlag.Shared() == false))
+    {
+      delete[] this->OffDiagonalElements;
+    }
+}
+
+// assignement (without duplicating datas)
+//
+// M = matrix to copy
+// return value = reference on modified matrix
+
+ComplexLowerTriangularMatrix& ComplexLowerTriangularMatrix::operator = (const ComplexLowerTriangularMatrix& M) 
+{
+  if ((this->DiagonalElements != 0) && 
+      (this->DiagonalFlag.Used() == true) && (this->DiagonalFlag.Shared() == false))
+    {
+      delete[] this->DiagonalElements;
+    }
+  if ((this->OffDiagonalElements != 0) && 
+      (this->OffDiagonalFlag.Used() == true) && (this->OffDiagonalFlag.Shared() == false))
+    {
+      delete[] this->OffDiagonalElements;
+    }
+  this->DiagonalElements = M.DiagonalElements;
+  this->DiagonalFlag = M.DiagonalFlag;
+  this->OffDiagonalElements = M.OffDiagonalElements;
+  this->OffDiagonalFlag = M.OffDiagonalFlag;
+  this->NbrRow = M.NbrRow;
+  this->NbrColumn = M.NbrColumn;
+  this->TrueNbrRow = M.TrueNbrRow;
+  this->TrueNbrColumn = M.TrueNbrColumn;
+  this->MatrixType = Matrix::ComplexElements | Matrix::Triangular | Matrix::Lower;
+  this->Dummy = 0.0;
+  return *this;
+}
+
+// return pointer on a clone matrix (without duplicating datas)
+//
+// retrun value = pointer on new matrix 
+
+Matrix* ComplexLowerTriangularMatrix::Clone ()
+{
+  return ((Matrix*) new ComplexLowerTriangularMatrix (*this));
+}
+
+// copy a matrix into another (duplicating data)
+//
+// matrix = matrix to copy
+// return value = reference on current matrix
+
+ComplexLowerTriangularMatrix& ComplexLowerTriangularMatrix::Copy (ComplexLowerTriangularMatrix& matrix)
+{
+  this->Resize(matrix.NbrRow, matrix.NbrColumn);
+  this->DiagonalElements = new Complex [this->NbrRow];
+  for (int i = 0; i < this->NbrColumn; ++i)
+    this->DiagonalElements[i] = matrix.DiagonalElements[i];
+  long TmpNbrOffDiagonalElements = (((long) this->NbrRow) * (((long) this->NbrRow) - 1l)) / 2l;
+  for (long i = 0l; i < TmpNbrOffDiagonalElements; ++i)
+    this->OffDiagonalElements[i] = matrix.OffDiagonalElements[i];
+  return *this;
+}
+
+// set a matrix element
+//
+// i = line position
+// j = column position
+// x = new value for matrix element
+
+void ComplexLowerTriangularMatrix::SetMatrixElement(int i, int j, double x)
+{
+  if ((i >= this->NbrRow) || (j >= this->NbrColumn)  || (i < j))
+    return;
+  if (i == j)
+    {
+      this->DiagonalElements[i] = x;
+    }
+  else
+    {
+      this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)] = x;
+    }
+  return;
+}
+
+// set a matrix element
+//
+// i = line position
+// j = column position
+// x = new value for matrix element
+
+void ComplexLowerTriangularMatrix::SetMatrixElement(int i, int j, const Complex& x)
+{
+  if ((i >= this->NbrRow) || (j >= this->NbrColumn) || (i < j))
+    return;
+  if (i == j)
+    {
+      this->DiagonalElements[i] = x;
+    }
+  else
+    {
+      this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)] = x;
+    }
+  return;
+}
+
+// add a value to a matrix element
+//
+// i = line position
+// j = column position
+// x = value to add to matrix element
+
+void ComplexLowerTriangularMatrix::AddToMatrixElement(int i, int j, double x)
+{
+  if ((i >= this->NbrRow) || (j >= this->NbrColumn) || (i > j))
+    return;
+  if (i == j)
+    {
+      this->DiagonalElements[i] += x;
+    }
+  else
+    {
+      this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)] += x;
+    }
+  return;
+}
+
+// add a value  a matrix element
+//
+// i = line position
+// j = column position
+// x = value to add to matrix element
+void ComplexLowerTriangularMatrix::AddToMatrixElement(int i, int j, const Complex& x)
+{
+  if ((i >= this->NbrRow) || (j >= this->NbrColumn) || (i > j))
+    return;
+  if (i == j)
+    {
+      this->DiagonalElements[i] += x;
+    }
+  else
+    {
+      this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)] += x;
+    }
+  return;
+}
+
+// Resize matrix
+//
+// nbrRow = new number of rows
+// nbrColumn = new number of columns
+
+void ComplexLowerTriangularMatrix::Resize (int nbrRow, int nbrColumn)
+{
+  if (nbrRow != nbrColumn)
+    return;
+  Complex* TmpDiagonalElements = new Complex [nbrRow];
+  long TmpNbrOffDiagonalElements = (((long) nbrRow) * (((long) nbrRow) - 1l)) / 2l;
+  Complex* TmpOffDiagonalElements = new Complex [TmpNbrOffDiagonalElements];
+  int MinNbrRow = nbrRow;
+  if (nbrRow > this->NbrRow)
+    MinNbrRow = this->NbrRow;
+  for (int i = 0; i < MinNbrRow; ++i)
+    {
+      TmpDiagonalElements[i] = this->DiagonalElements[i];
+      for (int j = i + 1; j < MinNbrRow; ++j)
+	{
+	  TmpOffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)] = this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)];
+	}
+    }
+  if ((this->DiagonalElements != 0) && 
+      (this->DiagonalFlag.Used() == true) && (this->DiagonalFlag.Shared() == false))
+    {
+      delete[] this->DiagonalElements;
+    }
+  if ((this->OffDiagonalElements != 0) && 
+      (this->OffDiagonalFlag.Used() == true) && (this->OffDiagonalFlag.Shared() == false))
+    {
+      delete[] this->OffDiagonalElements;
+    }
+  if ((this->DiagonalElements != 0) && 
+      (this->DiagonalFlag.Used() == true) && (this->DiagonalFlag.Shared() == false))
+    {
+      delete[] this->DiagonalElements;
+    }
+  if ((this->OffDiagonalElements != 0) && 
+      (this->OffDiagonalFlag.Used() == true) && (this->OffDiagonalFlag.Shared() == false))
+    {
+      delete[] this->OffDiagonalElements;
+    }
+  this->NbrRow = nbrRow;
+  this->NbrColumn = nbrColumn;
+  this->TrueNbrRow = this->NbrRow;
+  this->TrueNbrColumn = this->NbrColumn;
+  this->DiagonalElements = TmpDiagonalElements;
+  this->OffDiagonalElements = TmpOffDiagonalElements;
+  this->DiagonalFlag.Initialize();
+  this->OffDiagonalFlag.Initialize();
+}
+
+// Resize matrix and set to zero all elements that have been added
+//
+// nbrRow = new number of rows
+// nbrColumn = new number of columns
+
+void ComplexLowerTriangularMatrix::ResizeAndClean (int nbrRow, int nbrColumn)
+{
+  if (nbrRow != nbrColumn)
+    return;
+  Complex* TmpDiagonalElements = new Complex [nbrRow];
+  long TmpNbrOffDiagonalElements = (((long) nbrRow) * (((long) nbrRow) - 1l)) / 2l;
+  Complex* TmpOffDiagonalElements = new Complex [TmpNbrOffDiagonalElements];
+  int MinNbrRow = nbrRow;
+  if (nbrRow > this->NbrRow)
+    MinNbrRow = this->NbrRow;
+  for (int i = 0; i < MinNbrRow; ++i)
+    {
+      TmpDiagonalElements[i] = this->DiagonalElements[i];
+      for (int j = i + 1; j < MinNbrRow; ++j)
+	{
+	  TmpOffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)] = this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)];
+	}
+      for (int j = MinNbrRow; j < nbrRow; ++j)
+	{
+	  TmpOffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)] = 0.0;
+	}
+    }
+  for (int i = this->NbrRow; i < nbrRow; ++i)
+    {
+      TmpDiagonalElements[i] = 0.0;
+      for (int j = i + 1; j < nbrRow; ++j)
+	{
+	  TmpOffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)] = 0.0;
+	}
+    }
+  if ((this->DiagonalElements != 0) && 
+      (this->DiagonalFlag.Used() == true) && (this->DiagonalFlag.Shared() == false))
+    {
+      delete[] this->DiagonalElements;
+    }
+  if ((this->OffDiagonalElements != 0) && 
+      (this->OffDiagonalFlag.Used() == true) && (this->OffDiagonalFlag.Shared() == false))
+    {
+      delete[] this->OffDiagonalElements;
+    }
+  this->NbrRow = nbrRow;
+  this->NbrColumn = nbrColumn;
+  this->TrueNbrRow = this->NbrRow;
+  this->TrueNbrColumn = this->NbrColumn;
+  this->DiagonalElements = TmpDiagonalElements;
+  this->OffDiagonalElements = TmpOffDiagonalElements;
+  this->DiagonalFlag.Initialize();
+  this->OffDiagonalFlag.Initialize();
+}
+
+// add two matrices
+//
+// M1 = first matrix
+// M2 = second matrix
+// return value = sum of the two matrices
+
+ComplexLowerTriangularMatrix operator + (const ComplexLowerTriangularMatrix& M1, const ComplexLowerTriangularMatrix& M2)
+{
+  if (M1.NbrRow != M2.NbrRow)
+    return ComplexLowerTriangularMatrix();
+  Complex* Diagonal = new Complex [M1.NbrRow];
+  long TmpNbrOffDiagonalElements = (((long) M1.NbrRow) * (((long) M1.NbrRow) - 1l)) / 2l;
+  Complex* OffDiagonal = new Complex [TmpNbrOffDiagonalElements];
+  for (int i = 0; i < M1.NbrRow; i++)
+    {
+      Diagonal[i] = M1.DiagonalElements[i] + M2.DiagonalElements[i];
+    }
+  for (long i = 0l; i < TmpNbrOffDiagonalElements; ++i)
+    {
+      OffDiagonal[i] = M1.OffDiagonalElements[i] + M2.OffDiagonalElements[i];      
+    }
+  return ComplexLowerTriangularMatrix(Diagonal, OffDiagonal, M1.NbrRow);
+}
+
+// substract two matrices
+//
+// M1 = first matrix
+// M2 = matrix to substract to M1
+// return value = difference of the two matrices
+
+ComplexLowerTriangularMatrix operator - (const ComplexLowerTriangularMatrix& M1, const ComplexLowerTriangularMatrix& M2)
+{
+  if (M1.NbrRow != M2.NbrRow)
+    return ComplexLowerTriangularMatrix();
+  Complex* Diagonal = new Complex [M1.NbrRow];
+  long TmpNbrOffDiagonalElements = (((long) M1.NbrRow) * (((long) M1.NbrRow) - 1l)) / 2l;
+  Complex* OffDiagonal = new Complex [TmpNbrOffDiagonalElements];
+  for (int i = 0; i < M1.NbrRow; i++)
+    {
+      Diagonal[i] = M1.DiagonalElements[i] + M2.DiagonalElements[i];
+    }
+  for (long i = 0l; i < TmpNbrOffDiagonalElements; ++i)
+    {
+      OffDiagonal[i] = M1.OffDiagonalElements[i] - M2.OffDiagonalElements[i];      
+    }
+  return ComplexLowerTriangularMatrix(Diagonal, OffDiagonal, M1.NbrRow);
+}
+
+// multiply a real matrix with a real lower triangular matrix
+//
+// m1 = real matrix
+// m2 = real lower triangular matrix
+// return value = product result
+
+ComplexMatrix operator * (ComplexMatrix& m1, const ComplexLowerTriangularMatrix& m2)
+{
+  ComplexMatrix TmpM(m1.GetNbrRow(), m2.NbrRow);
+  long Pos = 0l;
+  for (int i = 0; i < m1.GetNbrRow(); ++i)
+    {
+      for (int j = 0; j < m2.NbrRow; ++j)
+	{
+	  Complex& Tmp = TmpM[j][i];
+	  Tmp = m1[j][i] * m2.DiagonalElements[j];
+	  Pos = ((j - 1l) * j) / 2l;
+	  for (int k = 0; k < j; ++k)
+	    {
+	      Tmp += m1[k][i] * m2.OffDiagonalElements[Pos];
+	      ++Pos;
+	    }
+	}
+    }
+  return TmpM;
+}
+
+// multiply a matrix by a real number (right multiplication)
+//
+// M = source matrix
+// x = real number to use
+// return value = product result
+
+ComplexLowerTriangularMatrix operator * (const ComplexLowerTriangularMatrix& M, double x) 
+{
+  Complex* Diagonal = new Complex [M.NbrRow];
+  long TmpNbrOffDiagonalElements = (((long) M.NbrRow) * (((long) M.NbrRow) - 1l)) / 2l;
+  Complex* OffDiagonal = new Complex [TmpNbrOffDiagonalElements];
+  for (int i = 0; i < M.NbrRow; i++)
+    {
+      Diagonal[i] = M.DiagonalElements[i] * x;
+    }
+  for (long i = 0l; i < TmpNbrOffDiagonalElements; ++i)
+    {
+      OffDiagonal[i] = M.OffDiagonalElements[i] * x;
+    }
+  return ComplexLowerTriangularMatrix(Diagonal, OffDiagonal, M.NbrRow);
+}
+
+// multiply a matrix by a real number (left multiplication)
+//
+// M = source matrix
+// x = real number to use
+// return value = product result
+
+ComplexLowerTriangularMatrix operator * (double x, const ComplexLowerTriangularMatrix& M) 
+{
+  return (M * x);
+}
+
+// divide a matrix by a real number (right multiplication)
+//
+// M = source matrix
+// x = real number to use
+// return value = division result
+
+ComplexLowerTriangularMatrix operator / (const ComplexLowerTriangularMatrix& M, double x) 
+{
+  x = 1.0 / x;
+  return (M * x);
+}
+
+// add two matrices
+//
+// M = matrix to add to current matrix
+// return value = reference on current matrix
+
+ComplexLowerTriangularMatrix& ComplexLowerTriangularMatrix::operator += (const ComplexLowerTriangularMatrix& M) 
+{
+  if ((this->NbrRow == 0) || (this->NbrRow != M.NbrRow))
+    return *this;
+  for (int i = 0; i < M.NbrRow; i++)
+    {
+      this->DiagonalElements[i] += M.DiagonalElements[i];
+    }
+  long TmpNbrOffDiagonalElements = (((long) M.NbrRow) * (((long) M.NbrRow) - 1l)) / 2l;
+  for (long i = 0l; i < TmpNbrOffDiagonalElements; i++)
+    {
+      this->OffDiagonalElements[i] += M.OffDiagonalElements[i];
+    }
+  return *this;
+}
+
+// add two matrices where the right one is a real tridiagonal symmetric matrix
+//
+// M = matrix to add to current matrix
+// return value = reference on current matrix
+
+// substract two matrices
+//
+// M = matrix to substract to current matrix
+// return value = reference on current matrix
+
+ComplexLowerTriangularMatrix& ComplexLowerTriangularMatrix::operator -= (const ComplexLowerTriangularMatrix& M) 
+{
+  if ((this->NbrRow == 0) || (this->NbrRow != M.NbrRow))
+    return *this;
+  for (int i = 0; i < M.NbrRow; i++)
+    {
+      this->DiagonalElements[i] -= M.DiagonalElements[i];
+    }
+  long TmpNbrOffDiagonalElements = (((long) M.NbrRow) * (((long) M.NbrRow) - 1l)) / 2l;
+  for (long i = 0l; i < TmpNbrOffDiagonalElements; i++)
+    {
+      this->OffDiagonalElements[i] -= M.OffDiagonalElements[i];
+    }
+  return *this;
+}
+
+// multiply a matrix by a real number
+//
+// x = real number to use
+// return value = reference on current matrix
+
+ComplexLowerTriangularMatrix& ComplexLowerTriangularMatrix::operator *= (double x) 
+{
+  if (this->NbrRow == 0)
+    return *this;
+  for (int i = 0; i < this->NbrRow; i++)
+    {
+      this->DiagonalElements[i] *= x;
+    }
+  long TmpNbrOffDiagonalElements = (((long) this->NbrRow) * (((long) this->NbrRow) - 1l)) / 2l;
+  for (long i = 0l; i < TmpNbrOffDiagonalElements; i++)
+    {
+      this->OffDiagonalElements[i] *= x;
+    }
+  return *this;
+}
+
+// divide a matrix by a real number
+//
+// x = real number to use
+// return value = reference on current matrix
+
+ComplexLowerTriangularMatrix& ComplexLowerTriangularMatrix::operator /= (double x)
+{
+  x = 1.0 / x;
+  (*this) *= x;
+  return *this;
+}
+
+// evaluate matrix element
+//
+// V1 = vector to left multiply with current matrix
+// V2 = vector to right multiply with current matrix
+// return value = corresponding matrix element
+
+Complex ComplexLowerTriangularMatrix::MatrixElement (ComplexVector& V1, ComplexVector& V2)
+{
+  Complex x = 0.0;
+  if ((V1.Dimension != this->NbrRow) || (V2.Dimension != this->NbrColumn))
+    return x;
+  for (int i = 0; i < this->NbrRow ; i++)
+    {
+      Complex x2 = this->DiagonalElements[i] * V2.Components[i];
+      for (int k = 0; k < i; k++)
+	{
+	  x2 += this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, k)] * V2.Components[k];
+	}
+      x += x2 * V1.Components[i];
+    }
+  return x;
+}
+
+// Solve the linear equation M x = y
+//
+// x = vector where the solution will be stored
+// y = vector that gives the right hand side of the equation
+// return value = true if no error occured
+
+bool ComplexLowerTriangularMatrix::SolveLinearEquation (ComplexVector& x, ComplexVector& y)
+{
+  if ((this->NbrRow == 0) || (this->NbrRow != x.GetVectorDimension()) || (this->NbrRow != y.GetVectorDimension()))
+    return false;
+  if ((this->DiagonalElements[0].Re == 0.0) && (this->DiagonalElements[0].Im == 0.0))
+    return false;
+  x[0] = y[0] / this->DiagonalElements[0];
+  for (int i = 1; i < this->NbrRow; ++i)
+    {
+      if ((this->DiagonalElements[i].Re == 0.0) && (this->DiagonalElements[i].Im == 0.0))
+	return false;
+      Complex Tmp = y[i];
+      for (int j = 0; j < i; ++j)
+	{
+	  Tmp -= this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)] * x[j];	  
+	}
+      x[i] = Tmp / this->DiagonalElements[i];
+    }
+  return true;
+}
+
+// invert the current matrix
+//
+// return value = true if no error occured
+
+bool ComplexLowerTriangularMatrix::Invert ()
+{
+  if (this->NbrRow == 0)
+    return false;
+  for (int i = 0; i < this->NbrRow; ++i)
+    {
+      if ((this->DiagonalElements[i].Re == 0.0) && (this->DiagonalElements[i].Im == 0.0))
+	return false;
+      this->DiagonalElements[i] = 1.0 / this->DiagonalElements[i];   
+      for (int j = i + 1; i < this->NbrRow; ++i)
+	{
+	  Complex Tmp = 0.0;
+	  for (int k = 0; k < j; ++k)
+	    {
+	      Tmp += this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(j, k)] * this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, k)];	  
+	    }
+	  this->OffDiagonalElements[this->GetLinearizedOffDiagonalIndex(i, j)] = -Tmp / this->DiagonalElements[j];
+	}
+    }
+  return true;
+}
+
+// evaluate matrix trace
+//
+// return value = matrix trace 
+
+double ComplexLowerTriangularMatrix::Tr () 
+{  
+  return 0.0;
+}
+
+// evaluate matrix determinant
+//
+// return value = matrix determinant 
+
+double ComplexLowerTriangularMatrix::Det () 
+{
+  return 0.0;
+}
+
+// Output Stream overload
+//
+// Str = reference on output stream
+// P = matrix to print
+// return value = reference on output stream
+
+ostream& operator << (ostream& Str, const ComplexLowerTriangularMatrix& P)
+{
+  Complex TmpZero = 0.0;
+  for (int i = 0; i < P.NbrRow; i++)
+    {
+      for (int j = 0; j < i; j ++)
+	{
+	  Str << P.OffDiagonalElements[P.GetLinearizedOffDiagonalIndex(i, j)] << "    ";
+	}
+      Str << P.DiagonalElements[i] << "    ";
+      for (int j = i + 1; j < P.NbrRow; j++)
+	{
+	  Str << TmpZero << "    ";
+	}
+      Str << endl;
+    }
+  return Str;
+}
+
+#ifdef USE_OUTPUT
+
+// Mathematica Output Stream overload
+//
+// Str = reference on Mathematica output stream
+// P = matrix to print
+// return value = reference on output stream
+
+MathematicaOutput& operator << (MathematicaOutput& Str, const ComplexLowerTriangularMatrix& P)
+{
+  Str << "{";
+  for (int i = 0; i < P.NbrRow; i++)
+    {
+      Str << "{";
+      for (int j = 0; j < i; j ++)
+	{
+	  Str << P.OffDiagonalElements[P.GetLinearizedOffDiagonalIndex(i, j)];
+	  Str << ",";
+	}
+      Str << P.DiagonalElements[i];
+      if (i != (P.NbrRow - 1))
+	{
+	  Str << ",";	  
+	  for (int j = i + 1; j < (P.NbrRow - 1); j++)
+	    {
+	      Str << 0.0 << ",";
+	    }
+	  Str << 0.0;
+	  Str << "},";
+	}
+      else
+	Str << "}";
+    }
+  Str << "}";
+  return Str;
+}
+
+#endif

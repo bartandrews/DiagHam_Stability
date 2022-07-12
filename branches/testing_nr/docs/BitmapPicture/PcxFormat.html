@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <title>PcxFormat</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : PcxFormat</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/BitmapPicture/AbstractBitmapPicture.html">AbstractBitmapPicture</A></DIV><BR>
+<H3>PcxFormat :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/BitmapPicture/PcxFormat.html">PcxFormat</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>PcxFormat :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/BitmapPicture/PcxFormat.html">PcxFormat</A>  (int , int H )<BR><BR>
+<u>description:</u>constructor for an empty black picture 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>width = picture width 
+<BR>height = picture height 
+<BR>
+<BR><BR><BR><H3>PcxFormat :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/BitmapPicture/PcxFormat.html">PcxFormat</A>  (int , int , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Color/PicRGB.html">PicRGB</A>& Col )<BR><BR>
+<u>description:</u>constructor for an empty picture using user background color  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>width = picture width 
+<BR>height = picture height 
+<BR>color = background color 
+<BR>
+<BR><BR><BR><H3>~PcxFormat :</H3>
+<u>prototype:</u>     ~PcxFormat  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>PictureHeight :</H3>
+<u>prototype:</u>     int PictureHeight  ()<BR><BR>
+<u>description:</u>Return size of the picture 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> picture height 
+<BR>
+<BR><BR><BR><H3>PictureWidth :</H3>
+<u>prototype:</u>     int PictureWidth  ()<BR><BR>
+<u>description:</u>Return picture width 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> picture width 
+<BR>
+<BR><BR><BR><H3>SetPixel :</H3>
+<u>prototype:</u>     void SetPixel  (int , int , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Color/PicRGB.html">PicRGB</A>& Col )<BR><BR>
+<u>description:</u>Set Pixel Value 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = pixel coordinate along x axis 
+<BR>y = pixel coordinate along y axis 
+<BR>color = pixel color 
+<BR>
+<BR><BR><BR><H3>GetPixel :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Color/PicRGB.html">PicRGB</A> GetPixel  (int , int y )<BR><BR>
+<u>description:</u>Get Pixel Value 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = pixel coordinate along x axis 
+<BR>y = pixel coordinate along y axis 
+<BR>reurn value = pixel color 
+<BR>
+<BR><BR><BR><H3>SavePicture :</H3>
+<u>prototype:</u>     bool SavePicture  (char* FileName )<BR><BR>
+<u>description:</u>Save Picture 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = picture filename 
+<BR><BR><BR>
+<u>return value:</u> true if operation is successfull 
+<BR>
+<BR><BR><BR><H3>LoadPicture :</H3>
+<u>prototype:</u>     bool LoadPicture  (char* FileName )<BR><BR>
+<u>description:</u>Load Picture 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = picture filename 
+<BR><BR><BR>
+<u>return value:</u> true if operation is successfull 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/BitmapPicture/AbstractBitmapPicture.html">AbstractBitmapPicture</A>* Clone  (int width = , int height = 0 )<BR><BR>
+<u>description:</u>clone a bitmap picture type with a new size 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>width = new width (0 if old width has to be kept) 
+<BR>height = new height (0 if old height has to be kept) 
+<BR><BR><BR>
+<u>return value:</u> pointer to resulting bitmap picture  
+<BR>
+<BR><BR><BR><H3>GLLoadBitmapAsTexture :</H3>
+<u>prototype:</u>     void GLLoadBitmapAsTexture  (double alpha = 2.0 )<BR><BR>
+<u>description:</u>Load bitmap picture as an open gl texture 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>alpha = alpha factor to use if no alpha channel is defined in bitmap file (if greater than 1.0, use RGB texture only) 
+<BR>
+<BR><BR><BR><H3>GLUseBitmapAsTexture :</H3>
+<u>prototype:</u>     void GLUseBitmapAsTexture  ()<BR><BR>
+<u>description:</u>use bitmap picture as current open gl texture 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

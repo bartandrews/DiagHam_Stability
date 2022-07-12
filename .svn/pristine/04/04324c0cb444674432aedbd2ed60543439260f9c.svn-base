@@ -1,0 +1,408 @@
+<html>
+  <head>
+    <title>HermitianMatrix</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : HermitianMatrix</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A></DIV><BR>
+<H3>HermitianMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>HermitianMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>  (int , bool zero = false )<BR><BR>
+<u>description:</u>constructor for an empty matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = matrix dimension 
+<BR>zero = true if matrix has to be filled with zeros 
+<BR>
+<BR><BR><BR><H3>HermitianMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>  (double* , double* , double* , int dimension )<BR><BR>
+<u>description:</u>constructor from matrix elements (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>diagonal = pointer to diagonal element array 
+<BR>realOffDiagonal = pointer to real part of off-diagonal elements 
+<BR>imaginaryOffDiagonal = pointer to imaginary part of off-diagonal elements 
+<BR>dimension = matrix dimension 
+<BR>
+<BR><BR><BR><H3>HermitianMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR>
+<BR><BR><BR><H3>HermitianMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>copy constructor from a real tridiagonal symmetric matrix (without duplicating diagonal elements) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR>
+<BR><BR><BR><H3>~HermitianMatrix :</H3>
+<u>prototype:</u>     ~HermitianMatrix  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u>assignement (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on modified matrix 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>assignement from  a real tridiagonal symmetric matrix (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on modified matrix   
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A>* Clone  ()<BR><BR>
+<u>description:</u>return pointer on a clone matrix (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>retrun value = pointer on new matrix  
+<BR>
+<BR><BR><BR><H3>SetMatrixElement :</H3>
+<u>prototype:</u>     void SetMatrixElement  (int , int , double x )<BR><BR>
+<u>description:</u>set a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = new value for matrix element 
+<BR>
+<BR><BR><BR><H3>SetMatrixElement :</H3>
+<u>prototype:</u>     void SetMatrixElement  (int , int , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A>& x )<BR><BR>
+<u>description:</u>set a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = new value for matrix element 
+<BR>
+<BR><BR><BR><H3>AddToMatrixElement :</H3>
+<u>prototype:</u>     void AddToMatrixElement  (int , int , double x )<BR><BR>
+<u>description:</u>add a value to a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = value to add to matrix element 
+<BR>
+<BR><BR><BR><H3>AddToMatrixElement :</H3>
+<u>prototype:</u>     void AddToMatrixElement  (int , int , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A>& x )<BR><BR>
+<u>description:</u>add a value  a matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = line position 
+<BR>j = column position 
+<BR>x = value to add to matrix element 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     void Resize  (int , int nbrColumn )<BR><BR>
+<u>description:</u>Resize matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrRow = new number of rows 
+<BR>nbrColumn = new number of columns 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     void ResizeAndClean  (int , int nbrColumn )<BR><BR>
+<u>description:</u>Resize matrix and set to zero all elements that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>nbrRow = new number of rows 
+<BR>nbrColumn = new number of columns 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator +  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& , 
+  const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M2 )<BR><BR>
+<u>description:</u>add two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = second matrix 
+<BR><BR><BR>
+<u>return value:</u> sum of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator +  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& , 
+  const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M2 )<BR><BR>
+<u>description:</u>add two matrices where the left one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = left matrix 
+<BR>M2 = right matrix 
+<BR><BR><BR>
+<u>return value:</u> sum of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator +  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& , 
+  const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M2 )<BR><BR>
+<u>description:</u>add two matrices where the right one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = left matrix 
+<BR>M2 = right matrix 
+<BR><BR><BR>
+<u>return value:</u> sum of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator -  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& , 
+  const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M2 )<BR><BR>
+<u>description:</u>substract two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = matrix to substract to M1 
+<BR><BR><BR>
+<u>return value:</u> difference of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator -  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& , 
+  const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M2 )<BR><BR>
+<u>description:</u>substract two matrices where the left one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = matrix to substract to M1 
+<BR><BR><BR>
+<u>return value:</u> difference of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator -  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& , 
+  const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M2 )<BR><BR>
+<u>description:</u>substract two matrices where the right one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M1 = first matrix 
+<BR>M2 = matrix to substract to M1 
+<BR><BR><BR>
+<u>return value:</u> difference of the two matrices 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator *  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& , double x )<BR><BR>
+<u>description:</u>multiply a matrix by a real number (right multiplication) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> product result 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator *  (double , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u>multiply a matrix by a real number (left multiplication) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> product result 
+<BR>
+<BR><BR><BR><H3>operator / :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> operator /  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& , double x )<BR><BR>
+<u>description:</u>divide a matrix by a real number (right multiplication) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = source matrix 
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> division result 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator +=  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u>add two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to add to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator +=  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>add two matrices where the right one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to add to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator -=  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& M )<BR><BR>
+<u>description:</u>substract two matrices 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to substract to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator -=  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u>substract two matrices where the right one is a real tridiagonal symmetric matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to substract to current matrix 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator *=  (double x )<BR><BR>
+<u>description:</u>multiply a matrix by a real number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>operator /= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& operator /=  (double x )<BR><BR>
+<u>description:</u>divide a matrix by a real number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = real number to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current matrix 
+<BR>
+<BR><BR><BR><H3>MatrixElement :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A> MatrixElement  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>evaluate matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to left multiply with current matrix 
+<BR>V2 = vector to right multiply with current matrix 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix element 
+<BR>
+<BR><BR><BR><H3>Conjugate :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/Matrix.html">Matrix</A>* Conjugate  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealMatrix.html">RealMatrix</A>& UnitaryM )<BR><BR>
+<u>description:</u>conjugate a matrix with an unitary matrix (Ut M U) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>UnitaryM = unitary matrix to use 
+<BR><BR><BR>
+<u>return value:</u> pointer to conjugated matrix 
+<BR>
+<BR><BR><BR><H3>Conjugate :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> Conjugate  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& UnitaryM )<BR><BR>
+<u>description:</u>conjugate an hermitian matrix with an unitary matrix (Ut M U) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>UnitaryM = unitary matrix to use 
+<BR><BR><BR>
+<u>return value:</u> conjugated matrix 
+<BR>
+<BR><BR><BR><H3>InvConjugate :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A> InvConjugate  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& UnitaryM )<BR><BR>
+<u>description:</u>conjugate an hermitian matrix with an hermitian transposed unitary matrix (U M Ut) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>UnitaryM = unitary matrix to use 
+<BR><BR><BR>
+<u>return value:</u> conjugated matrix   
+<BR>
+<BR><BR><BR><H3>Tr :</H3>
+<u>prototype:</u>     double Tr  ()<BR><BR>
+<u>description:</u>evaluate matrix trace 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix trace  
+<BR>
+<BR><BR><BR><H3>Det :</H3>
+<u>prototype:</u>     double Det  ()<BR><BR>
+<u>description:</u>evaluate matrix determinant 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> matrix determinant  
+<BR>
+<BR><BR><BR><H3>Lanczos :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Lanczos  (int , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& V1 )<BR><BR>
+<u>description:</u>Tridiagonalize an hermitian matrix using Lanczos algorithm without re-orthogonalizing base at each step 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = maximum iteration number 
+<BR>M = reference on complex tridiagonal hermitian matrix where result has to be stored 
+<BR>V1 = reference on complex vector used as first vector (will contain last produced vector at the end) 
+<BR><BR><BR>
+<u>return value:</u> reference on complex tridiagonal hermitian matrix 
+<BR>
+<BR><BR><BR><H3>Lanczos :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Lanczos  (int , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& Q )<BR><BR>
+<u>description:</u>Tridiagonalize an hermitian matrix using Lanczos algorithm without re-orthogonalizing base at each step 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = maximum iteration number 
+<BR>M = reference on real tridiagonal symmetric matrix where result has to be stored 
+<BR>Q = matrix where new orthonormalized base will be stored (first column is used as first vector) 
+<BR><BR><BR>
+<u>return value:</u> reference on complex tridiagonal hermitian matrix 
+<BR>
+<BR><BR><BR><H3>OrthoLanczos :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& OrthoLanczos  (int , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& , 
+  double err = 0.00000001 )<BR><BR>
+<u>description:</u>Tridiagonalize an hermitian matrix using Lanczos algorithm without re-orthogonalizing base at each step, if during process a  
+<BR>null vector appears then new random vector is evaluated 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = maximum iteration number 
+<BR>M = reference on real tridiagonal symmetric matrix where result has to be stored 
+<BR>Q = matrix where new orthonormalized base will be stored (first column is used as first vector) 
+<BR>err = absolute error on vector norm 
+<BR><BR><BR>
+<u>return value:</u> reference on complex tridiagonal hermitian matrix 
+<BR>
+<BR><BR><BR><H3>Householder :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& Householder  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& , double , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/ComplexMatrix.html">ComplexMatrix</A>& Q )<BR><BR>
+<u>description:</u>Tridiagonalize a hermitian matrix using Householder algorithm and evaluate transformation matrix 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = reference on real tridiagonal symmetric matrix where result has to be stored 
+<BR>err = absolute error on matrix element 
+<BR>Q = matrix where transformation matrix has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on real tridiagonal symmetric matrix 
+<BR>
+<BR><BR><BR><H3>ConvertToSymmetricMatrix :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/RealSymmetricMatrix.html">RealSymmetricMatrix</A> ConvertToSymmetricMatrix  ()<BR><BR>
+<u>description:</u>store hermitian matrix into a real symmetric matrix (real part as block diagonal element and imaginary part as block off-diagonal element ) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> real symmetric matrix associated to the hermitian matrix 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& P )<BR><BR>
+<u>description:</u>Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on output stream 
+<BR>P = matrix to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Matrix/HermitianMatrix.html">HermitianMatrix</A>& P )<BR><BR>
+<u>description:</u>Mathematica Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on Mathematica output stream 
+<BR>P = matrix to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

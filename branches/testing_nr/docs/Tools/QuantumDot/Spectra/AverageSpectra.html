@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>AverageSpectra</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : AverageSpectra</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/Spectra.html">Spectra</A></DIV><BR>
+<H3>AverageSpectra :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/AverageSpectra.html">AverageSpectra</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>AverageSpectra :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/AverageSpectra.html">AverageSpectra</A>  (char* , char* EnergyFile , , int , int , double , double b )<BR><BR>
+<u>description:</u>constructor from two files: energy and state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>StateFile = file containing all states 
+<BR>EnergyFile = file containing all energy 
+<BR>Number = number of states 
+<BR>M & N = number of cells in x and y directions 
+<BR>a & b = lattice constants in x and y directions 
+<BR>
+<BR><BR><BR><H3>AverageSpectra :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/AverageSpectra.html">AverageSpectra</A>  (char** , char* EnergyFile , , int , int , int , double , double , double c )<BR><BR>
+<u>description:</u>constructor from an energy file and a set of state files 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>StateFile = a set containing all states 
+<BR>EnergyFile = file containing all energy 
+<BR>Number: = number of states 
+<BR>M, N and H = number of cells in x, y and z directions 
+<BR>a, b and c = lattice constants in x, y and z directions 
+<BR>
+<BR><BR><BR><H3>WriteXY :</H3>
+<u>prototype:</u>     bool WriteXY  (char* fileName )<BR><BR>
+<u>description:</u>write data in a file with 5 columns: energy, <x>, <x²>, <y>, <y²> 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file where the spectrum will be stored 
+<BR>return = true if no error occurs 
+<BR>
+<BR><BR><BR><H3>WriteXYZ :</H3>
+<u>prototype:</u>     bool WriteXYZ  (char* fileName )<BR><BR>
+<u>description:</u>write data in a file with 7 columns: energy, <x>, <x²>, <y>, <y²>, <z> and <z²> 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file where the spectrum will be stored 
+<BR>return = true if no error occurs 
+<BR>
+<BR><BR><BR><H3>WriteVarMean :</H3>
+<u>prototype:</u>     bool WriteVarMean  (char* FileName )<BR><BR>
+<u>description:</u>write data in a file with 2 columns: <x> and var(x) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file to store data 
+<BR>return = true if no error occurs 
+<BR>
+<BR><BR><BR><H3>moyenX :</H3>
+<u>prototype:</u>     double moyenX  (int , int , double L )<BR><BR>
+<u>description:</u>calculate the term: <m|x|n> where m, n are sinus functions 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>m, n = indices of sinus functions 
+<BR>L = length of the sample 
+<BR>
+<BR><BR><BR><H3>moyenXX :</H3>
+<u>prototype:</u>     double moyenXX  (int , int , double L )<BR><BR>
+<u>description:</u>calculate the term: <m|x²|n> where m, n are sinus functions 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>m, n = indices of sinus functions 
+<BR>L = length of the sample 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

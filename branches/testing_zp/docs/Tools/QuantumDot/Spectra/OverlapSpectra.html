@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>OverlapSpectra</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : OverlapSpectra</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/Spectra.html">Spectra</A></DIV><BR>
+<H3>OverlapSpectra :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/OverlapSpectra.html">OverlapSpectra</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>OverlapSpectra :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/OverlapSpectra.html">OverlapSpectra</A>  (char* , char* ElectronEnergyFile , , char* , char* , int HoleNumber )<BR><BR>
+<u>description:</u>constructor from a BINARY data file which contains the dimension at each new line 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>ElectronStateFile, ElectronEnergyFile, ElectronNumber = state file, energy file and number of states for electrons 
+<BR>HoleStateFile, HoleEnergyFile, HoleNumber = state file, energy file and number of states for holes  
+<BR>
+<BR><BR><BR><H3>OverlapSpectra :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Spectra/OverlapSpectra.html">OverlapSpectra</A>  (char* , char* ElectronEnergyFile , , char* , char* , int , int NumberState )<BR><BR>
+<u>description:</u>constructor from ASCII data file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>ElectronStateFile, ElectronEnergyFile, ElectronNumber = state file, energy file and number of states for electrons 
+<BR>HoleStateFile, HoleEnergyFile, HoleNumber = state file, energy file and number of states for holes    
+<BR>NumberState = number of states 
+<BR>
+<BR><BR><BR><H3>WriteSquareOverlap :</H3>
+<u>prototype:</u>     bool WriteSquareOverlap  (char* fileName )<BR><BR>
+<u>description:</u>method to write in ASCII mode with 2 columns: recombination energy and square overlap 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName =  name of the file where the spectrum will be stored 
+<BR>return = true if no error occurs 
+<BR>
+<BR><BR><BR><H3>GetOverlap :</H3>
+<u>prototype:</u>     void GetOverlap  (char* , char* , int , double& , double& Imaginary )<BR><BR>
+<u>description:</u>evaluate the overlap between two functions in periodic basis 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>ElectronStateFile & HoleStateFile: state files 
+<BR>Dimension: dimension of the Hilbert space 
+<BR>Real: reference to the real part of overlap 
+<BR>Imaginary: reference to the imaginary part of overlap 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

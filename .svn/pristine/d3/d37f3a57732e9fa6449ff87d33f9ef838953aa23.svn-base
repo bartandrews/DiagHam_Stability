@@ -1,0 +1,190 @@
+<section name="Hello world-like using diagham">
+Let start with one simplest example you can write with
+DiagHam. We are going to write the diagonalisation of a
+periodic 1/2 spin Heisenberg chain consisting of three spins
+(sort of Hello world for physicist). 
+
+<code name="helloworld1" style="linenumber">
+#include "HilbertSpace/SpinHilbertSpace/Spin1_2Chain.h"
+#include "Hamiltonian/SpinHamiltonian/PeriodicSpinChainHamiltonian.h"
+
+#include "Matrix/RealSymmetricMatrix.h"
+#include "Matrix/RealDiagonalMatrix.h"
+
+#include <iostream>
+
+
+int main (int argc, char** argv)
+{
+  int NbrSpin = 3;
+  double* CouplingConstants = new double [NbrSpin];
+  for (int i = 0; i < NbrSpin; ++i)
+    {
+      CouplingConstants[i] = 1.0;
+    }
+  Spin1_2Chain Space (NbrSpin);
+  PeriodicSpinChainHamiltonian Hamiltonian (&Space, NbrSpin, CouplingConstants);
+
+  RealSymmmetricMatrix Representation;
+  Hamiltonian.GetHamiltonian(Representation);
+  RealDiagonalMatrix DiagonalizedHamiltonian;
+  cout << "eigenvalues:" << endl;
+  for (int i = 0;i < DiagonalizedMatrix.GetNbrRow(); ++i)
+    {
+	cout << i << ": " << DiagonalizedMatrix[i] << endl;
+    }
+}
+
+</code>
+
+In order to compile this program with its correct dependencies, the simplest way is to save
+this code into a file \filename{helloworld.cc} stored in the \{src/Programs/Spin}. Then you
+need to modify the Makefile.am by adding . You can now use the make command to compile and
+link the program to the libraries. You should obtain a helloworld program and give you the
+following output when running it:
+
+Let's have a look to the code. First, we need to define the Hilbert space. The class
+describing the one we want is \cppclassname{Spin1_2Chain} and the corresponding header is
+included line
+1. The class basic constructor constructor is used line 18 and takes only one argument which
+is the number of spin.
+
+The hamiltonian that corresponds to our problem is decribed by the
+PeriodicSpinChainHamiltonian whose header is included in line 2. The Hamiltonian (defined
+line 19) needs the following informations: a pointer to the Hilbert space, the number of
+spins and an array giving the coupling constants. This array (defined from line 12 to 17)
+contains the isotropic coupling constant between sites $0 \leftrightarrow 1$, $1
+\leftrightarrow 2$, ... and $n-1 \leftrightarrow 0$.
+
+From here, our physical system is completly defined. We want now to extract some physical
+informations from this system. The simplest thing (and one of the thing we are
+generaly interested in) are the eigenvalues of the hamiltonian. For small Hilbert space
+(typically smaller than 500), the simplest and safest way is to used complete
+diagonalization. Any class can give the representation of its corresponding hamiltonian in
+its associated hilbert space basis. Line 21, we create a real symmetric matrix and line 22,
+we ask to the hamiltonian to store the representation. 
+
+The rest of the code is just an example to obtain the eigenvalues of an explicit matrix. 
+
+</section>
+
+
+<section name="Hello John-like using DiagHam">
+When you learn a programming language, you begin to print a simple message. Then you provide
+a way to ask the name of the user and echo it. Here we want to pass the number of spins as a
+parameter or restrict the Hilbert space to a given value of the sum of the spin projection
+along the z axis. DiagHam provides an easy way to parse running arguments.
+
+<code name="helloword2">
+#include <Options/OptionManager.h>
+#include <Options/OptionGroup.h>
+#include <Options/SingleIntegerOption.h>
+
+</code>
+
+In most of the program, it is usefull to define a misc option group that will at least
+contain an help option. These two are defined line and. After having processed options we
+check (lines to ) if the help has been requested and if it's right/ then the help is
+displayed and we exit from the program.
+
+The other option group we have defined deals with the system properties. First there is a
+option that requests an integer to define the number of spins we want for our chain (line ).
+After processing options, the number of spins is get back line . 
+
+The second option is a
+boolean option ued to known if we want to restrict our calculation to a given subspace with
+fixed total spin projection along the z axis. At last, the third option is an integer option
+that ask twice the value of the total spin projection. If the flag to restrict to a given
+subspace is set to true, then we check if this value is compatible with the number of
+1/2 spins (lines to ). 
+
+The rest of the program is quite similar to the previous one except that if we have to
+restricted our program to a given subspace, we use another contructor method of
+\cppclassprogram{Spin1_2Chain} that allow to work in a given subspace (line ). We also use
+dynamic allocation for Space to have a more compact program.
+ 
+
+</section>
+
+
+<section name="boosted hello world: handling more than ten spins">
+If you have to entered 30 spins, your computer must now have smoke going out its gut. The
+previous version of the program stores the hamiltonion in a matrix in a brutal force way.
+Even if the matrix is full of zeros, the amount of requested memory is of order of the
+square of the Hilbert dimension (so for 30 spins, it is of the order of $2^12 Gb$ !).
+
+Most of the time, we are only interested in the first lowest eigenvalues. In that case,
+DiagHam can use L\'anczos algorithm without using a explicit matrix form. Let's see how to
+rewrite our \program{HelloWorld} to support this feature. 
+
+<code name="helloworld3">
+</code>
+
+We have introduced line an object instantiated from the
+\cppclassname{MonoprocessorArchitecture} class. This class describes how calculation has to
+a done when running DiagHam on single processor copmute. More details will be given in the
+next section.
+
+</section>
+
+<section name="hello world on a supercomputer">
+We have seen in the previous section how to use L\'anczos algorithms. One of the point was
+the need to introduce the definition of an architecture. For sake of simplicity, we only
+used the monoprocessor architecture. But DiagHam can do more than that. 
+
+DiagHam was written with parallelization in mind. The idea was that it has to be easy to
+switch from architecture to another one (using running option). It was also requested that
+most people using DiagHam don' t have to worry about conceiving their code for a basic PC
+or a supercomputer with hundreds of processors.
+
+Let's see how to rewrite the program \refprog{helloworld3} to support all available
+architectures.
+ 
+<code name="helloworld4">
+
+</code>
+
+Different architectures are handled by the \cppclassname{ArchitectureManager} class which
+is defined line .
+The architecture manager can provide an architecture option group to the option manager. So
+that most of the option to choose your architecture and tune it can be done using running
+options. After running options have been parsed, we asked to the architecture manager to
+prepare the correct architecture. Depending on your computer and the configure options you
+have used when you compiled DiagHam, you have now access to different architectures like
+single processor, shared memory multiprocessor computer or cluster. 
+
+The rest of the program \programref{helloworld4} is a bit different from the previous one.
+The main loop calculation is now done in function MainFunction defined at line . The reason
+of this move is mainly due to the way distributed architectures are handled (those who are
+not concern about cluster can skip the rest of this paragraph). The distributed
+architectures work using master-slaves model. The master node handles all non-parallelizable
+operations and IO (input/output operations), whereas others nodes (slaves) only deal with
+simple parallelizable
+and local RAM storage operations. The most problematic case is when dealing with IO. So the
+only part of the program which is cluster safe is the one included in a MainFunction-like.
+In particular, all unsafe IOs (like simply printing a result on a screen) have to be done
+there.
+
+To indicate to the architecture to execute the MainFunction, an architecture operation.  we
+use .
+
+If you're only interested in monoprocessor or SMP computer, you can keep the previous way we
+use architecture and only replace \cppclassname{MonoProcessorArchitecture} class with
+\cppclassname{SMPArchitecture} one. It's allowed you to have a simpler code but with less
+portability (that why this method is not recommanded).
+
+</section>
+
+<section name="goodbye world">
+This section concludes basic use of the DiagHam framework. You are known able to understand
+most of the numerous examples that are available in the \directoryname{src/Program}
+directory. They all use
+the same structure that the one we have described in this chapter. Before trying to
+develop your own hamiltonian or Hilbert space, we suggest you to look at those who
+are already provided. Using your knowledge of DiagHam, header included documentation and
+already available programs, you can perhaps just recycle what have already been developped.
+If you think your system can't be
+described by available classes the next two chapters will provide you all needed information
+to encode it.
+
+</section>

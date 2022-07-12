@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>ClebschGordanCoefficients</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : ClebschGordanCoefficients</DIV></H1>
+
+<H3>ClebschGordanCoefficients :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/MathTools/ClebschGordanCoefficients.html">ClebschGordanCoefficients</A>  (int , int j2 )<BR><BR>
+<u>description:</u>constructor  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>j1 = first angular momentum (twice the value to avoid half integer value) 
+<BR>j2 = second angular momentum (twice the value to avoid half integer value) 
+<BR>
+<BR><BR><BR><H3>ClebschGordanCoefficients :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/MathTools/ClebschGordanCoefficients.html">ClebschGordanCoefficients</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/MathTools/ClebschGordanCoefficients.html">ClebschGordanCoefficients</A>& coefficients )<BR><BR>
+<u>description:</u>copy constructor (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>coefficients = reference on Clebsch Gordan coefficients to copy 
+<BR>
+<BR><BR><BR><H3>~ClebschGordanCoefficients :</H3>
+<u>prototype:</u>     ~ClebschGordanCoefficients  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/MathTools/ClebschGordanCoefficients.html">ClebschGordanCoefficients</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/MathTools/ClebschGordanCoefficients.html">ClebschGordanCoefficients</A>& coefficients )<BR><BR>
+<u>description:</u>assignment (without duplicating datas) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>coefficients = reference on Clebsch Gordan coefficients to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on current Clebsch Gordan coefficients 
+<BR>
+<BR><BR><BR><H3>GetCoefficient :</H3>
+<u>prototype:</u>     double GetCoefficient  (int , int , int j )<BR><BR>
+<u>description:</u>get a particular coefficient (without testing if m1, m2 and j are valid) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>m1 = projection of first angular momentum  
+<BR>m2 = projection of second angular momentum  
+<BR>j = resulting angular momentum 
+<BR><BR><BR>
+<u>return value:</u> corresponding Clebsch Gordan coefficient 
+<BR>
+<BR><BR><BR><H3>InitializeCoefficientIterator :</H3>
+<u>prototype:</u>     void InitializeCoefficientIterator  (int , int m2 )<BR><BR>
+<u>description:</u>initial an iterator on all Clebsch Gordan coefficients for fixed m1 and m2 values 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>m1 = projection of first angular momentum  
+<BR>m2 = projection of second angular momentum    
+<BR>
+<BR><BR><BR><H3>Iterate :</H3>
+<u>prototype:</u>     bool Iterate  (int& , double& coefficient )<BR><BR>
+<u>description:</u>return next coefficient associated with current iterator (with increasing j value) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>j = reference on integer where resulting angular momentum has to be stored 
+<BR>coefficient = reference on double where Clebsch Gordan coefficient has to be stored 
+<BR><BR><BR>
+<u>return value:</u> false if no coefficient has been returned 
+<BR>
+<BR><BR><BR><H3>PrintCoefficient :</H3>
+<u>prototype:</u>     ostream& PrintCoefficient  (ostream& , int , int , int j )<BR><BR>
+<u>description:</u>print a particular coefficient (without testing if m1, m2 and j are valid) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>str = reference on output stream 
+<BR>m1 = projection of first angular momentum  
+<BR>m2 = projection of second angular momentum  
+<BR>j = resulting angular momentum 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

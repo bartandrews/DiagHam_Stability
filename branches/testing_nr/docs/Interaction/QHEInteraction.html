@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>QHEInteraction</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : QHEInteraction</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Interaction/AbstractInteraction.html">AbstractInteraction</A></DIV><BR>
+<H3>QHEInteraction :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Interaction/QHEInteraction.html">QHEInteraction</A>  (bool , int , double , double precision = MACHINE_PRECISION )<BR><BR>
+<u>description:</u>constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fermion = flag to indicate if particles are fermions 
+<BR>maxMomentum = maximum momentum that can be reached in the system 
+<BR>ratio = ratio between the width in the x direction and the width in the y direction 
+<BR>precision = precision on interaction coefficient  
+<BR>
+<BR><BR><BR><H3>QHEInteraction :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Interaction/QHEInteraction.html">QHEInteraction</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Interaction/QHEInteraction.html">QHEInteraction</A>& interaction )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>interaction = reference to interaction to copy 
+<BR>
+<BR><BR><BR><H3>~QHEInteraction :</H3>
+<u>prototype:</u>     ~QHEInteraction  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Interaction/QHEInteraction.html">QHEInteraction</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/Interaction/QHEInteraction.html">QHEInteraction</A>& interaction )<BR><BR>
+<u>description:</u>assignment 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>interaction = reference to interaction to assign 
+<BR><BR><BR>
+<u>return value:</u> reference to current interaction 
+<BR>
+<BR><BR><BR><H3>Interaction :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tensor/TwoSpaceTensor.html">TwoSpaceTensor</A> Interaction  (List<Matrix*>& , 
+  List<Matrix*>& secondSystemOperators )<BR><BR>
+<u>description:</u>evaluate interaction between two systems from operators of each system 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>firstSystemOperators = list of operators associated to the first system 
+<BR>secondSystemOperators = list of operators associated to the second system 
+<BR><BR><BR>
+<u>return value:</u> tensor corresponding to the interaction 
+<BR>
+<BR><BR><BR><H3>Interaction :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tensor/TwoSpaceTensor.html">TwoSpaceTensor</A> Interaction  (List<Matrix*>& , 
+  List<Matrix*>& , 
+  <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>& ,  <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpaceDecomposition.html">SpaceDecomposition</A>& secondSpaceDecomposition )<BR><BR>
+<u>description:</u>evaluate interaction between two systems from operators of each system with a given 
+<BR>space decomposition for each space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>firstSystemOperators = list of operators associated to the first system 
+<BR>secondSystemOperators = list of operators associated to the second system 
+<BR>firstSpaceDecomposition = space decomposition of the space associated to the first system 
+<BR>secondSpaceDecomposition = space decomposition of the space associated to the second system 
+<BR><BR><BR>
+<u>return value:</u> tensor corresponding to the interaction 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

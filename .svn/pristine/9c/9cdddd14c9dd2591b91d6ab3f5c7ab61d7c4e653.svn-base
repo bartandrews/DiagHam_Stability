@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <title>PeriodicPyramidQuantumDotThreeDConstantCellPotential</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : PeriodicPyramidQuantumDotThreeDConstantCellPotential</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Potential/ThreeDConstantCellPotential.html">ThreeDConstantCellPotential</A></DIV><BR>
+<H3>PeriodicPyramidQuantumDotThreeDConstantCellPotential :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Tools/QuantumDot/Potential/PeriodicPyramidQuantumDotThreeDConstantCellPotential.html">PeriodicPyramidQuantumDotThreeDConstantCellPotential</A>  (int , int , int , int , int , int , int , int topRadius )<BR><BR>
+<u>description:</u>constructor from geometric parameters 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>numberX, numberY, numberZ = number of cells in X, Y and Z directions respectively 
+<BR>under = number of monolayers under the wetting layer 
+<BR>above = number of monolayers above the dot 
+<BR>wettingWidth= width of wetting layers in cell unit 
+<BR>baseRadius = base radius of the truncated pyramid 
+<BR>topRadius = base radius of the truncated pyramid 
+<BR>
+<BR><BR><BR><H3>~PeriodicPyramidQuantumDotThreeDConstantCellPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> ~PeriodicPyramidQuantumDotThreeDConstantCellPotential  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>ConstructPotential :</H3>
+<u>prototype:</u>     void ConstructPotential  (double , double , double , double , double , bool , char* fileName )<BR><BR>
+<u>description:</u>constructor the potential from piezoelectric parameter 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>noInNProbability = probability for having InN without InN neighborhood 
+<BR>withInNProbability = probability for having InN with InN neighborhood 
+<BR>piezoField = difference of piezoelectric field 
+<BR>cellSizeZ = height of a monolayer 
+<BR>offset = offset bulk-alloy material 
+<BR>scratch = true if constructed from nothing, else from existing Diagram 
+<BR>fileName = file to store parameters 
+<BR>
+<BR><BR><BR><H3>ShiftPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> void ShiftPotential  (double delta )<BR><BR>
+<u>description:</u>shift the potential with a given quantity 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>delta = shift value 
+<BR>
+<BR><BR><BR><H3>Neighborhood :</H3>
+<u>prototype:</u>     bool Neighborhood  (int , int , int h )<BR><BR>
+<u>description:</u>determine if there is any In in the first neigbor region (6 possibilities) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>m, n, h = three coordinations of the considered cell 
+<BR>return = true if there is any InN neighborhood, false otherwise 
+<BR>
+<BR><BR><BR><H3>InTheDot :</H3>
+<u>prototype:</u>     bool InTheDot  (int , int , int z )<BR><BR>
+<u>description:</u>determine if a cell is in the dot or wetting layer 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = x coordinate of the cell 
+<BR>y = y coordinate of the cell 
+<BR>z = z coordinate of the cell 
+<BR>return = true if the cell is in the dot, false otherwise 
+<BR>
+<BR><BR><BR><H3>SaveDiagram :</H3>
+<u>prototype:</u>     <i>virtual</i> void SaveDiagram  (char* fileName )<BR><BR>
+<u>description:</u>save the diagram of atoms in a file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file to stock the diagram 
+<BR>
+<BR><BR><BR><H3>LoadDiagram :</H3>
+<u>prototype:</u>     <i>virtual</i> void LoadDiagram  (char* fileName )<BR><BR>
+<u>description:</u>load the diagram of atoms from a file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file in which the diagram is stocked 
+<BR>
+<BR><BR><BR><H3>SetPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> void SetPotential  (int , int , int , double value )<BR><BR>
+<u>description:</u>assign the potential a value at a given position  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = x coordinate of the considered cell 
+<BR>j = y coordinate of the considered cell  
+<BR>k = z coordinate of the considered cell  
+<BR>value = value of potential 
+<BR>
+<BR><BR><BR><H3>GetPotential :</H3>
+<u>prototype:</u>     <i>virtual</i> double GetPotential  (int , int , int k )<BR><BR>
+<u>description:</u>get the potential at a given position 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>i = x coordinate of the considered cell 
+<BR>j = y coordinate of the considered cell 
+<BR>k = z coordinate of the considered cell    
+<BR><BR><BR>
+<u>return value:</u> the potential in the cell 
+<BR>
+<BR><BR><BR><H3>GetConcentration :</H3>
+<u>prototype:</u>     double GetConcentration  ()<BR><BR>
+<u>description:</u>get the concentration 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>return = concentration value, in ration of 1.0 
+<BR>
+<BR><BR><BR><H3>SaveBmpPicture :</H3>
+<u>prototype:</u>     <i>virtual</i> void SaveBmpPicture  (char* fileName )<BR><BR>
+<u>description:</u>save the whole diagram presentation in a bitmap file 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>fileName = name of the file to stock the diagram presentation 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

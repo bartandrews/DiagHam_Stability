@@ -1,0 +1,215 @@
+<html>
+  <head>
+    <title>Polynomial</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : Polynomial</DIV></H1>
+
+<H3>LaguerreMethodSolver :</H3>
+<u>prototype:</u>     void LaguerreMethodSolver  (int Deg double* Coef double err double absErr int nbrIteration )<BR><BR>
+<u>description:</u>constructors 
+<BR>use Laguerre Method to find roots 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>err = relative error on the root 
+<BR>absErr = absolute error on the root 
+<BR>nbrIteration = maximum iteration number to find a root 
+<BR>
+<BR><BR><BR><H3>Polynomial :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>  (int Deg double* Coef bool flag )<BR><BR>
+<u>description:</u>constructors 
+<BR>
+<BR><BR><BR><H3>Polynomial :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P )<BR><BR>
+<u>description:</u>constructors 
+<BR>
+<BR><BR><BR><H3>~Polynomial :</H3>
+<u>prototype:</u>     ~Polynomial  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P )<BR><BR>
+<u>description:</u>assignement 
+<BR>
+<BR><BR><BR><H3>PolynomialEvaluate :</H3>
+<u>prototype:</u>     double PolynomialEvaluate  (double x )<BR><BR>
+<u>description:</u>Return polynomial value at a given point 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = point where to evaluate polynomial 
+<BR><BR><BR>
+<u>return value:</u> polynomial value at x 
+<BR>
+<BR><BR><BR><H3>PolynomialEvaluate :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> PolynomialEvaluate  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> x )<BR><BR>
+<u>description:</u>Return polynomial value at a given point 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = point where to evaluate polynomial 
+<BR><BR><BR>
+<u>return value:</u> polynomial value at x 
+<BR>
+<BR><BR><BR><H3>DerivativeEvaluate :</H3>
+<u>prototype:</u>     double DerivativeEvaluate  (double x )<BR><BR>
+<u>description:</u>Evaluate polynomial derivative    
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = position where to evaluate polynomial derivative 
+<BR><BR><BR>
+<u>return value:</u> polynomial derivative at x 
+<BR>
+<BR><BR><BR><H3>DerivativeEvaluate :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> DerivativeEvaluate  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> x )<BR><BR>
+<u>description:</u>Evaluate polynomial derivative    
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = position where to evaluate polynomial derivative 
+<BR><BR><BR>
+<u>return value:</u> polynomial derivative at x 
+<BR>
+<BR><BR><BR><H3>DerivativeEvaluate :</H3>
+<u>prototype:</u>     double DerivativeEvaluate  (double x int n )<BR><BR>
+<u>description:</u>Evaluate polynomial n-th derivative  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = position where to evaluate polynomial n-th derivative 
+<BR>n = derivative order 
+<BR><BR><BR>
+<u>return value:</u> polynomial n-th derivative at x   
+<BR>
+<BR><BR><BR><H3>DerivativeEvaluate :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> DerivativeEvaluate  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/Complex.html">Complex</A> x int n )<BR><BR>
+<u>description:</u>Evaluate polynomial n-th derivative  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = position where to evaluate polynomial n-th derivative 
+<BR>n = derivative order 
+<BR><BR><BR>
+<u>return value:</u> polynomial n-th derivative at x   
+<BR>
+<BR><BR><BR><H3>DerivatePolynomial :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> DerivatePolynomial  ()<BR><BR>
+<u>description:</u>Return Derivative of the polynomial  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> polynomial derivative 
+<BR>
+<BR><BR><BR><H3>DerivatePolynomial :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> DerivatePolynomial  (int n )<BR><BR>
+<u>description:</u>Evaluate polynomial n-th derivative 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>n = derivative order 
+<BR><BR><BR>
+<u>return value:</u> polynomial n-th derivative 
+<BR>
+<BR><BR><BR><H3>SolvePolynomial :</H3>
+<u>prototype:</u>     void SolvePolynomial  ()<BR><BR>
+<u>description:</u>Find Roots of the polynomial 
+<BR>
+<BR><BR><BR><H3>NumberRoot :</H3>
+<u>prototype:</u>     int NumberRoot  ()<BR><BR>
+<u>description:</u>Return Number of root 
+<BR>
+<BR><BR><BR><H3>PolynomialDegree :</H3>
+<u>prototype:</u>     int PolynomialDegree  ()<BR><BR>
+<u>description:</u>Return Degree of the polynomial 
+<BR>
+<BR><BR><BR><H3>PolynomialCoefficient :</H3>
+<u>prototype:</u>     double PolynomialCoefficient  (int n )<BR><BR>
+<u>description:</u>Return Coefficient corresponding to the nth-degree 
+<BR>
+<BR><BR><BR><H3>root :</H3>
+<u>prototype:</u>    Return the n-th root  (with root(n-1 )<BR><BR>
+<u>description:</u>Return the n-th root (with root(n-1) <= root(n)) 
+<BR>
+<BR><BR><BR><H3>PolynomialRoot :</H3>
+<u>prototype:</u>     double PolynomialRoot  (int n )<BR><BR>
+<u>description:</u>Return the n-th root (with root(n-1) <= root(n)) 
+<BR>
+<BR><BR><BR><H3>RefineRoot :</H3>
+<u>prototype:</u>     void RefineRoot  (double Epsilon int MaxIter )<BR><BR>
+<u>description:</u>Refine root value  
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P2 )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P2 )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P const double& d )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> operator *  (const double& d const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P2 )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator / :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> operator /  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P const double& d )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator / :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> operator /  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P2 )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator % :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> operator %  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P2 )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& operator +=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& operator -=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& operator *=  (const double& d )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator /= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& operator /=  (const double& d )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>operator /= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& operator /=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P )<BR><BR>
+<u>description:</u>arithmetic operators 
+<BR>
+<BR><BR><BR><H3>monomial :</H3>
+<u>prototype:</u>    Divide polynomial by a monomial  (x - x0 )<BR><BR>
+<u>description:</u>Divide polynomial by a monomial (x - x0) using Horner scheme 
+<BR>
+<BR><BR><BR><H3>MonomialDivision :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A> MonomialDivision  (double x0 )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>x0 = monomial root 
+<BR><BR><BR>
+<u>return value:</u> result of polynomial division 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& Str const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Polynomial/Polynomial.html">Polynomial</A>& P )<BR><BR>
+<u>description:</u>Output Stream overload 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

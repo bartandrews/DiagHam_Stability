@@ -1,0 +1,265 @@
+<html>
+  <head>
+    <title>BosonOnTorusState</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : BosonOnTorusState</DIV></H1>
+
+<H3>BosonOnTorusState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>BosonOnTorusState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>  (const int& reducedNbrState )<BR><BR>
+<u>description:</u>basic constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>
+<BR><BR><BR><H3>BosonOnTorusState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , const int& reducedNbrState )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to copy 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>
+<BR><BR><BR><H3>~BosonOnTorusState :</H3>
+<u>prototype:</u>     ~BosonOnTorusState  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& Resize  (const int& reducedNbrState )<BR><BR>
+<u>description:</u>resize the current state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> reference on  the current state 
+<BR>
+<BR><BR><BR><H3>Assign :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& Assign  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , const int& reducedNbrState )<BR><BR>
+<u>description:</u>assign a state to the current one 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to assign 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> reference on  the current state 
+<BR>
+<BR><BR><BR><H3>TransfertState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& TransfertState  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& state )<BR><BR>
+<u>description:</u>assign a state to the current one and after undefined it (array tranfert) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on  the current state 
+<BR>
+<BR><BR><BR><H3>GetHashKey :</H3>
+<u>prototype:</u>     unsigned long GetHashKey  (const int& , const unsigned long& keyMask )<BR><BR>
+<u>description:</u>get hash key associated to the state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>keyMask = mask giving how many bits have to be kept 
+<BR><BR><BR>
+<u>return value:</u> hash key 
+<BR>
+<BR><BR><BR><H3>GetHighestIndex :</H3>
+<u>prototype:</u>     int GetHighestIndex  (const int& reducedNbrState )<BR><BR>
+<u>description:</u>get the highest state index for which the state is occupied 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> highest state index 
+<BR>
+<BR><BR><BR><H3>EmptyState :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& EmptyState  (const int& reducedNbrState )<BR><BR>
+<u>description:</u>set all ocupations to zero 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> reference on  the current state 
+<BR>
+<BR><BR><BR><H3>SetOccupation :</H3>
+<u>prototype:</u>     void SetOccupation  (const int& , const unsigned long& nbrBosons )<BR><BR>
+<u>description:</u>set occupation of a state  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR>nbrBosons = number of bosons in the given state 
+<BR>
+<BR><BR><BR><H3>GetOccupation :</H3>
+<u>prototype:</u>     unsigned long GetOccupation  (const int& stateIndex )<BR><BR>
+<u>description:</u>get occupation of a state  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR><BR><BR>
+<u>return value:</u> number of bosons in the given state 
+<BR>
+<BR><BR><BR><H3>IncrementOccupation :</H3>
+<u>prototype:</u>     unsigned long IncrementOccupation  (const int& , unsigned long& , int& tmpShift2 )<BR><BR>
+<u>description:</u>increment occupation of a state  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR>tmpShift1 = refence on temporary variable used during incrementation 
+<BR>tmpShift2 = refence on temporary variable used to evaluated a bit shift 
+<BR>return = occupation of the stateIndex-th state after the increment operation 
+<BR>
+<BR><BR><BR><H3>DecrementOccupation :</H3>
+<u>prototype:</u>     unsigned long DecrementOccupation  (const int& , unsigned long& , int& tmpShift2 )<BR><BR>
+<u>description:</u>decrement occupation of a state (without testing if the state es empty) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR>tmpShift1 = refence on temporary variable used during decrementation 
+<BR>tmpShift2 = refence on temporary variable used to evaluated a bit shift 
+<BR>return = occupation of the stateIndex-th state before the decrement operation 
+<BR>
+<BR><BR><BR><H3>TestAndDecrementOccupation :</H3>
+<u>prototype:</u>     <i>inline</i> bool TestAndDecrementOccupation  (const int& , int& , int& tmpShift2 )<BR><BR>
+<u>description:</u>test if the state is empty an if it is not, decrement its occupation 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>stateIndex = index of the state whose occupation has to be set  
+<BR>tmpShift1 = refence on temporary variable used to evaluated a bit shift 
+<BR>tmpShift2 = refence on temporary variable used to evaluated a bit shift 
+<BR><BR><BR>
+<u>return value:</u> false if the state is empty 
+<BR>
+<BR><BR><BR><H3>SwapStates :</H3>
+<u>prototype:</u>     void SwapStates  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& state )<BR><BR>
+<u>description:</u>swap two states 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to swap with the current one 
+<BR>
+<BR><BR><BR><H3>Equal :</H3>
+<u>prototype:</u>     bool Equal  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is identical to another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reference on the reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the two states are identical 
+<BR>
+<BR><BR><BR><H3>Different :</H3>
+<u>prototype:</u>     bool Different  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is different to another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reference on the reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the two states are different 
+<BR>
+<BR><BR><BR><H3>Greater :</H3>
+<u>prototype:</u>     bool Greater  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is greater than another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reference on the reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the current state is greater than the other state 
+<BR>
+<BR><BR><BR><H3>GreaterOrEqual :</H3>
+<u>prototype:</u>     bool GreaterOrEqual  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is greater or equal than another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reference on the reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the current state is greater or equal than the other state 
+<BR>
+<BR><BR><BR><H3>Lesser :</H3>
+<u>prototype:</u>     bool Lesser  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , const int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is lesser than another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the current state is greater than the other state 
+<BR>
+<BR><BR><BR><H3>LesserOrEqual :</H3>
+<u>prototype:</u>     bool LesserOrEqual  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , int reducedNbrState )<BR><BR>
+<u>description:</u>test if the current state is lesser or equal than another state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>state = reference on the state to compare with 
+<BR>reducedNbrState = reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR><BR><BR>
+<u>return value:</u> true if the current state is greater or equal than the other state 
+<BR>
+<BR><BR><BR><H3>PutInCanonicalForm :</H3>
+<u>prototype:</u>     void PutInCanonicalForm  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , const int& , const int& ,  const int& , int& , const int& nbrTranslationStep )<BR><BR>
+<u>description:</u>put the state in a canonical form 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>tmpState = reference temporary state with the same number of states than the current one 
+<BR>reducedNbrState = reference on the reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>nbrStateRemainder = number of the state in the last unsigned long array describing the whole state 
+<BR>nbrState = number of state in the current boson state 
+<BR>nbrTranslation = reference where the number of translations used to obtain the canonical form will be stored 
+<BR>nbrTranslationStep = step to used between two translations 
+<BR>
+<BR><BR><BR><H3>PutInCanonicalForm :</H3>
+<u>prototype:</u>     void PutInCanonicalForm  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , const int& , const int& ,  const int& , int& , const int& , int& nbrTranslationToIdentity )<BR><BR>
+<u>description:</u>put the state in a canonical form and find how many translations are needed to obtain the same state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>tmpState = reference temporary state with the same number of states than the current one 
+<BR>reducedNbrState = reference on the reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>nbrStateRemainder = number of the state in the last unsigned long array describing the whole state 
+<BR>nbrState = number of state in the current boson state 
+<BR>nbrTranslation = reference where the number of translations used to obtain the canonical form will be stored 
+<BR>nbrTranslationStep = step to used between two translations 
+<BR>nbrTranslationToIdentity = reference on the number of translation needed to obtain the same state 
+<BR>
+<BR><BR><BR><H3>GetStateSymmetry :</H3>
+<u>prototype:</u>     int GetStateSymmetry  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/BosonOnTorusState.html">BosonOnTorusState</A>& , const int& , const int& , 
+  const int& , const int& nbrTranslationStep )<BR><BR>
+<u>description:</u>get the number of translation to obtain the same state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>tmpState = reference temporary state with the same number of states than the current one 
+<BR>reducedNbrState = reference on the reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>nbrStateRemainder = number of the state in the last unsigned long array describing the whole state 
+<BR>nbrState = number of state in the current boson state 
+<BR>nbrTranslationStep = step to used between two translations 
+<BR><BR><BR>
+<u>return value:</u> number of translation to obtain the same state 
+<BR>
+<BR><BR><BR><H3>LeftShiftState :</H3>
+<u>prototype:</u>     void LeftShiftState  (const int& , const int& , const int& nbrTranslation )<BR><BR>
+<u>description:</u>shift a state to the left 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>reducedNbrState = reference on the reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>nbrStateRemainder = number of the state in the last unsigned long array describing the whole state 
+<BR>nbrTranslation = magnitude of the translation to apply 
+<BR>
+<BR><BR><BR><H3>PrintState :</H3>
+<u>prototype:</u>     ostream& PrintState  (ostream& , const int& , const int& nbrStateRemainder )<BR><BR>
+<u>description:</u>print a given state 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>str = reference on current output stream  
+<BR>reducedNbrState = reference on the reduced number of state (aka the number of unsigned long per state) minus 1 
+<BR>nbrStateRemainder = number of the state in the last unsigned long array describing the whole state 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

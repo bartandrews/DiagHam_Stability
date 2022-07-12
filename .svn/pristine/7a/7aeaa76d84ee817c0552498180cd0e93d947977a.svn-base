@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>TensorProductVector</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : TensorProductVector</DIV></H1>
+
+<H3>~TensorProductVector :</H3>
+<u>prototype:</u>     <i>virtual</i> ~TensorProductVector  ()<BR><BR>
+<u>description:</u>virtual destructor 
+<BR>
+<BR><BR><BR><H3>GetVectorDimension :</H3>
+<u>prototype:</u>     int GetVectorDimension  (int space )<BR><BR>
+<u>description:</u>Get Vector dimension for a given space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> dimension 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     <i>virtual</i> void Resize  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* structure )<BR><BR>
+<u>description:</u>Resize vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure = new product tensor structure 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     <i>virtual</i> void ResizeAndClean  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* structure )<BR><BR>
+<u>description:</u>Resize vector and set to zero all components that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure = new product tensor structure 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <title>V15Hamiltonian</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : V15Hamiltonian</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/AbstractHamiltonian.html">AbstractHamiltonian</A></DIV><BR>
+<H3>V15Hamiltonian :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/SpinHamiltonian/V15Hamiltonian.html">V15Hamiltonian</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>& , double , double , double , double , double j5 )<BR><BR>
+<u>description:</u>contructor from default datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>chain = reference on Hilbert space of the associated system 
+<BR>j1 = coupling constant J1 
+<BR>j2 = coupling constant J2 
+<BR>j3 = coupling constant J3 
+<BR>j4 = coupling constant J4 
+<BR>j5 = coupling constant J5 
+<BR>
+<BR><BR><BR><H3>~V15Hamiltonian :</H3>
+<u>prototype:</u>     ~V15Hamiltonian  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>SetChain :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/SpinHamiltonian/V15Hamiltonian.html">V15Hamiltonian</A>& SetChain  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/SpinHilbertSpace/Spin1_2Chain.html">Spin1_2Chain</A>& chain )<BR><BR>
+<u>description:</u>set chain 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>chain = reference on Hilbert space of the associated system 
+<BR><BR><BR>
+<u>return value:</u> reference on current Hamiltonian 
+<BR>
+<BR><BR><BR><H3>SetHilbertSpace :</H3>
+<u>prototype:</u>     void SetHilbertSpace  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* hilbertSpace )<BR><BR>
+<u>description:</u>set Hilbert space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>hilbertSpace = pointer to Hilbert space to use 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* GetHilbertSpace  ()<BR><BR>
+<u>description:</u>get Hilbert space on which Hamiltonian acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to used Hilbert space 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpaceDimension :</H3>
+<u>prototype:</u>     int GetHilbertSpaceDimension  ()<BR><BR>
+<u>description:</u>return dimension of Hilbert space where Hamiltonian acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix elementdimension 
+<BR>
+<BR><BR><BR><H3>ShiftHamiltonian :</H3>
+<u>prototype:</u>     void ShiftHamiltonian  (double shift )<BR><BR>
+<u>description:</u>shift Hamiltonian from a given energy 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>shift = shift value 
+<BR>
+<BR><BR><BR><H3>MatrixElement :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A> MatrixElement  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& V2 )<BR><BR>
+<u>description:</u>evaluate matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to left multiply with current matrix 
+<BR>V2 = vector to right multiply with current matrix 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix element 
+<BR>
+<BR><BR><BR><H3>MatrixElement :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A> MatrixElement  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>evaluate matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to left multiply with current matrix 
+<BR>V2 = vector to right multiply with current matrix 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix element 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian and store result in another vector 
+<BR>low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian and store result in another vector 
+<BR>low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/SpinHamiltonian/V15Hamiltonian.html">V15Hamiltonian</A>& H )<BR><BR>
+<u>description:</u>Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on output stream 
+<BR>H = Hamiltonian to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/SpinHamiltonian/V15Hamiltonian.html">V15Hamiltonian</A>& H )<BR><BR>
+<u>description:</u>Mathematica Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on Mathematica output stream 
+<BR>H = Hamiltonian to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

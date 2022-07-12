@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <title>ParticleOnSphereDeltaHamiltonian</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : ParticleOnSphereDeltaHamiltonian</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/QHEHamiltonian/AbstractQHEOnSphereHamiltonian.html">AbstractQHEOnSphereHamiltonian</A></DIV><BR>
+<H3>ParticleOnSphereDeltaHamiltonian :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/QHEHamiltonian/ParticleOnSphereDeltaHamiltonian.html">ParticleOnSphereDeltaHamiltonian</A>  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/QHEHilbertSpace/ParticleOnSphere.html">ParticleOnSphere</A>* , int , int , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Architecture/AbstractArchitecture.html">AbstractArchitecture</A>* , 
+  long memory = , char* precalculationFileName = 0 )<BR><BR>
+<u>description:</u>constructor from default datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>particles = Hilbert space associated to the system 
+<BR>nbrParticles = number of particles 
+<BR>lzmax = maximum Lz value reached by a particle in the state 
+<BR>architecture = architecture to use for precalculation 
+<BR>memory = maximum amount of memory that can be allocated for fast multiplication (negative if there is no limit) 
+<BR>precalculationFileName = option file name where precalculation can be read instead of reevaluting them 
+<BR>
+<BR><BR><BR><H3>~ParticleOnSphereDeltaHamiltonian :</H3>
+<u>prototype:</u>     ~ParticleOnSphereDeltaHamiltonian  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/AbstractHamiltonian.html">AbstractHamiltonian</A>* Clone  ()<BR><BR>
+<u>description:</u>clone hamiltonian without duplicating datas 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to cloned hamiltonian 
+<BR>
+<BR><BR><BR><H3>SetHilbertSpace :</H3>
+<u>prototype:</u>     void SetHilbertSpace  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* hilbertSpace )<BR><BR>
+<u>description:</u>set Hilbert space 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>hilbertSpace = pointer to Hilbert space to use 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpace :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/HilbertSpace/AbstractHilbertSpace.html">AbstractHilbertSpace</A>* GetHilbertSpace  ()<BR><BR>
+<u>description:</u>get Hilbert space on which Hamiltonian acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer to used Hilbert space 
+<BR>
+<BR><BR><BR><H3>GetHilbertSpaceDimension :</H3>
+<u>prototype:</u>     int GetHilbertSpaceDimension  ()<BR><BR>
+<u>description:</u>return dimension of Hilbert space where Hamiltonian acts 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix elementdimension 
+<BR>
+<BR><BR><BR><H3>ShiftHamiltonian :</H3>
+<u>prototype:</u>     void ShiftHamiltonian  (double shift )<BR><BR>
+<u>description:</u>shift Hamiltonian from a given energy 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>shift = shift value 
+<BR>
+<BR><BR><BR><H3>MatrixElement :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A> MatrixElement  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& V2 )<BR><BR>
+<u>description:</u>evaluate matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to left multiply with current matrix 
+<BR>V2 = vector to right multiply with current matrix 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix element 
+<BR>
+<BR><BR><BR><H3>MatrixElement :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Complex.html">Complex</A> MatrixElement  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& V2 )<BR><BR>
+<u>description:</u>evaluate matrix element 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to left multiply with current matrix 
+<BR>V2 = vector to right multiply with current matrix 
+<BR><BR><BR>
+<u>return value:</u> corresponding matrix element 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian and store result in another vector 
+<BR>low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , 
+  int , int nbrComponent )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of idinces  
+<BR>and store result in another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on vector where result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelAddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& LowLevelAddMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and add result to another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector at which result has to be added 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelAddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& LowLevelAddMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/RealVector.html">RealVector</A>& , 
+  int , int nbrComponent )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and add result to another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector at which result has to be added 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on vector where result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian and store result in another vector 
+<BR>low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , 
+  int , int nbrComponent )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and store result in another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector where result has to be stored 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on vector where result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelAddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelAddMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& vDestination )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and add result to another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector at which result has to be added 
+<BR><BR><BR>
+<u>return value:</u> reference on vectorwhere result has been stored 
+<BR>
+<BR><BR><BR><H3>LowLevelAddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& LowLevelAddMultiply  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Vector/ComplexVector.html">ComplexVector</A>& , 
+  int , int nbrComponent )<BR><BR>
+<u>description:</u>multiply a vector by the current hamiltonian for a given range of indices  
+<BR>and add result to another vector, low level function (no architecture optimization) 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vSource = vector to be multiplied 
+<BR>vDestination = vector at which result has to be added 
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on vector where result has been stored 
+<BR>
+<BR><BR><BR><H3>LeftInteractionOperators :</H3>
+<u>prototype:</u>     List<Matrix*> LeftInteractionOperators  ()<BR><BR>
+<u>description:</u>return a list of left interaction operators 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> list of left interaction operators 
+<BR>
+<BR><BR><BR><H3>RightInteractionOperators :</H3>
+<u>prototype:</u>     List<Matrix*> RightInteractionOperators  ()<BR><BR>
+<u>description:</u>return a list of right interaction operators  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> list of right interaction operators 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/QHEHamiltonian/ParticleOnSphereDeltaHamiltonian.html">ParticleOnSphereDeltaHamiltonian</A>& H )<BR><BR>
+<u>description:</u>Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on output stream 
+<BR>H = Hamiltonian to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& operator <<  (<A HREF="/home/regnault/development/Physics/DiagHam/docs/Output/MathematicaOutput.html">MathematicaOutput</A>& , <A HREF="/home/regnault/development/Physics/DiagHam/docs/Hamiltonian/QHEHamiltonian/ParticleOnSphereDeltaHamiltonian.html">ParticleOnSphereDeltaHamiltonian</A>& H )<BR><BR>
+<u>description:</u>Mathematica Output Stream overload 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on Mathematica output stream 
+<BR>H = Hamiltonian to print 
+<BR><BR><BR>
+<u>return value:</u> reference on output stream 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

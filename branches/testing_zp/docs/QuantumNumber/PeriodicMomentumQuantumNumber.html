@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <title>PeriodicMomentumQuantumNumber</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : PeriodicMomentumQuantumNumber</DIV></H1>
+
+<DIV ALIGN="CENTER">class deriving from <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A></DIV><BR>
+<H3>PeriodicMomentumQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>PeriodicMomentumQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>  (int , int period )<BR><BR>
+<u>description:</u>constructor from a momentum value 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>momentum = momentum value 
+<BR>period = period value 
+<BR>
+<BR><BR><BR><H3>PeriodicMomentumQuantumNumber :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& Q )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = quantum number to copy 
+<BR>
+<BR><BR><BR><H3>~PeriodicMomentumQuantumNumber :</H3>
+<u>prototype:</u>     ~PeriodicMomentumQuantumNumber  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& operator =  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& Q )<BR><BR>
+<u>description:</u>assignement 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q = quantum number to copy 
+<BR><BR><BR>
+<u>return value:</u> reference on current quantum number 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& operator =  (int momentum )<BR><BR>
+<u>description:</u>set momentum 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>momentum = momentum value 
+<BR><BR><BR>
+<u>return value:</u> reference on current quantum number 
+<BR>
+<BR><BR><BR><H3>Clone :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/AbstractQuantumNumber.html">AbstractQuantumNumber</A>* Clone  ()<BR><BR>
+<u>description:</u>clone current quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> pointer on cloned quantum number   
+<BR>
+<BR><BR><BR><H3>GetMomentum :</H3>
+<u>prototype:</u>     int GetMomentum  ()<BR><BR>
+<u>description:</u>Get momentum 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> momentum 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A> operator +  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>add two quantum numbers 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = second quantum number 
+<BR><BR><BR>
+<u>return value:</u> sum of the two quantum numbers 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A> operator -  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>substract two quantum numbers 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = quantum number to substract 
+<BR><BR><BR>
+<u>return value:</u> difference of the two quantum numbers 
+<BR>
+<BR><BR><BR><H3>operator == :</H3>
+<u>prototype:</u>     <i>friend</i> bool operator ==  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>test if two quantum numbers are identical 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = second quantum number 
+<BR><BR><BR>
+<u>return value:</u> true if quantum numbers are identical 
+<BR>
+<BR><BR><BR><H3>operator != :</H3>
+<u>prototype:</u>     <i>friend</i> bool operator !=  (const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& Q2 )<BR><BR>
+<u>description:</u>test if two quantum numbers are different 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Q1 = first quantum number 
+<BR>Q2 = second quantum number 
+<BR><BR><BR>
+<u>return value:</u> true if quantum numbers are different 
+<BR>
+<BR><BR><BR><H3>operator << :</H3>
+<u>prototype:</u>     <i>friend</i> ostream& operator <<  (ostream& , const <A HREF="/home/regnault/development/Physics/DiagHam/docs/QuantumNumber/PeriodicMomentumQuantumNumber.html">PeriodicMomentumQuantumNumber</A>& Q )<BR><BR>
+<u>description:</u>print quantum number 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>Str = reference on current output stream  
+<BR>Q = quantum number to print 
+<BR><BR><BR>
+<u>return value:</u> reference on current output stream  
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/Physics/DiagHam/docs/index.html">index</A>. 
+
+  </body>
+</html>

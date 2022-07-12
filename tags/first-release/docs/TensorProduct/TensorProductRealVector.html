@@ -1,0 +1,399 @@
+<html>
+  <head>
+    <title>TensorProductRealVector</title>
+  </head>
+
+  <body>
+    <H1><DIV align=center>Class : TensorProductRealVector</DIV></H1>
+
+<H3>TensorProductRealVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>  ()<BR><BR>
+<u>description:</u>default constructor 
+<BR>
+<BR><BR><BR><H3>TensorProductRealVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* structure bool zeroFlag = false )<BR><BR>
+<u>description:</u>constructor for an empty tensor product real vector  
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>struture = reference on tensor product structure 
+<BR>zeroFlag = true if all coordinates have to be set to zero 
+<BR>
+<BR><BR><BR><H3>TensorProductRealVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* structure double* array )<BR><BR>
+<u>description:</u>constructor from an array of doubles 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>struture = reference on tensor product structure 
+<BR>array = array of doublesn 
+<BR>
+<BR><BR><BR><H3>TensorProductRealVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* structure <A HREF="/home/regnault/development/DMRG/AKLT/docs/Vector/RealVector.html">RealVector</A>& v )<BR><BR>
+<u>description:</u>constructor from a real vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>struture = reference on tensor product structure 
+<BR>v = reference on vector containing datas 
+<BR>
+<BR><BR><BR><H3>TensorProductRealVector :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& vector bool duplicateFlag = false )<BR><BR>
+<u>description:</u>copy constructor 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector = vector to copy 
+<BR>duplicateFlag = true if datas have to be duplicated 
+<BR>
+<BR><BR><BR><H3>~TensorProductRealVector :</H3>
+<u>prototype:</u>     ~TensorProductRealVector  ()<BR><BR>
+<u>description:</u>destructor 
+<BR>
+<BR><BR><BR><H3>operator = :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& operator =  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& vector )<BR><BR>
+<u>description:</u>assignement 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>vector = vector to assign 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     void Resize  (int dimension )<BR><BR>
+<u>description:</u>Resize vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = new dimension 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     void ResizeAndClean  (int dimension )<BR><BR>
+<u>description:</u>Resize vector and set to zero all components that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>dimension = new dimension 
+<BR>
+<BR><BR><BR><H3>Resize :</H3>
+<u>prototype:</u>     void Resize  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* structure )<BR><BR>
+<u>description:</u>Resize vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure = new product tensor structure 
+<BR>
+<BR><BR><BR><H3>ResizeAndClean :</H3>
+<u>prototype:</u>     void ResizeAndClean  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/AbstractTensorProductStructure.html">AbstractTensorProductStructure</A>* structure )<BR><BR>
+<u>description:</u>Resize vector and set to zero all components that have been added 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>structure = new product tensor structure 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& operator -  ()<BR><BR>
+<u>description:</u>change sign of a vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V1 )<BR><BR>
+<u>description:</u>return a new vector with opposite sign form a given source vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = source vector 
+<BR><BR><BR>
+<u>return value:</u> new vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> double operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V2 )<BR><BR>
+<u>description:</u>scalar product between two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> result of scalar product 
+<BR>
+<BR><BR><BR><H3>operator += :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& operator +=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V1 )<BR><BR>
+<u>description:</u>sum two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to add 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator -= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& operator -=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V1 )<BR><BR>
+<u>description:</u>substract two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator + :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A> operator +  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V2 )<BR><BR>
+<u>description:</u>sum two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator - :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A> operator -  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V2 )<BR><BR>
+<u>description:</u>substract two vectors 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = first vector 
+<BR>V2 = second vector 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>AddLinearCombination :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& AddLinearCombination  (double x const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V )<BR><BR>
+<u>description:</u>add a linear combination to a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x = multiplicative coefficient 
+<BR>V = vector to add 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddLinearCombination :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& AddLinearCombination  (double x1 const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& v1 double x2 
+  const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& v2 )<BR><BR>
+<u>description:</u>add a linear combination of two vectors to a given vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>x1 = multiplicative coefficient of first vector 
+<BR>v1 = first vector to add 
+<BR>x2 = multiplicative coefficient of first vector 
+<BR>v2 = first vector to add 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A> operator *  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V1 double d )<BR><BR>
+<u>description:</u>multiply a vector with a real number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to multiply 
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator * :</H3>
+<u>prototype:</u>     <i>friend</i> <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A> operator *  (double d const <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V1 )<BR><BR>
+<u>description:</u>multiply a vector with a real number on the left hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>V1 = vector to multiply 
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> resulting vector 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& operator *=  (double d )<BR><BR>
+<u>description:</u>multiply a vector with a real number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>operator /= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& operator /=  (double d )<BR><BR>
+<u>description:</u>divide a vector by a real number on the right hand side 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>d = real to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    left multiply a vector with a real symmetric matrix  (without using temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real symmetric matrix (without using temporary vector) 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealSymmetricMatrix.html">RealSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>matrix :</H3>
+<u>prototype:</u>    left multiply a vector with a real tridiagonal symmetric matrix  (without using temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real tridiagonal symmetric matrix (without using temporary vector) 
+<BR>
+<BR><BR><BR><H3>operator *= :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& operator *=  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealTriDiagonalSymmetricMatrix.html">RealTriDiagonalSymmetricMatrix</A>& M )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    left multiply a vector with a symmetric matrix and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a symmetric matrix and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealSymmetricMatrix.html">RealSymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply   
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealSymmetricMatrix.html">RealSymmetricMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V int start int step )<BR><BR>
+<u>description:</u>left multiply a vector with a symmetric matrix and add result to the current vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply   
+<BR>start = vector first coordinate to modify 
+<BR>step = step to add to go to the following vector coordinate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a real matrix and use to store result  
+<BR>in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Matrix/RealMatrix.html">RealMatrix</A>& M <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>M = matrix to use 
+<BR>V = vector to multiply 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a one space tensor and use to store result  
+<BR>in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Tensor/OneSpaceTensor.html">OneSpaceTensor</A>& T <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>T = tensor to use 
+<BR>V = vector to multiply   
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    and use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a one space tensor for a given range of indices  
+<BR>and use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Tensor/OneSpaceTensor.html">OneSpaceTensor</A>& T <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V 
+  int firstComponent int nbrComponent )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>T = tensor to use 
+<BR>V = vector to multiply   
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    add result to current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a one space tensor and  
+<BR>add result to current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Tensor/OneSpaceTensor.html">OneSpaceTensor</A>& T <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>T = tensor to use 
+<BR>V = vector to multiply   
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    and add result to current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a one space tensor for a given range of indices  
+<BR>and add result to current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>AddMultiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& AddMultiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Tensor/OneSpaceTensor.html">OneSpaceTensor</A>& T <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V 
+  int firstComponent int nbrComponent )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>T = tensor to use 
+<BR>V = vector to multiply   
+<BR>firstComponent = index of the first component to evaluate 
+<BR>nbrComponent = number of components to evaluate 
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>vector :</H3>
+<u>prototype:</u>    use to store result in current vector  (without creating temporary vector )<BR><BR>
+<u>description:</u>left multiply a vector with a two space tensor and  
+<BR>use to store result in current vector (without creating temporary vector) 
+<BR>
+<BR><BR><BR><H3>Multiply :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& Multiply  (const <A HREF="/home/regnault/development/DMRG/AKLT/docs/Tensor/TwoSpaceTensor.html">TwoSpaceTensor</A>& T <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& V )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>T = tensor to use 
+<BR>V = vector to multiply   
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR><H3>coordinate :</H3>
+<u>prototype:</u>    return vector i-th global coordinate  (without testing if position is valid )<BR><BR>
+<u>description:</u>return vector i-th global coordinate (without testing if position is valid) 
+<BR>
+<BR><BR><BR><H3>operator [] :</H3>
+<u>prototype:</u>     double& operator []  (int i )<BR><BR>
+<u>description:</u><BR><BR>
+<u>input parameters:</u>
+<BR>i = global coordinate position 
+<BR><BR><BR>
+<u>return value:</u> reference on indexed coordinate 
+<BR>
+<BR><BR><BR><H3>operator [] :</H3>
+<u>prototype:</u>     double& operator []  (<A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductIndex.html">TensorProductIndex</A>& index )<BR><BR>
+<u>description:</u>return vector coordinate corresponding to a tensor product index 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR>index = tensor product index 
+<BR><BR><BR>
+<u>return value:</u> reference on indexed coordinate 
+<BR>
+<BR><BR><BR><H3>Norm :</H3>
+<u>prototype:</u>     double Norm  ()<BR><BR>
+<u>description:</u>get vector norm 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> vector norm 
+<BR>
+<BR><BR><BR><H3>SqrNorm :</H3>
+<u>prototype:</u>     double SqrNorm  ()<BR><BR>
+<u>description:</u>get square of vector norm 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> square of vector norm 
+<BR>
+<BR><BR><BR><H3>Normalize :</H3>
+<u>prototype:</u>     <A HREF="/home/regnault/development/DMRG/AKLT/docs/TensorProduct/TensorProductRealVector.html">TensorProductRealVector</A>& Normalize  ()<BR><BR>
+<u>description:</u>normalize vector 
+<BR><BR><BR>
+<u>input parameters:</u>
+<BR><BR><BR>
+<u>return value:</u> reference on current vector 
+<BR>
+<BR><BR><BR>	Back to <A HREF="/home/regnault/development/DMRG/AKLT/docs/index.html">index</A>. 
+
+  </body>
+</html>
