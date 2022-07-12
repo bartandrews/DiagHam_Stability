@@ -1,0 +1,11 @@
+.idea
+
+trunk/build
+trunk/run
+
+trunk/aclocal.m4
+trunk/autom4te.cache
+trunk/compile
+trunk/Makefile.in
+trunk/configure
+trunk/test-driver
