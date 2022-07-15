@@ -5,9 +5,9 @@ DiagHam version for the FCI stability project.
 
 1. `How this repository was created`_
 2. `Getting started with this repository`_
-3. `Example commands`_
-4. `DiagHam tips`_
-5. `References`_
+3. `Tutorials`_
+4. `References`_
+5. `Appendix: DiagHam tips`_
 6. `Appendix: Getting started with the latest DiagHam`_
 7. `Appendix: Debugging DiagHam compilation`_
 
@@ -58,6 +58,8 @@ My library headers are located in ``/usr/include`` and my library object files a
 Getting started with this repository
 ------------------------------------
 
+In the ``~/DiagHam_Stability/trunk`` directory:
+
 1) ``./bootstrap.sh``
 
 2) ``mkdir build; mkdir run; cd build``
@@ -70,12 +72,6 @@ Getting started with this repository
 
 Example commands
 ----------------
-
-Before getting started, the following aliases can be defined in ``~/.bash_aliases``:
-
-- ``alias FTIGetDimension=~/DiagHam/build/FTI/src/Programs/FTI/FTIGetDimension``
-- ``alias FCIHofstadterModel=~/DiagHam/build/FTI/src/Programs/FCI/FCIHofstadterModel``
-- ``alias GenericOverlap=~/DiagHam_latest/build/src/Programs/GenericOverlap``
 
 Then, some useful commands are as follows...
 
@@ -109,8 +105,39 @@ Find the many-body gap from a .dat output file containing a many-body spectrum. 
 -``PlotHofstadterSpectrum.pl``
 Generates a plot from a given spectrum file, using gnuplot. The -s flag is used to complete the spectrum by adding symmetry related momentum sectors to the bare data in the input file.
 
-DiagHam tips
-------------
+Tutorials
+---------
+
+The following tutorials are found in the ``~/DiagHam_Stability/trunk/tutorials`` directory.
+
+Before getting started, the following aliases can be defined in ``~/.bash_aliases``:
+
+- ``alias FTIGetDimension=~/DiagHam_Stability/trunk/build/FTI/src/Programs/FTI/FTIGetDimension``
+- ``alias FCIHofstadterModel=~/DiagHam_Stability/trunk/build/FTI/src/Programs/FCI/FCIHofstadterModel``
+- ``alias GenericOverlap=~/DiagHam_Stability/trunk/build/src/Programs/GenericOverlap``
+
+01_ener_spec
+^^^^^^^^^^^^
+
+In the first tutorial, we calculate the many-body energy spectrum for the Hofstadter model.
+
+1. In order to generate the energy spectrum for the Hofstadter model, we first need to first run the command:
+
+``FCIHofstadterModel -p 10 -x 4 -y 5 -X 3 -Y 3 -q 1 -m 10000 -S --processors 10 -n 1 --lanczos-precision 1e-10 —eigenstate``
+
+We consider an example with 8 particles
+
+References
+----------
+
+`[Bauer2016] <https://arxiv.org/abs/1504.07185>`__ "Quantum geometry and stability of the fractional quantum Hall effect in the Hofstadter model", by David Bauer, Tom Jackson, and Rahul Roy, PRB **93**, 235133 (2016).
+
+`[Andrews2018] <https://arxiv.org/abs/1710.09350>`__ "Stability of fractional Chern insulators in the effective continuum limit of Harper-Hofstadter bands with Chern number |C|>1", by Bartholomew Andrews and Gunnar Moller, PRB **97**, 035159 (2018).
+
+`[Bauer2022] <https://arxiv.org/abs/2110.09565>`__ "Fractional Chern insulators with a non-Landau level continuum limit", by David Bauer et al., PRB **105**, 045144 (2022).
+
+Appendix: DiagHam tips
+----------------------
 
 - DiagHam wiki: https://nick-ux.org/diagham/index.php/Main_Page
 - DiagHam website: http://www.phys.ens.fr/~regnault/diagham/
@@ -124,13 +151,6 @@ DiagHam tips
 4) ``configure.in`` is deprecated in favour of ``configure.ac``
 
 5) always build the code in a separate build directory
-
-References
-----------
-
-`[Bauer2016] <https://arxiv.org/abs/1504.07185>`__ "Quantum geometry and stability of the fractional quantum Hall effect in the Hofstadter model", by David Bauer, Tom Jackson, and Rahul Roy, PRB **93**, 235133 (2016).
-
-`[Bauer2022] <https://arxiv.org/abs/2110.09565>`__ "Fractional Chern insulators with a non-Landau level continuum limit", by David Bauer et al., PRB **105**, 045144 (2022).
 
 Appendix: Getting started with the latest DiagHam
 -------------------------------------------------

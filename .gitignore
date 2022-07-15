@@ -9,3 +9,5 @@ trunk/compile
 trunk/Makefile.in
 trunk/configure
 trunk/test-driver
+
+**/*.in
