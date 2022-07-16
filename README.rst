@@ -130,12 +130,40 @@ We consider the parameters from above with a MUC of 7x3, with 8GB of RAM and 4 p
 
 This tutorial is summarized in ``01_ener_spec.sh``.
 
+.. image:: trunk/tutorials/01_ener_spec/fermions_hofstadter_X_7_Y_3_q_1_n_7_x_3_y_7_t2_0_t3_0_alpha_1_u_1_gx_0_gy_0.png
+	:align: center
+	:width: 80%
+
 02_gap_trace
 ^^^^^^^^^^^^
 
 In this tutorial, we plot the many-body gap (Delta) against the trace inequality saturation measure (TISM, denoted as <T>).
 
+1. Using ``band_geometry.nb`` (dependent on ``BandGeometry.wl``), we can generate the file ``geometry.csv``, which tabulates t2 vs TISM.
 
+- ``cd t2_trace``
+- ``mathematica band_geometry.nb``
+- ``cd ..``
+
+2. Using ``batch_diagham.py`` together with a parameter file ``batchfile.csv``, we can generate the many-body energy spectra.
+
+- ``cd t2_gap``
+- ``python batch_diagham.py batchfile.csv``
+
+3. Using ``batch_getgaps.py`` together with the parameter file ``batchfile.csv``, we can generate the file ``outfile.csv``, which tabulates t2 vs gap.
+
+- ``python batch_getgaps.py batchfile.csv outfile.csv``
+- ``cd ..``
+
+4. In the notebook ``final_plot.ipynb``, we can merge the tables of t2 vs TISM vs gap, and plot the result.
+
+- ``jupyter notebook &``
+
+This yields the final plot ``bosons_16_onsite.pdf``, which reproduces Fig.9.(a) of `[Bauer2022] <https://arxiv.org/abs/2110.09565>`__.
+
+.. image:: trunk/tutorials/02_gap_trace/bosons_16_onsite.png
+	:align: center
+	:width: 80%
 
 References
 ----------
