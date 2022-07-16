@@ -133,7 +133,7 @@ This tutorial is summarized in ``01_ener_spec.sh``.
 02_gap_trace
 ^^^^^^^^^^^^
 
-In the tutorial, we plot the many-body gap (Delta) against the trace inequality saturation measure (TISM, denoted as <T>).
+In this tutorial, we plot the many-body gap (Delta) against the trace inequality saturation measure (TISM, denoted as <T>).
 
 
 
