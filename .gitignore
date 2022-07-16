@@ -17,6 +17,7 @@ trunk/tutorials/**/*.out
 trunk/tutorials/**/*.dat
 trunk/tutorials/**/*.vec
 trunk/tutorials/**/*.bak
+trunk/tutorials/**/*.gp
 trunk/tutorials/**/initialvector
 
 
