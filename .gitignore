@@ -20,6 +20,6 @@ trunk/tutorials/**/*.vec
 trunk/tutorials/**/*.bak
 trunk/tutorials/**/*.gp
 trunk/tutorials/**/*.ps
+trunk/tutorials/**/*.pdf
 trunk/tutorials/**/initialvector
-trunk/tutorials/**/outfile.csv
 
