@@ -1,0 +1,234 @@
+\documentclass[aps,prb,twocolumn,letterpaper,twoside,nobalancelastpage,groupedaddress,amsmath,amssymb,floatfix,citeautoscript]{revtex4-1}
+%\usepackage{geometry}       
+%\geometry{letterpaper}     
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{bm} %bold math symbols
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{outlines}             
+\usepackage{amssymb}
+\usepackage[caption=false]{subfig}
+\usepackage{mathtools}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.6,0.,0.}
+\definecolor{darkgreen}{rgb}{0.,0.5,0.}
+\definecolor{darkblue}{rgb}{0.,0.,0.6}
+
+\usepackage{framed}
+
+%\usepackage[square,numbers,sort,merge]{natbib}
+\usepackage[
+breaklinks,
+colorlinks=true,
+linkcolor=darkred,
+citecolor=darkgreen,
+urlcolor=darkblue]{hyperref}
+%\usepackage{doi}
+
+% \DeclareMathOperator{\tr}{tr}
+% \DeclareMathOperator{\erf}{Erf}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\begin{document}
+
+
+\def \Ns {\mathbb{N}}
+\def \Rs {\mathbb{R}}
+\def \Zs {\mathbb{Z}}
+\def \Qs {\mathbb{Q}}
+\def \Cs {\mathbb{C}}
+\def \id {\mathbb{I}}
+
+\def \bfq {{\bf q}}
+\def \bfp {{\bf p}}
+\def \bfx {{\bf x}}
+\def \bfy {{\bf y}}
+\def \bfz {{\bf z}}
+\def \bfr {{\bf r}}
+\def \bfk {{\bf k}}
+\def \bfn {{\bf n}}
+\def \bfb {{\bf b}}
+\def \bfm {\mathbf{m}}
+\def \bfn {\mathbf{n}}
+
+%\def \hata {{a}}
+%\def \hatadag {{a}^{\dagger}}
+
+\def \hatq {\widehat{q}}
+\def \hatp {\widehat{p}}
+\def \hata {\widehat{a}}
+\def \hatadag {\widehat{a}^{\dagger}}
+%\def \hatb {\widehat{b}^\phantom{\dagger}}
+%\def \hatbdag {\widehat{b}^{\dagger}}
+\def \wtN {\widetilde{N}}
+
+\def \ve {\varepsilon}
+\def \vth {\vartheta}
+
+
+
+\title{Lattice models for generic Landau orbits}
+\author{David Bauer}
+\email{dbauer@physics.ucla.edu}
+\affiliation{Department of Physics and Astronomy, University of California at Los Angeles, 475 Portola Plaza, Los Angeles, California 90095, USA}
+
+\author{Fenner Harper}
+\affiliation{Department of Physics and Astronomy, University of California at Los Angeles, 475 Portola Plaza, Los Angeles, California 90095, USA}
+
+\author{Rahul Roy}
+\affiliation{Department of Physics and Astronomy, University of California at Los Angeles, 475 Portola Plaza, Los Angeles, California 90095, USA}
+
+\date{\today}
+\begin{abstract}
+Abstract goes here.
+ 
+\end{abstract}
+
+% \pacs{0}
+
+\maketitle
+
+\section{Introduction}
+\subsection{Background and motivation}
+The incompressible liquid phases of the fractional quantum Hall (FQH) effect serve as prototypical examples of topologically ordered or gapped quantum liquid phases.
+
+Two recent developments in FQH physics have each inspired a large body of literature. The first is the numerical discovery of fractional Chern insulators (FCI), which are fractionalized phases of interacting particles in the presence of a strong lattice potential. This is in contrast to the traditional picture of the quantum Hall effect, which is formulated in the continuum. Since FQH phases are topologically stable against local perturbations,
+
+FCI phases have been discovered experimentally in bilayer graphene heterostructures \cite{Spantoneaan8458} The single-particle Chern bands that are the FCI analogues of Landau levels have also been observed experimentally in cold atoms [cite].
+
+A second development in the FQH literature is based on observations that, in spite of their topological nature, FQH liquids are also characterized by non-trivial \textit{geometrical} properties.
+
+As pointed out by Haldane \cite{Haldane2011}, the geometry inherent in the FQH problem has been obscured by the introduction of symmetries -- for example rotational invariance -- that are unnecessary for the stability of the FQH liquid. 
+
+These two threads of inquiry are not disconnected. The addition of a non-negligible lattice potential introduces additional geometric data that may break some non-generic symmetries. For example, in the case of a square lattice, $SO(2)$ rotational invariance in the coordinate plane is explicitly broken to $C_4$ lattice symmetry. From this point of view, a complete theory of the FQHE formulated as generically as possible should furnish a theory of FCI phases, or at least those FCI phases that have FQH analogoues. [It is not clear to me whether there are topologically-ordered phases in FCIs that require going beyond this generic FQH framework.]
+
+
+Although the FQHE is essentially a many-particle phenomenon, we expect that the nature of the host band should play a crucial role. 
+
+
+In the following section, we show that under some fairly generic assumptions, the effective hamiltonian will be quadratic in the momenta. In other words, Landau levels are a generic.
+
+
+\subsection{Universality of Landau orbits}
+Let us begin by briefly reviewing the Landau level problem of an electron in two dimensions in the presence of a uniform magnetic field $B$. Here we have a hamiltonian $H_0 = \frac{1}{2m}\left(\pi_x^2 + \pi_y^2\right)$, with $\pi_a = m v_a$ the dynamical momentum. The operators $H_0$, $\pi_x$ and $\pi_y$ form a Heisenberg Lie algebra, with commutators $\comm{\pi_x}{\pi_y} = i\hbar e B$, $\comm{H_0}{\pi_x} = 0$ and $\comm{H_0}{\pi_y} = 0$. The hamiltonian is diagonalized by introducing Fock operators $a$, $a^{\dagger}$. There are additional operators in the problem that commute with the hamiltonian. These are the guiding-center position operators $R_a = r_a - (eB)^{-1}\varepsilon_{ab}\pi_b$ with $\comm{R_x}{R_y} = i\hbar(eB)^{-1}$. Each subspace of states with a given energy is degenerate, and the degenerate states may be labelled by a guiding-center quantum number.
+
+Now consider a tight-binding model of an electron living on a Bravais lattice in two spatial dimensions. 
+We will assume that the hopping amplitude between any two sites on the lattice is generically non-zero. We index the sites of the lattice by a vector $\mathbf{m} = (m_1, m_2)$ with integer components. Let $c^{\dag}_{\mathbf{m}}$ ($c_{\mathbf{m}}$) create (annihilate) an electron at site $\mathbf{m}$ of the lattice. We have the usual fermion anticommutation relations $\left\{c_{\mathbf{m}},c_{\mathbf{n}}^{\dag}\right\} = 2\delta_{\mathbf{m} \mathbf{n}}$. The single-particle Hilbert space is spanned by the space of states $\ket{\mathbf{m}}$ with the electron occupying site $\mathbf{m}$. The hamiltonian in this representation is
+\begin{align*}
+H &= -\sum_{\mathbf{m}\neq \mathbf{n}} t_{\mathbf{m}\mathbf{n}} c^{\dag}_\mathbf{n} c_\mathbf{m}  + t_{\mathbf{n}\mathbf{m}} c^{\dag}_{\mathbf{m}} c_{\mathbf{n}}\\  &= \sum_{\mathbf{m}\neq \mathbf{n}} t_{\mathbf{m}\mathbf{n}} \dyad{\mathbf{n}}{\mathbf{m}} + t_{\mathbf{n}\mathbf{m}} \dyad{\mathbf{m}}{\mathbf{n}}
+\end{align*}
+Note that we are excluding onsite/mass terms from the above hamiltonian; this is because a translation-invariant mass term simply shifts $H$ by a constant. We define lattice translation operators $T_a = \sum_{\bfm} \dyad{\mathbf{m} + \mathbf{e}_a}{\mathbf{m}}$. We can write the hamiltonian in terms of these as
+\begin{align}
+\label{eq-b0-lattice-hamiltonian}
+H = -\sum_{j,k} t_{jk} \left(T_1^j T_2^k + (T^{\dag}_2)^{k} (T^{\dag}_1)^{j}\right)
+\end{align}
+
+We introduce a uniform background magnetic field $B$ perpendicular to the spatial extent of the lattice. We choose the value of $B$ to be such that the flux per lattice plaquette is $Ba^2 = \frac{P}{Q}\Phi_0$, where $\Phi_0 = 2\pi \hbar /e$ is the magnetic flux quantum and $P$ and $Q$ are relatively prime integers. In terms of the magnetic length $\ell = \sqrt{\frac{\hbar}{eB}}$, we have $a^2/\ell^2 = 2 \pi P/Q$. We now define $\epsilon^2 \coloneqq a^2/\ell^2$. In the presence of the magnetic field, the above translation operators are no longer gauge invariant \cite{FradkinBook}. Instead, the correct lattice translation operators in this case are\cite{}
+\begin{align*}
+\widetilde{T}_a = \sum_{\mathbf{m}} e^{i\theta_a(\mathbf{m})} \dyad{\bfm + \mathbf{e}_a}{\bfm}.
+\end{align*}
+where the phases $e^{i\theta_a(\bfm)}$ satisfy 
+\begin{align*}
+\theta_1(\bfm) + \theta_2(\bfm + \mathbf{e}_1) - \theta_1(\bfm + \mathbf{e}_2) - \theta_2(\bfm) = \epsilon^2.
+\end{align*}
+Note that we regard the phases $\theta$ as residing on the links of the lattice, but we canonically identify $\theta_a(\mathbf{m}) = \theta(\mathbf{m},\mathbf{m}+\mathbf{e}_a)$.
+The lattice translation operators $\widetilde{T}_a$ are unitary, so we can write them in terms of hermitian generators $\widetilde{T}_a = \exp\left[-i \Pi_a\right]$. The components of $\widetilde{\mathbf{T}}$ do not commute, but satisfy $\widetilde{T}_1 \widetilde{T}_2 = \exp(i\epsilon^2) \widetilde{T}_2 \widetilde{T}_1 $. This implies the commutator
+$\comm{\Pi_1}{\Pi_2} = i \epsilon^2.$
+
+% [Actually, it seems like it implies $\comm{\Pi_1}{\Pi_2} = i \epsilon + 2\pi i M$ for $M \in \mathbf{Z}$. I think it's probably worthwhile to keep track of the $M$, although I'm not sure of its significance. (Also I guess for the same reason the phases should really satisfy $\sum_{\square}\theta = \epsilon + 2\pi M$). Anyway, I think I'm ok to ignore this here.]
+
+Because the $\widetilde{T}_a$ do not commute with each other, there is an ambiguity in passing from the $B=0$ hamiltonian (\ref{eq-b0-lattice-hamiltonian}) to one for $B\neq0$, which appears as a choice of phase of the (now-complex) $t_{\mathbf{m}\mathbf{n}}$. This is analogous to the ordering ambiguity in quantizing polynomials on classical phase space. For now we fix this ambiguity by making the arbitrary choice that $T_1^j T_2^k \rightarrow \widetilde{T}_1^j \widetilde{T}_2^k + \widetilde{T}_2^k\widetilde{T}_1^j$ in the presence of nonzero $B$. (We could also have fixed this ambiguity by a choice of gauge for the $\theta(\mathbf{m})$.) Then
+\begin{align*}
+H = -\sum_{j,k} t_{jk}\left(\widetilde{T}_1^j \widetilde{T}_2^k + \widetilde{T}_2^k\widetilde{T}_1^j\right) + \text{h.c.}
+\end{align*}
+
+Let us look at just the local part of this hamiltonian, where by ``local'' we mean containing only first powers of the translation operators: $H_{\text{loc}} = -t_{10}\left(T_1 + T_1^{\dag}\right) - t_{01}\left(T_2 + T_2^{\dag}\right)$. This part of the hamiltonian is special, because no ordering prescription (or gauge choice) is necessary.   If we set $t_{10} = t_{01}$, $H_{\text{loc}}$ is just the hamiltonian of the Hofstadter model. Since $\widetilde{T}_a = e^{-i\Pi_a}$, we can at least formally write $H_{\text{loc}}= -2t_{10}\cos\left(\Pi_x\right) - 2 t_{01}\cos\left(\Pi_y\right).$ Now we rescale the $\Pi_a$ operators, defining $\epsilon\Xi_a = \Pi_a$, and we have the commutation relation $\comm{\Xi_x}{\Xi_y} = i$. Although the commutator of the $\Xi_a$ is $O(1)$ with respect to $\epsilon$, we can not necessarily infer that the $\Xi_a$ are individually $O(1)$. However, in what follows we will assume this is the case. Then
+\begin{align*}
+H_{\text{loc}} &= -2\sum_{n=0}^{\infty}  \frac{(-1)^{n}\epsilon^{2n}}{(2n)!} \left(t_{10}\Xi^{2n}_x + t_{01} \Xi^{2n}_y\right)\\
+&= -2 + 2\epsilon^2\frac{\left(t_{10}\Xi^{2}_x + t_{01}\Xi^{2}_y\right)}{2} +O(\epsilon^4).
+\end{align*}
+Now let $t_{10} = t$, and $t_{01} = \alpha^2 t$, i.e., $t$ is a common hopping energy scale and $\alpha$ parameterizes anisotropy in the hopping amplitudes. Then to lowest order in $\epsilon = a/\ell$, we have a small-$\epsilon$ effective hamiltonian $H_{\text{eff}}= t\epsilon^2 \left(\Xi^{2}_x + \alpha^2\Xi^{2}_y\right)$. We can rewrite this in terms of momentum operators that satisfy $\comm{\pi_x}{\pi_y} = i\hbar e B$ as
+\begin{align*}
+H_{\text{eff}} = \frac{1}{2m_{\ast}}\left(\pi_x^2 + \pi_y^2\right),
+\end{align*}
+showing that our hamiltonian is isomorphic to the Landau level hamiltonian with effective mass $m_{\ast} = \hbar^2/(2ta^2\alpha)$. In order to recover all of the physics of Landau levels, we also need a macroscopically large set of commuting observables analogous to the guiding-center positions in the continuum problem.
+Here, this role is filled by the \textit{magnetic translation operators}, which we discuss in the following section.
+
+\subsection{Chern bands and geometry}
+Given a tight-binding hamiltonian as described above, we can define magnetic translation operators that commute with the hamiltonian and an associated magnetic unit cell in the usual way \cite{FradkinBook}. The magnetic unit cell translations in each lattice direction commute, and we can define the simulatenous eigenstates of energy and magnetic unit cell translations $\ket{n,\bfk}$, where $\bfk$ takes values in the magnetic Brillouin zone and $n$ labels eigenstates of $H$. We can write the hamiltonian 
+\begin{align*}
+H = \sum_{n,\mathbf{k}} E_{n}(\bfk) P_{n,\bfk},
+\end{align*}
+where $E_n$ is the dispersion of the $n$-th band of the hamiltonian, and $P_{n,\bfk}$ is the projector onto the state $\ket{n,\bfk}$.
+
+We have so far not discussed the boundary conditions of our problem. If we work on a finite system with periodic boundary conditions, then the dimension of our Hilbert space will be finite, as will the number of states in the magnetic Brillouin zone. The total number of energy eigenstates should be equal to the dimension of the Hilbert space, but the magnetic Brillouin zone will only contain a fraction of these. [...] Aspects of this Brillouin zone folding in FCIs are discussed in Ref. \onlinecite{Repellin2014}. The number of energy bands will be equal to the number of magnetic Brillouin zones necessary to contain all the states in the Hilbert space.
+
+As usual in FCIs \cite{???}, we flatten the dispersion $E_n$ if necessary. Although our bands are then flat, they are distinct from Landau levels. We can quantify this distinction by considering the Berry curvature and Fubini-Study (FS) metric defined on the magnetic Brillouin zone. For notational simplicity, let us define $\partial_a \coloneqq \partial_{k_a}$. Then, respectively, the Berry curvature and FS metric components are $B_n(\bfk) = \varepsilon_{ab}\text{Tr}\left(P_{n,\bfk}\partial_{a}P_{n,\bfk}\partial_b P_{n,\bfk}\right)$ and
+\begin{align*}
+g_{n,ab}(\bfk) = \frac{1}{2}\text{Tr}\left(P_{n,\bfk}\left[\partial_a\partial_b + \partial_b \partial_a\right]P_{n,\bfk}\right.\\
+\left. \quad\quad-P_{n,\bfk}\left[\partial_aP_{n,\bfk}\partial_b+ \partial_bP_{n,\bfk}\partial_a\right] P_{n,\bfk}\right)
+\end{align*}
+
+The continuum limit described in the previous section is implemented in the $\bfk$-representation by expanding the band dispersion $E_{n}(\bfk)$ near a band minimum. The lowest-order term in such an expansion will generically be quadratic 
+
+
+
+\subsection{Experimental realization of FCIs}
+Recently, evidence of FCIs has been experimentally observed in a system of interacting electrons coupled to a supperlattice potential generated in a bilayer graphene heterostructure \cite{Spantoneaan8458}. The electrons in the superlattice form Harper-Hofstadter bands with non-zero Chern number, and, at fractional fillings corresponding to Laughlin states in the conventional FQHE, interactions stabilize a gapped phase with fractionally-quantized Hall conductance \cite{Spantoneaan8458}. 
+Other experimental works have 
+
+\subsection{Relation to previous work}
+[lattice FQH, FCIs]\cite{}
+In Ref \onlinecite{Haldane2015a}, the authors studied the geometry of single-electron bands in relation to QH physics. Our article deals with similar questions, but we place an emphasis on the role played by the underlying lattice. In particular, we exhbit concrete lattice models that give rise to the band structures studied in Ref \onlinecite{Haldane2015a}. This has the benefit of making the connection between the present discussion and FCIs more concrete.
+
+The use of the lattice is also covenient from a numerical point of view, especially since the problem of finding the single-particle eigenstates for any choice in hopping parameters is a straightforward exercise in exact diagonalization.
+
+\subsection{Outline and summary}
+In the next section, we extend the above the discussion to include hamiltonians with terms quartic in the momentum. Then, we restrict ourselves to a particular fine-tuned model in which the quartic term vanishes identically. 
+
+Finally, we will comment on anisotropic modifications to these models when the lattice symmetry is broken further by varying the relative hopping strengths in each lattice direction.
+
+
+\section{Purely quartic model}
+As we have discussed, studies of Chern bands often focus on the Chern insulator or Landau level limit; the latter is the generic behavior of a Chern band in the weak field limit. In this section, we introduce a lattice model in the weak-field regime that does \textit{not} have Landau levels as it single-particle bands. Our model hamiltonian is that of the Harper-Hofstader model with additional next-nearest-neigbor (NNN) hopping amplitudes:
+\begin{align*}
+H_0 = &-t_1 \left(T_1 + T_1^{\dag} + T_2 + T_2^{\dag}\right)\\ &- t_2 \left(T_1^{2} + T_1^{\dag 2} + T_2^{2} + T_2^{\dag 2}\right).
+\end{align*}
+
+Note that this hamiltonian only contains straight-line lattice translations, and omits ``diagonal'' NNN hoppings. 
+
+
+
+
+
+\section{Generic quartic model}
+Following the above discussion, the most general effective hamiltonian we can write down, keeping terms quartic in the momenta, is 
+\begin{align*}
+H = \frac{1}{2}h^{(1)}_{ab} \pi_a \pi_b + \frac{1}{4}h^{(2)}_{abcd} \pi_a \pi_b \pi_c \pi_d
+\end{align*}
+As discussed, there is ambiguity in ordering the components of the momentum, which we resolve by choosing a symmetric ordering. That is, we choose the coefficients $h^{(n)}$ to be totally symmetric in their $2n$ indices.
+
+Under an $SL(2,R)$ transformation of the momenta, the commutator $\comm{\pi}{\pi}$ is preserved.
+
+In general, there are no restrictions on the form of $h^{(2)}_{abcd}$ beyond total symmetry of its indices. However, in the next section we will consider the case in which $h^{(1)}$ vanishes. In this case, $H$ will not have a stable minimum unless $h^{(2)}_{abcd} = \gamma^1_{ab}\gamma^2_{cd}$ with $\gamma^j_{ab} = \gamma^{j}_{ba}$ symmetric.
+
+
+
+
+
+
+\section{Anistropic models}
+
+\begin{acknowledgments}
+
+\end{acknowledgments}
+\bibliographystyle{apsrev4-1}
+\bibliography{landau-orbits}
+
+
+\end{document}
+
+

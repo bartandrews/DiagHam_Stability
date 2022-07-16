@@ -1,0 +1,163 @@
+\documentclass[aps,prb,twocolumn,letterpaper,twoside,nobalancelastpage,groupedaddress,amsmath,amssymb,floatfix,citeautoscript]{revtex4-1}
+%\usepackage{geometry}       
+%\geometry{letterpaper}     
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{bm} %bold math symbols
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{outlines}             
+\usepackage{amssymb}
+\usepackage[caption=false]{subfig}
+\usepackage{mathtools}
+\usepackage{color}
+\definecolor{darkred}{rgb}{0.6,0.,0.}
+\definecolor{darkgreen}{rgb}{0.,0.5,0.}
+\definecolor{darkblue}{rgb}{0.,0.,0.6}
+
+\usepackage{framed}
+
+%\usepackage[square,numbers,sort,merge]{natbib}
+\usepackage[
+breaklinks,
+colorlinks=true,
+linkcolor=darkred,
+citecolor=darkgreen,
+urlcolor=darkblue]{hyperref}
+%\usepackage{doi}
+
+% \DeclareMathOperator{\tr}{tr}
+% \DeclareMathOperator{\erf}{Erf}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\begin{document}
+
+
+\def \Ns {\mathbb{N}}
+\def \Rs {\mathbb{R}}
+\def \Zs {\mathbb{Z}}
+\def \Qs {\mathbb{Q}}
+\def \Cs {\mathbb{C}}
+\def \id {\mathbb{I}}
+
+\def \bfq {{\bf q}}
+\def \bfp {{\bf p}}
+\def \bfx {{\bf x}}
+\def \bfy {{\bf y}}
+\def \bfz {{\bf z}}
+\def \bfr {{\bf r}}
+\def \bfk {{\bf k}}
+\def \bfn {{\bf n}}
+\def \bfb {{\bf b}}
+
+%\def \hata {{a}}
+%\def \hatadag {{a}^{\dagger}}
+
+\def \hatq {\widehat{q}}
+\def \hatp {\widehat{p}}
+\def \hata {\widehat{a}}
+\def \hatadag {\widehat{a}^{\dagger}}
+%\def \hatb {\widehat{b}^\phantom{\dagger}}
+%\def \hatbdag {\widehat{b}^{\dagger}}
+\def \wtN {\widetilde{N}}
+
+\def \ve {\varepsilon}
+\def \vth {\vartheta}
+
+
+
+\title{Lattice models for generic Landau orbits}
+\author{David Bauer}
+\email{dbauer@physics.ucla.edu}
+\affiliation{Department of Physics and Astronomy, University of California at Los Angeles, 475 Portola Plaza, Los Angeles, California 90095, USA}
+
+\author{Fenner Harper}
+\affiliation{Department of Physics and Astronomy, University of California at Los Angeles, 475 Portola Plaza, Los Angeles, California 90095, USA}
+
+\author{Rahul Roy}
+\affiliation{Department of Physics and Astronomy, University of California at Los Angeles, 475 Portola Plaza, Los Angeles, California 90095, USA}
+
+\date{\today}
+\begin{abstract}
+Abstract goes here.
+% Recent work on the quantum Hall effect (QHE) in lattice models and other systems with non-trivial geometry has opened the question of the extent to the stability of quantum Hall states is dependent on Landau levels. We construct a lattice model that has as its continuum limit a Hamiltonian with purely quartic momentum dependence, yielding single-particle states different from Landau levels in which one may study the QHE. We study the spectrum and band structure of the lattice Hamiltonian and its continuum limit, as well as the fractional quantum Hall effect (FQHE) of interacting particles in these bands. 
+\end{abstract}
+
+% \pacs{0}
+
+\maketitle
+% \begin{outline}
+% \1 Introduction
+% \1 Effective continuum hamiltonians
+% \1 The quartic model -- spectrum, band geometry, etc.
+% \1 FQH physics in the quartic LLL
+% \1 Discussion
+% \end{outline}
+\section{Introduction}
+\subsection{Background and motivation}
+The incompressible liquid phases of the fractional quantum Hall (FQH) effect serve as prototypical examples of topologically ordered or gapped quantum liquid phases.
+
+Two recent developments in FQH physics have each inspired a large body of literature. The first is the numerical discovery of fractional Chern insulators (FCI), which are fractionalized phases of interacting particles in the presence of a strong lattice potential. This is in contrast to the traditional picture of the quantum Hall effect, which is formulated in the continuum. Since FQH phases are topologically stable against local perturbations,
+
+FCI phases have been discovered experimentally in bilayer graphene heterostructures [cite: Spanton et al.] The single-particle Chern bands that are the FCI analogues of Landau levels have also been observed experimentally in cold atoms [cite].
+
+A second development in the FQH literature is based on observations that, in spite of their ``topological'' nature, FQH liquids are also characterized by non-trivial \textit{geometrical} properties.
+
+As pointed out by Haldane [cite], the geometry inherent in the FQH problem has been obscured by the introduction of symmetries -- for example rotational invariance -- that are unnecessary for the stability of the FQH liquid. 
+
+These two threads of inquiry are not disconnected. The introduction of a non-negligible lattice potential introduces additional geometric data that may break some non-generic symmetries. For example, in the case of a square lattice, $SO(2)$ rotational invariance in the coordinate plane is explicitly broken to $D_4$ lattice symmetry. From this point of view, a complete theory of the FQHE formulated as generically as possible should furnish a theory of FCI phases, or at least those FCI phases that have FQH analogoues. [It is not clear to me whether there are topologically-ordered phases in FCIs that require going beyond this generic FQH framework.]
+
+
+Although the FQHE is essentially a many-particle phenomenon, we expect that the nature of the host band should play a crucial role. 
+
+
+
+\subsection{Universality of Landau orbits}
+In this section, we consider a tight-binding model of an electron living on a Bravais lattice in two spatial dimensions. 
+
+We will assume that the hopping amplitude between any two sites on the lattice is generically non-zero. We index the sites of the lattice by a vector $\mathbf{m} = (m_1, m_2)$ Let $c^{\dag}_{\mathbf{m}}$ ($c_{\mathbf{m}}$) create (annihilate) an electron at site $\mathbf{m}$ of the lattice. We have the usual fermion anticommutation relations $\left\{c_{\mathbf{m}},c_{\mathbf{n}}^{\dag}\right\} = 2\delta_{\mathbf{m} \mathbf{n}}$. The single-particle Hilbert space is spanned by the space of states $\ket{\mathbf{m}}$ with the electron occupying site $\mathbf{m}$. The hamiltonian is
+\begin{align*}
+H &= \sum_{\mathbf{m}\neq \mathbf{n}} t_{\mathbf{m}\mathbf{n}} c^{\dag}_\mathbf{n} c_\mathbf{m}  + t_{\mathbf{n}\mathbf{m}} c^{\dag}_{\mathbf{m}} c_{\mathbf{n}}\\  &= \sum_{\mathbf{m}\neq \mathbf{n}} t_{\mathbf{m}\mathbf{n}} \dyad{\mathbf{n}}{\mathbf{m}} + t_{\mathbf{n}\mathbf{m}} \dyad{\mathbf{m}}{\mathbf{n}}
+\end{align*}
+
+We define translation operators $T_a = \sum_i \dyad{\mathbf{m} + \mathbf{e}_a}{\mathbf{m}}$
+
+
+
+
+We introduce a uniform background magnetic field $B$ perpendicular to the spatial extent of the lattice. 
+
+
+
+
+
+
+
+\subsection{Chern bands and geometry}
+
+
+
+\subsection{Relation to previous work}
+
+\subsection{Outline and summary}
+
+
+
+\section{Generic quartic model}
+
+\section{Purely quartic model}
+
+\section{}
+
+ \begin{acknowledgments}
+
+ \end{acknowledgments}
+
+\bibliography{quartic-2}
+% \bibliography{hofstadter-manual}
+
+\end{document}
+
+

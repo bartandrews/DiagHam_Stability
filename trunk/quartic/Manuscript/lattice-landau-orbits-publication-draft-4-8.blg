@@ -1,0 +1,70 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/MacPorts 2017_2)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: lattice-landau-orbits-publication-draft-4-8.aux
+The style file: apsrev4-1.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: lattice-landau-orbits-publication-draft-4-8Notes.bib
+Database file #2: landau-orbits.bib
+I was expecting a `,' or a `}'---line 3849 of file landau-orbits.bib
+ :  Month = 12
+ :            /30/1982,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for ""
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+Control: key (0) 
+Control: author (72) initials jnrlst
+Control: editor formatted (1) identically to author
+Control: production of article title (-1) disabled
+Control: page (0) single
+Control: year (1) truncated
+Control: production of eprint (0) enabled
+Warning--missing journal in Palumbo2017
+You've used 42 entries,
+            5847 wiz_defined-function locations,
+            1967 strings with 24571 characters,
+and the built_in function-call counts, 41559 in all, are:
+= -- 2709
+> -- 1057
+< -- 273
++ -- 336
+- -- 248
+* -- 6391
+:= -- 4143
+add.period$ -- 42
+call.type$ -- 42
+change.case$ -- 172
+chr.to.int$ -- 54
+cite$ -- 43
+duplicate$ -- 3817
+empty$ -- 3109
+format.name$ -- 610
+if$ -- 8310
+int.to.chr$ -- 1
+int.to.str$ -- 50
+missing$ -- 495
+newline$ -- 178
+num.names$ -- 126
+pop$ -- 1571
+preamble$ -- 1
+purify$ -- 210
+quote$ -- 0
+skip$ -- 1550
+stack$ -- 0
+substring$ -- 1176
+swap$ -- 3613
+text.length$ -- 124
+text.prefix$ -- 0
+top$ -- 8
+type$ -- 584
+warning$ -- 1
+while$ -- 124
+width$ -- 0
+write$ -- 391
+(There was 1 error message)

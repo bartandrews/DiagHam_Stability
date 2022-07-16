@@ -1,0 +1,73 @@
+This is BibTeX, Version 0.99d (TeX Live 2018/MacPorts 2018.47642_0)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: draft-June2018.aux
+The style file: apsrev4-1.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: draft-June2018Notes.bib
+Database file #2: landau-orbits.bib
+Repeated entry---line 2201 of file landau-orbits.bib
+ : @article{shapourian_viscoelastic_2015
+ :                                      ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 6277 of file landau-orbits.bib
+ :  Month = 12
+ :            /30/1982,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "em_response"
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+Control: key (0) 
+Control: author (72) initials jnrlst
+Control: editor formatted (1) identically to author
+Control: production of article title (-1) disabled
+Control: page (0) single
+Control: year (1) truncated
+Control: production of eprint (0) enabled
+You've used 38 entries,
+            5847 wiz_defined-function locations,
+            1901 strings with 23475 characters,
+and the built_in function-call counts, 35830 in all, are:
+= -- 2380
+> -- 890
+< -- 232
++ -- 293
+- -- 210
+* -- 5434
+:= -- 3661
+add.period$ -- 38
+call.type$ -- 38
+change.case$ -- 158
+chr.to.int$ -- 49
+cite$ -- 38
+duplicate$ -- 3360
+empty$ -- 2677
+format.name$ -- 514
+if$ -- 7109
+int.to.chr$ -- 2
+int.to.str$ -- 46
+missing$ -- 430
+newline$ -- 166
+num.names$ -- 114
+pop$ -- 1422
+preamble$ -- 1
+purify$ -- 190
+quote$ -- 0
+skip$ -- 1308
+stack$ -- 0
+substring$ -- 861
+swap$ -- 3108
+text.length$ -- 105
+text.prefix$ -- 0
+top$ -- 8
+type$ -- 521
+warning$ -- 0
+while$ -- 102
+width$ -- 0
+write$ -- 365
+(There were 2 error messages)

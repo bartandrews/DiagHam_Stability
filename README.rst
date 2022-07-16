@@ -10,6 +10,7 @@ DiagHam version for the FCI stability project.
 5. `Appendix: DiagHam tips`_
 6. `Appendix: Getting started with the latest DiagHam`_
 7. `Appendix: Debugging DiagHam compilation`_
+8. `Appendix: Boost Python tips`_
 
 How this repository was created
 -------------------------------
@@ -70,41 +71,6 @@ In the ``~/DiagHam_Stability/trunk`` directory:
 
 5) ``cd ../run; ../build/FQHE/src/Programs/FQHEOnSphere/FQHESphereJackGenerator --help``
 
-Example commands
-----------------
-
-Then, some useful commands are as follows...
-
-- counting states in the Hilbert-space:
-
-``FTIGetDimension -p 12 -x 4 -y 6 —bosons``
-
-- calculating spectrum for the Hofstadter model with interactions:
-
-``FCIHofstadterModel -p 10 -x 4 -y 5 --boson -X 3 -Y 3 -q 1 -m 10000 -S --processors 10 -n 1 --lanczos-precision 1e-10 —eigenstate``
-
-- same with some more useful options:
-
-``FCIHofstadterModel -p 10 -x 4 -y 5 --boson -X 3 -Y 3 -q 1 -m 10000 -S --processors 10 -n 2 --lanczos-precision 1e-10 --eigenstate  --auto-addprojector --only-kx 0 --only-ky 0 --fast-disk``
-
-- overlaps between vectors:
-
-``GenericOverlap vector1.vec vector2.vec``
-
-- David mostly used a Python script to run DiagHam in batches. You can find this script in the Dropbox folder for the project: quartic/June 2018/Many-body code/batch_diagham.py. This script took CSV files with parameter lists as input, and you can find these batch files in the folders corresponding to the individual batches. A typical call from the script would be something like:
-
-``FCIHofstadterModel --flat-band -n 2 -p 8 -x 4 -y 6 -X 3 -Y 2 --t2 -0.25``
-
-This leaves out some flags relating to memory usage, numerical precision, etc.
-
-- plot scripts are found in ``DiagHam_Stability/scripts_bart/``
-
--``FindLatticeGap.pl``
-Find the many-body gap from a .dat output file containing a many-body spectrum. Needs the expected ground state degeneracy as an input via -d
-
--``PlotHofstadterSpectrum.pl``
-Generates a plot from a given spectrum file, using gnuplot. The -s flag is used to complete the spectrum by adding symmetry related momentum sectors to the bare data in the input file.
-
 Tutorials
 ---------
 
@@ -115,17 +81,61 @@ Before getting started, the following aliases can be defined in ``~/.bash_aliase
 - ``alias FTIGetDimension=~/DiagHam_Stability/trunk/build/FTI/src/Programs/FTI/FTIGetDimension``
 - ``alias FCIHofstadterModel=~/DiagHam_Stability/trunk/build/FTI/src/Programs/FCI/FCIHofstadterModel``
 - ``alias GenericOverlap=~/DiagHam_Stability/trunk/build/src/Programs/GenericOverlap``
+- ``alias FindLatticeGap=~/DiagHam_Stability/trunk/scripts_bart/FindLatticeGap.pl``
+- ``alias PlotHofstadterSpectrum=~/DiagHam_Stability/trunk/scripts_bart/PlotHofstadterSpectrum.pl``
+- ``function vd() { cat $1 | sort -g -k3 | head }``
+
+And the following variable should be added to ``~/.bashrc``:
+
+- ``export PYTHONPATH=$PYTHONPATH:~/DiagHam_Stability/trunk/FTI/src/Programs/FCI``
+
+After which, you need to either ``source ~/.bashrc``, or restart the session, for the changes to take effect.
 
 01_ener_spec
 ^^^^^^^^^^^^
 
-In the first tutorial, we calculate the many-body energy spectrum for the Hofstadter model.
+In this tutorial, we calculate the many-body energy spectrum for a fractional Chern insulator in the Hofstadter model.
 
-1. In order to generate the energy spectrum for the Hofstadter model, we first need to first run the command:
+1. We can check the dimension of the Hilbert space of our proposed configuration by running:
 
-``FCIHofstadterModel -p 10 -x 4 -y 5 -X 3 -Y 3 -q 1 -m 10000 -S --processors 10 -n 1 --lanczos-precision 1e-10 —eigenstate``
+- ``FTIGetDimension -p 7 -x 3 -y 7``
 
-We consider an example with 8 particles
+This shows us that for a fermionic system with 7 particles and 21 magnetic unit cells (yielding nu=7/21=1/3), the Hilbert space dimension is ~1e3, which is easily tractable on a personal computer (anything up to ~1e6 should be fine).
+
+2. In order to generate the energy spectrum for the Hofstadter model, we run the command:
+
+- ``FCIHofstadterModel -p 7 -x 3 -y 7 -X 7 -Y 3 -m 8000 -S --processors 4 -n 1 --lanczos-precision 1e-10 --eigenstate``
+
+We consider the parameters from above with a MUC of 7x3, with 8GB of RAM and 4 processors. Note that a larger MUC yields a physically more stable system, while square total system sizes are numerically the most stable. We can drop the ``-n 1 --eigenstate`` flags if we're only interested in the energy spectrum. This flag generates the eigenvector(s) corresponding to the lowest n=1 eigenvalue(s) in each momentum sector.
+
+3. Generate and plot the spectrum. (Note that for the ``DiagHam_Stability`` code, the spectrum does not need to be symmetry-extended with the ``-s`` flag, since we compute the spectrum for all momentum sectors, disregarding symmetries, akin to the ``--full-momentum`` flag in ``DiagHam``.)
+
+- ``PlotHofstadterSpectrum *0.dat``
+
+4. Check that the ground state degeneracy is correct in the spectrum. (Note that the magnitude of the energies in ``DiagHam`` is a factor of 2 larger than in ``DiagHam_Stability``.)
+
+- ``vd *0.dat``
+
+5. View the spectrum:
+
+- ``evince *.ps``
+
+6. Determine the many-body gap (Delta):
+
+- ``FindLatticeGap -d 3 *0.dat``
+
+7. Compute the overlap of two ground states:
+
+- ``GenericOverlap -c *kx_0_ky_0.0.vec *kx_1_ky_0.0.vec``
+
+This tutorial is summarized in ``01_ener_spec.sh``.
+
+02_gap_trace
+^^^^^^^^^^^^
+
+In the tutorial, we plot the many-body gap (Delta) against the trace inequality saturation measure (TISM, denoted as <T>).
+
+
 
 References
 ----------
@@ -204,3 +214,16 @@ Repository found at: https://github.com/jmlamare/autotools-helloworld-cpp
 - ``./configure``
 - ``make``
 - ``src/hello``
+
+Appendix: Boost Python tips
+---------------------------
+
+1) Make sure that the ``~/user_config.jam`` is pointing to the correct python interpreter
+
+2) You can install additional packages either via ``pip`` or globally e.g. ``sudo apt-get install python3-scipy``
+
+3) Allow python to load modules from the correct directory by setting ``PYTHONPATH`` before calling ``Py_Initialize()``...
+
+- ``#include <cstdlib> // setenv`` followed by ``setenv("PYTHONPATH", "/home/bart/DiagHam_Stability/trunk/FTI/src/Programs/FCI", 1);`` before ``Py_Initialize()``
+
+...or by appending to the ``PYTHONPATH`` variable.

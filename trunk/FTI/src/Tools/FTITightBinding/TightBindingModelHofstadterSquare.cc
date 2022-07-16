@@ -37,6 +37,7 @@
 // Include this to allow DiagHam to call Python for Hofstadter single-particle stuff.
 // I'm disabling it for now because I don't want to try to get it working on the cluster.
 #include <boost/python.hpp>
+//#include <cstdlib> // setenv
 
 #include <iostream>
 
@@ -366,6 +367,7 @@ void TightBindingModelHofstadterSquare::GetOneBodyBasisFromPython()
     {
         gauge_choice =1;
     }
+    //setenv("PYTHONPATH", "/home/bart/DiagHam_Stability/trunk/FTI/src/Programs/FCI", 1);
     Py_Initialize();
 
     if (this->OneBodyBasis != 0 || true)

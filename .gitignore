@@ -11,3 +11,12 @@ trunk/configure
 trunk/test-driver
 
 **/*.in
+
+trunk/quartic/Manuscript/quartic-zotero
+trunk/tutorials/**/*.out
+trunk/tutorials/**/*.dat
+trunk/tutorials/**/*.vec
+trunk/tutorials/**/*.bak
+trunk/tutorials/**/initialvector
+
+

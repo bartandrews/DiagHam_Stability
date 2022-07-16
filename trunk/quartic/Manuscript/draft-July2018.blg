@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99d (TeX Live 2018/MacPorts 2018.47642_2)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: draft-July2018.aux
+The style file: apsrev4-1.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: draft-July2018Notes.bib
+Database file #2: landau-orbits.bib
+Repeated entry---line 2266 of file landau-orbits.bib
+ : @article{shapourian_viscoelastic_2015
+ :                                      ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 6337 of file landau-orbits.bib
+ :  Month = 12
+ :            /30/1982,
+I'm skipping whatever remains of this entry
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+Control: key (0) 
+Control: author (72) initials jnrlst
+Control: editor formatted (1) identically to author
+Control: production of article title (-1) disabled
+Control: page (0) single
+Control: year (1) truncated
+Control: production of eprint (0) enabled
+You've used 42 entries,
+            5847 wiz_defined-function locations,
+            1913 strings with 24060 characters,
+and the built_in function-call counts, 39052 in all, are:
+= -- 2550
+> -- 984
+< -- 252
++ -- 323
+- -- 232
+* -- 5913
+:= -- 3985
+add.period$ -- 42
+call.type$ -- 42
+change.case$ -- 172
+chr.to.int$ -- 53
+cite$ -- 42
+duplicate$ -- 3687
+empty$ -- 2948
+format.name$ -- 574
+if$ -- 7737
+int.to.chr$ -- 2
+int.to.str$ -- 50
+missing$ -- 468
+newline$ -- 178
+num.names$ -- 126
+pop$ -- 1589
+preamble$ -- 1
+purify$ -- 210
+quote$ -- 0
+skip$ -- 1413
+stack$ -- 0
+substring$ -- 909
+swap$ -- 3378
+text.length$ -- 116
+text.prefix$ -- 0
+top$ -- 8
+type$ -- 575
+warning$ -- 0
+while$ -- 110
+width$ -- 0
+write$ -- 383
+(There were 2 error messages)
