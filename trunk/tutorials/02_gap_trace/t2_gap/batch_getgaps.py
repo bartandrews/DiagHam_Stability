@@ -16,7 +16,7 @@ if __name__ == "__main__":
             n, x, y, X, Y, t2, gy = int(row[0]), int(row[1]), int(row[2]), int(row[3]), int(row[4]), \
                                     float(row[5]), float(row[6])
             filename = (f"bosons_hofstadter_X_{X}_Y_{Y}_q_1_"
-                        f"n_{n}_x_{x}_y_{y}_t2_{t2:g}_t3_0_alpha_1_u_1_gx_0_gy_{gy:g}.dat")
+                        f"n_{n}_x_{x}_y_{y}_t2_{t2:g}_t3_0_alpha_1_gx_0_gy_{gy:g}.dat")
             if os.path.isfile(filename):
                 print(f"Opening {filename}")
                 with open(filename, 'r') as csvfile2:  # open dat file
