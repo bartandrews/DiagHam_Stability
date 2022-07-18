@@ -219,7 +219,7 @@ For example, the non-zero elements of the exp(-r^4) interaction are illustrated 
 
 .. image:: trunk/tutorials/04_int_sym/exp_int.png
 	:align: center
-	:width: 80%
+	:width: 50%
 
 1. First, we can check for any discrepancies between ``DiagHam`` and ``DiagHam_Stability`` for the interactions that are implemented in both, using an example for bosons (onsite and NN) and fermions (NN and NNN). For example, we can run ``04_int_sym.sh`` and then compare the spectra by running:
 
