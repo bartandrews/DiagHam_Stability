@@ -106,7 +106,7 @@ This shows us that for a fermionic system with 7 particles and 21 magnetic unit 
 
 - ``FCIHofstadterModel -p 7 -x 3 -y 7 -X 7 -Y 3 -m 8000 -S --processors 4 -n 1 --lanczos-precision 1e-10 --eigenstate``
 
-We consider the parameters from above with a MUC of 7x3, with 8GB of RAM and 4 processors. Note that a larger MUC yields a physically more stable system, while square total system sizes are numerically the most stable. We can drop the ``--eigenstate`` flag if we're only interested in the energy spectrum. This flag generates the eigenvector(s) corresponding to the lowest eigenvalue(s) in each momentum sector. The ``-n 1`` flag specifies the number of eigenvalues to compute in each momentum sector.
+We consider the parameters from above with a MUC of 7x3, with 8GB of RAM and 4 processors. Note that a larger MUC yields a physically more stable system, while square total system sizes are numerically the most stable. We can drop the ``--eigenstate`` flag if we're only interested in the energy spectrum. This flag generates the eigenvector(s) corresponding to the lowest eigenvalue(s) in each momentum sector. The ``-n 1`` flag specifies the number of eigenvalues to compute in each momentum sector. Be careful, if you set ``-n 1`` and all of the ground states happen to be in the same momentum sector, you will not find them!
 
 3. Generate and plot the spectrum. (Note that for the ``DiagHam_Stability`` code, the spectrum does not need to be symmetry-extended with the ``-s`` flag, since we compute the spectrum for all momentum sectors, disregarding symmetries, akin to the ``--full-momentum`` flag in ``DiagHam``.)
 
@@ -210,6 +210,27 @@ Note that for the ``fermions_exp`` figures, the many-body gap had to be further 
 ^^^^^^^^^^
 
 In this tutorial, we demonstrate the effect of interaction symmetry on the stability of FCIs.
+
+The custom interactions are implemented in:
+
+- ``FTI/src/Hamiltonian/ParticleOnLatticeHofstadterSingleBandHamiltonian.cc(.h)``
+
+For example, the non-zero elements of the exp(-r^4) interaction are illustrated below:
+
+.. image:: trunk/tutorials/04_int_sym/exp_int.png
+	:align: center
+	:width: 80%
+
+1. First, we can check for any discrepancies between ``DiagHam`` and ``DiagHam_Stability`` for the interactions that are implemented in both, using an example for bosons (onsite and NN) and fermions (NN and NNN). For example, we can run ``04_int_sym.sh`` and then compare the spectra by running:
+
+- ``vd bosons*.dat``
+- ``vd fermions*.dat``
+
+Here we can see that the magnitude of the energies in ``DiagHam`` is a factor of 2 larger than in ``DiagHam_Stability`` but the spectra otherwise agree.
+
+2. Next, we can recover the fermions NN and NNN results above by modifying the hard-coded exp(-r^4) interaction.
+
+3. Finally, we can implement an exp(-r^4) interaction for bosons and modify it to recover the boson onsite and NN results.
 
 References
 ----------
