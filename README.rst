@@ -184,7 +184,7 @@ Note: The ``t2_gap`` dat files in this tutorial are copied from ``DiagHam_David`
 
 While in principle, these dat files could be reproduced by running ``batch_diagham.py``, small differences in DiagHam convergence means that the numbers do not precisely match up. Therefore, in order to reproduce exactly the same figures as `[Bauer2022] <https://arxiv.org/abs/2110.09565>`__, we start with the same dat files.
 
-0. [optional] Generate the many-body energy spectra e.g.
+0. [optional] Generate the many-body energy spectra (modify ``batch_diagham.py`` appropriately) e.g.
 
 - ``cd t2_gap/bosons_onsite``
 - ``python ../batch_diagham.py bosons_onsite_batchfile.csv``
