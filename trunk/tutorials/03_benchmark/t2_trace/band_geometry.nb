@@ -1,0 +1,230 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9279,        222]
+NotebookOptionsPosition[      7982,        192]
+NotebookOutlinePosition[      8385,        209]
+CellTagsIndexPosition[      8342,        206]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", 
+  "\"\<~/DiagHam_Stability/trunk/tutorials/03_benchmark/t2_trace\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Get", "[", "\"\<BandGeometry`\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.7354962517399*^9, 3.735496252418454*^9}, {
+  3.741286297116959*^9, 3.741286306915739*^9}, {3.741286364286558*^9, 
+  3.741286380491948*^9}, {3.741286574520075*^9, 3.741286584284561*^9}, {
+  3.74129155170286*^9, 3.741291553162982*^9}, {3.741528347229289*^9, 
+  3.7415283474947577`*^9}, {3.8671520149079323`*^9, 3.867152038251458*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"3cb2ea26-3183-4893-aada-00983d8cc345"],
+
+Cell[BoxData["\<\"/home/bart/DiagHam_Stability/trunk/tutorials/03_benchmark/\
+t2_trace\"\>"], "Output",
+ CellChangeTimes->{
+  3.734606929277915*^9, 3.734631564638648*^9, 3.7346321406519823`*^9, 
+   3.734730070727453*^9, 3.735419742358839*^9, 3.735483463100766*^9, 
+   3.735483700624802*^9, 3.735496252844223*^9, 3.735500469610396*^9, 
+   3.7355013724254208`*^9, 3.735501538296556*^9, 3.735502541020082*^9, 
+   3.735676699302079*^9, 3.7358468037588453`*^9, 3.736880085329709*^9, 
+   3.737300447042948*^9, 3.740156905866482*^9, 3.741266567601975*^9, {
+   3.7412863681854467`*^9, 3.7412863809730988`*^9}, {3.7412865770219088`*^9, 
+   3.741286584673891*^9}, 3.741291468265503*^9, {3.741291553621286*^9, 
+   3.7412915736491337`*^9}, 3.741364353674571*^9, 3.741452850388791*^9, {
+   3.741528327068945*^9, 3.7415283482626*^9}, 3.74152837979016*^9, 
+   3.741972707160698*^9, 3.741975123398531*^9, 3.742043425946671*^9, 
+   3.7421342730096273`*^9, 3.742134331013648*^9, 3.7421343876142893`*^9, 
+   3.743786393722736*^9, 3.745245924790366*^9, 3.745599752238276*^9, 
+   3.86715204168323*^9, 3.8671521192120953`*^9, 3.8671521743551188`*^9, 
+   3.867156036692881*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"be4245e4-59cd-44df-83f3-bbb831cdfd1c"],
+
+Cell[BoxData["\<\"BandGeometry-nocompile v2016-6-29\"\>"], "Print",
+ CellChangeTimes->{3.8671520416907263`*^9, 3.867152119218184*^9, 
+  3.867152174361271*^9, 3.867156036695299*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"44e3857f-53d2-492d-b5fb-276bb8ff260f"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bandGeometryTable", "[", 
+   RowBox[{"model_", ",", "m_"}], "]"}], " ", ":=", " ", 
+  RowBox[{"Quiet", "@", 
+   RowBox[{"ParallelTable", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", 
+       RowBox[{"Round", "[", 
+        RowBox[{"t2", ",", "0.01"}], "]"}], ",", 
+       RowBox[{"Abs", "@", 
+        RowBox[{"rmsCurvature", "[", 
+         RowBox[{"{", 
+          RowBox[{"model", ",", "1", ",", "m", ",", "t2"}], "}"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"Abs", "@", 
+        RowBox[{"rmsTrG", "[", 
+         RowBox[{"{", 
+          RowBox[{"model", ",", "1", ",", "m", ",", "t2"}], "}"}], "]"}]}], 
+       ",", 
+       RowBox[{
+        RowBox[{"bzIntegrate", "[", 
+         RowBox[{"trGInequality", ",", 
+          RowBox[{"{", 
+           RowBox[{"model", ",", "1", ",", "m", ",", "t2"}], "}"}]}], "]"}], 
+        "/", 
+        RowBox[{"(", 
+         RowBox[{"2", "Pi", " ", "m"}], ")"}]}], ",", 
+       RowBox[{
+        RowBox[{"bzIntegrate", "[", 
+         RowBox[{"detGInequality", ",", 
+          RowBox[{"{", 
+           RowBox[{"model", ",", "1", ",", "m", ",", "t2"}], "}"}]}], "]"}], 
+        "/", 
+        RowBox[{"(", 
+         RowBox[{"2", "Pi", " ", "m"}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t2", ",", 
+       RowBox[{"-", "0.25"}], ",", "0", ",", "0.01"}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.742043626347927*^9, 3.742043629185521*^9}, {
+  3.742043660441733*^9, 3.742043723132454*^9}, {3.742078304864889*^9, 
+  3.742078328277803*^9}, {3.742125963041183*^9, 3.74212596875774*^9}, {
+  3.867152146864011*^9, 3.867152151923242*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"c7852f4e-fca2-482d-a870-232ec378a594"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bosonBG", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<UCarea\>\"", ",", "\"\<t2\>\"", ",", "\"\<rmsB\>\"", ",", 
+        "\"\<rmsTrace\>\"", ",", "\"\<traceIneq\>\"", ",", 
+        "\"\<detIneq\>\""}], "}"}], "}"}], ",", 
+     RowBox[{"bandGeometryTable", "[", 
+      RowBox[{"\"\<QHofstadter\>\"", ",", "16"}], "]"}], ",", 
+     RowBox[{"bandGeometryTable", "[", 
+      RowBox[{"\"\<QHofstadter\>\"", ",", "49"}], "]"}], ",", 
+     RowBox[{"bandGeometryTable", "[", 
+      RowBox[{"\"\<QHofstadter\>\"", ",", "81"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.742122265629163*^9, 3.7421223711075974`*^9}, 
+   3.867154148407275*^9, {3.8671560491681957`*^9, 3.867156080712063*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"966c48f1-e512-40cd-be10-60de1cfa91f1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<~/DiagHam_Stability/trunk/tutorials/03_benchmark/t2_trace/bosons_\
+geometry.csv\>\"", ",", "bosonBG"}], "]"}]], "Input",
+ CellChangeTimes->{{3.742124821344038*^9, 3.7421248296221533`*^9}, {
+   3.867152108650659*^9, 3.8671521121144657`*^9}, 3.8671521688115683`*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"210ffcac-70d4-4cf4-82fc-a98311976ddf"],
+
+Cell[BoxData["\<\"~/DiagHam_Stability/trunk/tutorials/03_benchmark/t2_trace/\
+bosons_geometry.csv\"\>"], "Output",
+ CellChangeTimes->{3.742124830540707*^9, 3.7421336392239313`*^9, 
+  3.867154494871765*^9, 3.867156173717704*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"e7569bee-5f4d-4a47-abf7-552f23eb85f2"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fermionBG", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<UCarea\>\"", ",", "\"\<t2\>\"", ",", "\"\<rmsB\>\"", ",", 
+        "\"\<rmsTrace\>\"", ",", "\"\<traceIneq\>\"", ",", 
+        "\"\<detIneq\>\""}], "}"}], "}"}], ",", 
+     RowBox[{"bandGeometryTable", "[", 
+      RowBox[{"\"\<QHofstadter\>\"", ",", "24"}], "]"}], ",", 
+     RowBox[{"bandGeometryTable", "[", 
+      RowBox[{"\"\<QHofstadter\>\"", ",", "54"}], "]"}], ",", 
+     RowBox[{"bandGeometryTable", "[", 
+      RowBox[{"\"\<QHofstadter\>\"", ",", "96"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.742043727635872*^9, 3.742043785433888*^9}, {
+   3.7420438780039053`*^9, 3.742043947782192*^9}, {3.742046598014853*^9, 
+   3.742046600122954*^9}, 3.7420466950158577`*^9, 3.742052653134221*^9, {
+   3.867156099532682*^9, 3.8671561499892473`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"ed436c63-8b08-4425-a152-775bb37e0784"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\<~/DiagHam_Stability/trunk/tutorials/03_benchmark/t2_trace/fermions_\
+geometry.csv\>\"", ",", "fermionBG"}], "]"}]], "Input",
+ CellChangeTimes->{{3.74204663853542*^9, 3.74204668076579*^9}, 
+   3.74212599607123*^9, {3.867152071842642*^9, 3.8671521033068533`*^9}, {
+   3.867156153293459*^9, 3.867156155661121*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"efdbba42-3467-4181-b5c4-4dc5ef6ed8ac"],
+
+Cell[BoxData["\<\"~/DiagHam_Stability/trunk/tutorials/03_benchmark/t2_trace/\
+fermions_geometry.csv\"\>"], "Output",
+ CellChangeTimes->{3.742046681901051*^9, 3.742128075392304*^9, 
+  3.8671534557917757`*^9, 3.867156366191115*^9, 3.8671570716389112`*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"8312192b-eba0-4857-a4ba-18c268ed971a"]
+}, Open  ]]
+},
+WindowSize->{1920, 1011},
+WindowMargins->{{0, Automatic}, {0, 37}},
+Magnification->1.25,
+FrontEndVersion->"12.3 for Linux x86 (64-bit) (May 11, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5dfcd9cb-d5a2-40b8-a27b-33fd2f673d3f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 647, 10, 65, "Input",ExpressionUUID->"3cb2ea26-3183-4893-aada-00983d8cc345"],
+Cell[1230, 34, 1232, 18, 42, "Output",ExpressionUUID->"be4245e4-59cd-44df-83f3-bbb831cdfd1c"],
+Cell[2465, 54, 284, 5, 30, "Print",ExpressionUUID->"44e3857f-53d2-492d-b5fb-276bb8ff260f"]
+}, Open  ]],
+Cell[2764, 62, 1765, 45, 92, "Input",ExpressionUUID->"c7852f4e-fca2-482d-a870-232ec378a594"],
+Cell[4532, 109, 877, 20, 65, "Input",ExpressionUUID->"966c48f1-e512-40cd-be10-60de1cfa91f1"],
+Cell[CellGroupData[{
+Cell[5434, 133, 399, 7, 37, "Input",ExpressionUUID->"210ffcac-70d4-4cf4-82fc-a98311976ddf"],
+Cell[5836, 142, 305, 4, 42, "Output",ExpressionUUID->"e7569bee-5f4d-4a47-abf7-552f23eb85f2"]
+}, Open  ]],
+Cell[6156, 149, 1003, 22, 65, "Input",ExpressionUUID->"ed436c63-8b08-4425-a152-775bb37e0784"],
+Cell[CellGroupData[{
+Cell[7184, 175, 447, 8, 37, "Input",ExpressionUUID->"efdbba42-3467-4181-b5c4-4dc5ef6ed8ac"],
+Cell[7634, 185, 332, 4, 87, "Output",ExpressionUUID->"8312192b-eba0-4857-a4ba-18c268ed971a"]
+}, Open  ]]
+}
+]
+*)
+

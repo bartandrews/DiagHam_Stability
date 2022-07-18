@@ -1,7 +1,7 @@
 DiagHam_Stability
 =================
 
-DiagHam version for the FCI stability project.
+DiagHam version for the fractional Chern insulator (FCI) stability project.
 
 1. `How this repository was created`_
 2. `Getting started with this repository`_
@@ -94,7 +94,7 @@ After which, you need to either ``source ~/.bashrc``, or restart the session, fo
 01_ener_spec
 ^^^^^^^^^^^^
 
-In this tutorial, we calculate the many-body energy spectrum for a fractional Chern insulator in the Hofstadter model.
+In this tutorial, we calculate the many-body energy spectrum for a FCI in the Hofstadter model.
 
 1. We can check the dimension of the Hilbert space of our proposed configuration by running:
 
@@ -106,7 +106,7 @@ This shows us that for a fermionic system with 7 particles and 21 magnetic unit 
 
 - ``FCIHofstadterModel -p 7 -x 3 -y 7 -X 7 -Y 3 -m 8000 -S --processors 4 -n 1 --lanczos-precision 1e-10 --eigenstate``
 
-We consider the parameters from above with a MUC of 7x3, with 8GB of RAM and 4 processors. Note that a larger MUC yields a physically more stable system, while square total system sizes are numerically the most stable. We can drop the ``-n 1 --eigenstate`` flags if we're only interested in the energy spectrum. This flag generates the eigenvector(s) corresponding to the lowest n=1 eigenvalue(s) in each momentum sector.
+We consider the parameters from above with a MUC of 7x3, with 8GB of RAM and 4 processors. Note that a larger MUC yields a physically more stable system, while square total system sizes are numerically the most stable. We can drop the ``--eigenstate`` flag if we're only interested in the energy spectrum. This flag generates the eigenvector(s) corresponding to the lowest eigenvalue(s) in each momentum sector. The ``-n 1`` flag specifies the number of eigenvalues to compute in each momentum sector.
 
 3. Generate and plot the spectrum. (Note that for the ``DiagHam_Stability`` code, the spectrum does not need to be symmetry-extended with the ``-s`` flag, since we compute the spectrum for all momentum sectors, disregarding symmetries, akin to the ``--full-momentum`` flag in ``DiagHam``.)
 
@@ -150,7 +150,7 @@ In this tutorial, we plot the many-body gap (Delta) against the trace inequality
 - ``cd t2_gap``
 - ``python batch_diagham.py batchfile.csv``
 
-3. Using ``batch_getgaps.py`` together with the parameter file ``batchfile.csv``, we can generate the file ``outfile.csv``, which tabulates t2 vs gap.
+3. Using ``batch_getgaps.py`` together with the parameter file ``batchfile.csv``, we can generate the file ``outfile.csv``, which tabulates t2 vs gap. Note that the ``-n`` flag should be large enough to capture the full ground-state degeneracy, in case all ground states are in the same momentum sector. Furthermore, the many-body gap is defined above the highest energy in the quasi-degenerate ground-state manifold. In this boson example, the degeneracy d=2 has not been resolved and so we take the gap above the lowest state.
 
 - ``python batch_getgaps.py batchfile.csv outfile.csv``
 - ``cd ..``
@@ -164,6 +164,52 @@ This yields the final plot ``bosons_16_onsite.pdf``, which reproduces Fig.9.(a) 
 .. image:: trunk/tutorials/02_gap_trace/bosons_16_onsite.png
 	:align: center
 	:width: 80%
+
+03_benchmark
+^^^^^^^^^^^^
+
+In this tutorial, we reproduce the nine Delta vs TISM figures in `[Bauer2022] <https://arxiv.org/abs/2110.09565>`__ (Figs.9-11).
+
+Note: The ``t2_gap`` dat files in this tutorial are copied from ``DiagHam_David``, with the following locations:
+
+- Destination: ``bosons_onsite/*.dat``
+- Source: ``~/DiagHam_Stability/trunk/FTI/src/Programs/FCI/quartic-bosons/*.dat``
+
+- Destination: ``fermions_NN/*.dat``
+- Source 1: ``~/DiagHam_Stability/trunk/FTI/src/Programs/FCI/quartic-data-july/*.dat``
+- Source 2: ``~/DiagHam_Stability/trunk/FTI/src/Programs/FCI/quartic-96/*.dat``
+
+- Destination: ``fermions_exp/*.dat``
+- Source: ``~/DiagHam_Stability/trunk/FTI/src/Programs/FCI/rsquared-data/*.dat``
+
+While in principle, these dat files could be reproduced by running ``batch_diagham.py``, small differences in DiagHam convergence means that the numbers do not precisely match up. Therefore, in order to reproduce exactly the same figures as `[Bauer2022] <https://arxiv.org/abs/2110.09565>`__, we start with the same dat files.
+
+0. [optional] Generate the many-body energy spectra e.g.
+
+- ``cd t2_gap/bosons_onsite``
+- ``python ../batch_diagham.py bosons_onsite_batchfile.csv``
+
+1. Calculate the many-body gaps e.g.
+
+- ``python ../batch_getgaps.py 1 bosons_onsite_batchfile.csv bosons_onsite_outfile.csv``
+
+The first argument is the degeneracy of the ground-state manifold. Note that, anomalously, a degeneracy of 1 is used for the boson examples above, since the d=2 degeneracy is not correctly resolved. We can run ``batch_diagham.py`` with a larger ``-n`` in order to resolve this degeneracy. For the fermion examples, the degeneracy is correctly resolved.
+
+2. Generate the band geometry data for bosons (``bosons_geometry.csv``) and fermions (``fermions_geometry.csv``):
+
+- ``cd ../../t2_trace``
+- ``mathematica band_geometry.nb``
+
+3. Evaluate the notebook ``final_plots.nb`` to plot the figures:
+
+- ``jupyter notebook &``
+
+Note that for the ``fermions_exp`` figures, the many-body gap had to be further multiplied by a factor of ``1/(2*Area)`` (in the notebook ``final_plots.nb``), where ``Area`` is the area of the system in units of magnetic unit cells. This is for consistency with the other examples, since DiagHam includes a factor of ``1/(2*Area)`` by default in the interaction factors, which was omitted for the custom exponential interaction.
+
+04_int_sym
+^^^^^^^^^^
+
+In this tutorial, we demonstrate the effect of interaction symmetry on the stability of FCIs.
 
 References
 ----------

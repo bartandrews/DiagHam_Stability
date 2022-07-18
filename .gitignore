@@ -15,7 +15,10 @@ trunk/test-driver
 trunk/quartic/Manuscript/quartic-zotero
 
 trunk/tutorials/**/*.out
-trunk/tutorials/**/*.dat
+
+trunk/tutorials/01_ener_spec/**/*.dat
+trunk/tutorials/02_gap_trace/**/*.dat
+
 trunk/tutorials/**/*.vec
 trunk/tutorials/**/*.bak
 trunk/tutorials/**/*.gp
