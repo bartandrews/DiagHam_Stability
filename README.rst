@@ -221,10 +221,13 @@ For example, the non-zero elements of the exp(-r^4) interaction are illustrated 
 	:align: center
 	:width: 50%
 
-1. First, we can check for any discrepancies between ``DiagHam`` and ``DiagHam_Stability`` for the interactions that are implemented in both, using an example for bosons (onsite and NN) and fermions (NN and NNN). For example, we can run ``04_int_sym.sh`` and then compare the spectra by running:
+1. First, we can check for any discrepancies between ``DiagHam`` and ``DiagHam_Stability`` for the interactions that are implemented in both, using an example for bosons (onsite and NN) and fermions (NN and NNN). For example, we can run ``04_int_sym.sh`` and then compare the spectra, as follows:
 
-- ``vd bosons*.dat``
-- ``vd fermions*.dat``
+- ``./04_int_sym.sh``
+- ``vd bosons/diagham_stability/onsite/*.dat; vd bosons/diagham/onsite/*ext.dat``
+- ``vd bosons/diagham_stability/NN/*.dat; vd bosons/diagham/NN/*ext.dat``
+- ``vd fermions/diagham_stability/NN/*.dat; vd fermions/diagham/NN/*ext.dat``
+- ``vd fermions/diagham_stability/NNN/*.dat; vd fermions/diagham/NNN/*ext.dat``
 
 Here we can see that the magnitude of the energies in ``DiagHam`` is a factor of 2 larger than in ``DiagHam_Stability`` but the spectra otherwise agree.
 
