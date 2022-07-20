@@ -233,7 +233,44 @@ Here we can see that the magnitude of the energies in ``DiagHam`` is a factor of
 
 2. Next, we can recover the fermions NN and NNN results above by modifying the hard-coded exp(-r^4) interaction.
 
-3. Finally, we can implement an exp(-r^4) interaction for bosons and modify it to recover the boson onsite and NN results.
+- ``mkdir fermions_test``
+- ``cd fermions_test``
+- ``mkdir NN; mkdir NNN``
+
+For NN fermions:
+
+- ``cd NN``
+- ``mkdir ref``
+- ``FCIHofstadterModel -p 6 -x 3 -y 6 -X 6 -Y 3 -m 8000 -S --processors 4 -n 10 --lanczos-precision 1e-10 > /dev/null``
+- ``cd ..``
+
+Now we can edit ``~/DiagHam_Stability/trunk/FTI/src/Hamiltonian/ParticleOnLatticeHofstadterSingleBandHamiltonian.cc`` and then run ``make`` in the directory ``~/DiagHam_Stability/trunk/build/FTI/src``. Once we have made our changes, we can continue by running:
+
+- ``FCIHofstadterModel -p 6 -x 3 -y 6 -X 6 -Y 3 -m 8000 -S --processors 4 -n 10 --lanczos-precision 1e-10 > /dev/null``
+- ``vd *.dat; vd ref/*.dat``
+
+Here we can see that the NN fermion results can be recovered by modifying the hard-coded exp(-r^4) interaction. The same can be repeated for the NNN fermions.
+
+3. Finally, we can go to the exp(-r^4) interaction for bosons and modify it to recover the boson onsite and NN results.
+
+- ``cd ~/DiagHam_Stability/trunk/tutorials/04_int_sym``
+- ``mkdir bosons_test``
+- ``cd bosons_test``
+- ``mkdir onsite; mkdir NN``
+
+For onsite bosons:
+
+- ``cd onsite``
+- ``mkdir ref``
+- ``FCIHofstadterModel --boson -p 6 -x 3 -y 4 -X 4 -Y 3 -m 8000 -S --processors 4 -n 10 --lanczos-precision 1e-10 > /dev/null``
+- ``cd ..``
+
+In a separate tab, we can edit ``~/DiagHam_Stability/trunk/FTI/src/Hamiltonian/ParticleOnLatticeHofstadterSingleBandHamiltonian.cc`` and then run ``make`` in the directory ``~/DiagHam_Stability/trunk/build/FTI/src``. Once we have made our changes, we can continue by running:
+
+- ``FCIHofstadterModel --boson -p 6 -x 3 -y 4 -X 4 -Y 3 -m 8000 -S --processors 4 -n 10 --lanczos-precision 1e-10 > /dev/null``
+- ``vd *.dat; vd ref/*.dat``
+
+Here we can see that the onsite boson results can be recovered by modifying the hard-coded exp(-r^4) interaction. The same can be repeated for the NN bosons.
 
 References
 ----------
