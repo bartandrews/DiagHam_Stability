@@ -375,7 +375,10 @@ class Abstract2DTightBindingModel : public Abstract1DTightBindingModel
   virtual void GetEmbedding(int sublattice, double &embeddingX, double &embeddingY);
 
   // get phase for embedding a given sublattice for the given momenta
-  double GetEmbeddingPhase(int subl, double K1, double K2) {return K1*this->EmbeddingX[subl] + K2*this->EmbeddingY[subl];}
+  double GetEmbeddingPhase(int subl, double K1, double K2)
+  {
+  	return K1*this->EmbeddingX[subl] + K2*this->EmbeddingY[subl];
+  }
   
   //set the value of the embedding vectors
   //

@@ -71,7 +71,8 @@ class ParticleOnLatticeHofstadterSingleBandHamiltonian : public ParticleOnLattic
   // index of the band to be filled
   int BandIndex;
 
-  TightBindingModelHofstadterSquare* TightBindingModel;
+  TightBindingModelHofstadterSquare* TightBindingModel;  // comment
+
   // use flat band model
   bool FlatBand;
   bool RSquaredInteraction;
@@ -95,9 +96,7 @@ class ParticleOnLatticeHofstadterSingleBandHamiltonian : public ParticleOnLattic
   // tightBindingModel = pointer to the tight binding model
   // architecture = architecture to use for precalculation
   // memory = maximum amount of memory that can be allocated for fast multiplication (negative if there is no limit)
-  ParticleOnLatticeHofstadterSingleBandHamiltonian(ParticleOnSphere* particles, int nbrParticles, int nbrCellsX, int nbrCellsY, int bandIndex,
-                                                   double uPotential, double vPotential, double wPotential, 
-                                                   TightBindingModelHofstadterSquare* tightBindingModel, bool flatBandFlag, AbstractArchitecture* architecture, long memory = -1);
+  ParticleOnLatticeHofstadterSingleBandHamiltonian(ParticleOnSphere* particles, int nbrParticles, int nbrCellsX, int nbrCellsY, int bandIndex, double uPotential, double vPotential, double wPotential, TightBindingModelHofstadterSquare* tightBindingModel, bool flatBandFlag, AbstractArchitecture* architecture, long memory = -1);  // TightBindingModelHofstadterSquare
 
   // destructor
   //
@@ -139,6 +138,34 @@ class ParticleOnLatticeHofstadterSingleBandHamiltonian : public ParticleOnLattic
   //
   // return value = corresponding matrix element
   virtual Complex ComputeTwoBodyMatrixElementOnSite(int subl, int kx1, int ky1, int kx2, int ky2, int kx3, int ky3, int kx4, int ky4);
+
+  // compute the matrix element for on-site two body interaction involving sites on generic sublattic
+  //
+  // kx1 = first creation momentum along x for the B site
+  // ky1 = first creation momentum along y for the B site
+  // kx2 = second creation momentum along x for the B site
+  // ky2 = second creation momentum along y for the B site
+  // kx3 = first annihilation momentum along x for the B site
+  // ky3 = first annihilation momentum along y for the B site
+  // kx4 = second annihilation momentum along x for the B site
+  // ky4 = second annihilation momentum along y for the B site
+  // s1 = sublattice index for the first creation operator
+  // s2 = sublattice index for the second annihilation operator
+  //
+  // return value = corresponding matrix element
+  Complex ComputeEmbeddingForTwoBodyOperator(int s1, int s2, int kx1, int ky1, int kx2, int ky2, int kx3, int ky3, int kx4, int ky4);
+
+  // compute the matrix element for on-site two body interaction involving sites on generic sublattic
+  //
+  // dRx = number of unit vector translations along x-direction
+  // dRy = number of unit vector translations along y-direction
+  // kx2 = second creation momentum along x for the translated site
+  // ky2 = second creation momentum along y for the translated site
+  // kx3 = first annihilation momentum along x for the translated site
+  // ky3 = first annihilation momentum along y for the translated site
+  //
+  // return value = corresponding matrix element
+  Complex ComputeBlochPhases(int dRx, int dRy, int kx2, int ky2, int kx3, int ky3);
 
   // compute the transformation basis contribution to the interaction matrix element
   // 

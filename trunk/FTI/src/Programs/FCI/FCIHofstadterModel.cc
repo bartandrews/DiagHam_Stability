@@ -83,6 +83,8 @@ int main(int argc, char** argv)
   (*SystemGroup) += new SingleDoubleOption  ('\n', "w-potential", "bosonic NNN potential strength", 0.0);
   (*SystemGroup) += new SingleDoubleOption  ('\n', "three-body-potential", "bosonic three body onsite interaction", 0.0);
   //(*SystemGroup) += new SingleDoubleOption  ('\n', "t2", "tunnelling along a selected direction (t=1 along others)", 1.0);
+  (*SystemGroup) += new  SingleIntegerOption  ('\n', "enlarge-cellx", "enlarge unit cell by factor * in X direction without changing the flux density", 1);
+  (*SystemGroup) += new  SingleIntegerOption  ('\n', "enlarge-celly", "enlarge unit cell by factor * in Y direction without changing the flux density", 1);
 
   (*SystemGroup) += new SingleDoubleOption  ('\n', "gamma-x", "boundary condition twisting angle along x (in 2 Pi unit)", 0.0);
   (*SystemGroup) += new SingleDoubleOption  ('\n', "gamma-y", "boundary condition twisting angle along y (in 2 Pi unit)", 0.0);
@@ -126,6 +128,10 @@ int main(int argc, char** argv)
   int UnitCellY = Manager.GetInteger("unit-celly");
 
   int FluxPerCell = Manager.GetInteger("flux-per-cell");
+
+  int FullUnitCellX = Manager.GetInteger("enlarge-cellx") * UnitCellX;
+  int FullUnitCellY = Manager.GetInteger("enlarge-celly") * UnitCellY;
+
   bool SymmetricGauge = Manager.GetBoolean("symmetric-gauge");
 
   int MinBand = Manager.GetInteger("band-min");
@@ -139,7 +145,6 @@ int main(int argc, char** argv)
   {
     std::cout << "Anisotropy factor should be positive and nonzero.";
     exit(1);
-
   }
   char Axis ='y';
 
@@ -148,16 +153,16 @@ int main(int argc, char** argv)
   if (Manager.GetBoolean("symmetric-gauge"))
     Axis = 's';
   
-  if ((MaxBand<0)||(MaxBand >= UnitCellX*UnitCellY))
-    {
-      cout << "max-band out of range"<<endl;
-      exit(1);
-    }
+  if ((MaxBand<0)||(MaxBand >= FullUnitCellX*FullUnitCellY))
+  {
+	  cout << "max-band out of range"<<endl;
+	  exit(1);
+  }
   if (MinBand > MaxBand)
-    {
-      cout << "min-band out of range"<<endl;
-      exit(1);
-    }
+  {
+		cout << "min-band out of range"<<endl;
+		exit(1);
+  }
   if (MinBand<0)
     MinBand=MaxBand;
 
@@ -169,54 +174,51 @@ int main(int argc, char** argv)
   sprintf (StatisticPrefix, "fermions");
   
   if (Manager.GetBoolean("boson") == false)
-    {
-      sprintf (StatisticPrefix, "fermions");
-    }
+  {
+		sprintf (StatisticPrefix, "fermions");
+  }
   else
-    {
-      sprintf (StatisticPrefix, "bosons");
-    }
-  
-  
+  {
+		sprintf (StatisticPrefix, "bosons");
+  }
+
   char* FilePrefix = new char [512];
   int lenFilePrefix=0;
 
-
   if (Manager.GetBoolean("triangular")==false)
-    {
-      lenFilePrefix += sprintf (FilePrefix, "%s_hofstadter_X_%d_Y_%d_q_%d", StatisticPrefix, UnitCellX, UnitCellY, FluxPerCell);
-      
-      if ((NbrBands>1)||(MaxBand>0))
-	{
-	  if (NbrBands==1)
-	    lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_b_%d", MaxBand);
-	  else
-	    lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_b_%d-%d", MinBand, MaxBand);
-	}
-     if(SymmetricGauge)
-    {
-      lenFilePrefix += sprintf(FilePrefix+lenFilePrefix,"_sym");
-    } 
-      if (Manager.GetBoolean("landau-x"))
-	lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_landau-x");
-      if(MultiBand == true)
-        lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_multiband");
-    }
+  {
+		lenFilePrefix += sprintf (FilePrefix, "%s_hofstadter_X_%d_Y_%d_q_%d", StatisticPrefix, UnitCellX, UnitCellY, FluxPerCell);
+
+	  if ((NbrBands>1)||(MaxBand>0))
+	  {
+			if (NbrBands==1)
+				lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_b_%d", MaxBand);
+			else
+				lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_b_%d-%d", MinBand, MaxBand);
+	  }
+	  if(SymmetricGauge)
+	  {
+	    lenFilePrefix += sprintf(FilePrefix+lenFilePrefix,"_sym");
+	  }
+	  if (Manager.GetBoolean("landau-x"))
+	    lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_landau-x");
+	  if(MultiBand == true)
+			lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_multiband");
+  }
     
   else
-    {
-      // only quarter flux density implemented for the moment:
-      lenFilePrefix += sprintf (FilePrefix, "%s_hofstadter-tri_X_1_Y_2_q_1", StatisticPrefix);
-
-      if ((NbrBands>1)||(MaxBand>0))
 	{
-	  if (NbrBands==1)
-	    lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_b_%d", MaxBand);
-	  else
-	    lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_b_%d-%d", MinBand, MaxBand);
+		// only quarter flux density implemented for the moment:
+		lenFilePrefix += sprintf (FilePrefix, "%s_hofstadter-tri_X_1_Y_2_q_1", StatisticPrefix);
+
+		if ((NbrBands>1)||(MaxBand>0))
+		{
+			if (NbrBands==1)
+				lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_b_%d", MaxBand);
+			else
+				lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_b_%d-%d", MinBand, MaxBand);
+		}
 	}
-      
-    }
   // common naming options:
   lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_n_%d_x_%d_y_%d", NbrParticles, NbrCellX, NbrCellY);
   lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_t2_%g_t3_%g", TTwo,TThree);
@@ -226,94 +228,96 @@ int main(int argc, char** argv)
   sprintf (CommentLine, "eigenvalues\n# kx ky ");
   char* EigenvalueOutputFile = new char [512];
   if (Manager.GetString("eigenvalue-file")!=0)
-    {
-      strcpy(EigenvalueOutputFile, Manager.GetString("eigenvalue-file"));
-      delete [] FilePrefix;
-      FilePrefix = RemoveExtensionFromFileName(EigenvalueOutputFile,".dat");
-      if (FilePrefix==0)
-	strcpy(FilePrefix, EigenvalueOutputFile);
-    }
+	{
+		strcpy(EigenvalueOutputFile, Manager.GetString("eigenvalue-file"));
+		delete [] FilePrefix;
+		FilePrefix = RemoveExtensionFromFileName(EigenvalueOutputFile,".dat");
+		if (FilePrefix==0)
+			strcpy(FilePrefix, EigenvalueOutputFile);
+	}
   else
-    {
-      if (Manager.GetBoolean("flat-band") == false)
-	lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_u_%g",Manager.GetDouble("u-potential"));
-      
-      //lenFilePrefix += sprintf(FilePrefix+lenFilePrefix, "_3b_%g",Manager.GetDouble("three-body-potential"));
-      lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_gx_%g_gy_%g", Manager.GetDouble("gamma-x"), Manager.GetDouble("gamma-y"));
-      //lenFilePrefix += sprintf(FilePrefix+lenFilePrefix, "_v_%g_w_%g",Manager.GetDouble("v-potential"),Manager.GetDouble("w-potential"));
-      sprintf (EigenvalueOutputFile,"%s.dat",FilePrefix);
-    }
+	{
+		if (Manager.GetBoolean("flat-band") == false)
+			lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_u_%g",Manager.GetDouble("u-potential"));
+
+		//lenFilePrefix += sprintf(FilePrefix+lenFilePrefix, "_3b_%g",Manager.GetDouble("three-body-potential"));
+		lenFilePrefix += sprintf (FilePrefix+lenFilePrefix, "_gx_%g_gy_%g", Manager.GetDouble("gamma-x"), Manager.GetDouble("gamma-y"));
+		//lenFilePrefix += sprintf(FilePrefix+lenFilePrefix, "_v_%g_w_%g",Manager.GetDouble("v-potential"),Manager.GetDouble("w-potential"));
+		sprintf (EigenvalueOutputFile,"%s.dat",FilePrefix);
+	}
   
   if (Manager.GetBoolean("singleparticle-spectrum") == true)
-    {
-      bool ExportOneBody = false;
-      if ((Manager.GetBoolean("export-onebody") == true) || (Manager.GetBoolean("export-onebodytext") == true) || (Manager.GetBoolean("singleparticle-chernnumber") == true))
-	ExportOneBody = true;
+	{
+		bool ExportOneBody = false;
+		if ((Manager.GetBoolean("export-onebody") == true) || (Manager.GetBoolean("export-onebodytext") == true) || (Manager.GetBoolean("singleparticle-chernnumber") == true))
+			ExportOneBody = true;
 
-      TightBindingModelHofstadterSquare *TightBindingModel;
-      if (Manager.GetBoolean("triangular")==false)
-	TightBindingModel= new TightBindingModelHofstadterSquare(NbrCellX, NbrCellY, UnitCellX, UnitCellY, FluxPerCell, Axis, 
-								 Manager.GetDouble("gamma-x"), Manager.GetDouble("gamma-y"), Architecture.GetArchitecture(), ExportOneBody,false,TTwo,TThree,Alpha);
+	// Abstract2DTightBindingModel *TightBindingModel;
+		TightBindingModelHofstadterSquare *TightBindingModel;
+		if (Manager.GetBoolean("triangular")==false)
+			TightBindingModel= new TightBindingModelHofstadterSquare(NbrCellX, NbrCellY, UnitCellX, UnitCellY, FluxPerCell, Axis, Manager.GetDouble("gamma-x"), Manager.GetDouble("gamma-y"), Architecture.GetArchitecture(), ExportOneBody,false,TTwo,TThree,Alpha);
 //      else
 //	TightBindingModel= new TightBindingModelHofstadterTriangularQuarter(NbrCellX, NbrCellY, Manager.GetDouble("t2"), Manager.GetDouble("gamma-x"), Manager.GetDouble("gamma-y"), Architecture.GetArchitecture(), ExportOneBody);
-      
-      TightBindingModel->WriteAsciiSpectrum(EigenvalueOutputFile);
 
-      for (int n=0; n<TightBindingModel->GetNbrBands()-1; ++n)
-	{
-	  double BandSpread = TightBindingModel->ComputeBandSpread(n);
-	  double DirectBandGap = TightBindingModel->ComputeDirectBandGap(n);
-	  cout << "Spread("<<n<<") = " << BandSpread << "  Direct Gap = " << DirectBandGap  << "  Flattening = " << (BandSpread / DirectBandGap) << endl;
-	  if (Manager.GetBoolean("singleparticle-chernnumber") == true)
-	    {
-	      cout << "Chern number("<<n<<") = " << TightBindingModel->ComputeChernNumber(n) << endl;
-	    }
+		TightBindingModel->WriteAsciiSpectrum(EigenvalueOutputFile);
+
+		for (int n=0; n<TightBindingModel->GetNbrBands()-1; ++n)
+		{
+			double BandSpread = TightBindingModel->ComputeBandSpread(n);
+			double DirectBandGap = TightBindingModel->ComputeDirectBandGap(n);
+			cout << "Spread("<<n<<") = " << BandSpread << "  Direct Gap = " << DirectBandGap  << "  Flattening = " << (BandSpread / DirectBandGap) << endl;
+			if (Manager.GetBoolean("singleparticle-chernnumber") == true)
+			{
+				cout << "Chern number("<<n<<") = " << TightBindingModel->ComputeChernNumber(n) << endl;
+			}
+		}
+		double BandSpread = TightBindingModel->ComputeBandSpread(TightBindingModel->GetNbrBands()-1);
+		cout << "Spread("<<TightBindingModel->GetNbrBands()-1<<") = " << BandSpread << endl;
+		if (Manager.GetBoolean("singleparticle-chernnumber") == true)
+		{
+			cout << "Chern number("<<TightBindingModel->GetNbrBands()-1<<") = " << TightBindingModel->ComputeChernNumber(TightBindingModel->GetNbrBands()-1) << endl;
+		}
+		if (ExportOneBody == true)
+		{
+			char* BandStructureOutputFile = new char [512];
+			if (Manager.GetString("export-onebodyname") != 0)
+				strcpy(BandStructureOutputFile, Manager.GetString("export-onebodyname"));
+			else
+				sprintf (BandStructureOutputFile, "%s_tightbinding.dat", FilePrefix);
+			if (Manager.GetBoolean("export-onebody") == true)
+			{
+				TightBindingModel->WriteBandStructure(BandStructureOutputFile);
+			}
+			else
+			{
+				TightBindingModel->WriteBandStructureASCII(BandStructureOutputFile);
+			}
+			delete[] BandStructureOutputFile;
+		}
+		delete TightBindingModel;
+		return 0;
 	}
-      double BandSpread = TightBindingModel->ComputeBandSpread(TightBindingModel->GetNbrBands()-1);
-      cout << "Spread("<<TightBindingModel->GetNbrBands()-1<<") = " << BandSpread << endl;
-      if (Manager.GetBoolean("singleparticle-chernnumber") == true)
-	{
-	  cout << "Chern number("<<TightBindingModel->GetNbrBands()-1<<") = " << TightBindingModel->ComputeChernNumber(TightBindingModel->GetNbrBands()-1) << endl;
-	}
-      if (ExportOneBody == true)
-	{
-	  char* BandStructureOutputFile = new char [512];
-	  if (Manager.GetString("export-onebodyname") != 0)
-	    strcpy(BandStructureOutputFile, Manager.GetString("export-onebodyname"));
-	  else
-	    sprintf (BandStructureOutputFile, "%s_tightbinding.dat", FilePrefix);
-	  if (Manager.GetBoolean("export-onebody") == true)
-	    {
-	      TightBindingModel->WriteBandStructure(BandStructureOutputFile);
-	    }
-	  else
-	    {
-	      TightBindingModel->WriteBandStructureASCII(BandStructureOutputFile);
-	    }
-	  delete[] BandStructureOutputFile;
-	}
-      delete TightBindingModel;
-      return 0;
-    }
 
 
   int MinKx = 0;
   int MaxKx = NbrCellX - 1;
   if (Manager.GetInteger("only-kx") >= 0)
-    {						
-      MinKx = Manager.GetInteger("only-kx");
-      MaxKx = MinKx;
-    }
+	{
+		MinKx = Manager.GetInteger("only-kx");
+		MaxKx = MinKx;
+	}
   int MinKy = 0;
   int MaxKy = NbrCellY - 1;
   if (Manager.GetInteger("only-ky") >= 0)
-    {						
-      MinKy = Manager.GetInteger("only-ky");
-      MaxKy = MinKy;
-    }
+	{
+		MinKy = Manager.GetInteger("only-ky");
+		MaxKy = MinKy;
+	}
 
+ // Abstract2DTightBindingModel *TightBindingModel;
   TightBindingModelHofstadterSquare *TightBindingModel;
-  if (Manager.GetBoolean("triangular")==false) {
+  if (Manager.GetBoolean("triangular")==false)
+  {
     //std::cout << "Now creating TB model." << endl;
     TightBindingModel= new TightBindingModelHofstadterSquare(NbrCellX, NbrCellY, UnitCellX, UnitCellY, FluxPerCell, Axis,
 							     Manager.GetDouble("gamma-x"), Manager.GetDouble("gamma-y"), Architecture.GetArchitecture(),true,false,TTwo,TThree,Alpha);
@@ -321,182 +325,175 @@ int main(int argc, char** argv)
   }
   //else
   //  TightBindingModel= new TightBindingModelHofstadterTriangularQuarter(NbrCellX, NbrCellY, Manager.GetDouble("t2"), Manager.GetDouble("gamma-x"), Manager.GetDouble("gamma-y"), Architecture.GetArchitecture());
-  
 
 
   if (Manager.GetBoolean("boson") == false)
-    {
-      int FilledNbrBands=-1;
-      
-      double E=TightBindingModel->ComputeGroundstateEnergy(NbrParticles,FilledNbrBands, true);
+	{
+		int FilledNbrBands=-1;
 
-      cout << "Total energy of groundstate: "<<E<<" ("<<FilledNbrBands<<" filled bands)"<<endl;
+		double E=TightBindingModel->ComputeGroundstateEnergy(NbrParticles,FilledNbrBands, true);
 
-    }
+		cout << "Total energy of groundstate: "<<E<<" ("<<FilledNbrBands<<" filled bands)"<<endl;
+	}
   
   bool FirstRunFlag = true;
   for (int i = MinKx; i <= MaxKx; ++i)
-    {
-      for (int j = MinKy; j <= MaxKy; ++j)
-	{
-	  cout << "(kx=" << i << ",ky=" << j << ") : " << endl;
-	  ParticleOnSphere* Space = 0;
-	  AbstractQHEHamiltonian* Hamiltonian = 0;
-	  if (NbrBands==1)
-	  {
-	      if(MultiBand==true)
-        {
-            std::cout << "Don't use multiband.\n";
-            exit(1);
-            if(Manager.GetBoolean("boson") == false)
-            {
-              std::cout << "Only bosons implemented in multiband case currently.\n";
-              exit(1);
-            }
-            else
-            {
-              //Space = new BosonOnSquareLatticeMultiBandMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j, 2);
-            }
-            if (Architecture.GetArchitecture()->GetLocalMemory() > 0)
-              Memory = Architecture.GetArchitecture()->GetLocalMemory();
-            Architecture.GetArchitecture()->SetDimension(Space->GetHilbertSpaceDimension());  
-          // assign Hamiltonian:
-            Hamiltonian = new ParticleOnLatticeHofstadterMultiBandHamiltonian(Space, NbrParticles, NbrCellX, NbrCellY, MaxBand,
-                                                                             Manager.GetDouble("u-potential"), Manager.GetDouble("v-potential"), Manager.GetDouble("w-potential"), 
-                                                                             TightBindingModel, Manager.GetBoolean("flat-band"),MultiBand, Architecture.GetArchitecture(), Memory);
-        }
-        else
-        {
-  	      if (Manager.GetBoolean("boson") == false)
-  		    {
-  		      if ((NbrCellX * NbrCellY) <= 63)
-  		      {
-  		        Space = new FermionOnSquareLatticeMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
-  		      }
-  		      else
-  		      {
-  		        Space = new FermionOnSquareLatticeMomentumSpaceLong (NbrParticles, NbrCellX, NbrCellY, i, j);
-  		      }
-
-  		    }
-  	      else
-  		    {
-
-            Space = new BosonOnSquareLatticeMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
-  		    }
-   	      cout << "dim = " << Space->GetHilbertSpaceDimension()  << endl;
-  	      if (Architecture.GetArchitecture()->GetLocalMemory() > 0)
-  		      Memory = Architecture.GetArchitecture()->GetLocalMemory();
-   	      Architecture.GetArchitecture()->SetDimension(Space->GetHilbertSpaceDimension());	
-  	      // assign Hamiltonian:
-          if(Manager.GetDouble("three-body-potential") != 0)
-          {
-              Hamiltonian = new ParticleOnLatticeHofstadterSingleBandThreeBodyHamiltonian(Space, NbrParticles, NbrCellX, NbrCellY, MaxBand,
-                                                                             Manager.GetDouble("u-potential"), Manager.GetDouble("v-potential"), Manager.GetDouble("w-potential"),
-                                                                             Manager.GetDouble("three-body-potential"), 
-                                                                             TightBindingModel, Manager.GetBoolean("flat-band"), Architecture.GetArchitecture(), Memory);
-          }
-          else
-          {
-              std::cout << "Now creating MB hamiltonian." << endl;
-              Hamiltonian = new ParticleOnLatticeHofstadterSingleBandHamiltonian(Space, NbrParticles, NbrCellX, NbrCellY, MaxBand,
-                                                                             Manager.GetDouble("u-potential"), Manager.GetDouble("v-potential"), Manager.GetDouble("w-potential"), 
-                                                                             TightBindingModel, Manager.GetBoolean("flat-band"), Architecture.GetArchitecture(), Memory);
-              std::cout << "Done with MB hamiltonian." << endl;
-          }
-  	    
-				}						 
-      }
-	  else
-	    {
-	      if (NbrBands==2)
+  {
+		for (int j = MinKy; j <= MaxKy; ++j)
 		{
-		  
-		  if (Manager.GetBoolean("boson") == false)
-		    {
-		      if ((NbrCellX * NbrCellY) <= 63)
+			cout << "(kx=" << i << ",ky=" << j << ") : " << endl;
+			ParticleOnSphere* Space = 0;
+			AbstractQHEHamiltonian* Hamiltonian = 0;
+			if (NbrBands==1)
 			{
-			  Space = new FermionOnSquareLatticeWithSpinMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
+				if(MultiBand==true)
+				{
+					std::cout << "Don't use multiband.\n";
+					exit(1);
+					if(Manager.GetBoolean("boson") == false)
+					{
+						std::cout << "Only bosons implemented in multiband case currently.\n";
+						exit(1);
+					}
+					else
+					{
+						//Space = new BosonOnSquareLatticeMultiBandMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j, 2);
+					}
+					if (Architecture.GetArchitecture()->GetLocalMemory() > 0)
+						Memory = Architecture.GetArchitecture()->GetLocalMemory();
+					Architecture.GetArchitecture()->SetDimension(Space->GetHilbertSpaceDimension());
+				// assign Hamiltonian:
+					Hamiltonian = new ParticleOnLatticeHofstadterMultiBandHamiltonian(Space, NbrParticles, NbrCellX, NbrCellY, MaxBand,
+																																					 Manager.GetDouble("u-potential"), Manager.GetDouble("v-potential"), Manager.GetDouble("w-potential"),
+																																					 TightBindingModel, Manager.GetBoolean("flat-band"),MultiBand, Architecture.GetArchitecture(), Memory);
+				}
+				else
+				{
+					if (Manager.GetBoolean("boson") == false)
+					{
+						if ((NbrCellX * NbrCellY) <= 63)
+						{
+							Space = new FermionOnSquareLatticeMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
+						}
+						else
+						{
+							Space = new FermionOnSquareLatticeMomentumSpaceLong (NbrParticles, NbrCellX, NbrCellY, i, j);
+						}
+					}
+					else
+					{
+						Space = new BosonOnSquareLatticeMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
+					}
+					cout << "dim = " << Space->GetHilbertSpaceDimension()  << endl;
+					if (Architecture.GetArchitecture()->GetLocalMemory() > 0)
+						Memory = Architecture.GetArchitecture()->GetLocalMemory();
+					Architecture.GetArchitecture()->SetDimension(Space->GetHilbertSpaceDimension());
+					// assign Hamiltonian:
+					if(Manager.GetDouble("three-body-potential") != 0)
+					{
+						Hamiltonian = new ParticleOnLatticeHofstadterSingleBandThreeBodyHamiltonian(Space, NbrParticles, NbrCellX, NbrCellY, MaxBand,
+																																					 Manager.GetDouble("u-potential"), Manager.GetDouble("v-potential"), Manager.GetDouble("w-potential"),
+																																					 Manager.GetDouble("three-body-potential"),
+																																					 TightBindingModel, Manager.GetBoolean("flat-band"), Architecture.GetArchitecture(), Memory);
+					}
+					else
+					{
+						std::cout << "Now creating MB hamiltonian." << endl;
+						Hamiltonian = new ParticleOnLatticeHofstadterSingleBandHamiltonian(Space, NbrParticles, NbrCellX, NbrCellY, MaxBand,
+																																					 Manager.GetDouble("u-potential"), Manager.GetDouble("v-potential"), Manager.GetDouble("w-potential"),
+																																					 TightBindingModel, Manager.GetBoolean("flat-band"), Architecture.GetArchitecture(), Memory);
+						std::cout << "Done with MB hamiltonian." << endl;
+					}
+				}
 			}
-		      else
+			else
 			{
-			  Space = new FermionOnSquareLatticeWithSpinMomentumSpaceLong (NbrParticles, NbrCellX, NbrCellY, i, j);
+				if (NbrBands==2)
+				{
+					if (Manager.GetBoolean("boson") == false)
+					{
+						if ((NbrCellX * NbrCellY) <= 63)
+						{
+							Space = new FermionOnSquareLatticeWithSpinMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
+						}
+						else
+						{
+							Space = new FermionOnSquareLatticeWithSpinMomentumSpaceLong (NbrParticles, NbrCellX, NbrCellY, i, j);
+						}
+					}
+					else
+					{
+						Space = new BosonOnSquareLatticeWithSU2SpinMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
+					}
+					cout << "dim = " << Space->GetHilbertSpaceDimension()  << endl;
+					if (Architecture.GetArchitecture()->GetLocalMemory() > 0)
+						Memory = Architecture.GetArchitecture()->GetLocalMemory();
+					Architecture.GetArchitecture()->SetDimension(Space->GetHilbertSpaceDimension());
+					// assign Hamiltonian:
+					Hamiltonian = new ParticleOnLatticeTwoBandHofstadterHamiltonian((ParticleOnSphereWithSpin*)Space, NbrParticles,
+					NbrCellX, NbrCellY, MinBand, Manager.GetDouble("u-potential"), 0.0 /*Manager.GetDouble("v-potential")*/, TightBindingModel,
+													Manager.GetBoolean("flat-band"),
+													Architecture.GetArchitecture(), Memory);
+				}
+				else
+				{
+					if (NbrBands==3)
+					{
+						cout << "Three-band case not implemented, yet"<<endl;
+						exit(1);
+					}
+					if (NbrBands==4)
+					{
+						if (Manager.GetBoolean("boson") == false)
+						{
+							if ((NbrCellX * NbrCellY) <= 63)
+							{
+								Space = new FermionOnSquareLatticeWithSU4SpinMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
+							}
+							else
+							{
+								Space = new FermionOnSquareLatticeWithSU4SpinMomentumSpaceLong (NbrParticles, NbrCellX, NbrCellY, i, j);
+							}
+						}
+						else
+						{
+							Space = new BosonOnSquareLatticeWithSU4SpinMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
+						}
+						cout << "dim = " << Space->GetHilbertSpaceDimension()  << endl;
+						if (Architecture.GetArchitecture()->GetLocalMemory() > 0)
+							Memory = Architecture.GetArchitecture()->GetLocalMemory();
+						Architecture.GetArchitecture()->SetDimension(Space->GetHilbertSpaceDimension());
+						// assign Hamiltonian:
+						Hamiltonian = new ParticleOnLatticeFourBandHofstadterHamiltonian((ParticleOnSphereWithSU4Spin*)Space, NbrParticles, NbrCellX, NbrCellY, MinBand, Manager.GetDouble("u-potential"), 0.0 /*Manager.GetDouble("v-potential")*/, TightBindingModel,
+														 Manager.GetBoolean("flat-band"),
+														 Architecture.GetArchitecture(), Memory);
+					}
+					else
+					{
+						cout << "Multi-band n>4 situations not implemented, yet"<<endl;
+						exit(1);
+					}
+				}
 			}
-		    }
-		  else
-		    {
-		      Space = new BosonOnSquareLatticeWithSU2SpinMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
-		    }
-		  cout << "dim = " << Space->GetHilbertSpaceDimension()  << endl;
-		  if (Architecture.GetArchitecture()->GetLocalMemory() > 0)
-		    Memory = Architecture.GetArchitecture()->GetLocalMemory();
-		  Architecture.GetArchitecture()->SetDimension(Space->GetHilbertSpaceDimension());	
-		  // assign Hamiltonian:
-		  Hamiltonian = new ParticleOnLatticeTwoBandHofstadterHamiltonian((ParticleOnSphereWithSpin*)Space, NbrParticles, NbrCellX, NbrCellY, MinBand, Manager.GetDouble("u-potential"), 0.0 /*Manager.GetDouble("v-potential")*/, TightBindingModel, 
-										  Manager.GetBoolean("flat-band"),
-										  Architecture.GetArchitecture(), Memory);
-		}
-	      else
-		{
-		  if (NbrBands==3)
-		    {
-		      cout << "Three-band case not implemented, yet"<<endl;
-		      exit(1);
-		    }
-		  if (NbrBands==4)
-		    {
-		      
-		      if (Manager.GetBoolean("boson") == false)
-			{
-			  if ((NbrCellX * NbrCellY) <= 63)
-			    {
-			      Space = new FermionOnSquareLatticeWithSU4SpinMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
-			    }
-			  else
-			    {
-			      Space = new FermionOnSquareLatticeWithSU4SpinMomentumSpaceLong (NbrParticles, NbrCellX, NbrCellY, i, j);
-			    }
-			}
-		      else
-			{
-			  Space = new BosonOnSquareLatticeWithSU4SpinMomentumSpace (NbrParticles, NbrCellX, NbrCellY, i, j);
-			}
-		      cout << "dim = " << Space->GetHilbertSpaceDimension()  << endl;
-		      if (Architecture.GetArchitecture()->GetLocalMemory() > 0)
-			Memory = Architecture.GetArchitecture()->GetLocalMemory();
-		      Architecture.GetArchitecture()->SetDimension(Space->GetHilbertSpaceDimension());	
-		      // assign Hamiltonian:
-		      Hamiltonian = new ParticleOnLatticeFourBandHofstadterHamiltonian((ParticleOnSphereWithSU4Spin*)Space, NbrParticles, NbrCellX, NbrCellY, MinBand, Manager.GetDouble("u-potential"), 0.0 /*Manager.GetDouble("v-potential")*/, TightBindingModel, 
-										       Manager.GetBoolean("flat-band"),
-										       Architecture.GetArchitecture(), Memory);
-		    }
-		  else
-		    {
-		      cout << "Multi-band n>4 situations not implemented, yet"<<endl;
-		      exit(1);
-		    }
-		}
-	    }
-	  
-	  char* ContentPrefix = new char[256];
-	  sprintf (ContentPrefix, "%d %d", i, j);
-	  char* EigenstateOutputFile = new char [512];
 
-	  sprintf (EigenstateOutputFile,"%s_kx_%d_ky_%d",FilePrefix, i, j);
-	    
-	  GenericComplexMainTask Task(&Manager, Hamiltonian->GetHilbertSpace(), &Lanczos, Hamiltonian, ContentPrefix, CommentLine, 0.0,  EigenvalueOutputFile, FirstRunFlag, EigenstateOutputFile);
-	  FirstRunFlag = false;
-	  MainTaskOperation TaskOperation (&Task);
-    std::cout << "Now applying main operation." <<endl;
-	  TaskOperation.ApplyOperation(Architecture.GetArchitecture());
-	  cout << "------------------------------------" << endl;
-	  delete Hamiltonian;
-	  delete Space;
-	  delete[] EigenstateOutputFile;
-	  delete[] ContentPrefix;
-	}
-    }
+			char* ContentPrefix = new char[256];
+			sprintf (ContentPrefix, "%d %d", i, j);
+			char* EigenstateOutputFile = new char [512];
+
+			sprintf (EigenstateOutputFile,"%s_kx_%d_ky_%d",FilePrefix, i, j);
+
+			GenericComplexMainTask Task(&Manager, Hamiltonian->GetHilbertSpace(), &Lanczos, Hamiltonian, ContentPrefix, CommentLine, 0.0,  EigenvalueOutputFile, FirstRunFlag, EigenstateOutputFile);
+			FirstRunFlag = false;
+			MainTaskOperation TaskOperation (&Task);
+			std::cout << "Now applying main operation." <<endl;
+			TaskOperation.ApplyOperation(Architecture.GetArchitecture());
+			cout << "------------------------------------" << endl;
+			delete Hamiltonian;
+			delete Space;
+			delete[] EigenstateOutputFile;
+			delete[] ContentPrefix;
+		}
+  }
   delete TightBindingModel;
   return 0;
 }
-

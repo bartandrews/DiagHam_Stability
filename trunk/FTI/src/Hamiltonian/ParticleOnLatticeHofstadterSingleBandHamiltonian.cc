@@ -50,7 +50,6 @@
 #include <sys/time.h>
 #include <fstream>
 
-
 using std::cout;
 using std::endl;
 using std::ostream;
@@ -76,8 +75,8 @@ ParticleOnLatticeHofstadterSingleBandHamiltonian::ParticleOnLatticeHofstadterSin
 // flatBandFlag = use flat band model
 // architecture = architecture to use for precalculation
 // memory = maximum amount of memory that can be allocated for fast multiplication (negative if there is no limit)
-
-ParticleOnLatticeHofstadterSingleBandHamiltonian::ParticleOnLatticeHofstadterSingleBandHamiltonian(ParticleOnSphere* particles, int nbrParticles, int nbrCellX, int nbrCellY, int bandIndex, double uPotential, double vPotential, double wPotential, TightBindingModelHofstadterSquare* tightBindingModel, bool flatBandFlag, AbstractArchitecture* architecture, long memory)
+//
+ParticleOnLatticeHofstadterSingleBandHamiltonian::ParticleOnLatticeHofstadterSingleBandHamiltonian(ParticleOnSphere* particles, int nbrParticles, int nbrCellX, int nbrCellY, int bandIndex, double uPotential, double vPotential, double wPotential, TightBindingModelHofstadterSquare* tightBindingModel, bool flatBandFlag, AbstractArchitecture* architecture, long memory)  // TightBindingModelHofstadterSquare
 {
     this->Particles = particles;
     this->NbrParticles = nbrParticles;
@@ -86,6 +85,7 @@ ParticleOnLatticeHofstadterSingleBandHamiltonian::ParticleOnLatticeHofstadterSin
     this->LzMax = nbrCellX * nbrCellY - 1;
     this->KxFactor = 2.0 * M_PI / ((double) this->NbrSiteX);
     this->KyFactor = 2.0 * M_PI / ((double) this->NbrSiteY);
+
     this->HamiltonianShift = 0.0;
     this->TightBindingModel = tightBindingModel;
     this->FlatBand = flatBandFlag;
@@ -93,7 +93,7 @@ ParticleOnLatticeHofstadterSingleBandHamiltonian::ParticleOnLatticeHofstadterSin
     this->VPotential = vPotential;
     this->WPotential = wPotential;
     this->RSquaredInteraction = false;
-    this->FourFoldSmoothInteraction = true;
+    this->FourFoldSmoothInteraction = false;
     this->BandIndex = bandIndex;
     this->Architecture = architecture;
     this->Memory = memory;
@@ -103,8 +103,8 @@ ParticleOnLatticeHofstadterSingleBandHamiltonian::ParticleOnLatticeHofstadterSin
     long MaxIndex;
     this->Architecture->GetTypicalRange(MinIndex, MaxIndex);
     this->PrecalculationShift = (int) MinIndex;
-
     this->EvaluateInteractionFactors();
+
     if (memory > 0)
     {
         long TmpMemory = this->FastMultiplicationMemory(memory);
@@ -112,43 +112,59 @@ ParticleOnLatticeHofstadterSingleBandHamiltonian::ParticleOnLatticeHofstadterSin
         PrintMemorySize(cout, TmpMemory)<< endl;
         this->EnableFastMultiplication();
     }
-
 }
 
 // destructor
 //
-
 ParticleOnLatticeHofstadterSingleBandHamiltonian::~ParticleOnLatticeHofstadterSingleBandHamiltonian()
 {
 }
 
 // evaluate all interaction factors
 //
-
 void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactors()
 {
-// std::ofstream interaction_output;
-    //interaction_output.open("SingleBandInteraction.txt");
     long TotalNbrInteractionFactors = 0;
+
+    int NbrSublattices = TightBindingModel->GetNbrBands();
+
     ComplexMatrix* OneBodyBasis = new ComplexMatrix[this->TightBindingModel->GetNbrStatePerBand()];
+
     if (this->FlatBand == false)
     {
         this->OneBodyInteractionFactors = new double [this->TightBindingModel->GetNbrStatePerBand()];
-    }
+	  }
+
     for (int kx = 0; kx < this->NbrSiteX; ++kx)
+    {
         for (int ky = 0; ky < this->NbrSiteY; ++ky)
         {
             int Index = this->TightBindingModel->GetLinearizedMomentumIndex(kx, ky);
             if (this->FlatBand == false)
-                this->OneBodyInteractionFactors[Index] = 0.5 * this->TightBindingModel->GetEnergy(BandIndex, Index);
+                this->OneBodyInteractionFactors[Index] = this->TightBindingModel->GetEnergy(BandIndex, Index);  // 0.5*
             OneBodyBasis[Index] =  this->TightBindingModel->GetOneBodyMatrix(Index);
         }
+    }
 
     if (this->FlatBand == false)
+    {
         for (int i=0; i<this->TightBindingModel->GetNbrStatePerBand(); ++i)
         {
             cout << "[" << this->OneBodyInteractionFactors[i] << "]" << endl;
         }
+    }
+
+	double FactorU = 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+	if (this->FlatBand == false)
+		FactorU *= this->UPotential;
+	double FactorV = this->VPotential * 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+	double FactorW = this->WPotential * 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+
+	if (FactorU==0.0 && FactorV==0.0)
+    {
+      std::cerr << "Error: HofstadterHamiltonian created with interaction zero - set non-zero --u-potential or --v-potential"<<std::endl;
+      exit(1);
+    }
 
     /* ***** FERMIONS ***** */
     if (this->Particles->GetParticleStatistic() == ParticleOnSphere::FermionicStatistic)
@@ -158,17 +174,24 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
         for (int i = 0; i < this->NbrSectorSums; ++i)
             this->NbrSectorIndicesPerSum[i] = 0;
 
-
         for (int kx1 = 0; kx1 < this->NbrSiteX; ++kx1)
+        {
             for (int kx2 = 0; kx2 < this->NbrSiteX; ++kx2)
+            {
                 for (int ky1 = 0; ky1 < this->NbrSiteY; ++ky1)
+                {
                     for (int ky2 = 0; ky2 < this->NbrSiteY; ++ky2)
                     {
                         int Index1 = this->TightBindingModel->GetLinearizedMomentumIndex(kx1, ky1);
                         int Index2 = this->TightBindingModel->GetLinearizedMomentumIndex(kx2, ky2);
-                        if (Index1 <= Index2)
+                        if (Index1 < Index2)
                             ++this->NbrSectorIndicesPerSum[this->TightBindingModel->GetLinearizedMomentumIndexSafe(kx1+kx2, ky1+ky2)];
                     }
+                }
+            }
+        }
+
+        cout << NbrSectorIndicesPerSum[0] << endl;
         this->SectorIndicesPerSum = new int* [this->NbrSectorSums];
         for (int i = 0; i < this->NbrSectorSums; ++i)
         {
@@ -178,14 +201,18 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                 this->NbrSectorIndicesPerSum[i] = 0;
             }
         }
+
         for (int kx1 = 0; kx1 < this->NbrSiteX; ++kx1)
+        {
             for (int kx2 = 0; kx2 < this->NbrSiteX; ++kx2)
+            {
                 for (int ky1 = 0; ky1 < this->NbrSiteY; ++ky1)
+                {
                     for (int ky2 = 0; ky2 < this->NbrSiteY; ++ky2)
                     {
                         int Index1 = this->TightBindingModel->GetLinearizedMomentumIndex(kx1, ky1);
                         int Index2 = this->TightBindingModel->GetLinearizedMomentumIndex(kx2, ky2);
-                        if (Index1 <= Index2)
+                        if (Index1 < Index2)
                         {
                             int TmpSum = this->TightBindingModel->GetLinearizedMomentumIndexSafe(kx1+kx2, ky1+ky2);
                             this->SectorIndicesPerSum[TmpSum][this->NbrSectorIndicesPerSum[TmpSum] << 1] = Index1;
@@ -193,18 +220,14 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                             ++this->NbrSectorIndicesPerSum[TmpSum];
                         }
                     }
-
-        double FactorU = 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
-        double FactorV = this->VPotential * 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
-        double FactorW = this->WPotential * 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
-
-
-        if (this->FlatBand == false)
-            FactorU *= this->UPotential;
+                }
+            }
+        }
 
         this->InteractionFactors = new Complex* [this->NbrSectorSums];
 
         Complex Tmp;
+
         if(RSquaredInteraction==false)
         {
             for (int i = 0; i < this->NbrSectorSums; ++i)
@@ -215,95 +238,129 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                 {
                     int Index1 = this->SectorIndicesPerSum[i][j1 << 1];
                     int Index2 = this->SectorIndicesPerSum[i][(j1 << 1) + 1];
-                    //  std::cout << Index1 << "\n";
-                    int kx1 = this->getXMomentumFromIndex(Index1);
-                    int ky1 = this->getYMomentumFromIndex(Index1);
+                    int kx1,ky1;
                     this->TightBindingModel->GetLinearizedMomentumIndex(Index1,kx1, ky1);
-                    int kx2= this->getXMomentumFromIndex(Index2);
-                    int ky2 = this->getYMomentumFromIndex(Index2);
+                    int kx2,ky2;
                     this->TightBindingModel->GetLinearizedMomentumIndex(Index2,kx2, ky2);
 
                     for (int j2 = 0; j2 < this->NbrSectorIndicesPerSum[i]; ++j2)
                     {
                         int Index3 = this->SectorIndicesPerSum[i][j2 << 1];
                         int Index4 = this->SectorIndicesPerSum[i][(j2 << 1) + 1];
-                        int kx3=this->getXMomentumFromIndex(Index3);
-                        int ky3=this->getYMomentumFromIndex(Index3);
+                        int kx3,ky3;
                         this->TightBindingModel->GetLinearizedMomentumIndex(Index3, kx3, ky3);
-                        int kx4 = this->getXMomentumFromIndex(Index4);
-                        int ky4 = this->getYMomentumFromIndex(Index4);
+                        int kx4,ky4;
                         this->TightBindingModel->GetLinearizedMomentumIndex(Index4, kx4, ky4);
 
-                        //cout << "Attention: Fermionic interactions need full implementation in ParticleOnLatticeHofstadterSingleBandHamiltonian!"<<endl;
-                        //exit(1);
-
-                        int NbrSublattices = TightBindingModel->GetNbrBands();
-                        Tmp = 0;
-                        // NN interaction for fermions
-                        for (int s=0; s<NbrSublattices; ++s)
+                        if (this->UPotential != 0.0)
                         {
-                            int xpos = s % this->TightBindingModel->GetXSitesInUC();
-                            int ypos = s / this->TightBindingModel->GetXSitesInUC();
-                            float lxfactor = (xpos +1) / (this->TightBindingModel->GetXSitesInUC());
-                            float lyfactor = (ypos+1) / (this->TightBindingModel->GetYSitesInUC());
+													Tmp = 0;
+													// NN interaction for fermions
+													for (int s=0; s<NbrSublattices; ++s)
+													{
+														int xpos = s % this->TightBindingModel->GetXSitesInUC();
+														int ypos = s / this->TightBindingModel->GetXSitesInUC();
+														float lxfactor = (xpos+1) / (this->TightBindingModel->GetXSitesInUC());
+														float lyfactor = (ypos+1) / (this->TightBindingModel->GetYSitesInUC());
 
-                            Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,0), s, tS(s,1,0))*Phase(1.0*this->KxFactor*(kx2-kx4)*lxfactor);
-                            Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,0,1), s, tS(s,0,1))*Phase(1.0*this->KyFactor*(ky2-ky4)*lyfactor);
+														Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,0), s, tS(s,1,0))*Phase(1.0*this->KxFactor*(kx2-kx4)*lxfactor);
+														Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,0,1), s, tS(s,0,1))*Phase(1.0*this->KyFactor*(ky2-ky4)*lyfactor);
 
-                            Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,0), s, tS(s,1,0))*Phase(1.0*this->KxFactor*(kx2-kx3)*lxfactor);
-                            Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,0,1), s, tS(s,0,1))*Phase(1.0*this->KyFactor*(ky2-ky3)*lyfactor);
+														Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,0), s, tS(s,1,0))*Phase(1.0*this->KxFactor*(kx2-kx3)*lxfactor);
+														Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,0,1), s, tS(s,0,1))*Phase(1.0*this->KyFactor*(ky2-ky3)*lyfactor);
 
-                            Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,0), s, tS(s,1,0))*Phase(1.0*this->KxFactor*(kx1-kx4)*lxfactor);
-                            Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,0,1), s, tS(s,0,1))*Phase(1.0*this->KyFactor*(ky1-ky4)*lyfactor);
+														Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,0), s, tS(s,1,0))*Phase(1.0*this->KxFactor*(kx1-kx4)*lxfactor);
+														Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,0,1), s, tS(s,0,1))*Phase(1.0*this->KyFactor*(ky1-ky4)*lyfactor);
 
-                            Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,0), s, tS(s,1,0))*Phase(1.0*this->KxFactor*(kx1-kx3)*lxfactor);
-                            Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,0,1), s, tS(s,0,1))*Phase(1.0*this->KyFactor*(ky1-ky3)*lyfactor);
+														Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,0), s, tS(s,1,0))*Phase(1.0*this->KxFactor*(kx1-kx3)*lxfactor);
+														Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,0,1), s, tS(s,0,1))*Phase(1.0*this->KyFactor*(ky1-ky3)*lyfactor);
 
-                        }
-                        if(Index3==Index4)
-                            Tmp *= 0.5;
-                        if(Index2==Index1)
-                            Tmp *=0.5;
+													}
+													if(Index3==Index4)
+														Tmp *= 0.5;
+													if(Index2==Index1)
+														Tmp *=0.5;
 
-                        this->InteractionFactors[i][Index] = -2.0 * FactorU * Tmp;
+													this->InteractionFactors[i][Index] = -2.0 * FactorU * Tmp;  // = -2.0
+												}
+
+//												if (this->UPotential != 0.0)
+//												{
+//													this->InteractionFactors[i][Index] = 0.0;
+//													int xI, yI, dRx, dRy, sF;
+//													Complex translationPhase;
+//													int nbrNeighbors=4;
+//													int dx[4]={1,-1,0,0};
+//													int dy[4]={0,0,1,-1};
+//													Tmp=0.0;
+//													for (int s=0; s<NbrSublattices; ++s)
+//													{
+//														TightBindingModel->DecodeSublatticeIndex(s, xI, yI);
+//
+//														for (int n=0; n<nbrNeighbors; ++n)
+//														{
+//															sF = TightBindingModel->EncodeSublatticeIndex(xI + dx[n], yI + dy[n], dRx, dRy, translationPhase); // calculate final sublattice index.
+//
+//															Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, sF, sF, s)
+//															* this->ComputeEmbeddingForTwoBodyOperator(s, sF, kx1, ky1, kx2, ky2, kx3, ky3, kx4, ky4) * ComputeBlochPhases(dRx, dRy, kx2, ky2, kx3, ky3);
+//															Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, sF, sF, s)
+//															* this->ComputeEmbeddingForTwoBodyOperator(s, sF, kx1, ky1, kx2, ky2, kx4, ky4, kx3, ky3) * ComputeBlochPhases(dRx, dRy, kx2, ky2, kx4, ky4);
+//															Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, sF, sF, s)
+//															* this->ComputeEmbeddingForTwoBodyOperator(s, sF, kx2, ky2, kx1, ky1, kx3, ky3, kx4, ky4) * ComputeBlochPhases(dRx, dRy, kx1, ky1, kx3, ky3);
+//															Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, sF, sF, s)
+//															* this->ComputeEmbeddingForTwoBodyOperator(s, sF, kx2, ky2, kx1, ky1, kx4, ky4, kx3, ky3) * ComputeBlochPhases(dRx, dRy, kx1, ky1, kx4, ky4);
+//														}
+//													}
+//
+//													this->InteractionFactors[i][Index] += 2.0 * FactorU * Tmp;
+//												}
 
                         if (this->VPotential != 0.0)
                         {
                             // NNN Interaction for fermions
-
                             Tmp =0.0;
                             int NbrSublattices = TightBindingModel->GetNbrBands();
 
-
+														double OneOverSqrtTwo = 1;  // 0.707107
                             for (int s=0; s<NbrSublattices; ++s)
                             {
                                 int xpos = s % this->TightBindingModel->GetXSitesInUC();
                                 int ypos = s / this->TightBindingModel->GetXSitesInUC();
-                                float lxfactor = (xpos +1) / (this->TightBindingModel->GetXSitesInUC());
+                                float lxfactor = (xpos+1) / (this->TightBindingModel->GetXSitesInUC());
                                 float lyfactor = (ypos+1) / (this->TightBindingModel->GetYSitesInUC());
+                                float lyfactor_m = (ypos-1) / (this->TightBindingModel->GetYSitesInUC());
 
-                                Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,2,0), s, tS(s,2,0))*Phase(1.0*this->KxFactor*(kx2-kx4)*lxfactor);
-                                Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,0,2), s, tS(s,0,2))*Phase(1.0*this->KyFactor*(ky2-ky4)*lyfactor);
+																cout<<Index1<<" "<<Index2<<" "<<Index3<<" "<<Index4<<" 0 "<<s<<" "<<tS(s,1,1)<<" "<<s<<" "<<tS(s,1,1)<<endl;
+																// cout<<lxfactor<<" "<<lyfactor<<endl;
 
-                                Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,2,0), s, tS(s,2,0))*Phase(1.0*this->KxFactor*(kx2-kx3)*lxfactor);
-                                Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,0,2), s, tS(s,0,2))*Phase(1.0*this->KyFactor*(ky2-ky3)*lyfactor);
+																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))
+																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
+																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,-1,1), s, tS(s,-1,1))  // 1, -1
+																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
 
-                                Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,2,0), s, tS(s,2,0))*Phase(1.0*this->KxFactor*(kx1-kx4)*lxfactor);
-                                Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,0,2), s, tS(s,0,2))*Phase(1.0*this->KyFactor*(ky1-ky4)*lyfactor);
+																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))
+																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky3)*lyfactor);
+																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,-1,1), s, tS(s,-1,1))
+																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky3)*lyfactor);
 
-                                Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,2,0), s, tS(s,2,0))*Phase(1.0*this->KxFactor*(kx1-kx3)*lxfactor);
-                                Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,0,2), s, tS(s,0,2))*Phase(1.0*this->KyFactor*(ky1-ky3)*lyfactor);
+																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))
+																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky4)*lyfactor);
+																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,-1,1), s, tS(s,-1,1))
+																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky4)*lyfactor);
+
+																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))
+																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky3)*lyfactor);
+																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,-1,1), s, tS(s,-1,1))
+																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky3)*lyfactor);
 
                             }
-
                             if (Index3 == Index4)
                                 Tmp *= 0.5;
                             if (Index1 == Index2)
                                 Tmp *= 0.5;
                             //std::cout << "NN interaction factor: " << Tmp << "\n";
-                            this->InteractionFactors[i][Index] += 2.0 * FactorV * Tmp;
+                            this->InteractionFactors[i][Index] -= 2.0 * FactorV * Tmp;
                         }
-
 
                         ++TotalNbrInteractionFactors;
                         ++Index;
@@ -313,12 +370,19 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
         }
         else if (RSquaredInteraction==true)
         {
-            double RSquaredFactorNN = 0.367879;
-            double RSquaredFactorNNNDiag = 0.0183156;
-            double RSquaredFactorNNNStraight = 0.000000112535;
-            //double RSquaredFactorNNNStraight = 0.0;
-            double RSquaredFactorNNNNDiag = 0.0000000000138879;
-            //double RSquaredFactorNNNNDiag = 0.0;
+        	cout << "RSquaredInteraction==true" << endl;
+            double RSquaredFactorNN = 1;  // 0.367879
+            double RSquaredFactorNNNDiag = 10;  // 0.0183156
+            double RSquaredFactorNNNStraight = 0;  // 0.000000112535
+            double RSquaredFactorNNNNDiag = 0;  // 0.0000000000138879
+
+			// multiply by interaction factor for consistency
+            if (this->FlatBand == false)
+            	RSquaredFactorNN *= 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+            RSquaredFactorNNNDiag *= 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+            RSquaredFactorNNNStraight *= 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+            RSquaredFactorNNNNDiag *= 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+
             for (int i = 0; i < this->NbrSectorSums; ++i)
             {
                 this->InteractionFactors[i] = new Complex[this->NbrSectorIndicesPerSum[i] * this->NbrSectorIndicesPerSum[i]];
@@ -354,7 +418,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                         {
                             int xpos = s % this->TightBindingModel->GetXSitesInUC();
                             int ypos = s / this->TightBindingModel->GetXSitesInUC();
-                            float lxfactor = (xpos +1) / (this->TightBindingModel->GetXSitesInUC());
+                            float lxfactor = (xpos+1) / (this->TightBindingModel->GetXSitesInUC());
                             float lyfactor = (ypos+1) / (this->TightBindingModel->GetYSitesInUC());
 
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,0), s, tS(s,1,0))*Phase(1.0*this->KxFactor*(kx2-kx4)*lxfactor);
@@ -384,9 +448,8 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                         {
                             int xpos = s % this->TightBindingModel->GetXSitesInUC();
                             int ypos = s / this->TightBindingModel->GetXSitesInUC();
-                            float lxfactor = (xpos +1) / (this->TightBindingModel->GetXSitesInUC());
+                            float lxfactor = (xpos+1) / (this->TightBindingModel->GetXSitesInUC());
                             float lyfactor = (ypos+1) / (this->TightBindingModel->GetYSitesInUC());
-                            
 
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor - OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
@@ -395,20 +458,19 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                             Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx3)*lxfactor - OneOverSqrtTwo*this->KyFactor*(ky2-ky3)*lyfactor);
 
                             Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky4)*lyfactor);
-                            Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky4)*lyfactor);
+                            Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx4)*lxfactor - OneOverSqrtTwo*this->KyFactor*(ky1-ky4)*lyfactor);
 
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky3)*lyfactor);
-                            Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky3)*lyfactor);
-
+                            Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx3)*lxfactor - OneOverSqrtTwo*this->KyFactor*(ky1-ky3)*lyfactor);
                         }
 
                         if (Index3 == Index4)
                             Tmp *= 0.5;
                         if (Index1 == Index2)
                             Tmp *= 0.5;
-                        //std::cout << "NN interaction factor: " << Tmp << "\n";
-                        this->InteractionFactors[i][Index] -= 2.0 * RSquaredFactorNNNDiag * Tmp;
-            
+                        // cout << "NN interaction factor: " << Tmp << endl;
+                        this->InteractionFactors[i][Index] += 2.0 * RSquaredFactorNNNDiag * Tmp;
+
 
                         Tmp =0.0;
                         // exp(-r^4) NNN straight-line, FERMIONS
@@ -448,7 +510,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                         {
                             int xpos = s % this->TightBindingModel->GetXSitesInUC();
                             int ypos = s / this->TightBindingModel->GetXSitesInUC();
-                            float lxfactor = (xpos +1) / (this->TightBindingModel->GetXSitesInUC());
+                            float lxfactor = (xpos+1) / (this->TightBindingModel->GetXSitesInUC());
                             float lyfactor = (ypos+1) / (this->TightBindingModel->GetYSitesInUC());
 
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,2), s, tS(s,1,2))*Phase(OneOverSqrtFive*this->KxFactor*(kx2-kx4)*lxfactor + 2*OneOverSqrtFive*this->KyFactor*(ky2-ky4)*lyfactor);
@@ -467,8 +529,8 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                             Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,-2), s, tS(s,1,-2))*Phase(OneOverSqrtFive*this->KxFactor*(kx1-kx4)*lxfactor - 2*OneOverSqrtFive*this->KyFactor*(ky1-ky4)*lyfactor);
 
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,2), s, tS(s,1,2))*Phase(OneOverSqrtFive*this->KxFactor*(kx1-kx3)*lxfactor + 2*OneOverSqrtFive*this->KyFactor*(ky1-ky3)*lyfactor);
-                            Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,2,1), s, tS(s,2,1))*Phase(2*OneOverSqrtFive*this->KxFactor*(kx1-kx3)*lxfactor + 2*OneOverSqrtFive*this->KyFactor*(ky1-ky3)*lyfactor);
-                            Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,2,-1), s, tS(s,2,-1))*Phase(2*OneOverSqrtFive*this->KxFactor*(kx1-kx3)*lxfactor - 2*OneOverSqrtFive*this->KyFactor*(ky1-ky3)*lyfactor);
+                            Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,2,1), s, tS(s,2,1))*Phase(2*OneOverSqrtFive*this->KxFactor*(kx1-kx3)*lxfactor + 2*OneOverSqrtFive*this->KyFactor*(ky1-ky3)*lyfactor);  // possible mistake
+                            Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,2,-1), s, tS(s,2,-1))*Phase(2*OneOverSqrtFive*this->KxFactor*(kx1-kx3)*lxfactor - 2*OneOverSqrtFive*this->KyFactor*(ky1-ky3)*lyfactor);  // possible mistake
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,-2), s, tS(s,1,-2))*Phase(OneOverSqrtFive*this->KxFactor*(kx1-kx3)*lxfactor - 2*OneOverSqrtFive*this->KyFactor*(ky1-ky3)*lyfactor);
 
                         }
@@ -479,7 +541,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                             Tmp *= 0.5;
                         //std::cout << "NN interaction factor: " << Tmp << "\n";
                         this->InteractionFactors[i][Index] -= 2.0 * RSquaredFactorNNNNDiag * Tmp;
-            
+
 
                         ++TotalNbrInteractionFactors;
                         ++Index;
@@ -488,8 +550,9 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
             }
 
         }
-        else if (FourFoldSmoothInteraction == true)
+        else if (FourFoldSmoothInteraction==true)
         {
+        	cout << "FourFoldSmoothInteraction==true" << endl;
             double OneByE = 0.367879;
             for (int i = 0; i < this->NbrSectorSums; ++i)
             {
@@ -558,7 +621,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                             int ypos = s / this->TightBindingModel->GetXSitesInUC();
                             float lxfactor = (xpos +1) / (this->TightBindingModel->GetXSitesInUC());
                             float lyfactor = (ypos+1) / (this->TightBindingModel->GetYSitesInUC());
-                            
+
 
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor - OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
@@ -580,7 +643,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                             Tmp *= 0.5;
                         //std::cout << "NN interaction factor: " << Tmp << "\n";
                         this->InteractionFactors[i][Index] -= 2.0 * 2.0 * OneByE * Tmp;
-            
+
 
                         Tmp =0.0;
                         // smooth C4 NNN straight-line, FERMIONS
@@ -683,6 +746,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
         int NbrSublattices = TightBindingModel->GetNbrBands();
         if(RSquaredInteraction==false)
         {
+        	cout << "RSquaredInteraction==false" << endl;
             for (int i = 0; i < this->NbrSectorSums; ++i)
             {
                 //std::cout << "Momentum sector: " << i << "\n";
@@ -810,14 +874,24 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
         }
         else
         {
-            double RSquaredFactorNN = 0.367879;
-            double RSquaredFactorNNNDiag = 0.0183156;
-            double RSquaredFactorNNNStraight = 0.000000112535;
-            //double RSquaredFactorNNNStraight = 0.0;
-            double RSquaredFactorNNNNDiag = 0.0000000000138879;
+        	cout << "RSquaredInteraction==true" << endl;
+
+        	double RSquaredFactorOnsite = 1;  // 1
+            double RSquaredFactorNN = 10;  // 0.367879
+            double RSquaredFactorNNNDiag = 0;  // 0.0183156
+            double RSquaredFactorNNNStraight = 0;  // 0.000000112535
+            double RSquaredFactorNNNNDiag = 0;  // 0.0000000000138879
+
+            // multiply by interaction factor for consistency
+            if (this->FlatBand == false)
+            	RSquaredFactorOnsite *= 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+            RSquaredFactorNN *= 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+            RSquaredFactorNNNDiag *= 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+            RSquaredFactorNNNStraight *= 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+            RSquaredFactorNNNNDiag *= 0.5 / ((double) (this->NbrSiteX * this->NbrSiteY));
+
             double OneOverSqrtTwo = 0.707107;
             double OneOverSqrtFive = 0.447214;
-
             for (int i = 0; i < this->NbrSectorSums; ++i)
             {
                 //std::cout << "Momentum sector: " << i << "\n";
@@ -858,7 +932,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                         if (Index1 == Index2)
                             Tmp *= 0.5;
                         //std::cout << "Onsite interaction factor: " << Tmp << "\n";
-                        this->InteractionFactors[i][Index] = 2.0 * Tmp;
+                        this->InteractionFactors[i][Index] = 2.0 * RSquaredFactorOnsite * Tmp;
                         //interaction_output << Index << " " << Index1 << " " << Index2 << " " << Index3 << " " << Index4 << " " << this->InteractionFactors[i][Index] << endl;
 
                         // exp(-r^4) NN Interaction for BOSONS
@@ -924,7 +998,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                             Tmp *= 0.5;
                         //std::cout << "NNN interaction factor: " << Tmp << "\n";
                         this->InteractionFactors[i][Index] += 2.0 * RSquaredFactorNNNStraight * Tmp;
-                    
+
                         // END NNN straight-line for BOSONS
 
                         // NNN diagonal interaction for BOSONS
@@ -935,7 +1009,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                             int ypos = s / this->TightBindingModel->GetXSitesInUC();
                             float lxfactor = (xpos +1) / (this->TightBindingModel->GetXSitesInUC());
                             float lyfactor = (ypos+1) / (this->TightBindingModel->GetYSitesInUC());
-                            
+
 
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
                             Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor - OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
@@ -957,7 +1031,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                             Tmp *= 0.5;
                         //std::cout << "NN interaction factor: " << Tmp << "\n";
                         this->InteractionFactors[i][Index] += 2.0 * RSquaredFactorNNNDiag * Tmp;
-            
+
                         // exp(-r^4) NNNN interaction for BOSONS
                         for (int s=0; s<NbrSublattices; ++s)
                         {
@@ -1172,18 +1246,59 @@ int ParticleOnLatticeHofstadterSingleBandHamiltonian::tS(int index, int xtrans, 
     int ypos = index / UCSitesX;
 
     int xpos2,ypos2;
-    if(xtrans >0)
+    if(xtrans > 0)
         xpos2 = (xpos + xtrans) % UCSitesX;
     else
         xpos2 = (xpos + xtrans + UCSitesX) % UCSitesX;
+        // xpos2 = UCSitesX + (xpos + xtrans) % UCSitesX;
 
-    if(ytrans >0)
+    if(ytrans > 0)
         ypos2 = (ypos + ytrans) % UCSitesY;
     else
         ypos2 = (ypos + ytrans + UCSitesY) % UCSitesY;
+		// ypos2 = UCSitesY + (ypos + ytrans) % UCSitesY;
 
     int rval = xpos2 + ypos2*UCSitesX;
     return rval;
 
 }
 
+// compute the matrix element for on-site two body interaction involving sites on generic sublattic
+//
+// s1 = sublattice index for the first creation operator
+// s2 = sublattice index for the second annihilation operator
+// kx1 = first creation momentum along x on the first sublattice
+// ky1 = first creation momentum along y on the first sublattice
+// kx2 = second creation momentum along x on the second sublattice
+// ky2 = second creation momentum along y on the second sublattice
+// kx3 = first annihilation momentum along x on the second sublattice
+// ky3 = first annihilation momentum along y on the second sublattice
+// kx4 = second annihilation momentum along x on the first sublattice
+// ky4 = second annihilation momentum along y on the first sublattice
+//
+// return value = corresponding matrix element
+ Complex ParticleOnLatticeHofstadterSingleBandHamiltonian::ComputeEmbeddingForTwoBodyOperator(int s1, int s2, int kx1, int ky1, int kx2, int ky2, int kx3, int ky3, int kx4, int ky4)
+{
+  double phase = this->TightBindingModel->GetEmbeddingPhase(s2, this->KxFactor * kx3, this->KyFactor * ky3);
+  phase += this->TightBindingModel->GetEmbeddingPhase(s1, this->KxFactor * kx4, this->KyFactor * ky4);
+  phase -= this->TightBindingModel->GetEmbeddingPhase(s1, this->KxFactor * kx1, this->KyFactor * ky1);
+  phase -= this->TightBindingModel->GetEmbeddingPhase(s2, this->KxFactor * kx2, this->KyFactor * ky2);
+
+  return Polar(phase);
+}
+
+// compute the matrix element for on-site two body interaction involving sites on generic sublattic
+//
+// dRx = number of unit vector translations along x-direction from EncodeSublatticeIndex (translations back to unit cell)
+// dRy = number of unit vector translations along y-direction from EncodeSublatticeIndex (translations back to unit cell)
+// kx2 = second creation momentum along x for the translated site
+// ky2 = second creation momentum along y for the translated site
+// kx3 = first annihilation momentum along x for the translated site
+// ky3 = first annihilation momentum along y for the translated site
+//
+// return value = corresponding matrix element
+Complex ParticleOnLatticeHofstadterSingleBandHamiltonian::ComputeBlochPhases(int dRx, int dRy, int kx2, int ky2, int kx3, int ky3)
+{
+  double phase = this->KxFactor * dRx * (kx2-kx3) + this->KyFactor * dRy * (ky2-ky3);
+  return Polar(phase);
+}

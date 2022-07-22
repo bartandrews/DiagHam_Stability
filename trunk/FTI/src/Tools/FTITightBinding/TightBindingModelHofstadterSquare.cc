@@ -67,6 +67,8 @@ TightBindingModelHofstadterSquare::TightBindingModelHofstadterSquare(int nbrCell
     this->NbrSiteY = nbrCellY;
     this->UnitCellX = unitCellX;
     this->UnitCellY = unitCellY;
+    this->FullUnitCellX = this->UnitCellX;
+  	this->FullUnitCellY = this->UnitCellY;
     this->KxFactor = 2.0 * M_PI / ((double) this->NbrSiteX);
     this->KyFactor = 2.0 * M_PI / ((double) this->NbrSiteY);
     this->GammaX = gammaX;
