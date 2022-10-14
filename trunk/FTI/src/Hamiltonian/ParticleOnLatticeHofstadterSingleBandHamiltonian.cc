@@ -141,7 +141,7 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
         {
             int Index = this->TightBindingModel->GetLinearizedMomentumIndex(kx, ky);
             if (this->FlatBand == false)
-                this->OneBodyInteractionFactors[Index] = this->TightBindingModel->GetEnergy(BandIndex, Index);  // 0.5*
+                this->OneBodyInteractionFactors[Index] = 0.5 * this->TightBindingModel->GetEnergy(BandIndex, Index);  // 0.5* (reduces error in energies, especially for bosons NN)
             OneBodyBasis[Index] =  this->TightBindingModel->GetOneBodyMatrix(Index);
         }
     }
@@ -321,37 +321,28 @@ void ParticleOnLatticeHofstadterSingleBandHamiltonian::EvaluateInteractionFactor
                             Tmp =0.0;
                             int NbrSublattices = TightBindingModel->GetNbrBands();
 
-														double OneOverSqrtTwo = 1;  // 0.707107
+														double OneOverSqrtTwo = 0.707107;  // 0.707107
                             for (int s=0; s<NbrSublattices; ++s)
                             {
                                 int xpos = s % this->TightBindingModel->GetXSitesInUC();
                                 int ypos = s / this->TightBindingModel->GetXSitesInUC();
                                 float lxfactor = (xpos+1) / (this->TightBindingModel->GetXSitesInUC());
                                 float lyfactor = (ypos+1) / (this->TightBindingModel->GetYSitesInUC());
-                                float lyfactor_m = (ypos-1) / (this->TightBindingModel->GetYSitesInUC());
 
-																cout<<Index1<<" "<<Index2<<" "<<Index3<<" "<<Index4<<" 0 "<<s<<" "<<tS(s,1,1)<<" "<<s<<" "<<tS(s,1,1)<<endl;
+																// cout<<Index1<<" "<<Index2<<" "<<Index3<<" "<<Index4<<" 0 "<<s<<" "<<tS(s,1,1)<<" "<<s<<" "<<tS(s,1,1)<<endl;
 																// cout<<lxfactor<<" "<<lyfactor<<endl;
 
-																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))
-																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
-																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,-1,1), s, tS(s,-1,1))  // 1, -1
-																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
+																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
+																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky4)*lyfactor);
 
-																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))
-																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky3)*lyfactor);
-																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,-1,1), s, tS(s,-1,1))
-																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky3)*lyfactor);
+																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky3)*lyfactor);
+																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index1, Index2, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx2-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky2-ky3)*lyfactor);
 
-																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))
-																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky4)*lyfactor);
-																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,-1,1), s, tS(s,-1,1))
-																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky4)*lyfactor);
+																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky4)*lyfactor);
+																Tmp -= this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index3, Index4, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx4)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky4)*lyfactor);
 
-																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))
-																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky3)*lyfactor);
-																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,-1,1), s, tS(s,-1,1))
-																	*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky3)*lyfactor);
+																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,1), s, tS(s,1,1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky3)*lyfactor);
+																Tmp += this->ComputeTransfomationBasisContribution(OneBodyBasis, Index2, Index1, Index4, Index3, 0, 0, 0, 0, s, tS(s,1,-1), s, tS(s,1,-1))*Phase(OneOverSqrtTwo*this->KxFactor*(kx1-kx3)*lxfactor + OneOverSqrtTwo*this->KyFactor*(ky1-ky3)*lyfactor);
 
                             }
                             if (Index3 == Index4)
@@ -1256,9 +1247,11 @@ int ParticleOnLatticeHofstadterSingleBandHamiltonian::tS(int index, int xtrans, 
         ypos2 = (ypos + ytrans) % UCSitesY;
     else
         ypos2 = (ypos + ytrans + UCSitesY) % UCSitesY;
-		// ypos2 = UCSitesY + (ypos + ytrans) % UCSitesY;
+		    // ypos2 = UCSitesY + (ypos + ytrans) % UCSitesY;
 
     int rval = xpos2 + ypos2*UCSitesX;
+    // int rval = ypos2 + xpos2*UCSitesY;
+
     return rval;
 
 }
@@ -1279,7 +1272,8 @@ int ParticleOnLatticeHofstadterSingleBandHamiltonian::tS(int index, int xtrans, 
 // return value = corresponding matrix element
  Complex ParticleOnLatticeHofstadterSingleBandHamiltonian::ComputeEmbeddingForTwoBodyOperator(int s1, int s2, int kx1, int ky1, int kx2, int ky2, int kx3, int ky3, int kx4, int ky4)
 {
-  double phase = this->TightBindingModel->GetEmbeddingPhase(s2, this->KxFactor * kx3, this->KyFactor * ky3);
+	// cout << s1 << " " << s2 << " " << this->KxFactor << " " << this->KyFactor << endl;
+	double phase = this->TightBindingModel->GetEmbeddingPhase(s2, this->KxFactor * kx3, this->KyFactor * ky3);
   phase += this->TightBindingModel->GetEmbeddingPhase(s1, this->KxFactor * kx4, this->KyFactor * ky4);
   phase -= this->TightBindingModel->GetEmbeddingPhase(s1, this->KxFactor * kx1, this->KyFactor * ky1);
   phase -= this->TightBindingModel->GetEmbeddingPhase(s2, this->KxFactor * kx2, this->KyFactor * ky2);
@@ -1287,7 +1281,7 @@ int ParticleOnLatticeHofstadterSingleBandHamiltonian::tS(int index, int xtrans, 
   return Polar(phase);
 }
 
-// compute the matrix element for on-site two body interaction involving sites on generic sublattic
+// compute the matrix element for on-site two body interaction involving sites on generic sublattice
 //
 // dRx = number of unit vector translations along x-direction from EncodeSublatticeIndex (translations back to unit cell)
 // dRy = number of unit vector translations along y-direction from EncodeSublatticeIndex (translations back to unit cell)

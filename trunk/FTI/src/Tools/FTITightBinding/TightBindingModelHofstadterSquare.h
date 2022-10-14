@@ -235,7 +235,7 @@ class TightBindingModelHofstadterSquare : public Abstract2DTightBindingModel
   void DecodeSublatticeIndex(int index, int &posx, int &posy);
 
  protected :
-  
+
   // core part that compute the band structure
   //
   // minStateIndex = minimum index of the state to compute
